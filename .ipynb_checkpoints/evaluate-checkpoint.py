@@ -3,6 +3,11 @@ import json
 import string
 from collections import Counter
 import re
+from tqdm import tqdm
+
+import glob
+import numpy as np
+from sentence_transformers import SentenceTransformer
 
 TASK_TO_METRIC = {'common_concept': 'f1', 'informal_to_formal': 'f1', 'orthography_starts_with': 'es',
                   'taxonomy_animal': 'es', 'synonyms': 'contains'}
@@ -14,6 +19,46 @@ INDUCTION_TASKS = ['active_to_passive', 'antonyms', 'cause_and_effect', 'common_
                    'singular_to_plural', 'sum', 'synonyms', 'taxonomy_animal', 'translation_en-de', 'translation_en-es',
                    'translation_en-fr', 'word_in_context']
 
+# maybe have some composite tasks
+# maybe equation run
+
+sentence_model = SentenceTransformer("sentence-transformers/paraphrase-MiniLM-L6-v2")
+
+
+def cosine(a, b):
+    """Cosine similarity between two vectors."""
+    a, b = np.array(a), np.array(b)
+    return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
+
+    
+def get_sim_score(prediction: str, ground_truth: list[str], threshold: float = 0.8):
+    """
+    Compute similarity score between prediction and ground truth annotations.
+
+    Args:
+        prediction (str): the LLM's predicted interpretation of an instruction
+        ground_truth (list[str]): list of annotation strings from a task JSON
+        threshold (float): cutoff for binary match (default=0.8)
+
+    Returns:
+        tuple (float, int): (similarity score, binary match flag)
+                           score is 0–1
+                           flag is 1 if score >= threshold else 0
+    """
+    # Encode prediction and ground truth annotations
+    pred_emb = sentence_model.encode(prediction, convert_to_numpy=True)
+    gt_embs = sentence_model.encode(ground_truth, convert_to_numpy=True)
+
+    # Compute similarities
+    sims = [cosine(pred_emb, gt_emb) for gt_emb in gt_embs]
+
+    # Take max similarity (best match in cluster)
+    score = float(max(sims))
+
+    # Apply threshold
+    match = 1 if score >= threshold else 0
+
+    return score, match
 
 def normalize_prediction(prediction, lowercase=True):
     prediction = prediction.replace(' and ', ' ')
@@ -98,7 +143,8 @@ def get_weighted_task_score(scored_predictions):
     id_to_counter = {}
     id_to_score = {}
     for instruction_id, instruction_data in scored_predictions.items():
-        id_to_counter[instruction_id] = instruction_data['prediction_counter']
+        #id_to_counter[instruction_id] = instruction_data['prediction_counter']
+        id_to_counter[instruction_id] = 1
         id_to_score[instruction_id] = instruction_data['average_score']
     num_instructions = sum(list(id_to_counter.values()))
     weighted_score = 0
@@ -106,43 +152,78 @@ def get_weighted_task_score(scored_predictions):
         weighted_score += (id_to_score[id_] * count) / num_instructions
     return weighted_score
 
+    
+def extract_answer(gen_model, answer):
+    if "gpt-oss" in gen_model.lower():
+        match = re.search(r'assistantfinal(.*)', answer, re.DOTALL)
+        if match:
+            answer = match.group(1)
+    if "qwen" in gen_model.lower():
+        match = re.search(r'<\think>(.*)', answer, re.DOTALL)
+        if match:
+            answer = match.group(1)
+    elif "openthinker" in gen_model.lower():
+        match = re.search(r'<|end_of_thought|>(.*)', answer, re.DOTALL)
+        if match:
+            answer = match.group(1)
+    return answer
 
-def save_predictions_execution_accuracy(instruction_generation_model, task_name, execution_input_dir, predictions_dir):
+
+    
+
+#instruction_generation_model instead of gen_model
+def save_predictions_execution_accuracy(gen_model, task_name, execution_input_dir, predictions_dir):
     # load examples
-    with open(f'{execution_input_dir}/{instruction_generation_model}/{task_name}.json', encoding='utf-8') as f_task:
+    with open(f'{execution_input_dir}/./{task_name}.json', encoding='utf-8') as f_task:
         examples = json.load(f_task)
 
+    safe_gen_model = gen_model.replace("/", "_")
+    with open(f'predictions_{safe_gen_model}/{task_name}.json', encoding='utf-8') as a_task:
+        annotations = json.load(a_task)
+    ground_truth = annotations["annotations"].tolist()
+    print(ground_truth)
+    examples = examples["examples"]
     # load predictions
-    with open(f'{predictions_dir}/{instruction_generation_model}/{task_name}_execution.json', encoding='utf-8') \
+    with open(f'{predictions_dir}/./{task_name}_execution.json', encoding='utf-8') \
             as f_predictions:
         predictions = json.load(f_predictions)
 
     # score predictions
-    for instruction_id, instruction_data in examples.items():
+    # for instruction_id, instruction_data in examples.items():
+    for instruction_id in tqdm(sorted(examples.keys(), key=lambda x: int(x))):
+        # print("CAME HERE", flush=True)
+        instruction_data = examples[instruction_id]
+        # print(instruction_data, flush=True)
+        d = {}
+        d['instruction'] = instruction_data['input']
+        
         instruction_outputs = predictions[instruction_id]['instruction_outputs']
         instruction_scores = []
-        for input_id, input_ in instruction_data['test_inputs'].items():
-            answers = input_['answers']
-            prediction = instruction_outputs[input_id]['prediction']
-            task_metric = TASK_TO_METRIC.get(task_name, 'em')
-            if task_metric == 'f1':
-                score = get_multi_answer_f1(prediction=prediction, answers=answers)
-            elif task_metric == 'es':
-                score = get_multi_answer_exact_set(prediction=prediction, answers=answers)
-            elif task_metric == 'contains':
-                score = get_multi_answer_contains(prediction=prediction, answers=answers)
-            else:  # EM
-                score = get_multi_answer_em(prediction=prediction, answers=answers)
-            predictions[instruction_id]['instruction_outputs'][input_id]['answers'] = answers
-            predictions[instruction_id]['instruction_outputs'][input_id]['score'] = score
-            instruction_scores.append(score)
+        #answers = input_['answers']
+        answers = task_name.replace("_", " ")
+        prediction = extract_answer(instruction_outputs, gen_model)
+        #task_metric = TASK_TO_METRIC.get(task_name, 'em')
+        task_metric = TASK_TO_METRIC.get(task_name, 'contains')
+        if task_metric == 'f1':
+            score = get_multi_answer_f1(prediction=prediction, answers=answers)
+        elif task_metric == 'es':
+            score = get_multi_answer_exact_set(prediction=prediction, answers=answers)
+        elif task_metric == 'contains':
+            score = get_multi_answer_contains(prediction=prediction, answers=answers)
+        elif task_metric == 'similarity':
+            score = get_sim_score(prediction=prediction, ground_truth=ground_truth)
+        else:  # EM
+            score = get_multi_answer_em(prediction=prediction, answers=answers)
+        predictions[instruction_id]['answers'] = answers
+        predictions[instruction_id]['score'] = score
+        instruction_scores.append(score)
         avg_score = sum(instruction_scores) / len(instruction_scores)
         predictions[instruction_id]['average_score'] = avg_score
 
     predictions['weighted_task_score'] = get_weighted_task_score(predictions)
 
     # save the scored predictions
-    with open(f'{predictions_dir}/{instruction_generation_model}/{task_name}_with_scores.json', 'w', encoding='utf-8') \
+    with open(f'{predictions_dir}/./{task_name}_with_scores.json', 'w', encoding='utf-8') \
             as f_scored_predictions:
         json.dump(predictions, f_scored_predictions, indent=2, ensure_ascii=False)
 
@@ -150,7 +231,7 @@ def save_predictions_execution_accuracy(instruction_generation_model, task_name,
 if __name__ == '__main__':
     INDUCTION_TASKS_STR = ','.join(INDUCTION_TASKS)
     parser = argparse.ArgumentParser()
-    parser.add_argument("--instruction_generation_model", type=str, default='text-davinci-002',
+    parser.add_argument("--gen_model", type=str, default='text-davinci-002',
                         help='The model used to generate the instruciton, i.e, the evaluated model.')
     parser.add_argument('--execution_input_dir', type=str, required=True,
                         help='Path of the input execution accuracy data.')
@@ -163,7 +244,7 @@ if __name__ == '__main__':
     task_list = args.tasks.split(',')
 
     for induction_task in task_list:
-        save_predictions_execution_accuracy(instruction_generation_model=args.instruction_generation_model,
+        save_predictions_execution_accuracy(gen_model=args.gen_model,
                                             task_name=induction_task,
                                             execution_input_dir=args.execution_input_dir,
                                             predictions_dir=args.predictions_dir)

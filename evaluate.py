@@ -5,6 +5,10 @@ from collections import Counter
 import re
 from tqdm import tqdm
 
+import glob
+import numpy as np
+from sentence_transformers import SentenceTransformer
+
 TASK_TO_METRIC = {'common_concept': 'f1', 'informal_to_formal': 'f1', 'orthography_starts_with': 'es',
                   'taxonomy_animal': 'es', 'synonyms': 'contains'}
 
@@ -17,6 +21,44 @@ INDUCTION_TASKS = ['active_to_passive', 'antonyms', 'cause_and_effect', 'common_
 
 # maybe have some composite tasks
 # maybe equation run
+
+sentence_model = SentenceTransformer("sentence-transformers/paraphrase-MiniLM-L6-v2")
+
+
+def cosine(a, b):
+    """Cosine similarity between two vectors."""
+    a, b = np.array(a), np.array(b)
+    return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
+
+    
+def get_sim_score(prediction: str, ground_truth: list[str], threshold: float = 0.8):
+    """
+    Compute similarity score between prediction and ground truth annotations.
+
+    Args:
+        prediction (str): the LLM's predicted interpretation of an instruction
+        ground_truth (list[str]): list of annotation strings from a task JSON
+        threshold (float): cutoff for binary match (default=0.8)
+
+    Returns:
+        tuple (float, int): (similarity score, binary match flag)
+                           score is 0–1
+                           flag is 1 if score >= threshold else 0
+    """
+    # Encode prediction and ground truth annotations
+    pred_emb = sentence_model.encode(prediction, convert_to_numpy=True)
+    gt_embs = sentence_model.encode(ground_truth, convert_to_numpy=True)
+
+    # Compute similarities
+    sims = [cosine(pred_emb, gt_emb) for gt_emb in gt_embs]
+
+    # Take max similarity (best match in cluster)
+    score = float(max(sims))
+
+    # Apply threshold
+    match = 1 if score >= threshold else 0
+
+    return score, match
 
 def normalize_prediction(prediction, lowercase=True):
     prediction = prediction.replace(' and ', ' ')
@@ -126,11 +168,20 @@ def extract_answer(gen_model, answer):
             answer = match.group(1)
     return answer
 
+
+    
+
 #instruction_generation_model instead of gen_model
 def save_predictions_execution_accuracy(gen_model, task_name, execution_input_dir, predictions_dir):
     # load examples
     with open(f'{execution_input_dir}/./{task_name}.json', encoding='utf-8') as f_task:
         examples = json.load(f_task)
+
+    safe_gen_model = gen_model.replace("/", "_")
+    with open(f'predictions_{safe_gen_model}/{task_name}.json', encoding='utf-8') as a_task:
+        annotations = json.load(a_task)
+    ground_truth = annotations["annotations"].tolist()
+    print(ground_truth)
     examples = examples["examples"]
     # load predictions
     with open(f'{predictions_dir}/./{task_name}_execution.json', encoding='utf-8') \
@@ -159,6 +210,8 @@ def save_predictions_execution_accuracy(gen_model, task_name, execution_input_di
             score = get_multi_answer_exact_set(prediction=prediction, answers=answers)
         elif task_metric == 'contains':
             score = get_multi_answer_contains(prediction=prediction, answers=answers)
+        elif task_metric == 'similarity':
+            score = get_sim_score(prediction=prediction, ground_truth=ground_truth)
         else:  # EM
             score = get_multi_answer_em(prediction=prediction, answers=answers)
         predictions[instruction_id]['answers'] = answers
