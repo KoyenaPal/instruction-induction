@@ -31,7 +31,7 @@ def cosine(a, b):
     return np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b))
 
     
-def get_sim_score(prediction: str, ground_truth: list[str], threshold: float = 0.8):
+def get_sim_score(prediction: str, ground_truth: list[str], threshold: float = 0.5):
     """
     Compute similarity score between prediction and ground truth annotations.
 
@@ -46,6 +46,8 @@ def get_sim_score(prediction: str, ground_truth: list[str], threshold: float = 0
                            flag is 1 if score >= threshold else 0
     """
     # Encode prediction and ground truth annotations
+    print("Prediction")
+    print(prediction, flush=True)
     pred_emb = sentence_model.encode(prediction, convert_to_numpy=True)
     gt_embs = sentence_model.encode(ground_truth, convert_to_numpy=True)
 
@@ -54,11 +56,11 @@ def get_sim_score(prediction: str, ground_truth: list[str], threshold: float = 0
 
     # Take max similarity (best match in cluster)
     score = float(max(sims))
-
+    print(score, flush=True)
     # Apply threshold
     match = 1 if score >= threshold else 0
 
-    return score, match
+    return match
 
 def normalize_prediction(prediction, lowercase=True):
     prediction = prediction.replace(' and ', ' ')
@@ -155,20 +157,20 @@ def get_weighted_task_score(scored_predictions):
     
 def extract_answer(gen_model, answer):
     if "gpt-oss" in gen_model.lower():
-        match = re.search(r'assistantfinal(.*)', answer, re.DOTALL)
+        match = re.search(r'<\|channel\|>final<\|message\|>(.*)', answer, re.DOTALL)
         if match:
             answer = match.group(1)
     if "qwen" in gen_model.lower():
-        match = re.search(r'<\think>(.*)', answer, re.DOTALL)
+        match = re.search(r'</think>(.*)', answer, re.DOTALL)
         if match:
             answer = match.group(1)
     elif "openthinker" in gen_model.lower():
-        match = re.search(r'<|end_of_thought|>(.*)', answer, re.DOTALL)
+        match = re.search(r'<\|end_of_thought\|>(.*)', answer, re.DOTALL)
         if match:
             answer = match.group(1)
     return answer
 
-
+# USE BERT SCORE INSTEAD!!!
     
 
 #instruction_generation_model instead of gen_model
@@ -178,10 +180,10 @@ def save_predictions_execution_accuracy(gen_model, task_name, execution_input_di
         examples = json.load(f_task)
 
     safe_gen_model = gen_model.replace("/", "_")
-    with open(f'predictions_{safe_gen_model}/{task_name}.json', encoding='utf-8') as a_task:
+    with open(f'data/annotations/{task_name}.json', encoding='utf-8') as a_task:
         annotations = json.load(a_task)
-    ground_truth = annotations["annotations"].tolist()
-    print(ground_truth)
+    ground_truth = annotations["annotations"]
+    print(ground_truth, flush=True)
     examples = examples["examples"]
     # load predictions
     with open(f'{predictions_dir}/./{task_name}_execution.json', encoding='utf-8') \
@@ -201,9 +203,10 @@ def save_predictions_execution_accuracy(gen_model, task_name, execution_input_di
         instruction_scores = []
         #answers = input_['answers']
         answers = task_name.replace("_", " ")
-        prediction = extract_answer(instruction_outputs, gen_model)
+        prediction = extract_answer(gen_model, instruction_outputs)
+        print("Predictions", prediction, flush=True)
         #task_metric = TASK_TO_METRIC.get(task_name, 'em')
-        task_metric = TASK_TO_METRIC.get(task_name, 'contains')
+        task_metric = TASK_TO_METRIC.get(task_name, 'similarity')
         if task_metric == 'f1':
             score = get_multi_answer_f1(prediction=prediction, answers=answers)
         elif task_metric == 'es':
