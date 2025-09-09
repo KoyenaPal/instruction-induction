@@ -5,6 +5,7 @@ from pathlib import Path
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 from tqdm import tqdm
+import re
 
 
 
@@ -15,9 +16,14 @@ INDUCTION_TASKS = ['active_to_passive', 'antonyms', 'cause_and_effect', 'common_
                    'translation_en-fr', 'word_in_context']
 
 
+end_think_patterns = [
+    r'</think>',
+    r'<\|channel\|>final<\|message\|>',
+    r'<\|end_of_thought\|>'
+]
 
 def run_execution_accuracy_open_source_chat(execution_engine, instruction_generation_model, task_name,
-                                            input_dir, out_dir, max_tokens=4126, device="cuda"):
+                                            input_dir, out_dir, max_tokens=2048, device="cuda"):
     """
     execution_engine: HuggingFace model name or path (e.g., "meta-llama/Llama-2-7b-chat-hf")
     """
@@ -28,7 +34,7 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
 
     # Load model & tokenizer
     tokenizer = AutoTokenizer.from_pretrained(execution_engine, cache_dir="/workspace/hf")
-    model = AutoModelForCausalLM.from_pretrained(execution_engine, torch_dtype=torch.bfloat16, device_map="auto", cache_dir="/workspace/hf")
+    model = AutoModelForCausalLM.from_pretrained(execution_engine, dtype=torch.bfloat16, device_map="auto", cache_dir="/workspace/hf")
     model.eval()
 
     output_ = dict()
@@ -73,14 +79,38 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
         with torch.no_grad():
             outputs = model.generate(
                 **inputs,
-                max_new_tokens=max_tokens,
-                do_sample=True,
-                top_p=0.9,
-                temperature=1.0
+                max_new_tokens=max_tokens-30,
+                do_sample=False,
+                temperature=0.0
             )
+            # outputs = model.generate(
+            #     **inputs,
+            #     max_new_tokens=max_tokens,
+            #     do_sample=True,
+            #     top_p=0.9,
+            #     temperature=1.0
+            # )
 
         prediction = tokenizer.decode(outputs[0])
         print(prediction, flush=True)
+        found = any(re.search(pat, prediction) for pat in end_think_patterns)
+        if not found:
+            if "gpt-oss" in execution_engine.lower():
+                prediction = prediction + "<|channel|>final<|message|>"
+            if "qwen" in execution_engine.lower():
+                prediction = prediction + "</think>"
+            elif "openthinker" in execution_engine.lower():
+                prediction = prediction + f"<|end_of_thought|>"
+            new_inputs = tokenizer(prediction, return_tensors="pt").to(model.device)
+            with torch.no_grad():
+                new_output = model.generate(
+                    **new_inputs,
+                    max_new_tokens=30,
+                    do_sample=False,
+                    temperature=0.0
+                )
+            prediction = tokenizer.decode(new_output[0])
+            
         # instruction_outputs[id_] = dict()
         # instruction_outputs[id_]['prompt'] = user_prompt
         # instruction_outputs[id_]['prediction'] = prediction
@@ -158,7 +188,7 @@ if __name__ == '__main__':
     # parser.add_argument('--api_key', type=str, required=True, help='API key for the OpenAI API')
     parser.add_argument('--input_dir', type=str, required=True, help='Path of the input execution accuracy data.')
     #parser.add_argument('--out_dir', type=str, default='', required=True, help='Path for saving the predictions.')
-    parser.add_argument('--max_tokens', type=int, default=4126, help='Max number of tokens to generate.')
+    parser.add_argument('--max_tokens', type=int, default=2048, help='Max number of tokens to generate.')
     parser.add_argument('--tasks', type=str, default=INDUCTION_TASKS_STR,
                         help='Tasks for execution accuracy evaluation.')
     args = parser.parse_args()
