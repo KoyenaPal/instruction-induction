@@ -7,10 +7,9 @@ import random
 import numpy as np
 import os
 import csv
-import tqdm
+from tqdm import tqdm
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 import pandas as pd
-from run import zero_shot
 import gc
 import time
 import copy
@@ -311,12 +310,13 @@ def main():
     os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
     write_header = not os.path.isfile(output_file_path)
 # Load input examples
-    input_dir = "data/instruction-induction"
+    input_dir = "data/induction_input"
     instruction_generation_model = "."
     task_name = "sum"
     with open(f'{input_dir}/{instruction_generation_model}/{task_name}.json', encoding='utf-8') as f_examples:
         data = json.load(f_examples)
     data = data["examples"]
+    print(data, flush=True)
 
     with open(output_file_path, 'a', newline='', encoding='utf-8') as csvfile:
         fieldnames = ["Instruction", "Ensembled Thought"]
@@ -350,11 +350,11 @@ def main():
             print(f"🔍 Iteration-wise Selection Summary:")
             for d in selected_distributions:
                 print(f"Iteration {d['iteration']}: Model {d['selected_model_index']} -> {d['selected_candidate']}")
-            with open(f"{args.output}/selected_distributions_row_{index}.json", "w") as f:
+            with open(f"{args.output}/selected_distributions_row_{instruction_id}.json", "w") as f:
                 json.dump(selected_distributions, f, indent=2)
             # Write a single row to the CSV
             writer.writerow({
-                "Instruction": instruction_data['input']
+                "Instruction": instruction_data['input'],
                 "Ensembled Thought": final_output[generation_models[0]].strip()
             })
             csvfile.flush()
