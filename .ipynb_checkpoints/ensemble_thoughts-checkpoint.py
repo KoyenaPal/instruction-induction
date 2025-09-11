@@ -305,7 +305,6 @@ def main():
     eval_tokenizers_models = [
         (m, load_model_and_tokenizer(m, device_id = i % available_gpus))
         for i, m in enumerate(evaluation_models)]
-
 # Load input examples
     input_dir = "data/induction_input"
     instruction_generation_model = "."
@@ -319,7 +318,6 @@ def main():
         with open(f'{input_dir}/{instruction_generation_model}/{task_name}.json', encoding='utf-8') as f_examples:
             data = json.load(f_examples)
         data = data["examples"]
-    
         with open(output_file_path, 'a', newline='', encoding='utf-8') as csvfile:
             fieldnames = ["Instruction", "Ensembled Thought"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames, quoting=csv.QUOTE_ALL)
@@ -352,7 +350,7 @@ def main():
                 print(f"🔍 Iteration-wise Selection Summary:")
                 for d in selected_distributions:
                     print(f"Iteration {d['iteration']}: Model {d['selected_model_index']} -> {d['selected_candidate']}")
-                with open(f"{args.output}/selected_distributions_row_{instruction_id}.json", "w") as f:
+                with open(f"{args.output}/{task_name}_selected_distributions_row_{instruction_id}.json", "w") as f:
                     json.dump(selected_distributions, f, indent=2)
                 # Write a single row to the CSV
                 writer.writerow({
