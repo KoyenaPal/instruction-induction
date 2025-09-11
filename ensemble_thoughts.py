@@ -7,10 +7,9 @@ import random
 import numpy as np
 import os
 import csv
-import tqdm
+from tqdm import tqdm
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 import pandas as pd
-from run import zero_shot
 import gc
 import time
 import copy
@@ -102,7 +101,7 @@ def truncate_to_first_sentence(text):
     return match.group(1).strip() if match else text.strip()
 
 #prev was 128
-def generate_candidates(context, tokenizer, model, num_return_sequences, max_gen_tokens=30):
+def generate_candidates(context, tokenizer, model, num_return_sequences, max_gen_tokens=50):
     set_seed(SEED)
     
     # Tokenize with attention_mask
@@ -284,7 +283,7 @@ def main():
 
     parser = argparse.ArgumentParser(description="Context-aware sentence merging using perplexity.")
     # parser.add_argument("jsonl_files", nargs='+', help="Paths to input JSONL files.")
-    parser.add_argument("--output", type=str, default="USER_SAMPLE_medcalc_ensemble_outputs_gen_qwq_dapo_eval_gpt", help="Path to save merged output.")
+    parser.add_argument("--output", type=str, default="instruction_induction_ensemble_outputs_gen_qwq_dapo_eval_gpt", help="Path to save merged output.")
     parser.add_argument("--gen_models", nargs='+', default=[
         "Qwen/QwQ-32B",
         "BytedTsinghua-SIA/DAPO-Qwen-32B"
@@ -300,69 +299,72 @@ def main():
     #gen_tokenizers_models = eval_tokenizers_models = [load_model_and_tokenizer(m) for m in generation_models]
     # gen_tokenizers_models = [(m, load_model_and_tokenizer(m)) for m in generation_models]
     # eval_tokenizers_models = [(m, load_model_and_tokenizer(m)) for m in evaluation_models]
-    output_file_path = args.output + "/merged_output.csv"
-    print(output_file_path, flush=True)
     gen_tokenizers_models = [
         (m, load_model_and_tokenizer(m, device_id = i % available_gpus))
         for i, m in enumerate(generation_models)]
     eval_tokenizers_models = [
         (m, load_model_and_tokenizer(m, device_id = i % available_gpus))
         for i, m in enumerate(evaluation_models)]
-    os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
-    write_header = not os.path.isfile(output_file_path)
-# Load input examples
-    input_dir = "data/instruction-induction"
-    instruction_generation_model = "."
-    task_name = "sum"
-    with open(f'{input_dir}/{instruction_generation_model}/{task_name}.json', encoding='utf-8') as f_examples:
-        data = json.load(f_examples)
-    data = data["examples"]
 
-    with open(output_file_path, 'a', newline='', encoding='utf-8') as csvfile:
-        fieldnames = ["Instruction", "Ensembled Thought"]
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames, quoting=csv.QUOTE_ALL)
+# Load input examples
+    input_dir = "data/induction_input"
+    instruction_generation_model = "."
+    INDUCTION_TASKS = ['sum', 'translation_en-de', 'singular_to_plural', 'diff', 'informal_to_formal', 'active_to_passive', 'antonyms', 'cause_and_effect', 'common_concept', 'first_word_letter', 'larger_animal', 'letters_list', 'negation', 'num_to_verbal', 'orthography_starts_with', 'rhymes', 'second_word_letter', 'sentence_similarity', 'sentiment', 'synonyms', 'taxonomy_animal', 'translation_en-es',
+                   'translation_en-fr', 'word_in_context']
+    for task_name in INDUCTION_TASKS: 
+        output_file_path = args.output + f"/{task_name}.csv"
+        os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
+        write_header = not os.path.isfile(output_file_path)
+    # task_name = "sum"
+        with open(f'{input_dir}/{instruction_generation_model}/{task_name}.json', encoding='utf-8') as f_examples:
+            data = json.load(f_examples)
+        data = data["examples"]
     
-        if write_header:
-            writer.writeheader()
-        for instruction_id in tqdm(sorted(data.keys(), key=lambda x: int(x))):
-            # print("CAME HERE", flush=True)
-            instruction_data = data[instruction_id]
-            # print(instruction_data, flush=True)
-            d = {}
-            d['instruction'] = instruction_data['input']
-            instruction_outputs = {}
-            test_examples = instruction_data['input']
-            #for id_, example in test_examples.items():
-            user_prompt = instruction_data['input']
-            print("user_prompt", user_prompt, flush=True)
-            # Build chat conversation
-            messages = [
-                # {"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": user_prompt}
-            ]
-    
-            # Generate output
-            final_output, selected_distributions = iterative_generate(
-                messages,
-                gen_tokenizers_models,
-                eval_tokenizers_models
-            )
-            print(f"🔍 Iteration-wise Selection Summary:")
-            for d in selected_distributions:
-                print(f"Iteration {d['iteration']}: Model {d['selected_model_index']} -> {d['selected_candidate']}")
-            with open(f"{args.output}/selected_distributions_row_{index}.json", "w") as f:
-                json.dump(selected_distributions, f, indent=2)
-            # Write a single row to the CSV
-            writer.writerow({
-                "Instruction": instruction_data['input']
-                "Ensembled Thought": final_output[generation_models[0]].strip()
-            })
-            csvfile.flush()
-            # after writing the row:
-            gc.collect()
-            torch.cuda.empty_cache()
-    
-            print(f"✅ Done. Row-wise output saved to: {args.output}")
+        with open(output_file_path, 'a', newline='', encoding='utf-8') as csvfile:
+            fieldnames = ["Instruction", "Ensembled Thought"]
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames, quoting=csv.QUOTE_ALL)
+        
+            if write_header:
+                writer.writeheader()
+            for instruction_id in tqdm(sorted(data.keys(), key=lambda x: int(x))):
+                # print("CAME HERE", flush=True)
+                instruction_data = data[instruction_id]
+                # print(instruction_data, flush=True)
+                d = {}
+                d['instruction'] = instruction_data['input']
+                instruction_outputs = {}
+                test_examples = instruction_data['input']
+                #for id_, example in test_examples.items():
+                user_prompt = instruction_data['input']
+                print("user_prompt", user_prompt, flush=True)
+                # Build chat conversation
+                messages = [
+                    # {"role": "system", "content": "You are a helpful assistant."},
+                    {"role": "user", "content": user_prompt}
+                ]
+        
+                # Generate output
+                final_output, selected_distributions = iterative_generate(
+                    messages,
+                    gen_tokenizers_models,
+                    eval_tokenizers_models
+                )
+                print(f"🔍 Iteration-wise Selection Summary:")
+                for d in selected_distributions:
+                    print(f"Iteration {d['iteration']}: Model {d['selected_model_index']} -> {d['selected_candidate']}")
+                with open(f"{args.output}/selected_distributions_row_{instruction_id}.json", "w") as f:
+                    json.dump(selected_distributions, f, indent=2)
+                # Write a single row to the CSV
+                writer.writerow({
+                    "Instruction": instruction_data['input'],
+                    "Ensembled Thought": final_output[generation_models[0]].strip()
+                })
+                csvfile.flush()
+                # after writing the row:
+                gc.collect()
+                torch.cuda.empty_cache()
+        
+                print(f"✅ Done. Row-wise output saved to: {args.output}")
 
 if __name__ == "__main__":
     set_seed(SEED)

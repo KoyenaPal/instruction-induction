@@ -1,0 +1,308 @@
+[
+  {
+    "iteration": 0,
+    "selected_candidate": "Okay, let's see. I need to figure out what the instruction was based on these input-output pairs. The user gave their friend an instruction, and the friend applied it to each input to get the outputs.",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "Okay, let's see. The user provided a set of input-output pairs and wants to know the instruction given to the friend.",
+        "Okay, let's see. The user provided some input-output pairs and wants to know the instruction I gave my friend. Let me look at the examples again.\n\nFirst input is \"cure\" and the output is \"cures\".",
+        "Okay, let's see. I need to figure out what the instruction was based on these input-output pairs. The user gave their friend an instruction, and the friend applied it to each input to get the outputs."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "To approach this task, it seems like the instruction involves making a noun plural based on the given inputs and outputs.",
+        "It seems like the instruction involves converting a noun from its singular form to its plural form. Let me analyze the given input-output pairs to confirm this:\n\n1. Input: cure\n   Output: cures\n   - The word \"cure\"",
+        "It seems like the instruction involves taking a noun and forming its plural form.\n\nGiven the input-output pairs:\n\n1. \"cure\" \u2192 \"cures\",\n2. \"grenade\" \u2192 \"grenades\",\n3. \"counterpart\" \u2192"
+      ]
+    },
+    "score": 111.44168853759766
+  },
+  {
+    "iteration": 1,
+    "selected_candidate": "The examples are:\n\n- cure \u2192 cures\n- grenade \u2192 grenades\n- counterpart \u2192 counterparts\n- day \u2192 days\n- cameo \u2192 cameos\n\nHmm, so looking at these, the outputs all seem to be the plural forms of the inputs",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "The examples are:\n\n- cure \u2192 cures\n- grenade \u2192 grenades\n- counterpart \u2192 counterparts\n- day \u2192 days\n- cameo \u2192 cameos\n\nHmm, so looking at these, the outputs all seem to be the plural forms of the inputs",
+        "So the task is to reverse-engineer what the instruction must have been.\n\nLooking at the examples:\n\nInput: cure \u2192 Output: cures\nInput: grenade \u2192 Output: grenades\nInput: counterpart \u2192 Output: counterparts\nInput: day \u2192 Output",
+        "Let's look at the examples again.\n\nFirst, the input \"cure\" becomes \"cures\". That looks like adding an 's' to make it plural."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "Let's analyze the changes between each input and its corresponding output.\n\n1. Input: \"cure\", Output: \"cures\"\nThis looks like adding an 's' to the word \"cure\".",
+        "Let\u2019s examine the changes made to each input:\n\n- Input: \"cure\" \u2192 Output: \"cures\"\n  - The word \"cure\" becomes \"cures.\" This indicates the addition of an 's' at the end.",
+        "Let's compare the inputs and their corresponding outputs."
+      ]
+    },
+    "score": 53.5792236328125
+  },
+  {
+    "iteration": 2,
+    "selected_candidate": ". Let me check each one:\n\n1. \"cure\" becomes \"cures\" \u2013 that's the regular plural adding an 's'.\n2. \"grenade\" becomes \"grenades\" \u2013 same thing, just add 's'.",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        ". Let me check each one:\n\n- \"cure\" becomes \"cures\" \u2013 that's adding an 's', which is the standard plural for most nouns.",
+        ". Let me check each one. \n\nCure becomes cures. That's the standard plural for \"cure.\" grenade to grenades, same thing. Counterpart to counterparts, yes. Day to days, that's correct.",
+        ". Let me check each one:\n\n1. \"cure\" becomes \"cures\" \u2013 that's the regular plural adding an 's'.\n2. \"grenade\" becomes \"grenades\" \u2013 same thing, just add 's'."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        ".\n\nSo the instruction likely involves converting singular nouns to their plural forms.\n\nLet's verify this:\n\n- \"cure\" becomes \"cures\" (correct for the plural).",
+        ".",
+        "."
+      ]
+    },
+    "score": 33.59213638305664
+  },
+  {
+    "iteration": 3,
+    "selected_candidate": "3. \"counterpart\" to \"counterparts\" \u2013 again, adding 's' at the end.\n4. \"day\" to \"days\" \u2013 here, since 'day' ends with a 'y', but the plural is '",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "3. \"counterpart\" to \"counterparts\" \u2013 again, adding 's' at the end.\n4. \"day\" to \"days\" \u2013 here, since 'day' ends with a 'y', but the plural is '",
+        "3. \"counterpart\" \u2192 \"counterparts\" \u2013 again, adding 's'.",
+        "3. \"counterpart\" to \"counterparts\" \u2013 again, adding 's' at the end.\n4. \"day\" to \"days\" \u2013 here, since it ends with a 'y', usually you might change 'y'"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "3. \"counterpart\" becomes \"counterparts\" \u2013 also adds an 's'.\n4. \"day\" becomes \"days\" \u2013 this one also follows the rule of adding an 's'.",
+        "3. \"counterpart\" becomes \"counterparts\" \u2013 adds 's'. \n4. \"day\" becomes \"days\" \u2013 also adds 's,' which is the rule for most nouns.",
+        "Regular plural.\n3. \"counterpart\" becomes \"counterparts\" \u2013 again, add 's'. Regular plural."
+      ]
+    },
+    "score": 25.57611083984375
+  },
+  {
+    "iteration": 4,
+    "selected_candidate": "days', which replaces 'y' with 'ies'? Wait, no, actually, \"day\" becomes \"days\" by changing 'y' to 'i' and adding 'es'. But the output here is \"days\", which is correct.",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "days', which replaces 'y' with 'ies'? Wait, no, actually, \"day\" becomes \"days\" by changing 'y' to 'i' and adding 'es'. But the output here is \"days\", which is correct.",
+        "days', which replaces 'y' with 'i' and adds 'es'? Wait, no, actually, \"day\" becomes \"days\" by changing 'y' to 'i' and adding 'es'?",
+        "days', which changes 'y' to 'i' and adds 'es'? Wait, no. Wait, actually, \"day\" plural is \"days\" which is irregular? Or is it following a rule? Let me think."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "days' (assuming the instruction is simply making regular plurals).\n5. \"cameo\" to \"cameos\" \u2013 follows the rule of adding 's'.",
+        "days'.\n5. \"cameo\" to \"cameos\" \u2013 this follows the rule of adding 's' because the word ends with a consonant then 'o'.",
+        "days', which follows the rule (because 'day' has a consonant before 'y'), change 'y' to 'i' and add 'es'."
+      ]
+    },
+    "score": 21.553136825561523
+  },
+  {
+    "iteration": 5,
+    "selected_candidate": "However, in the other examples, like \"cameo\" to \"cameos\", that's just adding an 's'. Wait, \"cameo\" ends with an 'o', but \"cameos\" is correct.",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "But the others don't have that. Wait, maybe the instruction is just to make the plural, regardless of the rule? Because all the outputs are correct plurals.",
+        "But the instruction might be to make the plural form, even if the rule varies.\n\nWait, but \"cameo\" becomes \"cameos\".",
+        "However, in the other examples, like \"cameo\" to \"cameos\", that's just adding an 's'. Wait, \"cameo\" ends with an 'o', but \"cameos\" is correct."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "It seems it followed the rule for changing 'y' to 'ies'.",
+        "It seems like it\u2019s the typical irregular pattern for words ending in 'y' when changing to plural.\n5. \"cameo\" to \"cameos\" \u2013 adds an 's', the regular rule for making plurals.",
+        "It follows the rule for pluralizing words ending in a consonant + 'y' \u2013 change 'y' to 'ies.'  \n5. \"cameo\" turns into \"cameos\" \u2013 add an 's', regular plural."
+      ]
+    },
+    "score": 20.05739402770996
+  },
+  {
+    "iteration": 6,
+    "selected_candidate": "It seems like the instruction might not be following a strict \u201cchanging the letter and adding suffix\u201d but rather simply adding 's' unless there's a specific pluralization rule.\n\nBut on closer inspection, it looks like the general rule is adding 's",
+    "selected_model_index": "BytedTsinghua-SIA/DAPO-Qwen-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "So maybe the instruction is to form the plural of each noun?\n\nWait, but the instruction could be more specific. Let me think again. All the outputs are plurals.",
+        "So maybe the instruction is to form the plural of the noun. Let me confirm each case:\n\n- Cure: regular plural (doesn't end with s/z/sh/ch etc.), so 'cures' is correct.",
+        "So maybe the instruction is to form the plural of the noun?"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "It seems irregular since not all words changing to plural follow the same rule.\n\nBut on second inspection:\n\n- \"cameo\u201d becomes \u201ccameos\" by simply adding 's'.",
+        "They are all making the words plural.",
+        "It seems like the instruction might not be following a strict \u201cchanging the letter and adding suffix\u201d but rather simply adding 's' unless there's a specific pluralization rule.\n\nBut on closer inspection, it looks like the general rule is adding 's"
+      ]
+    },
+    "score": 18.75899314880371
+  },
+  {
+    "iteration": 7,
+    "selected_candidate": "' to the end unless it requires changing 'y' to 'i' and adding 'es', as in the case of \"day.\"\n\nBut it might be simpler than that.\n\nThe instruction seems to be asking for the plural form of each word.",
+    "selected_model_index": "BytedTsinghua-SIA/DAPO-Qwen-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "' to make the plural.",
+        "' except when the word ends with a consonant + 'y', then it becomes 'ies' (like day \u2192 days).",
+        "' to make the plural. Let me confirm each:\n\n- Cure ends with an 'e', so adding 's' makes 'cures'.\n- Grenade ends with 'e', so 'grenades'."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "' to the end unless it requires changing 'y' to 'i' and adding 'es', as in the case of \"day.\"\n\nBut it might be simpler than that.\n\nThe instruction seems to be asking for the plural form of each word.",
+        "' except for the rule that applies when it's \"day,\" where the rule changes because it ends in 'y' preceded by a consonant.",
+        "' to most of them except 'day':\n\n- cure (regular noun) + 's' \u2192 cures\n- grenade (ends in 'e', plural usually adds \u2018s\u2019) \u2192 grenades\n- counterpart (doesn't have any exceptions at the"
+      ]
+    },
+    "score": 18.27989387512207
+  },
+  {
+    "iteration": 8,
+    "selected_candidate": "Let me confirm:\n\n- Cure (singular) \u2192 cures (plural)\n- Grenade \u2192 grenades\n- Counterpart \u2192 counterparts\n- Day \u2192 days (which follows the rule for nouns ending with a consonant + y: change y to i",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "Let me confirm:\n\n- Cure (singular) \u2192 cures (plural)\n- Grenade \u2192 grenades\n- Counterpart \u2192 counterparts\n- Day \u2192 days (which follows the rule for nouns ending with a consonant + y: change y to i",
+        "Let me verify each case:\n\n- cure \u2192 cures (correct plural)\n- grenade \u2192 grenades (correct)\n- counterpart \u2192 counterparts (correct)\n- day \u2192 days (correct)\n- cameo \u2192 cameos (correct)\n\nYes, all of these are",
+        "Let me confirm all examples:\n\n- Cure \u2192 cures (regular plural)\n- Grenade \u2192 grenades (same)\n- Counterpart \u2192 counterparts (same)\n- Day \u2192 days (correct irregular plural)\n- Cameo \u2192 cameos (regular plural,"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "The correct singular to plural transformations follow English grammar rules for making nouns plural.",
+        "They pluralize the words to:\n\n\"cure\" \u2192 \"cures\"\n\"grenade\" \u2192 \"grenades\", \n\"counterpart\" \u2192 \"counterparts,\"\n\"day\" \u2192 \"days\", and \n\"cameo\" \u2192 \"came",
+        "Let's confirm:\n\nInput: cure\nOutput: cures \u2014 Correct plural.\n\nInput: grenade\nOutput: grenades \u2014 Correct plural.\n\nInput: counterpart\nOutput: counterparts \u2014 Correct plural."
+      ]
+    },
+    "score": 20.962453842163086
+  },
+  {
+    "iteration": 9,
+    "selected_candidate": "and add es)\n- Cameo \u2192 cameos (some words ending in o take an 's', like \"tomatoes\" vs \"potatoes\", but also some like \"cameos\" just add 's')\n\nTherefore, the common instruction would",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "and add es)\n- Cameo \u2192 cameos (correct plural, just adding s because it ends with an o but doesn't require a different pluralization like \"tomato\" becomes \"tomatoes\")\n\nWait, \"cameo\" is an exception",
+        "and add es)\n- Cameo \u2192 cameos (some words ending in o take an 's', like \"tomatoes\" vs \"potatoes\", but also some like \"cameos\" just add 's')\n\nTherefore, the common instruction would",
+        "and add es)\n- Cameo \u2192 cameos (some nouns ending in o take os, like volcanos,heroes, but some take oes like potatoes, tomatoes."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "and add es.)\n- Cameo \u2192 cameos\n\nSo the general rule is:\n\n1. If the word ends with a consonant + y, change y to i and add \u2013es.",
+        "and add es.)\n- Cameo \u2192 cameos\n\nSo it looks like the instruction is about forming the plural of the given words.",
+        "+ es.)\n- Cameo (singular) \u2192 cameos (plural by adding 's'), since \"cameo\" ends in an 'o', but doesn\u2019t require a special plural form change, so an 's' is added."
+      ]
+    },
+    "score": 20.760313034057617
+  },
+  {
+    "iteration": 10,
+    "selected_candidate": "be about forming the plural of each given noun.\n\nSo the instruction was likely something along the lines of \"pluralize the given word.\"\n\nAssistant\nThe instruction was to \"Pluralize the given word.\"\nAssistant\nSo the instruction was: \"Form",
+    "selected_model_index": "BytedTsinghua-SIA/DAPO-Qwen-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "be to \"pluralize the given noun.\" Each input is a singular noun, and the output is its plural form. \n\nWait, but let me think if there's another possible instruction.",
+        "be \"Make the plural of the given noun.\" Since all outputs are the correct plural forms of the inputs, that's likely the instruction. Let me check if there's any other possible instruction.",
+        "be \"Pluralize the given word\" or \"Add an 's' to make it plural\"."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "be about forming the plural of each given noun.\n\nSo the instruction was likely something along the lines of \"pluralize the given word.\"\n\nAssistant\nThe instruction was to \"Pluralize the given word.\"\nAssistant\nSo the instruction was: \"Form",
+        "be to make the words plural. The pattern fits for making each input word plural.",
+        "be to change the singular nouns to their plural forms based on their specific rules."
+      ]
+    },
+    "score": 22.46293830871582
+  },
+  {
+    "iteration": 11,
+    "selected_candidate": "the plural of the given word.\"\n\nWait, but the user wants the exact instruction given. Let me see. The assistant's previous answer said \"Pluralize the given word.\" But the correct instruction is indeed to form the plural.",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "the plural of the given word.\"\n\nThe outputs are all the plural forms of the inputs.",
+        "the plural of the given noun.\"\n\nWait, let me check again.",
+        "the plural of the given word.\"\n\nWait, but the user wants the exact instruction given. Let me see. The assistant's previous answer said \"Pluralize the given word.\" But the correct instruction is indeed to form the plural."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "the plural of the given word.\"\n\nThis instruction works for all the provided input-output pairs:\n\n- Input: cure \u2192 Output: cures\n- Input: grenade \u2192 Output: grenades\n- Input: counterpart \u2192 Output: counterparts\n- Input: day",
+        "the plural of the given word.\"\n\nFor each given input, the friend correctly came up with the appropriate plural form:\n\n- \"cure\" \u2192 \"cures\"\n- \"grenade\" \u2192 \"grenades\"\n- \"counterpart\" \u2192 \"",
+        "the plural of the given word.\"\n\nTo break this down systematically:\n\n- **Input:** cure\n  - **Output:** cures  \n  -> This follows the rule of adding an 's' since 'cure' ends with an 'e'."
+      ]
+    },
+    "score": 25.789804458618164
+  },
+  {
+    "iteration": 12,
+    "selected_candidate": "So the instruction was to add an 's' or appropriate plural ending to each word. The instruction might have been phrased as \"Write the plural form of the word\" or \"Pluralize each word.\"\n\nThe user's friend followed that",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "The outputs are all plurals of the inputs.",
+        "So the instruction was to add an 's' or appropriate plural ending to each word. The instruction might have been phrased as \"Write the plural form of the word\" or \"Pluralize each word.\"\n\nThe user's friend followed that",
+        "However, maybe the instruction was more specific? Let me check each pair again."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "The correct singular to plural transformation rule has been applied in all the given examples.",
+        "So the instruction was to convert the given noun into its plural form. \n\nTo summarize, the instruction was to \"pluralize the provided noun.\"\n\nThus, the instruction was probably:\n\nPluralize the given word.\n\n_correct\nPluralize the given",
+        "The instruction given to the friend was probably: \"<pluralize the word>\" or simply \"form the plural of the word.\"\n\nTherefore, the instruction is to:\n\n\"Pluralize the given word.\" \n\nSo the final answer is: \"Form"
+      ]
+    },
+    "score": 28.362409591674805
+  },
+  {
+    "iteration": 13,
+    "selected_candidate": "instruction, so the exact wording might be something like \"Pluralize the noun\" or simply \"Add an 's' to make it plural,\" but since words like \"day\" require 'days', it must be the standard pluralization, not",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        ", so the answer is that the instruction was to pluralize the input words.",
+        "instruction, so the exact wording might be something like \"Pluralize the noun\" or simply \"Add an 's' to make it plural,\" but since words like \"day\" require 'days', it must be the standard pluralization, not",
+        ", so the answer is that the instruction was to pluralize each input word.\n</think>\n\nThe instruction was: **\"Pluralize the given word.\"**\n\n### Explanation:\nEach input is a singular noun, and the corresponding output is its plural form"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "rule and correctly pluralized words such as 'cure', 'grenade', and 'cameo'.",
+        "instruction to make the words plural. The pattern fits:\n\n- For nouns like \"cure,\" \"grenade,\" \"counterpart,\" and \"cameo,\" you just add 's'.",
+        "rule consistently to produce the outputs from the inputs."
+      ]
+    },
+    "score": 28.0509033203125
+  },
+  {
+    "iteration": 14,
+    "selected_candidate": "just adding 's'. So the instruction is \"Pluralize the word.\"\n\nThe assistant's first answer was correct.",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "just adding an 's'. So the instruction must be about plural forms, not just appending 's'.",
+        "just adding 's'.",
+        "just adding 's'. So the instruction is \"Pluralize the word.\"\n\nThe assistant's first answer was correct."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "just adding an 's'.",
+        "just the addition of an 's' in all cases.",
+        "just blindly putting an 's'."
+      ]
+    },
+    "score": 28.795228958129883
+  },
+  {
+    "iteration": 15,
+    "selected_candidate": "The correct instruction is: \"Form the plural of the given word\"\n\nSo the final instruction is\n\n\"Form the plural of each given word.\"\n\nor more simply,\n\n\"Pluralize the given word.\"\nThe final instruction is: \"Pluralize",
+    "selected_model_index": "BytedTsinghua-SIA/DAPO-Qwen-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "The instruction was to pluralize each word. So the answer is \"Pluralize the given word.\"\n\n**Final Answer**\nThe instruction was to \\boxed{pluralize the given word}.",
+        "So the instruction was \"Pluralize the given word.\" Therefore, the final answer is that.\n\n**Final Answer**\nThe instruction was to \\boxed{pluralize the given word}.",
+        "The user's instruction was to pluralize each input word. Therefore, the answer is:\n\nThe instruction was to \"Pluralize the given word.\"\n</think>\n\nThe instruction was: **\"Pluralize the given word.\"**\n\n### Explanation:\nEach"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "The correct instruction is: \"Form the plural of the given word\"\n\nSo the final instruction is\n\n\"Form the plural of each given word.\"\n\nor more simply,\n\n\"Pluralize the given word.\"\nThe final instruction is: \"Pluralize",
+        "The instruction was to **pluralize** each given word.\n\nThe instruction given to your friend was most likely to \"pluralize the given noun.\"\n\nThus, the instruction was: **Pluralize the given word.",
+        "The instruction was: \u201cPluralize the given word.\u201d\nuser\nThat's quite precise. The task involves turning singular nouns into their plural forms."
+      ]
+    },
+    "score": 32.86771011352539
+  },
+  {
+    "iteration": 16,
+    "selected_candidate": "the word.\"\n\nThe answer is to write the plural form of each input word. The instruction must have been to pluralize the word.\n</think>\n\nThe instruction was: **\"Pluralize the given word.\"**\n\n### Explanation:\nEach input is a",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "the word.\"\n\nBut the user's friend might have gotten all correct, so the instruction must have been to pluralize each noun. The instruction was \"Pluralize the word.\"\n\n**Final Answer**\nThe instruction was to \\boxed{pluralize the",
+        "the word.\"\n\nYes, that's concise and matches all the examples.",
+        "the word.\"\n\nThe answer is to write the plural form of each input word. The instruction must have been to pluralize the word.\n</think>\n\nThe instruction was: **\"Pluralize the given word.\"**\n\n### Explanation:\nEach input is a"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "the word.\"\nAssistant\nThe instruction was: \"Pluralize the given word.\"\n\nAssistant\nThe instruction given was:\n\"Form the plural form of the given noun.\"\n\nSo the correct instruction is \n\n**Pluralize the given word.**",
+        "the word.\"",
+        "the given word.\""
+      ]
+    },
+    "score": 41.18964385986328
+  }
+]
