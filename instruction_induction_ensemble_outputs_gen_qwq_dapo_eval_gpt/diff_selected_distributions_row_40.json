@@ -1,0 +1,722 @@
+[
+  {
+    "iteration": 0,
+    "selected_candidate": "Okay, so I need to figure out what the instruction was based on",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "Okay, let's see. I need to figure out what the instruction",
+        "Okay, let's see. I need to figure out what the instruction",
+        "Okay, so I need to figure out what the instruction was based on"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "To approach this problem, let's try to understand the relationship between the input",
+        "It seems like the instruction involves a simple arithmetic operation, likely subtraction.",
+        "It seems like the instruction involves a simple subtraction operation."
+      ]
+    },
+    "score": 68.48063659667969
+  },
+  {
+    "iteration": 1,
+    "selected_candidate": "these input-output pairs. Let me look at the examples again.",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "these input-output pairs. Let me look at the examples again.",
+        "these input-output pairs. Let me look at the examples again.",
+        "these input-output pairs."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "the input-output pairs.",
+        "these input-output pairs.</think>\n\nLet's examine the pattern in the given",
+        "the given input-output pairs."
+      ]
+    },
+    "score": 79.51889038085938
+  },
+  {
+    "iteration": 2,
+    "selected_candidate": "Each input has two numbers, and the output is a single number.",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "The inputs are pairs of numbers, and the outputs are single numbers.",
+        "Each input has two numbers, and the output is a single number.",
+        "The first input is 114 and 35, and"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "The instruction seems to be an operation performed on the two numbers given in each",
+        "They have the structure as follows:\n\n1. Input: 114",
+        "It seems like the instruction might involve some kind of operation between the two numbers"
+      ]
+    },
+    "score": 57.1904411315918
+  },
+  {
+    "iteration": 3,
+    "selected_candidate": "Let me list them out again to see if I can spot a pattern.",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "Let me list them out again to see if I can spot a pattern.",
+        "Let me list them out again to see if I can spot a pattern.",
+        "Let me list them out again to see if I can spot a pattern."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "Let's analyze them step-by-step.",
+        "Let\u2019s examine the pattern:\n\n1. For the input 114",
+        "Let's compare the inputs and their corresponding outputs."
+      ]
+    },
+    "score": 63.785884857177734
+  },
+  {
+    "iteration": 4,
+    "selected_candidate": "They are:\n\n- Input: 114, 35 ->",
+    "selected_model_index": "BytedTsinghua-SIA/DAPO-Qwen-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "First input: 114 and 35, output is",
+        "First input: 114 and 35 give output",
+        "First input: 114 35 \u2192 Output 7"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "The pairs are as follows:\n\nInput: 114, 3",
+        "They are:\n\n- Input: 114, 35 ->",
+        "The pairs are:\n\n- (114, 35)"
+      ]
+    },
+    "score": 57.499507904052734
+  },
+  {
+    "iteration": 5,
+    "selected_candidate": "Output: 79\n- Input: 119,",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "Output: 79\n- Input: 119,",
+        "Output: 79\n- Input: 119,",
+        "Output: 79\n- Input: 119,"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "Output: 79\n- Input: 119,",
+        "Output: 79\n- Input: 119,",
+        "Output: 79\n- Input: 119,"
+      ]
+    },
+    "score": 48.228431701660156
+  },
+  {
+    "iteration": 6,
+    "selected_candidate": "22 -> Output: 97\n- Input: 9",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "22 -> Output: 97\n- Input: 9",
+        "22 -> Output: 97\n- Input: 9",
+        "22 -> Output: 97\n- Input: 9"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "22 -> Output: 97\n- Input: 9",
+        "22 -> Output: 97\n- Input: 9",
+        "22 -> Output: 97\n- Input: 9"
+      ]
+    },
+    "score": 47.230712890625
+  },
+  {
+    "iteration": 7,
+    "selected_candidate": "9, 3 -> Output: 96\n- Input:",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "9, 3 -> Output: 96\n- Input:",
+        "9, 3 -> Output: 96\n- Input:",
+        "9, 3 -> Output: 96\n- Input:"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "9, 3 -> Output: 96\n- Input:",
+        "9, 3 -> Output: 96\n- Input:",
+        "9, 3 -> Output: 96\n- Input:"
+      ]
+    },
+    "score": 47.412437438964844
+  },
+  {
+    "iteration": 8,
+    "selected_candidate": "66, 13 -> Output: 53\n-",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "66, 13 -> Output: 53\n-",
+        "66, 13 -> Output: 53\n-",
+        "66, 13 -> Output: 53\n-"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "66, 13 -> Output: 53\n-",
+        "66, 13 -> Output: 53\n-",
+        "66, 13 -> Output: 53\n-"
+      ]
+    },
+    "score": 50.03557586669922
+  },
+  {
+    "iteration": 9,
+    "selected_candidate": "Input: 108, 38 -> Output: 7",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "Input: 108, 38 -> Output: 7",
+        "Input: 108, 38 -> Output: 7",
+        "Input: 108, 38 -> Output: 7"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "Input: 108, 38 -> Output: 7",
+        "Input: 108, 38 -> Output: 7",
+        "Input: 108, 38 -> Output: 7"
+      ]
+    },
+    "score": 64.87859344482422
+  },
+  {
+    "iteration": 10,
+    "selected_candidate": "0\n\nHmm, maybe it's a simple arithmetic operation between the two numbers",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "0\n\nWait, the third input is written as \"99 3",
+        "0\n\nWait, the third input is written as \"99 3",
+        "0\n\nHmm, maybe it's a simple arithmetic operation between the two numbers"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "0\n\nLet's try to find the pattern by calculating the differences between the",
+        "0\n\nNow let\u2019s calculate the relationship between the inputs and outputs for each",
+        "0\n\nNow, let\u2019s try to derive the relationship between the inputs and"
+      ]
+    },
+    "score": 56.979591369628906
+  },
+  {
+    "iteration": 11,
+    "selected_candidate": "? Let me check subtraction first because sometimes that's common.",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "? Let me check subtraction first because sometimes that's common.",
+        "? Let's check subtraction first.",
+        "."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "in the input.",
+        ".",
+        ". Let's try subtraction."
+      ]
+    },
+    "score": 71.23053741455078
+  },
+  {
+    "iteration": 12,
+    "selected_candidate": "For each pair, let\u2019s try subtracting the second number from the first",
+    "selected_model_index": "BytedTsinghua-SIA/DAPO-Qwen-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "Let's see:\n\nFor the first one: 114 -",
+        "Let me see:\n\nFirst pair: 114 - 35",
+        "Let's see:\n\nFirst pair: 114 - 35"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "The operation I will test is to subtract the second number from the first number",
+        "Let's apply subtraction to all given inputs and check if it matches the",
+        "For each pair, let\u2019s try subtracting the second number from the first"
+      ]
+    },
+    "score": 62.40354919433594
+  },
+  {
+    "iteration": 13,
+    "selected_candidate": ":\n\n114 - 35 = 79. That matches",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        ".",
+        ":\n\n114 - 35 = 79. That matches",
+        "."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        ".",
+        "number:\n\n1. For the input (114, 35",
+        "one.\n\nFor the first pair (114, 35):"
+      ]
+    },
+    "score": 49.853355407714844
+  },
+  {
+    "iteration": 14,
+    "selected_candidate": "the output 79.\n\nNow the second example,\n\n119 -",
+    "selected_model_index": "BytedTsinghua-SIA/DAPO-Qwen-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "the first output.",
+        "the first output.",
+        "the first output."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "the output 79 for the first input.",
+        "with the output for the first input.",
+        "the output 79.\n\nNow the second example,\n\n119 -"
+      ]
+    },
+    "score": 65.34745788574219
+  },
+  {
+    "iteration": 15,
+    "selected_candidate": "22 = 97. That also matches 97.",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "22 = 97, which matches the output 97",
+        "22 = 97. Yep, that's exactly the output",
+        "22 = 97. That also matches 97."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "22 = 97, which gives the output 97",
+        "22 = 97. That matches the output 97",
+        "22 = 97. This also matches the output 9"
+      ]
+    },
+    "score": 65.394775390625
+  },
+  {
+    "iteration": 16,
+    "selected_candidate": "Okay, so far so good.\n\nThird input: 99 -",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "Okay, so far so good.\n\nThird input: 99 -",
+        "Third input: 99 - 3 = 96.",
+        "Third input: 99 - 3 = 96."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "The third example:\n\n99 - 3 = 96.This",
+        "The third example,\n\n99 - 3 = 96.",
+        "The third example:\n\n99 - 3 = 96."
+      ]
+    },
+    "score": 47.57584762573242
+  },
+  {
+    "iteration": 17,
+    "selected_candidate": "3 = 96. The output is indeed 96.",
+    "selected_model_index": "BytedTsinghua-SIA/DAPO-Qwen-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "3 = 96. Yep, that's exactly the output.",
+        "3 = 96. Yep, that works.",
+        "3 = 96. Yep, that's exactly the output."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "3 gives us 96, which matches the output 96",
+        "3 = 96. The output is indeed 96.",
+        "3 = 96. That matches the output 96."
+      ]
+    },
+    "score": 51.992149353027344
+  },
+  {
+    "iteration": 18,
+    "selected_candidate": "Good.\n\nFourth pair: 66 - 13 = 5",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "Good.\n\nFourth pair: 66 - 13 = 5",
+        "So that works.",
+        "Fourth input: 66 - 13 = 53"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "It seems correct.",
+        "So the pattern seems consistent here.\n\nFourth input: 66 -",
+        "It fits.\n\nThe fourth one: 66 - 13 ="
+      ]
+    },
+    "score": 49.63328170776367
+  },
+  {
+    "iteration": 19,
+    "selected_candidate": "3. Which matches the output 53. Nice.\n\nLast pair:",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "3. Which matches the output 53. Nice.\n\nLast pair:",
+        "3. Yep, that's correct.",
+        "3. That's correct."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "3. The output is 53. This also matches.",
+        "3. That matches 53. Yep.\n\nAnd lastly,\n\n1",
+        "3. That matches the output (53)."
+      ]
+    },
+    "score": 65.52265167236328
+  },
+  {
+    "iteration": 20,
+    "selected_candidate": "108 - 38 = 70. The output",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "108 - 38 = 70. The output",
+        "108 - 38 = 70. Wait,",
+        "108 - 38 = 70. Yes,"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "108 - 38 = 70, which matches",
+        "108 - 38 = 70. That matches",
+        "108 - 38 = 70. That also"
+      ]
+    },
+    "score": 61.69817352294922
+  },
+  {
+    "iteration": 21,
+    "selected_candidate": "is 70; that matches too.\n\nIt looks like the pattern for",
+    "selected_model_index": "BytedTsinghua-SIA/DAPO-Qwen-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "is 70. Perfect, that's exactly the result.",
+        "is 70. Yep, that works.",
+        "is 70. So that works too.\n\nWait, so all of"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "matches 70.\n\nSo, for each input pair of \\(a,",
+        "is 70; that matches too.\n\nIt looks like the pattern for",
+        "is 70. That also matches."
+      ]
+    },
+    "score": 46.80989456176758
+  },
+  {
+    "iteration": 22,
+    "selected_candidate": "all the given input-output pairs is that the output is obtained by subtracting",
+    "selected_model_index": "BytedTsinghua-SIA/DAPO-Qwen-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "all the examples is simply subtracting the second number from the first.",
+        "each input is simply subtract the second number from the first.",
+        "each input pair is simply subtract the second number from the first."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "all the given input-output pairs is that the output is obtained by subtracting",
+        "all the input-output pairs is that the output is obtained by subtracting the",
+        "all the pairs is that the second number is being subtracted from the first"
+      ]
+    },
+    "score": 51.73320388793945
+  },
+  {
+    "iteration": 23,
+    "selected_candidate": "the second number from the first number.",
+    "selected_model_index": "BytedTsinghua-SIA/DAPO-Qwen-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "the second number from the first.",
+        "the second number from the first.",
+        "the second number from the first."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "the second number from the first number.",
+        "the second number from the first.",
+        "the second number from the first."
+      ]
+    },
+    "score": 67.65629577636719
+  },
+  {
+    "iteration": 24,
+    "selected_candidate": "So the instruction seems to be \"subtract the second number from the first number",
+    "selected_model_index": "BytedTsinghua-SIA/DAPO-Qwen-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "Each time the result of that subtraction exactly matches the output.",
+        "So the instruction must be to subtract the second number from the first.",
+        "So the instruction must have been to subtract the second number from the first and"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "The instruction appears to be \"Subtract the second number from the first number",
+        "So the instruction seems to be \"subtract the second number from the first number",
+        "So the instruction likely was to subtract the second number from the first number"
+      ]
+    },
+    "score": 66.02251434326172
+  },
+  {
+    "iteration": 25,
+    "selected_candidate": ".\"\n\nAssistant \nThe instruction is to subtract the second number from the first number",
+    "selected_model_index": "BytedTsinghua-SIA/DAPO-Qwen-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "\".",
+        "and provide the result as the output.\"\n\nWait a second, but let me",
+        "\"."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "\".",
+        ".\"\n\nAssistant \nThe instruction is to subtract the second number from the first number",
+        ".\"\n\nThe instruction is:\n\n**Subtract the second number from the first number"
+      ]
+    },
+    "score": 65.7659912109375
+  },
+  {
+    "iteration": 26,
+    "selected_candidate": ".",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        ".",
+        ".",
+        "."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        ".",
+        ".",
+        "."
+      ]
+    },
+    "score": 69.12715148925781
+  },
+  {
+    "iteration": 27,
+    "selected_candidate": "So, for any input consisting of two numbers $a$ and $",
+    "selected_model_index": "BytedTsinghua-SIA/DAPO-Qwen-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "The output is calculated as (first number) - (second number).",
+        "For each input pair (a, b), compute a - b to get",
+        "For each input pair of two numbers (A, B), compute A -"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "So the operation is: $ Output = First\\ Number - Second\\",
+        "So, for any input consisting of two numbers $a$ and $",
+        "That fits all of the provided input-output examples."
+      ]
+    },
+    "score": 66.20106506347656
+  },
+  {
+    "iteration": 28,
+    "selected_candidate": "b$, the output is calculated as:  \n**Output = a - b",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "b$, the output is $a - b$.",
+        "b$, the output is $a - b$.",
+        "b$, the output is calculated as:  \n**Output = a - b"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "b$, the output is $a - b$.",
+        "b$, the output is $a - b$.",
+        "b$, the output is calculated as $a - b$."
+      ]
+    },
+    "score": 78.2652816772461
+  },
+  {
+    "iteration": 29,
+    "selected_candidate": "**\n\nThe instruction is:  \n**\"Subtract the second number from the",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "**\n\nThis rule holds true for all the given input-output pairs:  \n-",
+        "**  \n\nThis matches all the provided examples:  \n- 114",
+        "**\n\nThe instruction is:  \n**\"Subtract the second number from the"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "**\n\nSo the pattern is verified with all the input-output pairs correctly.",
+        "**.",
+        ".**"
+      ]
+    },
+    "score": 63.03959655761719
+  },
+  {
+    "iteration": 30,
+    "selected_candidate": "first number.\"**",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "first number.\"**",
+        "first number.\"**",
+        "first number.\"**"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "first number.\"**",
+        "first number.\"**",
+        "first number.\"**"
+      ]
+    },
+    "score": 73.0734634399414
+  },
+  {
+    "iteration": 31,
+    "selected_candidate": "",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "",
+        "",
+        ""
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "score": 72.1479263305664
+  },
+  {
+    "iteration": 32,
+    "selected_candidate": "This makes sense because it fits all given input-output examples:\n\n- For",
+    "selected_model_index": "BytedTsinghua-SIA/DAPO-Qwen-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "",
+        "",
+        ""
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "The correct answers for the pairs check out with this rule.\nassistant\nCorrect",
+        "This makes sense because it fits all given input-output examples:\n\n- For",
+        "for the given pairs of inputs."
+      ]
+    },
+    "score": 82.00340270996094
+  },
+  {
+    "iteration": 33,
+    "selected_candidate": "114 35: 114 - 3",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "114 35: 114 - 3",
+        "114 and 35: 114 -",
+        "114 and 35: 114 -"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "$(114, 35)$: $114 -",
+        "(114, 35), $114-",
+        "114 and 35: \\(114 -"
+      ]
+    },
+    "score": 85.6017837524414
+  },
+  {
+    "iteration": 34,
+    "selected_candidate": "5 = 79 \n- For 119 22",
+    "selected_model_index": "BytedTsinghua-SIA/DAPO-Qwen-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "5 = 79  \n- For 119 22",
+        "5 = 79  \n- For 119 22",
+        "5 = 79  \n- For 119 22"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "5 = $79$\n- For 119 22",
+        "5 = 79 \n- For 119 22",
+        "5 = 79.\n- For 119 22"
+      ]
+    },
+    "score": 107.98080444335938
+  },
+  {
+    "iteration": 35,
+    "selected_candidate": ": 119 - 2 2 = 9 7",
+    "selected_model_index": "BytedTsinghua-SIA/DAPO-Qwen-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        ": 119 - 22 = 97\n-",
+        ": 119 - 22 = 97 \n-",
+        ": 119 - 22 = 97\n-"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        ":  $119-22 = 97$\n-",
+        ": 119 - 2 2 = 97",
+        ": 119 - 2 2 = 9 7"
+      ]
+    },
+    "score": 157.89422607421875
+  },
+  {
+    "iteration": 36,
+    "selected_candidate": "- 99 -3 = 96\n- 6",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "- For 99 3 : 99 - 3",
+        "- For 99 3: 99 -3 =",
+        "- 99 -3 = 96\n- 6"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "- For 99 3 : 9 9 -",
+        "- For 99 3 : 9 9 -",
+        "- For 99 3: 99 - 3"
+      ]
+    },
+    "score": 172.31956481933594
+  },
+  {
+    "iteration": 37,
+    "selected_candidate": "6 - 13 = 5 3 \n- 10",
+    "selected_model_index": "BytedTsinghua-SIA/DAPO-Qwen-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "6 - 13 =53\n- 108-",
+        "6 -13 = 53\n- 108 -",
+        "6 - 13 = 53, and 108"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "6 - 13 = 53\n- And 10",
+        "6 -13 = 53,\n- And 108",
+        "6 - 13 = 5 3 \n- 10"
+      ]
+    },
+    "score": 171.77613830566406
+  },
+  {
+    "iteration": 38,
+    "selected_candidate": "8 - 38 = 70\n\nSo the answer is",
+    "selected_model_index": "BytedTsinghua-SIA/DAPO-Qwen-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "8 - 38 =70 \n\nYes, all correct.",
+        "8 - 38 = 70 \n\nAll outputs match the given",
+        "8 - 38 = 70\n\nAll results match the outputs"
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        "8 - 3 8 = 70\n\nThus the solution is",
+        "8 - 3 8 = 70\n\n\u6700\u7ec8\u786e\u5b9a\u7684 instruction",
+        "8 - 38 = 70\n\nSo the answer is"
+      ]
+    },
+    "score": 152.0313720703125
+  },
+  {
+    "iteration": 39,
+    "selected_candidate": "the instruction to subtract the second number from the first one.\n</think>\n\nThe",
+    "selected_model_index": "Qwen/QwQ-32B",
+    "all_candidates": {
+      "Qwen/QwQ-32B": [
+        "the instruction to subtract the second number from the first one.\n</think>\n\nThe",
+        "straightforward subtraction.",
+        "straightforward subtraction."
+      ],
+      "BytedTsinghua-SIA/DAPO-Qwen-32B": [
+        ": Subtract the second number from the first number.",
+        ": Subtract the second number from the first number.",
+        ": \"Subtract the second number from the first number.\""
+      ]
+    },
+    "score": 186.7034149169922
+  }
+]

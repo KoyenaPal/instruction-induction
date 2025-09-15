@@ -101,7 +101,7 @@ def truncate_to_first_sentence(text):
     return match.group(1).strip() if match else text.strip()
 
 #prev was 128
-def generate_candidates(context, tokenizer, model, num_return_sequences, max_gen_tokens=50):
+def generate_candidates(context, tokenizer, model, num_return_sequences, max_gen_tokens=15):
     set_seed(SEED)
     
     # Tokenize with attention_mask
