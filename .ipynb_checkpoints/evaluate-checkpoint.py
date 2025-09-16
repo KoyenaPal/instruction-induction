@@ -9,8 +9,12 @@ import glob
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
-TASK_TO_METRIC = {'common_concept': 'f1', 'informal_to_formal': 'f1', 'orthography_starts_with': 'es',
-                  'taxonomy_animal': 'es', 'synonyms': 'contains'}
+from bert_score import score as bert_score
+
+# TASK_TO_METRIC = {'common_concept': 'f1', 'informal_to_formal': 'f1', 'orthography_starts_with': 'es',
+#                   'taxonomy_animal': 'es', 'synonyms': 'contains'}
+
+TASK_TO_METRIC = {}
 
 
 INDUCTION_TASKS = ['active_to_passive', 'antonyms', 'cause_and_effect', 'common_concept', 'diff', 'first_word_letter',
@@ -22,7 +26,7 @@ INDUCTION_TASKS = ['active_to_passive', 'antonyms', 'cause_and_effect', 'common_
 # maybe have some composite tasks
 # maybe equation run
 
-sentence_model = SentenceTransformer("sentence-transformers/paraphrase-MiniLM-L6-v2")
+# sentence_model = SentenceTransformer("sentence-transformers/paraphrase-MiniLM-L6-v2")
 
 
 def cosine(a, b):
@@ -48,6 +52,7 @@ def get_sim_score(prediction: str, ground_truth: list[str], threshold: float = 0
     # Encode prediction and ground truth annotations
     print("Prediction")
     print(prediction, flush=True)
+    sentence_model = SentenceTransformer("sentence-transformers/paraphrase-MiniLM-L6-v2")
     pred_emb = sentence_model.encode(prediction, convert_to_numpy=True)
     gt_embs = sentence_model.encode(ground_truth, convert_to_numpy=True)
 
@@ -61,6 +66,47 @@ def get_sim_score(prediction: str, ground_truth: list[str], threshold: float = 0
     match = 1 if score >= threshold else 0
 
     return match
+
+
+
+#https://arxiv.org/pdf/1904.09675
+from bert_score import score as bert_score
+
+def get_bertscore(prediction: str, ground_truth: list[str]):
+    """
+    Compute BERTScore similarity between prediction and ground truth annotations,
+    using roberta-large with the recommended best layer (17).
+    Returns the maximum F1 score across all references.
+
+    Args:
+        prediction (str): the LLM's predicted interpretation of an instruction
+        ground_truth (list[str]): list of annotation strings from a task JSON
+
+    Returns:
+        float: max F1 score among all references (0–1)
+    """
+    if not ground_truth:
+        return 0.0
+
+    # Duplicate prediction for each ground-truth reference
+    predictions = [prediction] * len(ground_truth)
+
+    # Compute BERTScore
+    P, R, F1 = bert_score(
+        cands=predictions,
+        refs=ground_truth,
+        model_type="roberta-large",
+        num_layers=17,
+        rescale_with_baseline=False,
+        lang="en"
+    )
+
+    # Take the maximum F1 across references
+    score = float(F1.max())
+
+    return score
+
+
 
 def normalize_prediction(prediction, lowercase=True):
     prediction = prediction.replace(' and ', ' ')
@@ -206,8 +252,10 @@ def save_predictions_execution_accuracy(gen_model, task_name, execution_input_di
         prediction = extract_answer(gen_model, instruction_outputs)
         print("Predictions", prediction, flush=True)
         #task_metric = TASK_TO_METRIC.get(task_name, 'em')
-        task_metric = TASK_TO_METRIC.get(task_name, 'similarity')
-        if task_metric == 'f1':
+        task_metric = TASK_TO_METRIC.get(task_name, 'bertscore')
+        if task_metric == 'bertscore':
+            score = get_bertscore(prediction=prediction, ground_truth=ground_truth)
+        elif task_metric == 'f1':
             score = get_multi_answer_f1(prediction=prediction, answers=answers)
         elif task_metric == 'es':
             score = get_multi_answer_exact_set(prediction=prediction, answers=answers)

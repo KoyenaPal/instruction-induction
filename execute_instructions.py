@@ -9,12 +9,14 @@ import re
 
 
 
-INDUCTION_TASKS = ['active_to_passive', 'antonyms', 'cause_and_effect', 'common_concept', 'diff', 'first_word_letter',
-                   'informal_to_formal', 'larger_animal', 'letters_list', 'negation', 'num_to_verbal',
-                   'orthography_starts_with', 'rhymes', 'second_word_letter', 'sentence_similarity', 'sentiment',
-                   'singular_to_plural', 'sum', 'synonyms', 'taxonomy_animal', 'translation_en-de', 'translation_en-es',
-                   'translation_en-fr', 'word_in_context']
+# INDUCTION_TASKS = ['active_to_passive', 'antonyms', 'cause_and_effect', 'common_concept', 'diff', 'first_word_letter',
+#                    'informal_to_formal', 'larger_animal', 'letters_list', 'negation', 'num_to_verbal',
+#                    'orthography_starts_with', 'rhymes', 'second_word_letter', 'sentence_similarity', 'sentiment',
+#                    'singular_to_plural', 'sum', 'synonyms', 'taxonomy_animal', 'translation_en-de', 'translation_en-es',
+#                    'translation_en-fr', 'word_in_context']
 
+# CHANGE ALPHA TO NUM MAPPING TO UNDERSCORES
+INDUCTION_TASKS = ['identify_fruit', 'alpha_to_visually_sim_num', 'alpha-to-num-mapping', 'morse_code', 'shift_cipher', 'longitude_calc', 'dates', 'shakespearean_to_formal', 'graph_identification', 'sort_by_second_letter', 'sort_by_first_letter', 'coding_lang']
 
 end_think_patterns = [
     r'</think>',
