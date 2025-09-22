@@ -10,6 +10,14 @@ import numpy as np
 from sentence_transformers import SentenceTransformer
 
 from bert_score import score as bert_score
+import random
+import re
+import os
+import numpy as np
+
+random.seed(42)
+np.random.seed(42)
+os.environ['PYTHONHASHSEED'] = '42'
 
 # TASK_TO_METRIC = {'common_concept': 'f1', 'informal_to_formal': 'f1', 'orthography_starts_with': 'es',
 #                   'taxonomy_animal': 'es', 'synonyms': 'contains'}
@@ -21,12 +29,12 @@ INDUCTION_TASKS = ['active_to_passive', 'antonyms', 'cause_and_effect', 'common_
                    'informal_to_formal', 'larger_animal', 'letters_list', 'negation', 'num_to_verbal',
                    'orthography_starts_with', 'rhymes', 'second_word_letter', 'sentence_similarity', 'sentiment',
                    'singular_to_plural', 'sum', 'synonyms', 'taxonomy_animal', 'translation_en-de', 'translation_en-es',
-                   'translation_en-fr', 'word_in_context', 'reverse_from_middle', 'smallest_item_length', 'smallest_even_no_sqrt', 'most_vowel_return_consonant', 'detect_rhyme_and_rewrite', 'rank_by_protein', 'multi_lang_to_english', 'square_of_zodiac_animal', 'alternate_synonym_and_antonym', 'most_consonant_return_vowel', 'fewest_unique_leter_word_count', 'first_word_alphabetically_return_reverse']
+                   'translation_en-fr', 'word_in_context', 'reverse_from_middle', 'smallest_item_length', 'smallest_even_no_sqrt', 'most_vowel_return_consonant', 'detect_rhyme_and_rewrite', 'rank_by_protein', 'multi_lang_to_english', 'square_of_zodiac_animal', 'alternate_synonym_antonym', 'most_consonant_return_vowel', 'least_unique_word_count', 'first_word_alphabetically_return_reverse']
 
 # maybe have some composite tasks
 # maybe equation run
 
-# sentence_model = SentenceTransformer("sentence-transformers/paraphrase-MiniLM-L6-v2")
+sentence_model = SentenceTransformer("google/embeddinggemma-300m")
 
 
 def cosine(a, b):
@@ -52,7 +60,6 @@ def get_sim_score(prediction: str, ground_truth: list[str], threshold: float = 0
     # Encode prediction and ground truth annotations
     print("Prediction")
     print(prediction, flush=True)
-    sentence_model = SentenceTransformer("sentence-transformers/paraphrase-MiniLM-L6-v2")
     pred_emb = sentence_model.encode(prediction, convert_to_numpy=True)
     gt_embs = sentence_model.encode(ground_truth, convert_to_numpy=True)
 
@@ -63,9 +70,9 @@ def get_sim_score(prediction: str, ground_truth: list[str], threshold: float = 0
     score = float(max(sims))
     print(score, flush=True)
     # Apply threshold
-    match = 1 if score >= threshold else 0
+    #match = 1 if score >= threshold else 0
 
-    return match
+    return score
 
 
 
@@ -75,7 +82,6 @@ from bert_score import score as bert_score
 def get_bertscore(prediction: str, ground_truth: list[str]):
     """
     Compute BERTScore similarity between prediction and ground truth annotations,
-    using roberta-large with the recommended best layer (17).
     Returns the maximum F1 score across all references.
 
     Args:
@@ -95,12 +101,13 @@ def get_bertscore(prediction: str, ground_truth: list[str]):
     P, R, F1 = bert_score(
         cands=predictions,
         refs=ground_truth,
-        model_type="roberta-large",
-        num_layers=17,
+        model_type="microsoft/deberta-xlarge-mnli",
+        num_layers = 6,
+        verbose=True,
+        idf=False,
+        lang="en",
         rescale_with_baseline=False,
-        lang="en"
     )
-
     # Take the maximum F1 across references
     score = float(F1.max())
 
@@ -215,8 +222,6 @@ def extract_answer(gen_model, answer):
         if match:
             answer = match.group(1)
     return answer
-
-# USE BERT SCORE INSTEAD!!!
     
 
 #instruction_generation_model instead of gen_model
@@ -238,7 +243,16 @@ def save_predictions_execution_accuracy(gen_model, task_name, execution_input_di
 
     # score predictions
     # for instruction_id, instruction_data in examples.items():
-    for instruction_id in tqdm(sorted(examples.keys(), key=lambda x: int(x))):
+    #for instruction_id in tqdm(sorted(examples.keys(), key=lambda x: int(x))):
+        # Set seed and sample 5 items
+    random.seed(42)
+    # Sample 5 keys from the dictionary
+    sampled_keys = random.sample(list(examples.keys()), 5)
+    
+    # Sort the sampled keys numerically (same as your original sorting)
+    sampled_keys = sorted(sampled_keys, key=lambda x: int(x))
+    
+    for instruction_id in tqdm(sampled_keys):
         # print("CAME HERE", flush=True)
         instruction_data = examples[instruction_id]
         # print(instruction_data, flush=True)
@@ -270,6 +284,7 @@ def save_predictions_execution_accuracy(gen_model, task_name, execution_input_di
         instruction_scores.append(score)
         avg_score = sum(instruction_scores) / len(instruction_scores)
         predictions[instruction_id]['average_score'] = avg_score
+        predictions[instruction_id]['predicted_instruction'] = prediction
 
     predictions['weighted_task_score'] = get_weighted_task_score(predictions)
 
