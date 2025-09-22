@@ -5,18 +5,23 @@ from pathlib import Path
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 from tqdm import tqdm
+import random
 import re
+import os
+import numpy as np
+
+random.seed(42)
+np.random.seed(42)
+os.environ['PYTHONHASHSEED'] = '42'
 
 
 
-# INDUCTION_TASKS = ['active_to_passive', 'antonyms', 'cause_and_effect', 'common_concept', 'diff', 'first_word_letter',
-#                    'informal_to_formal', 'larger_animal', 'letters_list', 'negation', 'num_to_verbal',
-#                    'orthography_starts_with', 'rhymes', 'second_word_letter', 'sentence_similarity', 'sentiment',
-#                    'singular_to_plural', 'sum', 'synonyms', 'taxonomy_animal', 'translation_en-de', 'translation_en-es',
-#                    'translation_en-fr', 'word_in_context']
 
-# CHANGE ALPHA TO NUM MAPPING TO UNDERSCORES
-INDUCTION_TASKS = ['identify_fruit', 'alpha_to_visually_sim_num', 'alpha-to-num-mapping', 'morse_code', 'shift_cipher', 'longitude_calc', 'dates', 'shakespearean_to_formal', 'graph_identification', 'sort_by_second_letter', 'sort_by_first_letter', 'coding_lang']
+INDUCTION_TASKS = ['active_to_passive', 'antonyms', 'cause_and_effect', 'common_concept', 'diff', 'first_word_letter',
+                   'informal_to_formal', 'larger_animal', 'letters_list', 'negation', 'num_to_verbal',
+                   'orthography_starts_with', 'rhymes', 'second_word_letter', 'sentence_similarity', 'sentiment',
+                   'singular_to_plural', 'sum', 'synonyms', 'taxonomy_animal', 'translation_en-de', 'translation_en-es',
+                   'translation_en-fr', 'word_in_context', 'reverse_from_middle', 'smallest_item_length', 'smallest_even_no_sqrt', 'most_vowel_return_consonant', 'detect_rhyme_and_rewrite', 'rank_by_protein', 'multi_lang_to_english', 'square_of_zodiac_animal', 'alternate_synonym_and_antonym', 'most_consonant_return_vowel', 'fewest_unique_leter_word_count', 'first_word_alphabetically_return_reverse']
 
 end_think_patterns = [
     r'</think>',
@@ -41,7 +46,15 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
 
     output_ = dict()
     data = data["examples"]
-    for instruction_id in tqdm(sorted(data.keys(), key=lambda x: int(x))):
+    # Set seed and sample 5 items
+    random.seed(42)
+    # Sample 5 keys from the dictionary
+    sampled_keys = random.sample(list(data.keys()), 5)
+    
+    # Sort the sampled keys numerically (same as your original sorting)
+    sampled_keys = sorted(sampled_keys, key=lambda x: int(x))
+    
+    for instruction_id in tqdm(sampled_keys):
         # print("CAME HERE", flush=True)
         instruction_data = data[instruction_id]
         # print(instruction_data, flush=True)
@@ -72,9 +85,6 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
                 chat_prompt = f"{chat_prompt}<think>"
         elif "openthinker" in execution_engine.lower():
             chat_prompt = f"{chat_prompt}<|begin_of_thought|>"
-        # elif "gpt-oss" in execution_engine.lower():
-        #     chat_prompt = f"{chat_prompt}assistantanalysis"
-
         
         # Tokenize and run model
         inputs = tokenizer(chat_prompt, return_tensors="pt").to(model.device)
@@ -85,13 +95,6 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
                 do_sample=False,
                 temperature=0.0
             )
-            # outputs = model.generate(
-            #     **inputs,
-            #     max_new_tokens=max_tokens,
-            #     do_sample=True,
-            #     top_p=0.9,
-            #     temperature=1.0
-            # )
 
         prediction = tokenizer.decode(outputs[0])
         print(prediction, flush=True)
@@ -135,7 +138,7 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
 
 
 def run_execution_accuracy_openai(execution_engine, instruction_generation_model, task_name, openai_organization,
-                        openai_api_key, input_dir, out_dir, max_tokens=30):
+                        openai_api_key, input_dir, out_dir, max_tokens=2048):
     with open(f'{input_dir}/{instruction_generation_model}/{task_name}.json', encoding='utf-8') as f_examples:
         data = json.load(f_examples)
 
