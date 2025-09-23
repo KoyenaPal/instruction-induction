@@ -102,11 +102,11 @@ def get_bertscore(prediction: str, ground_truth: list[str]):
         cands=predictions,
         refs=ground_truth,
         model_type="microsoft/deberta-xlarge-mnli",
-        num_layers = 6,
+        num_layers = 21,
         verbose=True,
         idf=False,
         lang="en",
-        rescale_with_baseline=False,
+        rescale_with_baseline=True,
     )
     # Take the maximum F1 across references
     score = float(F1.max())
