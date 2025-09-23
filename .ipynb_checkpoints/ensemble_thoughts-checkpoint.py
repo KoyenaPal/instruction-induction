@@ -205,8 +205,7 @@ def iterative_generate(context, gen_tokenizers_models, eval_tokenizers_models, m
                                                                               model_identity=context[0]["content"],
                                                                               reasoning_effort = "low",
                                                                               tokenize=False, add_generation_prompt=True)
-                    # context_in_chat_temp = context_in_chat_temp + "assistantanalysis"
-                max_total_tokens = len(tokenizer.encode(context_in_chat_temp, add_special_tokens=True)) + 4096
+                max_total_tokens = len(tokenizer.encode(context_in_chat_temp, add_special_tokens=True)) + 2048 - 30
                 contexts[model_index] = context_in_chat_temp
                 total_tokens = len(tokenizer.encode(contexts[model_index]))
 
@@ -283,7 +282,7 @@ def main():
 
     parser = argparse.ArgumentParser(description="Context-aware sentence merging using perplexity.")
     # parser.add_argument("jsonl_files", nargs='+', help="Paths to input JSONL files.")
-    parser.add_argument("--output", type=str, default="instruction_induction_ensemble_outputs_gen_qwq_dapo_eval_gpt", help="Path to save merged output.")
+    parser.add_argument("--output", type=str, default="instruction_induction_ensemble_thoughts_gen_qwq_dapo_eval_oss", help="Path to save merged output.")
     parser.add_argument("--gen_models", nargs='+', default=[
         "Qwen/QwQ-32B",
         "BytedTsinghua-SIA/DAPO-Qwen-32B"
@@ -321,6 +320,14 @@ def main():
         with open(f'{input_dir}/{instruction_generation_model}/{task_name}.json', encoding='utf-8') as f_examples:
             data = json.load(f_examples)
         data = data["examples"]
+        # Set seed and sample 5 items
+        random.seed(42)
+        # Sample 5 keys from the dictionary
+        sampled_keys = random.sample(list(data.keys()), 5)
+        
+        # Sort the sampled keys numerically (same as your original sorting)
+        sampled_keys = sorted(sampled_keys, key=lambda x: int(x))
+        
         with open(output_file_path, 'a', newline='', encoding='utf-8') as csvfile:
             fieldnames = ["Instruction", "Ensembled Thought"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames, quoting=csv.QUOTE_ALL)
@@ -328,7 +335,7 @@ def main():
             if write_header:
                 writer.writeheader()
                 
-            for instruction_id in tqdm(sorted(data.keys(), key=lambda x: int(x))):
+            for instruction_id in tqdm(sampled_keys):
                 # print("CAME HERE", flush=True)
                 instruction_data = data[instruction_id]
                 # print(instruction_data, flush=True)
