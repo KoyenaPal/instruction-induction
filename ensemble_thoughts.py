@@ -40,7 +40,6 @@ set_seed(SEED)
 #     model.to("cpu")
 #     torch.cuda.empty_cache()
 
-
 # === LOAD MODELS ===
 def load_model_and_tokenizer(name, cache_dir="/workspace/hf", device_map="auto", device_id = None):
     if device_id is not None:
@@ -282,7 +281,7 @@ def main():
 
     parser = argparse.ArgumentParser(description="Context-aware sentence merging using perplexity.")
     # parser.add_argument("jsonl_files", nargs='+', help="Paths to input JSONL files.")
-    parser.add_argument("--output", type=str, default="instruction_induction_ensemble_thoughts_gen_qwq_dapo_eval_oss", help="Path to save merged output.")
+    parser.add_argument("--output", type=str, default="instruction_induction_ensemble_outputs_gen_qwq_dapo_eval_oss", help="Path to save merged output.")
     parser.add_argument("--gen_models", nargs='+', default=[
         "Qwen/QwQ-32B",
         "BytedTsinghua-SIA/DAPO-Qwen-32B"
@@ -298,12 +297,27 @@ def main():
     #gen_tokenizers_models = eval_tokenizers_models = [load_model_and_tokenizer(m) for m in generation_models]
     # gen_tokenizers_models = [(m, load_model_and_tokenizer(m)) for m in generation_models]
     # eval_tokenizers_models = [(m, load_model_and_tokenizer(m)) for m in evaluation_models]
+    gpu_ids = list(range(available_gpus))
+    # ASSUMES THAT YOU CAN HAVE 1 GPU FOR EACH MODEL
+    gen_gpu_ids = gpu_ids[:len(generation_models)]
+    eval_gpu_ids = gpu_ids[len(generation_models):len(generation_models)+len(evaluation_models)]
+    # gen_tokenizers_models = [
+    #     (m, load_model_and_tokenizer(m, device_id = i % available_gpus))
+    #     for i, m in enumerate(generation_models)]
+    # eval_tokenizers_models = [
+    #     (m, load_model_and_tokenizer(m, device_id = i % available_gpus))
+        # for i, m in enumerate(evaluation_models)]
+    # Load generation models
     gen_tokenizers_models = [
-        (m, load_model_and_tokenizer(m, device_id = i % available_gpus))
-        for i, m in enumerate(generation_models)]
+        (m, load_model_and_tokenizer(m, device_id=gpu_id))
+        for m, gpu_id in zip(generation_models, gen_gpu_ids)
+    ]
+    
+    # Load evaluation models
     eval_tokenizers_models = [
-        (m, load_model_and_tokenizer(m, device_id = i % available_gpus))
-        for i, m in enumerate(evaluation_models)]
+        (m, load_model_and_tokenizer(m, device_id=gpu_id))
+        for m, gpu_id in zip(evaluation_models, eval_gpu_ids)
+    ]
 # Load input examples
     input_dir = "data/induction_input"
     instruction_generation_model = "."
