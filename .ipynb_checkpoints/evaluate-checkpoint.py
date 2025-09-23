@@ -95,21 +95,23 @@ def get_bertscore(prediction: str, ground_truth: list[str]):
         return 0.0
 
     # Duplicate prediction for each ground-truth reference
-    predictions = [prediction] * len(ground_truth)
+    normalized_prediction = normalize_prediction(prediction, lowercase=True)
+    normalize_gts = []
+    for gt in ground_truth:
+        normalize_gts.append(normalize_prediction(gt, lowercase=True))
+    print("Normalized prediction", normalized_prediction, flush=True)
+    normalized_predictions = [normalized_prediction] * len(normalize_gts)
 
     # Compute BERTScore
     P, R, F1 = bert_score(
-        cands=predictions,
-        refs=ground_truth,
+        cands=normalized_predictions,
+        refs=normalize_gts,
         model_type="microsoft/deberta-xlarge-mnli",
-        num_layers = 21,
-        verbose=True,
-        idf=False,
-        lang="en",
-        rescale_with_baseline=True,
+        idf=True,
+        rescale_with_baseline=False,
     )
     # Take the maximum F1 across references
-    score = float(F1.max())
+    score = float(F1.max().item())
 
     return score
 
@@ -119,17 +121,19 @@ def normalize_prediction(prediction, lowercase=True):
     prediction = prediction.replace(' and ', ' ')
     prediction = prediction.replace('Sentence 1:', ' ')
     prediction = prediction.replace('Sentence 2:', ' ')
+    prediction = prediction.replace('<|return|>', '')
+    prediction = prediction.replace('<|im_end|>', '')
+    prediction = prediction.replace('<|endoftext|>', '')
     prediction = prediction.strip()
-    prediction = prediction.split("\n")[0]
+    # prediction = prediction.split("\n")[0]
     prediction = prediction.split(".")[0]
-
     if lowercase:
         prediction = prediction.lower()
 
     # remove punctuation
     prediction = prediction.replace('-', ' ')
     prediction = prediction.translate(str.maketrans('', '', string.punctuation))
-
+    prediction = re.sub(r"\s+", " ", prediction).strip()
     return prediction
 
 
@@ -308,7 +312,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     task_list = args.tasks.split(',')
-
     for induction_task in task_list:
         save_predictions_execution_accuracy(gen_model=args.gen_model,
                                             task_name=induction_task,
