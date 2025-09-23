@@ -25,14 +25,17 @@ os.environ['PYTHONHASHSEED'] = '42'
 TASK_TO_METRIC = {}
 
 
-INDUCTION_TASKS = ['active_to_passive', 'antonyms', 'cause_and_effect', 'common_concept', 'diff', 'first_word_letter',
-                   'informal_to_formal', 'larger_animal', 'letters_list', 'negation', 'num_to_verbal',
-                   'orthography_starts_with', 'rhymes', 'second_word_letter', 'sentence_similarity', 'sentiment',
-                   'singular_to_plural', 'sum', 'synonyms', 'taxonomy_animal', 'translation_en-de', 'translation_en-es',
-                   'translation_en-fr', 'word_in_context', 'reverse_from_middle', 'smallest_item_length', 'smallest_even_no_sqrt', 'most_vowel_return_consonant', 'detect_rhyme_and_rewrite', 'rank_by_protein', 'multi_lang_to_english', 'square_of_zodiac_animal', 'alternate_synonym_antonym', 'most_consonant_return_vowel', 'least_unique_word_count', 'first_word_alphabetically_return_reverse']
+# INDUCTION_TASKS = ['active_to_passive', 'antonyms', 'cause_and_effect', 'common_concept', 'diff', 'first_word_letter',
+#                    'informal_to_formal', 'larger_animal', 'letters_list', 'negation', 'num_to_verbal',
+#                    'orthography_starts_with', 'rhymes', 'second_word_letter', 'sentence_similarity', 'sentiment',
+#                    'singular_to_plural', 'sum', 'synonyms', 'taxonomy_animal', 'translation_en-de', 'translation_en-es',
+#                    'translation_en-fr', 'word_in_context', 'reverse_from_middle', 'smallest_item_length', 'smallest_even_no_sqrt', 'most_vowel_return_consonant', 'detect_rhyme_and_rewrite', 'rank_by_protein', 'multi_lang_to_english', 'square_of_zodiac_animal', 'alternate_synonym_antonym', 'most_consonant_return_vowel', 'least_unique_word_count', 'first_word_alphabetically_return_reverse']
 
-# maybe have some composite tasks
-# maybe equation run
+INDUCTION_TASKS = ['cause_and_effect', 'larger_animal', 'num_to_verbal','orthography_starts_with',
+                   'rhymes', 'synonyms', 'taxonomy_animal', 'translation_en-fr',
+                   'reverse_from_middle', 'smallest_item_length', 'smallest_even_no_sqrt', 'most_vowel_return_consonant',
+                   'detect_rhyme_and_rewrite', 'rank_by_protein','multi_lang_to_english','square_of_zodiac_animal',
+                   'alternate_synonym_antonym', 'most_consonant_return_vowel', 'least_unique_word_count', 'first_word_alphabetically_return_reverse']
 
 sentence_model = SentenceTransformer("google/embeddinggemma-300m")
 

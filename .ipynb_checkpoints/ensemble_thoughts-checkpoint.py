@@ -308,8 +308,11 @@ def main():
 # Load input examples
     input_dir = "data/induction_input"
     instruction_generation_model = "."
-    INDUCTION_TASKS = ['sum', 'translation_en-de', 'singular_to_plural', 'diff', 'informal_to_formal', 'active_to_passive', 'antonyms', 'cause_and_effect', 'common_concept', 'first_word_letter', 'larger_animal', 'letters_list', 'negation', 'num_to_verbal', 'orthography_starts_with', 'rhymes', 'second_word_letter', 'sentence_similarity', 'sentiment', 'synonyms', 'taxonomy_animal', 'translation_en-es',
-                   'translation_en-fr', 'word_in_context']
+    INDUCTION_TASKS = ['cause_and_effect', 'larger_animal', 'num_to_verbal','orthography_starts_with',
+                       'rhymes', 'synonyms', 'taxonomy_animal', 'translation_en-fr',
+                       'reverse_from_middle', 'smallest_item_length', 'smallest_even_no_sqrt', 'most_vowel_return_consonant',
+                       'detect_rhyme_and_rewrite', 'rank_by_protein','multi_lang_to_english','square_of_zodiac_animal',
+                       'alternate_synonym_antonym', 'most_consonant_return_vowel', 'least_unique_word_count', 'first_word_alphabetically_return_reverse']
     for task_name in INDUCTION_TASKS: 
         output_file_path = args.output + f"/{task_name}.csv"
         os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
@@ -324,6 +327,7 @@ def main():
         
             if write_header:
                 writer.writeheader()
+                
             for instruction_id in tqdm(sorted(data.keys(), key=lambda x: int(x))):
                 # print("CAME HERE", flush=True)
                 instruction_data = data[instruction_id]
