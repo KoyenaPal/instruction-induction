@@ -35,8 +35,35 @@ end_think_patterns = [
     r'<\|end_of_thought\|>'
 ]
 
+def extract_thinking(answer, model_name="qwen"):
+    # get text in between <think> and </think>
+    if "openthinker" in model_name.lower():
+        match = re.search(r'<\|begin_of_thought\|>(.*?)<\|end_of_thought\|>', answer, re.DOTALL)
+    elif "gpt-oss" in model_name.lower():
+        match = re.search(r'<\|start\|>assistant<\|channel\|>analysis<\|message\|>(.*?)<\|end\|>', answer, re.DOTALL)
+    else:
+        match = re.search(r'<think>(.*?)</think>', answer, re.DOTALL)
+        
+    if match:
+        match_text = match.group(1)
+        cleaned_text = match_text.replace("assistantanalysis", "").replace("<|end_of_thought|>","").replace("</think>","")
+        return cleaned_text
+    else:
+        if "openthinker" in model_name.lower():
+            match = re.search(r'<\|begin_of_thought\|>(.*?)', answer, re.DOTALL)
+        elif "gpt-oss" in model_name.lower():
+            match = re.search(r'<\|start\|>assistant<\|channel\|>analysis<\|message\|>(.*?)', answer, re.DOTALL)
+        else:
+            match = re.search(r'<think>(.*?)', answer, re.DOTALL)
+        if match:
+            match_text = match.group(1)
+            cleaned_text = match_text.replace("assistantanalysis", "").replace("<|end_of_thought|>","").replace("</think>","")
+            return cleaned_text
+        else:
+            return "No Thoughts"
+
 def run_execution_accuracy_open_source_chat(execution_engine, instruction_generation_model, task_name,
-                                            input_dir, out_dir, max_tokens=2048, device="cuda"):
+                                            input_dir, out_dir, max_tokens=2048, device="cuda", thought_type="default", source_folder=None):
     """
     execution_engine: HuggingFace model name or path (e.g., "meta-llama/Llama-2-7b-chat-hf")
     """
@@ -56,83 +83,112 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
     random.seed(42)
     # Sample 5 keys from the dictionary
     sampled_keys = random.sample(list(data.keys()), 5)
+    # Sort the sampled keys numerically (same as your original sorting)
+    sampled_keys = sorted(sampled_keys, key=lambda x: int(x))
+
+    # If there is a source for thoughts
+    source_thought_data = None
+    if source_folder:
+        with open(f'{source_folder}/./{task_name}_execution.json', encoding='utf-8') as f_thoughts_source:
+            source_thought_data = json.load(f_thoughts_source)
+
+    # Handle sample and empty conditions
+    do_sample = False
+    temperature = 0.0
+    if "with_sampling" in thought_type or ("with_sampling_without_answer" in thought_type):
+        do_sample = True
+        temperature = 1.0
+
+    random.seed(42)
+    # Sample 5 keys from the dictionary
+    sampled_keys = random.sample(list(examples.keys()), 5)
     
     # Sort the sampled keys numerically (same as your original sorting)
     sampled_keys = sorted(sampled_keys, key=lambda x: int(x))
     
+    
     for instruction_id in tqdm(sampled_keys):
-        # print("CAME HERE", flush=True)
         instruction_data = data[instruction_id]
-        # print(instruction_data, flush=True)
         d = {}
         d['instruction'] = instruction_data['input']
         instruction_outputs = {}
         test_examples = instruction_data['input']
 
-        #for id_, example in test_examples.items():
         user_prompt = instruction_data['input']
         print("user_prompt", user_prompt, flush=True)
         # Build chat conversation
         messages = [
-            # {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": user_prompt}
         ]
 
         # Convert to model-specific chat template
+        thinking_message = ""
+        if source_thought_data:
+            full_source_thinking_text = extract_thinking(source_thought_data[instruction_id]['instruction_outputs'], model_name=execution_engine)
         chat_prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
-        if "gpt-oss" in execution_engine.lower():
+        if "oss" in execution_engine.lower():
             user_message = [{"role": "user", "content": messages[-1]["content"]}]
             chat_prompt = tokenizer.apply_chat_template(user_message,
                                                              model_identity=messages[0]["content"],
                                                              reasoning_effort = "low",
                                                              tokenize=False, add_generation_prompt=True)
+            if not(thought_type == "default") and not(thought_type == "with_sampling"):
+                chat_prompt = f"{chat_prompt}<|start|>assistant<|channel|>analysis<|message|>{thinking_message}<|end|><|start|>assistant<|channel|>final<|message|>"
         if "qwen" in execution_engine.lower():
             if "<think>" not in chat_prompt:
                 chat_prompt = f"{chat_prompt}<think>"
+            if not(thought_type == "default") and not(thought_type == "with_sampling"):
+                chat_prompt = f"{chat_prompt}<think>{thinking_message}</think>"
         elif "openthinker" in execution_engine.lower():
             chat_prompt = f"{chat_prompt}<|begin_of_thought|>"
+            if not(thought_type == "default") and not(thought_type == "with_sampling"):
+                chat_prompt = f"{chat_prompt}<|begin_of_thought|>{thinking_message}<|end_of_thought|><|begin_of_solution|>"
         
         # Tokenize and run model
         inputs = tokenizer(chat_prompt, return_tensors="pt").to(model.device)
-        with torch.no_grad():
-            outputs = model.generate(
-                **inputs,
-                max_new_tokens=max_tokens-30,
-                do_sample=False,
-                temperature=0.0
-            )
-
-        prediction = tokenizer.decode(outputs[0])
-        print(prediction, flush=True)
-        found = any(re.search(pat, prediction) for pat in end_think_patterns)
-        if not found:
-            if "gpt-oss" in execution_engine.lower():
-                prediction = prediction + "<|channel|>final<|message|>"
-            if "qwen" in execution_engine.lower():
-                prediction = prediction + "</think>"
-            elif "openthinker" in execution_engine.lower():
-                prediction = prediction + f"<|end_of_thought|>"
-            new_inputs = tokenizer(prediction, return_tensors="pt").to(model.device)
+        if thought_type == "default" or thought_type == "with_sampling":
             with torch.no_grad():
-                new_output = model.generate(
-                    **new_inputs,
-                    max_new_tokens=30,
-                    do_sample=False,
-                    temperature=0.0
+                outputs = model.generate(
+                    **inputs,
+                    max_new_tokens=max_tokens-30,
+                    do_sample=do_sample,
+                    temperature=temperature
                 )
-            prediction = tokenizer.decode(new_output[0])
+    
+            prediction = tokenizer.decode(outputs[0])
+            print(prediction, flush=True)
+            found = any(re.search(pat, prediction) for pat in end_think_patterns)
+            if not found:
+                if "gpt-oss" in execution_engine.lower():
+                    prediction = prediction + "<|channel|>final<|message|>"
+                if "qwen" in execution_engine.lower():
+                    prediction = prediction + "</think>"
+                elif "openthinker" in execution_engine.lower():
+                    prediction = prediction + f"<|end_of_thought|>"
+                new_inputs = tokenizer(prediction, return_tensors="pt").to(model.device)
+                with torch.no_grad():
+                    new_output = model.generate(
+                        **new_inputs,
+                        max_new_tokens=30,
+                        do_sample=do_sample,
+                        temperature=temperature
+                    )
+                prediction = tokenizer.decode(new_output[0])
+    
+            d['instruction_outputs'] = prediction
+            output_[instruction_id] = d
+        else:
+            with torch.no_grad():
+                outputs = model.generate(
+                    **inputs,
+                    max_new_tokens=30,
+                    do_sample=do_sample,
+                    temperature=temperature
+                )
+            prediction = tokenizer.decode(outputs[0])
+            d['instruction_outputs'] = prediction
+            output_[instruction_id] = d
             
-        # instruction_outputs[id_] = dict()
-        # instruction_outputs[id_]['prompt'] = user_prompt
-        # instruction_outputs[id_]['prediction'] = prediction
-
-        # if int(id_) % 100 == 0:
-        #     print(f'generated {id_} predictions with {execution_engine}')
-
-
-
-        d['instruction_outputs'] = prediction
-        output_[instruction_id] = d
 
     # Save results
     output_path = f'{out_dir}/{instruction_generation_model}'
@@ -141,52 +197,6 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
     with open(f'{output_path}/{task_name}_execution.json', 'w', encoding='utf-8') as f_predictions:
         json.dump(output_, f_predictions, indent=2, ensure_ascii=False)
 
-
-
-def run_execution_accuracy_openai(execution_engine, instruction_generation_model, task_name, openai_organization,
-                        openai_api_key, input_dir, out_dir, max_tokens=2048):
-    with open(f'{input_dir}/{instruction_generation_model}/{task_name}.json', encoding='utf-8') as f_examples:
-        data = json.load(f_examples)
-
-    openai.organization = openai_organization
-    openai.api_key = openai_api_key
-
-    output_ = dict()
-
-    parameters = {
-        'max_tokens': max_tokens,
-        'top_p': 0,
-        'temperature': 1,
-        'logprobs': 5,
-        'engine': execution_engine
-    }
-    for instruction_id, instruction_data in data.items():
-        d = {}
-        d['instruction'] = instruction_data['instruction']
-        d['prediction_counter'] = instruction_data['prediction_counter']
-        instruction_outputs = {}
-        test_examples = instruction_data['test_inputs']
-        for id_, example in test_examples.items():
-            prompt = example['prompt']
-            parameters['prompt'] = prompt
-
-            response = openai.Completion.create(**parameters)
-
-            instruction_outputs[id_] = dict()
-            instruction_outputs[id_]['prompt'] = prompt
-            instruction_outputs[id_]['prediction'] = response.choices[0].text
-
-            if int(id_) % 100 == 0:
-                print(f'generated {id_} predictions with OpenAI {execution_engine}')
-
-        d['instruction_outputs'] = instruction_outputs
-        output_[instruction_id] = d
-
-    output_path = f'{out_dir}/{instruction_generation_model}'
-    Path(output_path).mkdir(exist_ok=True)
-
-    with open(f'{output_path}/{task_name}_execution.json', 'w', encoding='utf-8') as f_predictions:
-        json.dump(output_, f_predictions, indent=2, ensure_ascii=False)
 
 
 if __name__ == '__main__':
@@ -202,14 +212,27 @@ if __name__ == '__main__':
     parser.add_argument('--max_tokens', type=int, default=2048, help='Max number of tokens to generate.')
     parser.add_argument('--tasks', type=str, default=INDUCTION_TASKS_STR,
                         help='Tasks for execution accuracy evaluation.')
+    parser.add_argument('--thought_type', type=str, help='Thought Type')
+    parser.add_argument('--source_folder', type=str, help='If using ensembled thoughts, specify from where it should get the thoughts from')
+    
     args = parser.parse_args()
 
     
     task_list = args.tasks.split(',')
     execution_engine = str(args.execution_engine)
     cleaned_execution_engine = execution_engine.replace("/","_")
+    # HANDLE OUTPUT DIR VALUES FOR EACH THOUGHT TYPE HERE!
     out_dir = f"predictions_{cleaned_execution_engine}"
+    if not(args.thought_type == "default"):
+        out_dir = f"predictions_{cleaned_execution_engine}_{args.thought_type}"
+    if args.thought_type == "transfer":
+        source_model = str(args.source_folder).split("predictions_")[-1]
+        out_dir = f"predictions_{source_model}_thoughts_to_{cleaned_execution_engine}"
+    if args.thought_type == "ensemble":
+        ensembled_model = str(args.source_folder).split("ensemble_thoughts_")[-1]
+        out_dir = f"predictions_{cleaned_execution_engine}_{args.thought_type}_{ensembled_model}"
     Path(out_dir).mkdir(exist_ok=True)
+    
     for induction_task in task_list:
         run_execution_accuracy_open_source_chat(execution_engine=args.execution_engine,
                                                 instruction_generation_model=".",
