@@ -69,6 +69,7 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
     """
 
     # Load input examples
+    print("CAME TO THE FUNCTION TO EXECUTE ACCURACY", flush=True)
     with open(f'{input_dir}/{instruction_generation_model}/{task_name}.json', encoding='utf-8') as f_examples:
         data = json.load(f_examples)
 
@@ -89,7 +90,9 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
     # If there is a source for thoughts
     source_thought_data = None
     if source_folder:
+        print("CAME TO SOURCE FOLDER", flush=True)
         with open(f'{source_folder}/./{task_name}_execution.json', encoding='utf-8') as f_thoughts_source:
+            print("THE SOURCE FOLDER USED", f'{source_folder}/./{task_name}_execution.json', flush=True)
             source_thought_data = json.load(f_thoughts_source)
 
     # Handle sample and empty conditions
@@ -192,7 +195,6 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
 
     # Save results
     output_path = f'{out_dir}/{instruction_generation_model}'
-    Path(output_path).mkdir(exist_ok=True)
 
     with open(f'{output_path}/{task_name}_execution.json', 'w', encoding='utf-8') as f_predictions:
         json.dump(output_, f_predictions, indent=2, ensure_ascii=False)
@@ -221,17 +223,19 @@ if __name__ == '__main__':
     task_list = args.tasks.split(',')
     execution_engine = str(args.execution_engine)
     cleaned_execution_engine = execution_engine.replace("/","_")
+    print("EXECUTION ENGINE", cleaned_execution_engine)
     # HANDLE OUTPUT DIR VALUES FOR EACH THOUGHT TYPE HERE!
     out_dir = f"predictions_{cleaned_execution_engine}"
-    if not(args.thought_type == "default"):
-        out_dir = f"predictions_{cleaned_execution_engine}_{args.thought_type}"
     if args.thought_type == "transfer":
         source_model = str(args.source_folder).split("predictions_")[-1]
+        print("SOURCE MODEL", source_model, flush=True)
         out_dir = f"predictions_{source_model}_thoughts_to_{cleaned_execution_engine}"
         print("OUT DIRECTORY", out_dir, flush=True)
-    if args.thought_type == "ensemble":
+    elif args.thought_type == "ensemble":
         ensembled_model = str(args.source_folder).split("ensemble_thoughts_")[-1]
         out_dir = f"predictions_{cleaned_execution_engine}_{args.thought_type}_{ensembled_model}"
+    elif not(args.thought_type == "default"):
+        out_dir = f"predictions_{cleaned_execution_engine}_{args.thought_type}"
     Path(out_dir).mkdir(exist_ok=True)
     
     for induction_task in task_list:

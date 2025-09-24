@@ -1,47 +1,71 @@
 #!/bin/bash
 
 # Define arrays of models and prompt styles
-#models=("Qwen/QwQ-32B" "BytedTsinghua-SIA/DAPO-Qwen-32B" "open-thoughts/OpenThinker-7B")
-models=("open-thoughts/OpenThinker-7B" "BytedTsinghua-SIA/DAPO-Qwen-32B" "nvidia/Nemotron-Research-Reasoning-Qwen-1.5B" "Qwen/QwQ-32B" "openai/gpt-oss-20b")
-targetmodels=("open-thoughts/OpenThinker-7B")
-# reasoningeffort= ("low" "medium" "high")
+sourcemodels=(
+    "BytedTsinghua-SIA/DAPO-Qwen-32B" 
+    "nvidia/Nemotron-Research-Reasoning-Qwen-1.5B" 
+    "Qwen/QwQ-32B" 
+    "openai/gpt-oss-20b" 
+    "open-thoughts/OpenThinker-7B"
+)
+targetmodels=(
+    "BytedTsinghua-SIA/DAPO-Qwen-32B" 
+    "nvidia/Nemotron-Research-Reasoning-Qwen-1.5B" 
+    "Qwen/QwQ-32B" 
+    "openai/gpt-oss-20b" 
+    "open-thoughts/OpenThinker-7B"
+)
+
+# Create logs directory
 mkdir -p logs
 
 # Optional delay between runs (in seconds)
 delay=5
 
+echo "Starting batch execution with ${#sourcemodels[@]} source models and ${#targetmodels[@]} target models..."
+
 # Loop through all combinations
-for model in "${models[@]}"; do
-  for targetmodel in "${targetmodels[@]}"; do
-    # Sanitize names for filenames
-    safe_model="${model//\//_}"
-    safe_targetmodel="${targetmodel//\//_}"
-    outputpath="predictions_${safe_targetmodel}"
-    predictionspath="predictions_${safe_model}_thoughts_to_${safe_targetmodel}"
-    # timestamp=$(date +"%Y%m%d_%H%M%S")
-    logfile="logs/${safe_model}_to_${safe_targetmodel}.log"
-    echo "Running: python execute_instructions.py  --execution_engine $model --input_dir data/induction_input --thought_type transfer --source_folder $outputpath > "$logfile" 2>&1"
-    echo "Logging to: $logfile"
-    
-    # Run the command
-    python execute_instructions.py  --execution_engine $model --input_dir data/induction_input --thought_type transfer --source_folder $outputpath > "$logfile" 2>&1
-
-    # echo "Running: python evaluate.py --gen_model $model --execution_input_dir data/induction_input --predictions_dir $predictionspath"
-
-    # python evaluate.py --gen_model $model --execution_input_dir data/induction_input --predictions_dir $predictionspath
-    
-
-    # Check exit code
-    if [ $? -ne 0 ]; then
-      echo "❌ Error running: model=$model target_model=$targetmodel  (check $logfile)"
-      # Uncomment next line to exit on error:
-      # exit 1
-    fi
-
-    # Optional delay
-    echo "Sleeping $delay seconds..."
-    sleep $delay
-  done
+for sourcemodel in "${sourcemodels[@]}"; do
+    for targetmodel in "${targetmodels[@]}"; do
+        # Sanitize names for filenames
+        safe_sourcemodel="${sourcemodel//\//_}"
+        safe_targetmodel="${targetmodel//\//_}"
+        
+        outputpath="predictions_${safe_sourcemodel}"
+        predictionspath="predictions_${safe_sourcemodel}_thoughts_to_${safe_targetmodel}"
+        logfile="logs/${safe_sourcemodel}_to_${safe_targetmodel}.log"
+        
+        echo "----------------------------------------"
+        echo "Source: $sourcemodel"
+        echo "Target: $targetmodel"
+        echo "Output path: $outputpath"
+        echo "Predictions path: $predictionspath"
+        echo "Log file: $logfile"
+        echo "----------------------------------------"
+        
+        # Run the command
+        python execute_instructions.py \
+            --execution_engine "$targetmodel" \
+            --input_dir data/induction_input \
+            --thought_type transfer \
+            --source_folder "$outputpath" \
+            > "$logfile" 2>&1
+        
+        # Check exit code
+        if [ $? -ne 0 ]; then
+            echo "❌ Error running: source=$sourcemodel target=$targetmodel (check $logfile)"
+            # Uncomment next line to exit on error:
+            # exit 1
+        else
+            echo "✅ Successfully completed: source=$sourcemodel target=$targetmodel"
+        fi
+        
+        # Optional delay between runs
+        if [ $delay -gt 0 ]; then
+            echo "Sleeping $delay seconds..."
+            sleep $delay
+        fi
+    done
 done
 
 echo "✅ All runs completed."
