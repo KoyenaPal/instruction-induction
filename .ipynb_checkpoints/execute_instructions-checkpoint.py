@@ -60,7 +60,7 @@ def extract_thinking(answer, model_name="qwen"):
             cleaned_text = match_text.replace("assistantanalysis", "").replace("<|end_of_thought|>","").replace("</think>","")
             return cleaned_text
         else:
-            return "No Thoughts"
+            return answer
 
 def run_execution_accuracy_open_source_chat(execution_engine, instruction_generation_model, task_name,
                                             input_dir, out_dir, max_tokens=2048, device="cuda", thought_type="default", source_folder=None):
@@ -155,8 +155,7 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
                     temperature=temperature
                 )
     
-            prediction = tokenizer.decode(outputs[0])
-            print(prediction, flush=True)
+            prediction = tokenizer.decode(outputs[0], skip_special_tokens=False)
             found = any(re.search(pat, prediction) for pat in end_think_patterns)
             if not found:
                 if "gpt-oss" in execution_engine.lower():
@@ -173,7 +172,7 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
                         do_sample=do_sample,
                         temperature=temperature
                     )
-                prediction = tokenizer.decode(new_output[0])
+                prediction = tokenizer.decode(new_output[0], skip_special_tokens=False)
     
             d['instruction_outputs'] = prediction
             output_[instruction_id] = d
@@ -186,7 +185,7 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
                     do_sample=do_sample,
                     temperature=temperature
                 )
-            prediction = tokenizer.decode(outputs[0])
+            prediction = tokenizer.decode(outputs[0], skip_special_tokens=False)
             d['instruction_outputs'] = prediction
             output_[instruction_id] = d
             
@@ -241,4 +240,5 @@ if __name__ == '__main__':
                                                 input_dir=args.input_dir,
                                                 out_dir=out_dir,
                                                 max_tokens=args.max_tokens,
-                                                thought_type=args.thought_type)
+                                                thought_type=args.thought_type,
+                                                source_folder=args.source_folder)

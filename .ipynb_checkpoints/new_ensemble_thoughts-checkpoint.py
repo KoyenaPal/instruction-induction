@@ -274,21 +274,23 @@ def main():
     import argparse
     
     parser = argparse.ArgumentParser()
-    parser.add_argument("--output", type=str, default="instruction_induction_ensemble_outputs_gen_qwq_oss_eval_dapo")
-    parser.add_argument("--gen_models", nargs='+', default=["Qwen/QwQ-32B", "openai/gpt-oss-20b"])
-    parser.add_argument("--eval_models", nargs='+', default=["BytedTsinghua-SIA/DAPO-Qwen-32B"])
+    parser.add_argument("--output", type=str, default="instruction_induction_ensemble_outputs_gen_qwq_dapo_eval_oss")
+    parser.add_argument("--gen_models", nargs='+', default=["Qwen/QwQ-32B", "BytedTsinghua-SIA/DAPO-Qwen-32B"])
+    parser.add_argument("--eval_models", nargs='+', default=["openai/gpt-oss-20b"])
     
     args = parser.parse_args()
     set_seed(SEED)
     
     model_manager = ModelManager(args.gen_models, args.eval_models, available_gpus)
     
-    INDUCTION_TASKS = ['cause_and_effect', 'larger_animal', 'num_to_verbal','orthography_starts_with',
-                       'rhymes', 'synonyms', 'taxonomy_animal', 'translation_en-fr',
-                       'reverse_from_middle', 'smallest_item_length', 'smallest_even_no_sqrt', 'most_vowel_return_consonant',
+    # INDUCTION_TASKS = ['cause_and_effect', 'larger_animal', 'num_to_verbal','orthography_starts_with',
+    #                    'rhymes', 'synonyms', 'taxonomy_animal', 'translation_en-fr',
+    #                    'reverse_from_middle', 'smallest_item_length', 'smallest_even_no_sqrt', 'most_vowel_return_consonant',
+    #                    'detect_rhyme_and_rewrite', 'rank_by_protein','multi_lang_to_english','square_of_zodiac_animal',
+    #                    'alternate_synonym_antonym', 'most_consonant_return_vowel', 'least_unique_word_count', 'first_word_alphabetically_return_reverse']
+    INDUCTION_TASKS = ['smallest_even_no_sqrt', 'most_vowel_return_consonant',
                        'detect_rhyme_and_rewrite', 'rank_by_protein','multi_lang_to_english','square_of_zodiac_animal',
                        'alternate_synonym_antonym', 'most_consonant_return_vowel', 'least_unique_word_count', 'first_word_alphabetically_return_reverse']
-    
     try:
         for task_name in INDUCTION_TASKS:
             print(f"\n=== Processing {task_name} ===")
