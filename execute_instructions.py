@@ -101,7 +101,7 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
 
     random.seed(42)
     # Sample 5 keys from the dictionary
-    sampled_keys = random.sample(list(examples.keys()), 5)
+    sampled_keys = random.sample(list(data.keys()), 5)
     
     # Sort the sampled keys numerically (same as your original sorting)
     sampled_keys = sorted(sampled_keys, key=lambda x: int(x))
@@ -138,7 +138,7 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
             if "<think>" not in chat_prompt:
                 chat_prompt = f"{chat_prompt}<think>"
             if not(thought_type == "default") and not(thought_type == "with_sampling"):
-                chat_prompt = f"{chat_prompt}<think>{thinking_message}</think>"
+                chat_prompt = f"{chat_prompt}{thinking_message}</think>"
         elif "openthinker" in execution_engine.lower():
             chat_prompt = f"{chat_prompt}<|begin_of_thought|>"
             if not(thought_type == "default") and not(thought_type == "with_sampling"):
@@ -178,6 +178,7 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
             d['instruction_outputs'] = prediction
             output_[instruction_id] = d
         else:
+            print("CAME TO ONLY 30 TOKENS")
             with torch.no_grad():
                 outputs = model.generate(
                     **inputs,
@@ -239,4 +240,5 @@ if __name__ == '__main__':
                                                 task_name=induction_task,
                                                 input_dir=args.input_dir,
                                                 out_dir=out_dir,
-                                                max_tokens=args.max_tokens)
+                                                max_tokens=args.max_tokens,
+                                                thought_type=args.thought_type)
