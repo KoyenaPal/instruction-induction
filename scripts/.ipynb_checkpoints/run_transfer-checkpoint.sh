@@ -43,13 +43,21 @@ for sourcemodel in "${sourcemodels[@]}"; do
         echo "Log file: $logfile"
         echo "----------------------------------------"
         
+        # # Run the command
+        # python execute_instructions.py \
+        #     --execution_engine "$targetmodel" \
+        #     --input_dir data/induction_input \
+        #     --thought_type transfer \
+        #     --source_folder "$outputpath" \
+        #     > "$logfile" 2>&1
+
         # Run the command
-        python execute_instructions.py \
-            --execution_engine "$targetmodel" \
-            --input_dir data/induction_input \
-            --thought_type transfer \
-            --source_folder "$outputpath" \
+        python evaluate.py \
+            --gen_model "$targetmodel" \
+            --execution_input_dir data/induction_input \
+            ----predictions_dir "$predictionspath" \
             > "$logfile" 2>&1
+        
         
         # Check exit code
         if [ $? -ne 0 ]; then

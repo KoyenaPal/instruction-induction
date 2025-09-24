@@ -37,8 +37,6 @@ INDUCTION_TASKS = ['cause_and_effect', 'larger_animal', 'num_to_verbal','orthogr
                    'detect_rhyme_and_rewrite', 'rank_by_protein','multi_lang_to_english','square_of_zodiac_animal',
                    'alternate_synonym_antonym', 'most_consonant_return_vowel', 'least_unique_word_count', 'first_word_alphabetically_return_reverse']
 
-sentence_model = SentenceTransformer("google/embeddinggemma-300m")
-
 
 def cosine(a, b):
     """Cosine similarity between two vectors."""
@@ -63,6 +61,7 @@ def get_sim_score(prediction: str, ground_truth: list[str], threshold: float = 0
     # Encode prediction and ground truth annotations
     print("Prediction")
     print(prediction, flush=True)
+    sentence_model = SentenceTransformer("google/embeddinggemma-300m")
     pred_emb = sentence_model.encode(prediction, convert_to_numpy=True)
     gt_embs = sentence_model.encode(ground_truth, convert_to_numpy=True)
 
