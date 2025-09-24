@@ -124,7 +124,7 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
         # Convert to model-specific chat template
         thinking_message = ""
         if source_thought_data:
-            full_source_thinking_text = extract_thinking(source_thought_data[instruction_id]['instruction_outputs'], model_name=execution_engine)
+            thinking_message = extract_thinking(source_thought_data[instruction_id]['instruction_outputs'], model_name=execution_engine)
         chat_prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
         if "oss" in execution_engine.lower():
             user_message = [{"role": "user", "content": messages[-1]["content"]}]
@@ -142,7 +142,7 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
         elif "openthinker" in execution_engine.lower():
             chat_prompt = f"{chat_prompt}<|begin_of_thought|>"
             if not(thought_type == "default") and not(thought_type == "with_sampling"):
-                chat_prompt = f"{chat_prompt}<|begin_of_thought|>{thinking_message}<|end_of_thought|><|begin_of_solution|>"
+                chat_prompt = f"{chat_prompt}{thinking_message}<|end_of_thought|><|begin_of_solution|>"
         
         # Tokenize and run model
         inputs = tokenizer(chat_prompt, return_tensors="pt").to(model.device)

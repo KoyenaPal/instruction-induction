@@ -16,7 +16,7 @@ for model in "${models[@]}"; do
     # Sanitize names for filenames
     safe_model="${model//\//_}"
     safe_targetmodel="${targetmodel//\//_}"
-    outputpath="predictions_${safe_model}"
+    outputpath="predictions_${safe_targetmodel}"
     timestamp=$(date +"%Y%m%d_%H%M%S")
     logfile="logs/${safe_model}_to_${safe_targetmodel}_$timestamp.log"
     echo "Running: python execute_instructions.py  --execution_engine $model --input_dir data/induction_input --thought_type transfer --source_folder $outputpath > "$logfile" 2>&1"
