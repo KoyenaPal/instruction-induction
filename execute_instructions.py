@@ -228,6 +228,7 @@ if __name__ == '__main__':
     if args.thought_type == "transfer":
         source_model = str(args.source_folder).split("predictions_")[-1]
         out_dir = f"predictions_{source_model}_thoughts_to_{cleaned_execution_engine}"
+        print("OUT DIRECTORY", out_dir, flush=True)
     if args.thought_type == "ensemble":
         ensembled_model = str(args.source_folder).split("ensemble_thoughts_")[-1]
         out_dir = f"predictions_{cleaned_execution_engine}_{args.thought_type}_{ensembled_model}"

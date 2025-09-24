@@ -7,11 +7,13 @@ import time
 from tqdm import tqdm
 from openai import OpenAI
 
-INDUCTION_TASKS = ['cause_and_effect', 'larger_animal', 'num_to_verbal','orthography_starts_with',
-                   'rhymes', 'synonyms', 'taxonomy_animal', 'translation_en-fr',
-                   'reverse_from_middle', 'smallest_item_length', 'smallest_even_no_sqrt', 'most_vowel_return_consonant',
-                   'detect_rhyme_and_rewrite', 'rank_by_protein','multi_lang_to_english','square_of_zodiac_animal',
-                   'alternate_synonym_antonym', 'most_consonant_return_vowel', 'least_unique_word_count', 'first_word_alphabetically_return_reverse']
+# INDUCTION_TASKS = ['cause_and_effect', 'larger_animal', 'num_to_verbal','orthography_starts_with',
+#                    'rhymes', 'synonyms', 'taxonomy_animal', 'translation_en-fr',
+#                    'reverse_from_middle', 'smallest_item_length', 'smallest_even_no_sqrt', 'most_vowel_return_consonant',
+#                    'detect_rhyme_and_rewrite', 'rank_by_protein','multi_lang_to_english','square_of_zodiac_animal',
+#                    'alternate_synonym_antonym', 'most_consonant_return_vowel', 'least_unique_word_count', 'first_word_alphabetically_return_reverse']
+
+INDUCTION_TASKS = ['rhymes','reverse_from_middle']
 
 def extract_thinking(answer, model_name="qwen"):
     """Extract thinking content from various model formats."""

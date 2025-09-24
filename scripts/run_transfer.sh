@@ -3,7 +3,7 @@
 # Define arrays of models and prompt styles
 #models=("Qwen/QwQ-32B" "BytedTsinghua-SIA/DAPO-Qwen-32B" "open-thoughts/OpenThinker-7B")
 models=("open-thoughts/OpenThinker-7B" "BytedTsinghua-SIA/DAPO-Qwen-32B" "nvidia/Nemotron-Research-Reasoning-Qwen-1.5B" "Qwen/QwQ-32B" "openai/gpt-oss-20b")
-targetmodels=("open-thoughts/OpenThinker-7B" "BytedTsinghua-SIA/DAPO-Qwen-32B" "nvidia/Nemotron-Research-Reasoning-Qwen-1.5B" "Qwen/QwQ-32B" "openai/gpt-oss-20b")
+targetmodels=("open-thoughts/OpenThinker-7B")
 # reasoningeffort= ("low" "medium" "high")
 mkdir -p logs
 
@@ -17,18 +17,18 @@ for model in "${models[@]}"; do
     safe_model="${model//\//_}"
     safe_targetmodel="${targetmodel//\//_}"
     outputpath="predictions_${safe_targetmodel}"
-    predictionspath="predictions_${safe_targetmodel}_thoughts_to_${safe_targetmodel}"
-    timestamp=$(date +"%Y%m%d_%H%M%S")
-    logfile="logs/${safe_model}_to_${safe_targetmodel}_$timestamp.log"
+    predictionspath="predictions_${safe_model}_thoughts_to_${safe_targetmodel}"
+    # timestamp=$(date +"%Y%m%d_%H%M%S")
+    logfile="logs/${safe_model}_to_${safe_targetmodel}.log"
     echo "Running: python execute_instructions.py  --execution_engine $model --input_dir data/induction_input --thought_type transfer --source_folder $outputpath > "$logfile" 2>&1"
     echo "Logging to: $logfile"
     
     # Run the command
     python execute_instructions.py  --execution_engine $model --input_dir data/induction_input --thought_type transfer --source_folder $outputpath > "$logfile" 2>&1
 
-    echo "Running: python evaluate.py --gen_model $model --execution_input_dir data/induction_input --predictions_dir $predictionspath"
+    # echo "Running: python evaluate.py --gen_model $model --execution_input_dir data/induction_input --predictions_dir $predictionspath"
 
-    python evaluate.py --gen_model $model --execution_input_dir data/induction_input --predictions_dir $predictionspath
+    # python evaluate.py --gen_model $model --execution_input_dir data/induction_input --predictions_dir $predictionspath
     
 
     # Check exit code
