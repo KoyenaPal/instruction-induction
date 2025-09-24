@@ -274,8 +274,13 @@ def main():
     import argparse
     
     parser = argparse.ArgumentParser()
+<<<<<<< Updated upstream
     parser.add_argument("--output", type=str, default="instruction_induction_ensemble_outputs_gen_qwq_dapo_eval_oss")
     parser.add_argument("--gen_models", nargs='+', default=["Qwen/QwQ-32B", "BytedTsinghua-SIA/DAPO-Qwen-32B"])
+=======
+    parser.add_argument("--output", type=str, default="instruction_induction_ensemble_outputs_gen_qwq_opent_eval_oss")
+    parser.add_argument("--gen_models", nargs='+', default=["Qwen/QwQ-32B", "open-thoughts/OpenThinker-7B"])
+>>>>>>> Stashed changes
     parser.add_argument("--eval_models", nargs='+', default=["openai/gpt-oss-20b"])
     
     args = parser.parse_args()
