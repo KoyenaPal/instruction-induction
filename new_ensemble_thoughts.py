@@ -1,13 +1,11 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
-import torch.nn.functional as F
 import re
 import random
 import numpy as np
 import os
 import csv
 from tqdm import tqdm
-import pandas as pd
 import gc
 import time
 import copy
@@ -16,9 +14,7 @@ import json
 # Configuration
 SEED = 42
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True,max_split_size_mb:1024"
-
 available_gpus = torch.cuda.device_count()
-print(f"Found {available_gpus} GPUs")
 
 def set_seed(seed):
     random.seed(seed)
@@ -30,9 +26,7 @@ def set_seed(seed):
 
 set_seed(SEED)
 
-# Memory Management
 def cleanup_memory():
-    """Clean up GPU and system memory"""
     gc.collect()
     if torch.cuda.is_available():
         for i in range(torch.cuda.device_count()):
@@ -40,43 +34,27 @@ def cleanup_memory():
                 torch.cuda.empty_cache()
                 torch.cuda.synchronize()
 
-def get_memory_info(device_id):
-    """Get GPU memory information"""
-    device = f"cuda:{device_id}"
-    allocated = torch.cuda.memory_allocated(device) / 1024**3
-    reserved = torch.cuda.memory_reserved(device) / 1024**3
-    total = torch.cuda.get_device_properties(device).total_memory / 1024**3
-    print(f"GPU {device_id}: {allocated:.1f}GB/{total:.1f}GB")
-    return allocated, reserved, total
-
-# Model Management
 class ModelManager:
     def __init__(self, generation_models, evaluation_models, available_gpus):
         self.generation_models = generation_models
         self.evaluation_models = evaluation_models
-        self.available_gpus = available_gpus
+        self.all_models = generation_models + evaluation_models
         self.loaded_models = {}
         self.model_gpu_map = {}
         
-        # Assign GPUs to models
-        all_models = generation_models + evaluation_models
-        for i, model_name in enumerate(all_models):
+        for i, model_name in enumerate(self.all_models):
             self.model_gpu_map[model_name] = i % available_gpus
     
     def load_model(self, model_name, cache_dir="/workspace/hf"):
-        """Load model with H200 optimization"""
         gpu_id = self.model_gpu_map[model_name]
-        device_map = f"cuda:{gpu_id}"
-        
         cleanup_memory()
-        print(f"Loading {model_name} on GPU {gpu_id}")
         
         tokenizer = AutoTokenizer.from_pretrained(model_name, cache_dir=cache_dir)
         model = AutoModelForCausalLM.from_pretrained(
             model_name,
             cache_dir=cache_dir,
-            device_map=device_map,
-            torch_dtype=torch.bfloat16,
+            device_map=f"cuda:{gpu_id}",
+            dtype=torch.bfloat16,
             max_memory={gpu_id: "130GB"},
             low_cpu_mem_usage=True,
             offload_folder="offload_dir"
@@ -86,35 +64,30 @@ class ModelManager:
         if hasattr(model, 'gradient_checkpointing_enable'):
             model.gradient_checkpointing_enable()
         
-        get_memory_info(gpu_id)
         return tokenizer, model
     
     def get_model(self, model_name):
-        """Get model, loading if necessary"""
         if model_name not in self.loaded_models:
             tokenizer, model = self.load_model(model_name)
             self.loaded_models[model_name] = (tokenizer, model)
         return self.loaded_models[model_name]
     
     def cleanup(self):
-        """Clean up all models"""
         for model_name, (tokenizer, model) in self.loaded_models.items():
             del tokenizer, model
         self.loaded_models.clear()
         cleanup_memory()
 
-# Text Processing
 def truncate_to_last_sentence(text):
-    """Truncate text to the last complete sentence"""
     text = text.strip()
     
     def is_abbreviation(word):
         lw = word.lower()
-        if re.match(r"\d+\.\d+$", lw):  # Decimal
+        if re.match(r"\d+\.\d+$", lw):
             return True
-        if re.match(r"[A-Za-z]{1,4}\.$", lw):  # Short abbreviation
+        if re.match(r"[A-Za-z]{1,4}\.$", lw):
             return True
-        if re.match(r"(?:[A-Za-z]{1,4}\.){2,}$", lw):  # Multi-part abbreviation
+        if re.match(r"(?:[A-Za-z]{1,4}\.){2,}$", lw):
             return True
         return False
 
@@ -130,14 +103,36 @@ def truncate_to_last_sentence(text):
     
     return text[:last_good_end].strip() if last_good_end else text
 
-# Generation Functions
+def format_context(context, tokenizer, model_name):
+    if tokenizer.pad_token is None:
+        tokenizer.pad_token = tokenizer.eos_token
+    
+    context_formatted = tokenizer.apply_chat_template(
+        context, tokenize=False, add_generation_prompt=True
+    )
+    
+    if "qwen" in model_name.lower():
+        context_formatted += "<think>"
+    elif "openthinker" in model_name.lower():
+        context_formatted += "<|begin_of_thought|>"
+    elif "gpt-oss" in model_name.lower():
+        user_message = [{"role": "user", "content": context[-1]["content"]}]
+        context_formatted = tokenizer.apply_chat_template(
+            user_message,
+            model_identity=context[0]["content"] if len(context) > 1 else "",
+            reasoning_effort="low",
+            tokenize=False,
+            add_generation_prompt=True
+        )
+    
+    return context_formatted
+
 def generate_candidates(context, tokenizer, model, num_candidates, max_tokens=15):
-    """Generate candidate continuations"""
     set_seed(SEED)
     model_device = next(model.parameters()).device
     
     with torch.inference_mode():
-        enc = tokenizer(context, return_tensors="pt", truncation=True).to(model_device)
+        enc = tokenizer(context, return_tensors="pt", truncation=True, max_length=32768).to(model_device)
         
         output = model.generate(
             input_ids=enc["input_ids"],
@@ -162,7 +157,6 @@ def generate_candidates(context, tokenizer, model, num_candidates, max_tokens=15
     return candidates
 
 def compute_perplexities(context, candidates, tokenizer, model):
-    """Compute perplexity for each candidate"""
     model_device = next(model.parameters()).device
     perplexities = []
     
@@ -170,7 +164,7 @@ def compute_perplexities(context, candidates, tokenizer, model):
         for candidate in candidates:
             full_text = context + candidate
             
-            enc = tokenizer(full_text, return_tensors="pt", truncation=True).to(model_device)
+            enc = tokenizer(full_text, return_tensors="pt", truncation=True, max_length=32768).to(model_device)
             outputs = model(input_ids=enc["input_ids"], 
                           attention_mask=enc["attention_mask"], 
                           labels=enc["input_ids"])
@@ -183,41 +177,16 @@ def compute_perplexities(context, candidates, tokenizer, model):
     
     return perplexities
 
-# Main Generation Loop
-# max tokens = 2048 - 30
+#2048 - 30
 def iterative_generate(context, model_manager, max_tokens=2018, num_candidates=3):
-    """Main iterative generation with ensemble scoring"""
     iteration_count = 0
     contexts = {}
     chosen_per_iteration = []
     
-    # Initialize contexts for each model
-    for model_name in model_manager.generation_models:
+    # Initialize contexts for all models
+    for model_name in model_manager.all_models:
         tokenizer, _ = model_manager.get_model(model_name)
-        
-        if tokenizer.pad_token is None:
-            tokenizer.pad_token = tokenizer.eos_token
-        
-        context_formatted = tokenizer.apply_chat_template(
-            context, tokenize=False, add_generation_prompt=True
-        )
-        
-        # Add model-specific tokens
-        if "qwen" in model_name.lower():
-            context_formatted += "<think>"
-        elif "openthinker" in model_name.lower():
-            context_formatted += "<|begin_of_thought|>"
-        elif "gpt-oss" in model_name.lower():
-            user_message = [{"role": "user", "content": context[-1]["content"]}]
-            context_formatted = tokenizer.apply_chat_template(
-                user_message,
-                model_identity=context[0]["content"] if len(context) > 1 else "",
-                reasoning_effort="low",
-                tokenize=False,
-                add_generation_prompt=True
-            )
-        
-        contexts[model_name] = context_formatted
+        contexts[model_name] = format_context(context, tokenizer, model_name)
     
     # Calculate token limits
     first_model = model_manager.generation_models[0]
@@ -228,7 +197,6 @@ def iterative_generate(context, model_manager, max_tokens=2018, num_candidates=3
     while True:
         print(f"\n--- Iteration {iteration_count} ---")
         
-        # Check termination conditions
         if iteration_count > 0:
             if total_tokens >= max_total_tokens:
                 print("✅ Reached max length")
@@ -237,15 +205,12 @@ def iterative_generate(context, model_manager, max_tokens=2018, num_candidates=3
                 print("✅ Reached end of thought")
                 break
         
-        # Generate candidates from each generation model
+        # Generate candidates
         all_candidates = []
         candidates_per_model = {}
         
         for model_name in model_manager.generation_models:
             tokenizer, model = model_manager.get_model(model_name)
-            
-            if tokenizer.pad_token is None:
-                tokenizer.pad_token = tokenizer.eos_token
             
             candidates = generate_candidates(
                 contexts[model_name], tokenizer, model, num_candidates
@@ -255,21 +220,17 @@ def iterative_generate(context, model_manager, max_tokens=2018, num_candidates=3
             all_candidates.extend(candidates)
             candidates_per_model[model_name] = candidates
         
-        # Score candidates with evaluation models
+        # Score candidates
         candidate_scores = {cand: [] for cand in all_candidates}
         
         for model_name in model_manager.evaluation_models:
             tokenizer, model = model_manager.get_model(model_name)
             
-            try:
-                perplexities = compute_perplexities(
-                    contexts[model_name], all_candidates, tokenizer, model
-                )
-                for i, candidate in enumerate(all_candidates):
-                    candidate_scores[candidate].append(perplexities[i])
-            except Exception as e:
-                print(f"⚠️ Error scoring with {model_name}: {e}")
-                continue
+            perplexities = compute_perplexities(
+                contexts[model_name], all_candidates, tokenizer, model
+            )
+            for i, candidate in enumerate(all_candidates):
+                candidate_scores[candidate].append(perplexities[i])
         
         # Select best candidate
         scored_candidates = []
@@ -285,7 +246,7 @@ def iterative_generate(context, model_manager, max_tokens=2018, num_candidates=3
         best_candidate, best_score = min(scored_candidates, key=lambda x: x[1])
         print(f"🔹 Selected: {best_candidate.strip()}")
         
-        # Find which model generated the best candidate
+        # Find source model
         selected_model = None
         for model_name, candidates in candidates_per_model.items():
             if best_candidate in candidates:
@@ -309,34 +270,24 @@ def iterative_generate(context, model_manager, max_tokens=2018, num_candidates=3
     
     return contexts, chosen_per_iteration
 
-# Main Function
 def main():
     import argparse
     
-    parser = argparse.ArgumentParser(description="Ensemble generation with iterative selection")
-    parser.add_argument("--output", type=str, 
-                       default="instruction_induction_ensemble_outputs_gen_qwq_dapo_eval_oss", 
-                       help="Output directory")
-    parser.add_argument("--gen_models", nargs='+', 
-                       default=["Qwen/QwQ-32B", "BytedTsinghua-SIA/DAPO-Qwen-32B"],
-                       help="Generation models")
-    parser.add_argument("--eval_models", nargs='+', 
-                       default=["openai/gpt-oss-20b"],
-                       help="Evaluation models")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--output", type=str, default="instruction_induction_ensemble_outputs_gen_qwq_oss_eval_dapo")
+    parser.add_argument("--gen_models", nargs='+', default=["Qwen/QwQ-32B", "openai/gpt-oss-20b"])
+    parser.add_argument("--eval_models", nargs='+', default=["BytedTsinghua-SIA/DAPO-Qwen-32B"])
     
     args = parser.parse_args()
     set_seed(SEED)
     
-    # Initialize model manager
     model_manager = ModelManager(args.gen_models, args.eval_models, available_gpus)
     
-    # Task configuration
-    input_dir = "data/induction_input"
     INDUCTION_TASKS = ['cause_and_effect', 'larger_animal', 'num_to_verbal','orthography_starts_with',
-                           'rhymes', 'synonyms', 'taxonomy_animal', 'translation_en-fr',
-                           'reverse_from_middle', 'smallest_item_length', 'smallest_even_no_sqrt', 'most_vowel_return_consonant',
-                           'detect_rhyme_and_rewrite', 'rank_by_protein','multi_lang_to_english','square_of_zodiac_animal',
-                           'alternate_synonym_antonym', 'most_consonant_return_vowel', 'least_unique_word_count', 'first_word_alphabetically_return_reverse']
+                       'rhymes', 'synonyms', 'taxonomy_animal', 'translation_en-fr',
+                       'reverse_from_middle', 'smallest_item_length', 'smallest_even_no_sqrt', 'most_vowel_return_consonant',
+                       'detect_rhyme_and_rewrite', 'rank_by_protein','multi_lang_to_english','square_of_zodiac_animal',
+                       'alternate_synonym_antonym', 'most_consonant_return_vowel', 'least_unique_word_count', 'first_word_alphabetically_return_reverse']
     
     try:
         for task_name in INDUCTION_TASKS:
@@ -345,15 +296,12 @@ def main():
             output_file = f"{args.output}/{task_name}.csv"
             os.makedirs(os.path.dirname(output_file), exist_ok=True)
             
-            # Load task data
-            with open(f'{input_dir}/./{task_name}.json', encoding='utf-8') as f:
+            with open(f'data/induction_input/./{task_name}.json', encoding='utf-8') as f:
                 data = json.load(f)["examples"]
             
-            # Sample 5 examples
             random.seed(42)
             sampled_keys = sorted(random.sample(list(data.keys()), 5), key=int)
             
-            # Process each example
             write_header = not os.path.exists(output_file)
             with open(output_file, 'a', newline='', encoding='utf-8') as csvfile:
                 writer = csv.DictWriter(csvfile, fieldnames=["Instruction", "Ensembled Thought"], 
@@ -368,12 +316,8 @@ def main():
                     
                     messages = [{"role": "user", "content": user_prompt}]
                     
-                    # Generate ensemble output
-                    final_contexts, selection_history = iterative_generate(
-                        messages, model_manager
-                    )
+                    final_contexts, selection_history = iterative_generate(messages, model_manager)
                     
-                    # Save results
                     with open(f"{args.output}/{task_name}_history_{instruction_id}.json", "w") as f:
                         json.dump(selection_history, f, indent=2)
                     
@@ -382,12 +326,9 @@ def main():
                         "Ensembled Thought": final_contexts[args.gen_models[0]].strip()
                     })
                     csvfile.flush()
-                    
-                    print(f"✅ Completed {task_name} example {instruction_id}")
     
     finally:
         model_manager.cleanup()
-        print("🧹 Cleanup complete")
 
 if __name__ == "__main__":
     main()
