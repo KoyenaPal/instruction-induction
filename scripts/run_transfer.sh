@@ -55,7 +55,7 @@ for sourcemodel in "${sourcemodels[@]}"; do
         python evaluate.py \
             --gen_model "$targetmodel" \
             --execution_input_dir data/induction_input \
-            ----predictions_dir "$predictionspath" \
+            --predictions_dir "$predictionspath" \
             > "$logfile" 2>&1
         
         

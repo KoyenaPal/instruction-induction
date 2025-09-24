@@ -1,0 +1,41 @@
+Traceback (most recent call last):
+  File "/instruction-induction/evaluate.py", line 10, in <module>
+    from sentence_transformers import SentenceTransformer
+  File "/.venv/lib/python3.11/site-packages/sentence_transformers/__init__.py", line 10, in <module>
+    from sentence_transformers.backend import (
+  File "/.venv/lib/python3.11/site-packages/sentence_transformers/backend/__init__.py", line 3, in <module>
+    from .load import load_onnx_model, load_openvino_model
+  File "/.venv/lib/python3.11/site-packages/sentence_transformers/backend/load.py", line 7, in <module>
+    from transformers.configuration_utils import PretrainedConfig
+  File "/.venv/lib/python3.11/site-packages/transformers/__init__.py", line 27, in <module>
+    from . import dependency_versions_check
+  File "/.venv/lib/python3.11/site-packages/transformers/dependency_versions_check.py", line 16, in <module>
+    from .utils.versions import require_version, require_version_core
+  File "/.venv/lib/python3.11/site-packages/transformers/utils/__init__.py", line 24, in <module>
+    from .auto_docstring import (
+  File "/.venv/lib/python3.11/site-packages/transformers/utils/auto_docstring.py", line 30, in <module>
+    from .generic import ModelOutput
+  File "/.venv/lib/python3.11/site-packages/transformers/utils/generic.py", line 51, in <module>
+    import torch  # noqa: F401
+    ^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/torch/__init__.py", line 2668, in <module>
+    from torch import _meta_registrations
+  File "/.venv/lib/python3.11/site-packages/torch/_meta_registrations.py", line 13, in <module>
+    from torch._decomp import (
+  File "/.venv/lib/python3.11/site-packages/torch/_decomp/__init__.py", line 276, in <module>
+    import torch._decomp.decompositions
+  File "/.venv/lib/python3.11/site-packages/torch/_decomp/decompositions.py", line 16, in <module>
+    import torch._prims as prims
+  File "/.venv/lib/python3.11/site-packages/torch/_prims/__init__.py", line 848, in <module>
+    real = _make_prim(
+           ^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/torch/_prims/__init__.py", line 338, in _make_prim
+    elif aten_packet := getattr(torch.ops.aten, name, None):
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/torch/_ops.py", line 1351, in __getattr__
+    op, overload_names = _get_packet(qualified_op_name, module_name)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/torch/_ops.py", line 1376, in _get_packet
+    op, overload_names = torch._C._jit_get_operation(qualname)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
