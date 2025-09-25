@@ -93,8 +93,8 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
         print("CAME TO SOURCE FOLDER", flush=True)
         file_name = f"{task_name}_execution.json"
         if "without_answer" in source_folder:
-            file_name += f"{task_name}_without_answer.json"
-        with open(f'{source_folder}/./{file_name}_execution.json', encoding='utf-8') as f_thoughts_source:
+            file_name = f"{task_name}_without_answer.json"
+        with open(f'{source_folder}/./{file_name}', encoding='utf-8') as f_thoughts_source:
             #print("THE SOURCE FOLDER USED", f'{source_folder}/./{task_name}_execution.json', flush=True)
             source_thought_data = json.load(f_thoughts_source)
         if source_thought_data is None:
