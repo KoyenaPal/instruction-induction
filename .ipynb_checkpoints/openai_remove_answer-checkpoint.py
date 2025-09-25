@@ -193,7 +193,7 @@ def main():
     for task in tasks:
         results = process_task(client, args.input_dir, task, args.sleep_between_calls)
         
-        output_file = f"{args.output_dir}/{task}_without_answer.json"
+        output_file = f"{args.output_dir}/{task}_execution.json"
         with open(output_file, 'w', encoding='utf-8') as f:
             json.dump(results, f, indent=2, ensure_ascii=False)
         
