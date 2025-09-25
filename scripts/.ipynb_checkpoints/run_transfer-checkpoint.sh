@@ -9,7 +9,7 @@
 #     "open-thoughts/OpenThinker-7B"
 # )
 sourcemodels=(
-    "nvidia/Nemotron-Research-Reasoning-Qwen-1.5B" 
+    "BytedTsinghua-SIA/DAPO-Qwen-32B" 
 )
 targetmodels=(
     "BytedTsinghua-SIA/DAPO-Qwen-32B" 
