@@ -70,6 +70,7 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
     """
 
     # Load input examples
+    torch.cuda.empty_cache()
     print("CAME TO THE FUNCTION TO EXECUTE ACCURACY", flush=True)
     with open(f'{input_dir}/{instruction_generation_model}/{task_name}.json', encoding='utf-8') as f_examples:
         data = json.load(f_examples)

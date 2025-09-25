@@ -1,7 +1,7 @@
 #!/bin/bash
 # Define arrays of models and prompt styles
 sourcemodels=(
-    "nvidia/Nemotron-Research-Reasoning-Qwen-1.5B" 
+    "openai/gpt-oss-20b"
 )
 targetmodels=(
     "BytedTsinghua-SIA/DAPO-Qwen-32B" 
