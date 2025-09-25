@@ -141,3 +141,255 @@ Traceback (most recent call last):
     setattr(module, proj, torch.nn.Parameter(dequantized.to(target_device)))
                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1014.00 MiB. GPU 1 has a total capacity of 139.83 GiB of which 646.44 MiB is free. Process 4174903 has 22.04 GiB memory in use. Process 4178768 has 98.78 GiB memory in use. Process 4180097 has 18.36 GiB memory in use. Of the allocated memory 17.39 GiB is allocated by PyTorch, and 308.05 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+['Each input consists of two sentences, where one is the cause and the other is the outcome. Write The cause sentence', 'The input consists of two sentences. One is the cause of the other. Write the cause sentence', 'The input is a cause and effect. Write the cause.', 'The input is a cause and effect, write the cause', 'Find the cause in the following cause and effect pair', 'Output the sentence describing the cause (the other sentence is what happened as a result).', 'Output the cause (other sentence describes what happened as a result)', 'Which of the following sentences is the cause?', 'Which of the two events is the cause?']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: **“Given two sentences, output the first one.”**<|return|>
+Normalized prediction the instruction is “given two sentences output the first one
+ 20%|██        | 1/5 [00:06<00:27,  6.83s/it]Predictions  The instruction is: “Given two sentences, the first is a statement and the second is its consequence.”<|return|>
+Normalized prediction the instruction is “given two sentences the first is a statement the second is its consequence
+ 40%|████      | 2/5 [00:12<00:18,  6.20s/it]Predictions  The instruction is: **Output the first input sentence.**<|return|>
+Normalized prediction the instruction is output the first input sentence
+ 60%|██████    | 3/5 [00:17<00:10,  5.46s/it]Predictions  The instruction is: **“If the first sentence is about a family event, output the second sentence. If the first sentence is about a promotion, output the third sentence
+Normalized prediction the instruction is “if the first sentence is about a family event output the second sentence
+ 80%|████████  | 4/5 [00:21<00:05,  5.13s/it]Predictions  The instruction is: **“Output the second sentence.”**<|return|>
+Normalized prediction the instruction is “output the second sentence
+100%|██████████| 5/5 [00:26<00:00,  4.94s/it]100%|██████████| 5/5 [00:26<00:00,  5.28s/it]
+['which of the animals separated by , is bigger', 'output which of the animals in the input is bigger', 'Write the bigger animal of the two', 'Write the bigger animal', 'Write which of the pair of animals in each input is larger', 'For each input, write which of the two animals is bigger.', 'find the larger between the following pair of animals', 'Which of the following animals is bigger?', 'Which is bigger?']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: **“Return the animal that is larger (by typical size) in each pair.”**  
+In each pair, the friend chose the animal that is
+Normalized prediction the instruction is “return the animal that is larger by typical size in each pair
+ 20%|██        | 1/5 [00:05<00:21,  5.40s/it]Predictions  The instruction is: **“Return the first item in the comma‑separated pair.”**<|return|>
+Normalized prediction the instruction is “return the first item in the comma‑separated pair
+ 40%|████      | 2/5 [00:10<00:16,  5.45s/it]Predictions  The instruction is: **“Return the first item in the pair if the first item is a land animal; otherwise return the second item.”**<|return|>
+Normalized prediction the instruction is “return the first item in the pair if the first item is a land animal otherwise return the second item
+ 60%|██████    | 3/5 [00:16<00:11,  5.62s/it]Predictions  The instruction is: **“Output the first element of each input pair.”**<|return|>
+Normalized prediction the instruction is “output the first element of each input pair
+ 80%|████████  | 4/5 [00:22<00:05,  5.67s/it]Predictions  The instruction is: **“Return the first word of the input.”**<|return|>
+Normalized prediction the instruction is “return the first word of the input
+100%|██████████| 5/5 [00:27<00:00,  5.55s/it]100%|██████████| 5/5 [00:27<00:00,  5.56s/it]
+['output how the number in the input is pronounced in English', 'output the pronunciation of the number in the input', 'Write the number in English words', 'For each input, write the number in plain English words without using digits.', 'For each input, write the number in plain English words without using digits or numbers.', 'Write the following number with words:', 'You will be given an input number and you need to output the number while writing it with words', 'Write the input number with words.']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: **Convert each number into its English word representation, breaking it down into thousands, hundreds, tens, and units (e.g., “four thousand,
+Normalized prediction the instruction is convert each number into its english word representation breaking it down into thousands hundreds tens units e
+ 20%|██        | 1/5 [00:05<00:20,  5.01s/it]Predictions  The instruction is: **“Convert each number into its word form by breaking it into thousands, hundreds, tens, and ones.”**<|return|>
+Normalized prediction the instruction is “convert each number into its word form by breaking it into thousands hundreds tens ones
+ 40%|████      | 2/5 [00:09<00:14,  4.94s/it]Predictions  The instruction is: **Convert each number into its English word form by breaking it into thousands, hundreds, tens, and units, using “thousand”, “hundred
+Normalized prediction the instruction is convert each number into its english word form by breaking it into thousands hundreds tens units using “thousand” “hundred
+ 60%|██████    | 3/5 [00:14<00:09,  4.91s/it]Predictions  The instruction is: **“Convert the number into words using the standard British number system (including the word “and” after the hundreds place).”**<|return|>
+Normalized prediction the instruction is “convert the number into words using the standard british number system including the word “and” after the hundreds place
+ 80%|████████  | 4/5 [00:20<00:05,  5.24s/it]Predictions  The instruction is: **“Convert each input number into its English word representation, breaking it into thousands, hundreds, tens, and units, and using the appropriate scale words
+Normalized prediction the instruction is “convert each input number into its english word representation breaking it into thousands hundreds tens units using the appropriate scale words
+100%|██████████| 5/5 [00:25<00:00,  5.07s/it]100%|██████████| 5/5 [00:25<00:00,  5.06s/it]
+['Output all tokens in the sentence that start with the letter in [ ]', 'output all the tokens in the input that start with the letter in [ ]', 'Write all the words of the input that start with the letter in the square brackets', 'Write all the words from the sentence that start with the letter in the square brackets', 'For each input sentence, list all the words in the sentence that begin with the character written inside the brackets.', 'For each input, list all the words in the sentence that begin with the character in brackets at the end of the sentence.', 'Write all the words in the following sentence that start with the bracketed letter, in their original order.', 'Write a word from the following sentence that starts with the bracketed letter:']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: **“Replace the placeholder in brackets with the word that appears in the output.”**  
+In other words, for each input the friend was told to
+Normalized prediction the instruction is “replace the placeholder in brackets with the word that appears in the output
+ 20%|██        | 1/5 [00:05<00:21,  5.47s/it]Predictions  The instruction is: **“Return the word that is the first word of the sentence that follows the verb in the input.”**<|return|>
+Normalized prediction the instruction is “return the word that is the first word of the sentence that follows the verb in the input
+ 40%|████      | 2/5 [00:10<00:15,  5.19s/it]Predictions  The instruction is: **Replace the bracketed letter with the word that is the same as the letter’s name but with the first letter removed.**  
+In other words
+Normalized prediction the instruction is replace the bracketed letter with the word that is the same as the letter’s name but with the first letter removed
+ 60%|██████    | 3/5 [00:14<00:09,  4.65s/it]Predictions  The instruction is: **“to confiscate, to look, to around, kill, and look.”**<|return|>
+Normalized prediction the instruction is “to confiscate to look to around kill look
+ 80%|████████  | 4/5 [00:19<00:04,  4.64s/it]Predictions  The instruction is: **“Take the second word of each sentence.”**<|return|>
+Normalized prediction the instruction is “take the second word of each sentence
+100%|██████████| 5/5 [00:23<00:00,  4.66s/it]100%|██████████| 5/5 [00:23<00:00,  4.76s/it]
+['what is a word that rhymes with the input token', 'write a word that rhymes with the input', 'Write a word that rhymes with the input', 'Write a word that rhymes with the input word', 'Write a word that rhymes with each of the following input words', 'For each word in the input write another word that rhymes with it.', 'Write a rhyme for the following word:', 'Write a word that rhymes with the input word.']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: **“Take the last letter of the input word and use it as the first letter of the output word.”**<|return|>
+Normalized prediction the instruction is “take the last letter of the input word use it as the first letter of the output word
+ 20%|██        | 1/5 [00:03<00:15,  3.91s/it]Predictions  The instruction is: **“Connect the input word to a related word or action that follows it in a natural chain.”**  
+In other words, for each given word
+Normalized prediction the instruction is “connect the input word to a related word or action that follows it in a natural chain
+ 40%|████      | 2/5 [00:09<00:15,  5.00s/it]Predictions  The instruction is: **“Take the input word, add the prefix “be‑” to it, and then replace the last letter with the letter that comes next in
+Normalized prediction the instruction is “take the input word add the prefix “be‑” to it then replace the last letter with the letter that comes next in
+ 60%|██████    | 3/5 [00:15<00:10,  5.19s/it]Predictions  The instruction is: **“Take the input word, find the word that is one letter *before* it in the alphabet, and then replace that letter with the next
+Normalized prediction the instruction is “take the input word find the word that is one letter before it in the alphabet then replace that letter with the next
+ 80%|████████  | 4/5 [00:20<00:05,  5.29s/it]Predictions  The instruction is: **“Take the input word, remove its first letter, then add the word “tion” to the end.”**<|return|>
+Normalized prediction the instruction is “take the input word remove its first letter then add the word “tion” to the end
+100%|██████████| 5/5 [00:25<00:00,  5.35s/it]100%|██████████| 5/5 [00:25<00:00,  5.20s/it]
+['provide a synonym', 'output a word that is similar to the input', 'Write a word with similar meaning to the input', 'Write a word with a similar meaning', 'Write a word with close, but not exactly the same, meaning to each word in the following inputs', 'Write a synonym of the following word:', 'You will be given a word as input and need to output a word that is semantically similar. ', 'Write a synonym of the input word.']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: **“Take the root or base form of the word (i.e., strip away any suffixes or extra parts) and output that.”**<|return|>
+Normalized prediction the instruction is “take the root or base form of the word i
+ 20%|██        | 1/5 [00:04<00:18,  4.54s/it]Predictions  The instruction is: **“Make the input become the output.”** In other words, transform each word into the word that follows it in the list.<|return|>
+Normalized prediction the instruction is “make the input become the output
+ 40%|████      | 2/5 [00:09<00:13,  4.56s/it]Predictions  The instruction is: **“Convert the word to its past‑tense form.”**<|return|>
+Normalized prediction the instruction is “convert the word to its past‑tense form
+ 60%|██████    | 3/5 [00:13<00:09,  4.54s/it]Predictions  The instruction is: **“Take the input word and give the word that is most closely related to it in meaning (often a synonym, related noun, or a word
+Normalized prediction the instruction is “take the input word give the word that is most closely related to it in meaning often a synonym related noun or a word
+ 80%|████████  | 4/5 [00:17<00:04,  4.22s/it]Predictions  The instruction is: **“Convert each input into the corresponding output by relating their meanings.”**<|return|>
+Normalized prediction the instruction is “convert each input into the corresponding output by relating their meanings
+100%|██████████| 5/5 [00:21<00:00,  4.31s/it]100%|██████████| 5/5 [00:21<00:00,  4.36s/it]
+['write only the animals from the list of words', 'write all animals from the list of words', 'Find the animals in the list', 'find the animals in the following list of words', 'List which of the following are animals', 'List the animals from the given words', 'extract animals', 'Extract all animals from the input list', 'Extract all animals from the list']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: **“From each list, keep only the words that are animals (including insects, fish, etc.) and output them in the order they appear in
+Normalized prediction the instruction is “from each list keep only the words that are animals including insects fish etc
+ 20%|██        | 1/5 [00:04<00:18,  4.61s/it]Predictions  The instruction is: **“Take the words that are animals from the input list, and output them in reverse alphabetical order.”**<|return|>
+Normalized prediction the instruction is “take the words that are animals from the input list output them in reverse alphabetical order
+ 40%|████      | 2/5 [00:09<00:15,  5.02s/it]Predictions  The instruction is: **“From each list, keep only the items that are animals (or animal‑like) and list them in the order they appear in the original
+Normalized prediction the instruction is “from each list keep only the items that are animals or animal‑like list them in the order they appear in the original
+ 60%|██████    | 3/5 [00:15<00:10,  5.23s/it]Predictions  The instruction is: **“From each list, keep only the words that are animals (or animal‑related) and output them in the order they appear in the original
+Normalized prediction the instruction is “from each list keep only the words that are animals or animal‑related output them in the order they appear in the original
+ 80%|████████  | 4/5 [00:20<00:05,  5.19s/it]Predictions  The instruction is: **“From the list of words, output only the ones that are animals.”**<|return|>
+Normalized prediction the instruction is “from the list of words output only the ones that are animals
+100%|██████████| 5/5 [00:25<00:00,  5.19s/it]100%|██████████| 5/5 [00:25<00:00,  5.14s/it]
+['Translate the input to French', 'Translate the word into French', 'Translate each of the following input to French', 'Translate each word in the input to French.']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: **“Translate each English word into French, but keep the word unchanged if it is already a French word.”**<|return|>
+Normalized prediction the instruction is “translate each english word into french but keep the word unchanged if it is already a french word
+ 20%|██        | 1/5 [00:04<00:17,  4.41s/it]Predictions  The instruction is: **“Add an **e** to the end of the word.”**<|return|>
+Normalized prediction the instruction is “add an e to the end of the word
+ 40%|████      | 2/5 [00:08<00:12,  4.32s/it]Predictions  The instruction is: **Convert each input into its female equivalent or a specific descriptive term.**<|return|>
+Normalized prediction the instruction is convert each input into its female equivalent or a specific descriptive term
+ 60%|██████    | 3/5 [00:13<00:08,  4.33s/it]Predictions  The instruction is: **“Generate a visual or artistic representation (or description) of the given input.”**<|return|>
+Normalized prediction the instruction is “generate a visual or artistic representation or description of the given input
+ 80%|████████  | 4/5 [00:18<00:04,  4.64s/it]Predictions  The instruction is: **“Translate each English word into its French equivalent.”**<|return|>
+Normalized prediction the instruction is “translate each english word into its french equivalent
+100%|██████████| 5/5 [00:23<00:00,  4.75s/it]100%|██████████| 5/5 [00:23<00:00,  4.61s/it]
+['Reverse the characters on each side of the middle point', 'Split at the center and reverse each half separately', 'Find the middle and flip the order of characters on both sides', 'Divide the string in half and reverse each portion independently', 'Locate the center point and reverse the left and right segments', 'Take the middle as a pivot and reverse the characters before and after it', 'Split the input at the midpoint and apply reversal to each side', 'Identify the center element and reverse the characters in each half around it']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: **Swap the first two characters of the string.**<|return|>
+Normalized prediction the instruction is swap the first two characters of the string
+ 20%|██        | 1/5 [00:05<00:20,  5.23s/it]Predictions  The instruction is: **“Take the word, reverse the order of its letters, then shift each letter one position to the left in the alphabet (with wrap‑around
+Normalized prediction the instruction is “take the word reverse the order of its letters then shift each letter one position to the left in the alphabet with wrap‑around
+ 40%|████      | 2/5 [00:10<00:15,  5.29s/it]Predictions  The instruction is: **“Take the first letter of the word, move it to the end, then reverse the order of the remaining letters.”**<|return|>
+Normalized prediction the instruction is “take the first letter of the word move it to the end then reverse the order of the remaining letters
+ 60%|██████    | 3/5 [00:15<00:10,  5.07s/it]Predictions  The instruction is: **“Swap the first and last letters of the word, then reverse the order of the remaining letters.”**<|return|>
+Normalized prediction the instruction is “swap the first last letters of the word then reverse the order of the remaining letters
+ 80%|████████  | 4/5 [00:20<00:04,  4.94s/it]Predictions  The instruction is: **“Replace each letter with the one that is two places to the right in the alphabet, wrapping around from Z to A.”**
+Normalized prediction the instruction is “replace each letter with the one that is two places to the right in the alphabet wrapping around from z to a
+100%|██████████| 5/5 [00:24<00:00,  4.84s/it]100%|██████████| 5/5 [00:24<00:00,  4.95s/it]
+['Count the characters in the smallest item', 'Find the shortest item and return its character count', 'Identify the smallest object and count its letters', 'Determine which item is smallest and output its length', 'Locate the most compact item and count its characters', 'Select the briefest item and return its character count', 'Pick the shortest entry and calculate its length', 'Choose the smallest element and count how many letters it has']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: **“Count the number of letters in the word *instruction*.”**  
+The friend applied that rule to each input set, producing the outputs shown
+Normalized prediction the instruction is “count the number of letters in the word instruction
+ 20%|██        | 1/5 [00:04<00:18,  4.65s/it]Predictions  The instruction is: **“Count how many of the items in each list belong to a particular category (e.g., instruments, furniture, seasons, primary colors, natural
+Normalized prediction the instruction is “count how many of the items in each list belong to a particular category e
+ 40%|████      | 2/5 [00:09<00:14,  4.97s/it]Predictions  The instruction is: **“Count how many of the items in the list are *not* the first item.”**  
+(For the first four lists this gives 
+Normalized prediction the instruction is “count how many of the items in the list are not the first item
+ 60%|██████    | 3/5 [00:14<00:09,  4.80s/it]Predictions  The instruction is: **“Count how many of the words in the list are *not* a type of *food* (or *genre* or *instrument*
+Normalized prediction the instruction is “count how many of the words in the list are not a type of food or genre or instrument
+ 80%|████████  | 4/5 [00:19<00:04,  4.96s/it]Predictions  The instruction is: **“Count how many of the words in each list are *not* the same as the first word in that list.”**<|return|>
+Normalized prediction the instruction is “count how many of the words in each list are not the same as the first word in that list
+100%|██████████| 5/5 [00:24<00:00,  5.07s/it]100%|██████████| 5/5 [00:24<00:00,  4.98s/it]
+['Identify the smallest even number and return its square root', 'Find the lowest even value and calculate its square root', 'Locate the smallest even integer and output its square root', 'Determine the minimum even number and return its square root', 'Select the smallest even entry and calculate its square root', 'Pick the lowest even item and output its square root', 'Choose the smallest even element and return its square root', 'Find the most compact even number and calculate its square root']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: **“Count how many of the five input numbers are perfect squares, and output that count.”**<|return|>
+Normalized prediction the instruction is “count how many of the five input numbers are perfect squares output that count
+ 20%|██        | 1/5 [00:05<00:20,  5.12s/it]Predictions  The instruction is: **“Count how many of the five numbers in each input are perfect squares, and output that count.”**<|return|>
+Normalized prediction the instruction is “count how many of the five numbers in each input are perfect squares output that count
+ 40%|████      | 2/5 [00:10<00:15,  5.20s/it]Predictions  The instruction is: **“Count how many of the five input numbers are perfect squares.”**<|return|>
+Normalized prediction the instruction is “count how many of the five input numbers are perfect squares
+ 60%|██████    | 3/5 [00:14<00:09,  4.90s/it]Predictions  The instruction is: **“Count the letters in the English word for each number and add them together.”**<|return|>
+Normalized prediction the instruction is “count the letters in the english word for each number add them together
+ 80%|████████  | 4/5 [00:19<00:04,  4.74s/it]Predictions  The instruction is: **“Count the total number of letters in the English names of the five input numbers and output that count.”**<|return|>
+Normalized prediction the instruction is “count the total number of letters in the english names of the five input numbers output that count
+100%|██████████| 5/5 [00:23<00:00,  4.66s/it]100%|██████████| 5/5 [00:23<00:00,  4.79s/it]
+['Find the word with the most vowels and return its consonant count', 'Identify the word containing the highest number of vowels and count its consonants', 'Locate the word with the greatest vowel count and output its consonant total', 'Determine which word has the most vowels and return how many consonants it has', 'Select the word with the maximum vowels and calculate its consonant count', 'Pick the word containing the most vowel letters and count its consonants', 'Choose the word with the highest vowel frequency and return its consonant number', 'Find the most vowel-rich word and output its consonant quantity']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: **“Count how many of the five words are nouns.”**  
+In each list, four of the words are nouns, so the output is 
+Normalized prediction the instruction is “count how many of the five words are nouns
+ 20%|██        | 1/5 [00:05<00:20,  5.21s/it]Predictions  The instruction is: **“Count how many words are in the list and then add 1.”**<|return|>
+Normalized prediction the instruction is “count how many words are in the list then add 1
+ 40%|████      | 2/5 [00:10<00:15,  5.24s/it]Predictions  The instruction is: **“Count the total number of letters in all the words, then add 1 to that total.”**<|return|>
+Normalized prediction the instruction is “count the total number of letters in all the words then add 1 to that total
+ 60%|██████    | 3/5 [00:15<00:10,  5.27s/it]Predictions  The instruction is: **“Count the total number of syllables in all the words in the list.”**<|return|>
+Normalized prediction the instruction is “count the total number of syllables in all the words in the list
+ 80%|████████  | 4/5 [00:21<00:05,  5.29s/it]Predictions  The instruction is: **“Count the number of letters in the word “instruction.”**  
+(That word has 10 letters, so the friend added 1 to
+Normalized prediction the instruction is “count the number of letters in the word “instruction
+100%|██████████| 5/5 [00:25<00:00,  4.97s/it]100%|██████████| 5/5 [00:25<00:00,  5.10s/it]
+['Detect rhyme schemes in poetry, then rewrite maintaining the same pattern', 'Identify the rhyming pattern in verses and create new poetry with identical structure', 'Analyze rhyme schemes in poems and compose new verses following the same format', 'Determine the rhyming structure of poetry and write new content using the same scheme', 'Find rhyme patterns in verses and generate new poems with matching rhyme structures', 'Recognize rhyming sequences in poetry and create new verses with the same pattern', 'Identify verse rhyme schemes and rewrite poetry maintaining the identical structure', 'Detect poetic rhyme patterns and compose new verses following the same rhyming format']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: **“Transform each declarative sentence into a new set of words or phrases that belong to a different category or theme, based on the words in the
+Normalized prediction the instruction is “transform each declarative sentence into a new set of words or phrases that belong to a different category or theme based on the words in the
+ 20%|██        | 1/5 [00:04<00:17,  4.44s/it]Predictions  The instruction is: **“Write a short, rhyming, whimsical poem that takes the first line of the input and turns it into a contrasting, imaginative scene in
+Normalized prediction the instruction is “write a short rhyming whimsical poem that takes the first line of the input turns it into a contrasting imaginative scene in
+ 40%|████      | 2/5 [00:08<00:13,  4.39s/it]Predictions  The instruction is: **“Rewrite each poem so that the main character and setting are changed to a different animal (or object) and a different place, while keeping the
+Normalized prediction the instruction is “rewrite each poem so that the main character setting are changed to a different animal or object a different place while keeping the
+ 60%|██████    | 3/5 [00:13<00:08,  4.34s/it]Predictions  The instruction is: **“Write a short, rhyming couplet that describes a different object or activity that has a similar feel or theme to the input sentence.”
+Normalized prediction the instruction is “write a short rhyming couplet that describes a different object or activity that has a similar feel or theme to the input sentence
+ 80%|████████  | 4/5 [00:17<00:04,  4.30s/it]Predictions  The instruction is: **“Write a short, poetic description of a natural scene or creature, using vivid imagery and a clear, rhythmic structure.”**<|return|>
+Normalized prediction the instruction is “write a short poetic description of a natural scene or creature using vivid imagery a clear rhythmic structure
+100%|██████████| 5/5 [00:21<00:00,  4.40s/it]100%|██████████| 5/5 [00:21<00:00,  4.38s/it]
+['Classify foods by macronutrient content, then rank by protein percentage', 'Categorize foods by their primary macronutrients and arrange by protein content from highest to lowest', 'Group foods into macronutrient categories and order by descending protein percentage', 'Identify the macronutrient profile of each food and sort by protein content', 'Classify foods as protein, carbohydrate, or fat sources and rank by protein levels', 'Determine macronutrient composition of foods and arrange from most to least protein', 'Sort foods by macronutrient type and organize by protein content in descending order', 'Analyze foods for macronutrient content and list by highest protein percentage first']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: **“Re‑order the list so that the first item stays in place, then list the remaining items in alphabetical order.”**<|return|>
+Normalized prediction the instruction is “re‑order the list so that the first item stays in place then list the remaining items in alphabetical order
+ 20%|██        | 1/5 [00:04<00:17,  4.35s/it]Predictions  The instruction is: **“Sort the five items so that the first item stays in place, then list the remaining items in alphabetical order by their first letter.”**<|return|>
+Normalized prediction the instruction is “sort the five items so that the first item stays in place then list the remaining items in alphabetical order by their first letter
+ 40%|████      | 2/5 [00:08<00:13,  4.39s/it]Predictions  The instruction is: “Re‑order the list so that the first item stays in place, the last item stays in place, and the middle three items are rotated one
+Normalized prediction the instruction is “re‑order the list so that the first item stays in place the last item stays in place the middle three items are rotated one
+ 60%|██████    | 3/5 [00:13<00:08,  4.39s/it]Predictions  The instruction is: “Reorder each list so that the first item stays first, the fourth item comes next, then the second item, then the last item, and
+Normalized prediction the instruction is “reorder each list so that the first item stays first the fourth item comes next then the second item then the last item and
+ 80%|████████  | 4/5 [00:18<00:04,  4.61s/it]Predictions  The instruction is: **“Re‑order the five items so that the first item stays in place, the last item moves to the second position, the second item moves
+Normalized prediction the instruction is “re‑order the five items so that the first item stays in place the last item moves to the second position the second item moves
+100%|██████████| 5/5 [00:23<00:00,  4.75s/it]100%|██████████| 5/5 [00:23<00:00,  4.62s/it]
+['Identify the language of text snippets, then translate key phrases to English', 'Detect the language in each text passage and provide English translations of important phrases', 'Recognize what language is being used and convert the main phrases into English', 'Determine the source language of text samples and translate significant portions to English', 'Identify which language each text is written in and render key expressions in English', 'Classify the language of given text snippets and translate the essential phrases to English', 'Recognize the linguistic origin of text passages and provide English equivalents of key phrases', 'Determine the language family of each text sample and translate the primary phrases into English']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: **“Check the person’s current status, their satisfaction, the current weather, their current feelings, and offer assistance.”**<|return|>
+Normalized prediction the instruction is “check the person’s current status their satisfaction the current weather their current feelings offer assistance
+ 20%|██        | 1/5 [00:04<00:19,  5.00s/it]Predictions  The instruction is: **“Where is the library?”**<|return|>
+Normalized prediction the instruction is “where is the library”
+ 40%|████      | 2/5 [00:09<00:14,  4.80s/it]Predictions  The instruction is: **“I love reading in the evening. It is my favorite time.”**<|return|>
+Normalized prediction the instruction is “i love reading in the evening
+ 60%|██████    | 3/5 [00:14<00:09,  4.79s/it]Predictions  The instruction is: **“Translate the sentence into English and then add a short sentence that explains why you like or enjoy the subject.”**<|return|>
+Normalized prediction the instruction is “translate the sentence into english then add a short sentence that explains why you like or enjoy the subject
+ 80%|████████  | 4/5 [00:19<00:04,  4.78s/it]Predictions  The instruction is: **“I like cooking, reading, listening to music, and enjoying Ukrainian dishes.”**<|return|>
+Normalized prediction the instruction is “i like cooking reading listening to music enjoying ukrainian dishes
+100%|██████████| 5/5 [00:23<00:00,  4.44s/it]100%|██████████| 5/5 [00:23<00:00,  4.61s/it]
+['Identify the animal in the list and return square of the zodiac number', 'Find the zodiac animal in each list and output the square of its zodiac position', 'Locate the Chinese zodiac animal and return its zodiac number squared', 'Detect the zodiac animal from the items and calculate the square of its zodiac order', 'Identify which item is a zodiac animal and return the square of its zodiac ranking', 'Find the Chinese zodiac animal in the list and output its position number squared', 'Recognize the zodiac animal and return the square of its numerical position in the zodiac cycle', 'Determine which animal corresponds to the Chinese zodiac and calculate the square of its zodiac number']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: **“For each input, find its position in the list and output the square of that position.”**<|return|>
+Normalized prediction the instruction is “for each input find its position in the list output the square of that position
+ 20%|██        | 1/5 [00:04<00:19,  4.94s/it]Predictions  The instruction is: **“Take the middle word of each list, count how many letters it has, and then square that number.”**<|return|>
+Normalized prediction the instruction is “take the middle word of each list count how many letters it has then square that number
+ 40%|████      | 2/5 [00:08<00:13,  4.41s/it]Predictions  The instruction is: **“Take the number of items in the list, add a number that depends on the list’s position in the series, and square the result.”
+Normalized prediction the instruction is “take the number of items in the list add a number that depends on the list’s position in the series square the result
+ 60%|██████    | 3/5 [00:12<00:08,  4.21s/it]Predictions  The instruction is: **“Take the number of words in the input, add the position of that input in the list (starting with 0), and square the result
+Normalized prediction the instruction is “take the number of words in the input add the position of that input in the list starting with 0 square the result
+ 80%|████████  | 4/5 [00:16<00:04,  4.09s/it]Predictions  The instruction is: **“Take the number of letters in the first word of the input list, square that number, and output the result.”**<|return|>
+Normalized prediction the instruction is “take the number of letters in the first word of the input list square that number output the result
+100%|██████████| 5/5 [00:20<00:00,  4.00s/it]100%|██████████| 5/5 [00:20<00:00,  4.14s/it]
+['Alternate between giving an antonym and synonym of the words in the sentence', 'Replace words in the sentence by alternating between opposites and similar words', 'Transform the sentence by switching between antonyms and synonyms for each word', 'Modify each word in the sentence alternately using antonyms and synonyms', 'Rewrite the sentence alternating between opposite meanings and similar meanings for words', 'Change words in sequence by alternating between contrasting terms and equivalent terms', 'Replace sentence words by alternating between contradictory and matching word choices', 'Transform each word alternately using opposing words and words with similar meanings']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: **“Rewrite each sentence so that the subject’s size, speed, gender, or state is reversed or transformed, and the verb or adjective is changed
+Normalized prediction the instruction is “rewrite each sentence so that the subject’s size speed gender or state is reversed or transformed the verb or adjective is changed
+ 20%|██        | 1/5 [00:03<00:15,  3.81s/it]Predictions  The instruction is: **“When something is green, it becomes red.”**<|return|>
+Normalized prediction the instruction is “when something is green it becomes red
+ 40%|████      | 2/5 [00:08<00:12,  4.31s/it]Predictions  The instruction is: **“Replace each key word in the sentence with its opposite or a related word that changes the meaning in a systematic way – for example, swap ‘
+Normalized prediction the instruction is “replace each key word in the sentence with its opposite or a related word that changes the meaning in a systematic way – for example swap ‘
+ 60%|██████    | 3/5 [00:12<00:08,  4.15s/it]Predictions  The instruction is: **“Rewrite each sentence so that every adjective, noun, verb, and direction is replaced with its opposite (e.g., happy → sad
+Normalized prediction the instruction is “rewrite each sentence so that every adjective noun verb direction is replaced with its opposite e
+ 80%|████████  | 4/5 [00:16<00:04,  4.28s/it]Predictions  The instruction is: **“When evaluating a situation, transform it into its opposite in terms of effect, context, or quality.”**<|return|>
+Normalized prediction the instruction is “when evaluating a situation transform it into its opposite in terms of effect context or quality
+100%|██████████| 5/5 [00:20<00:00,  4.07s/it]100%|██████████| 5/5 [00:20<00:00,  4.12s/it]
+['Identify the word with the most consonants and return its vowel count', 'Find which word has the highest number of consonants and output how many vowels it contains', 'Locate the word containing the most consonant letters and return the number of vowels in that word', 'Determine which word has the maximum consonants and provide its vowel count', 'Select the word with the greatest consonant count and output the number of vowels it has', 'Find the most consonant-heavy word and return how many vowels are in it', 'Identify which word contains the most consonant sounds and count its vowels', 'Pick the word with the highest consonant frequency and return its total vowel count']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: **“Count how many of the words in each list are *positive* (i.e., have a positive connotation).”**<|return|>
+Normalized prediction the instruction is “count how many of the words in each list are positive i
+ 20%|██        | 1/5 [00:04<00:17,  4.32s/it]Predictions  The instruction is: **“Count how many of the items in each list belong to the *primary* category for that list.”**  
+In other words, for each
+Normalized prediction the instruction is “count how many of the items in each list belong to the primary category for that list
+ 40%|████      | 2/5 [00:08<00:12,  4.07s/it]Predictions  The instruction is: **“Count how many of the items in the list are *not* in the same category as the others.”**  
+In other words, for
+Normalized prediction the instruction is “count how many of the items in the list are not in the same category as the others
+ 60%|██████    | 3/5 [00:13<00:09,  4.67s/it]Predictions  The instruction is: **“Count how many of the words in each list are *adjectives* that can be used to describe a *person* (i.e
+Normalized prediction the instruction is “count how many of the words in each list are adjectives that can be used to describe a person i
+ 80%|████████  | 4/5 [00:18<00:04,  4.84s/it]Predictions  The instruction is: **“Count how many of the words in the list start with a vowel.”**<|return|>
+Normalized prediction the instruction is “count how many of the words in the list start with a vowel
+100%|██████████| 5/5 [00:23<00:00,  4.71s/it]100%|██████████| 5/5 [00:23<00:00,  4.63s/it]
+['Identify the word with the fewest unique letters and return its total letter count', 'Find which word has the smallest number of distinct letters and output its total length', 'Locate the word containing the least variety of different letters and return how many letters it has', 'Determine which word has the minimum number of unique characters and provide its total character count', 'Select the word with the fewest different letters and output its complete letter count', 'Find the word with the lowest unique letter diversity and return its total letter length', 'Identify which word contains the smallest set of distinct letters and count its total letters', 'Pick the word with the most repeated letters and return its overall letter count']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: **“Count how many of the words in the list start with a vowel.”**<|return|>
+Normalized prediction the instruction is “count how many of the words in the list start with a vowel
+ 20%|██        | 1/5 [00:04<00:18,  4.59s/it]Predictions  The instruction is: **“Count how many of the items in each list are *not* in the same category as the others.”**  
+In other words, for
+Normalized prediction the instruction is “count how many of the items in each list are not in the same category as the others
+ 40%|████      | 2/5 [00:09<00:13,  4.53s/it]Predictions  The instruction is: **“Count how many items are in the list.”**<|return|>
+Normalized prediction the instruction is “count how many items are in the list
+ 60%|██████    | 3/5 [00:13<00:09,  4.52s/it]Predictions  The instruction is: **“Count the total number of letters in all the words of the input.”**<|return|>
+Normalized prediction the instruction is “count the total number of letters in all the words of the input
+ 80%|████████  | 4/5 [00:18<00:04,  4.55s/it]Predictions  The instruction is: **“Count the total number of letters in the words that contain the letter **‘e’** (case‑insensitive) in each list.”
+Normalized prediction the instruction is “count the total number of letters in the words that contain the letter ‘e’ case‑insensitive in each list
+100%|██████████| 5/5 [00:22<00:00,  4.55s/it]100%|██████████| 5/5 [00:22<00:00,  4.54s/it]
+['Find the word that comes first alphabetically and return it in reverse', 'Identify which word appears first in alphabetical order and output it backwards', 'Locate the alphabetically earliest word and return it with letters reversed', 'Determine which word comes first alphabetically and provide it in reverse order', 'Select the word that appears first when sorted alphabetically and reverse its spelling', 'Find the alphabetically primary word and return it with characters in reverse sequence', 'Identify the word that would appear first in a dictionary and output it backwards', 'Pick the alphabetically leading word and return it with its letters reversed']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: **“Take the second word in the list, reverse it, and then reverse the order of the words in the list. Finally, output the first
+Normalized prediction the instruction is “take the second word in the list reverse it then reverse the order of the words in the list
+ 20%|██        | 1/5 [00:04<00:17,  4.47s/it]Predictions  The instruction is: **“Take the first letter of each input word, reverse the order of those letters, and then reverse the whole string.”**  
+In other words
+Normalized prediction the instruction is “take the first letter of each input word reverse the order of those letters then reverse the whole string
+ 40%|████      | 2/5 [00:08<00:13,  4.42s/it]Predictions  The instruction is: **“Take the five words, write each one backwards, then reverse the order of the words, and finally write the whole string in reverse again.”
+Normalized prediction the instruction is “take the five words write each one backwards then reverse the order of the words finally write the whole string in reverse again
+ 60%|██████    | 3/5 [00:13<00:08,  4.43s/it]Predictions  The instruction is: **“Take the five input words, write each one backwards, then take the first letter of each reversed word and write those letters in reverse order to
+Normalized prediction the instruction is “take the five input words write each one backwards then take the first letter of each reversed word write those letters in reverse order to
+ 80%|████████  | 4/5 [00:17<00:04,  4.46s/it]Predictions  The instruction is: **“Take the five input words, write each one backwards, then reverse the order of the words, and finally concatenate them into a single string.”
+Normalized prediction the instruction is “take the five input words write each one backwards then reverse the order of the words finally concatenate them into a single string
+100%|██████████| 5/5 [00:22<00:00,  4.50s/it]100%|██████████| 5/5 [00:22<00:00,  4.47s/it]
