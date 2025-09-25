@@ -44,12 +44,12 @@ for sourcemodel in "${sourcemodels[@]}"; do
         echo "----------------------------------------"
         
         # # Run the command
-        python execute_instructions.py \
-            --execution_engine "$targetmodel" \
-            --input_dir data/induction_input \
-            --thought_type transfer \
-            --source_folder "$outputpath" \
-            > "$logfile" 2>&1
+        # python execute_instructions.py \
+        #     --execution_engine "$targetmodel" \
+        #     --input_dir data/induction_input \
+        #     --thought_type transfer \
+        #     --source_folder "$outputpath" \
+        #     > "$logfile" 2>&1
 
         # Run the command
         python evaluate.py \
