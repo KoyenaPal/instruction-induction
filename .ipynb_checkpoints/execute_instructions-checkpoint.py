@@ -91,10 +91,14 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
     source_thought_data = None
     if source_folder:
         print("CAME TO SOURCE FOLDER", flush=True)
-        with open(f'{source_folder}/./{task_name}_execution.json', encoding='utf-8') as f_thoughts_source:
-            print("THE SOURCE FOLDER USED", f'{source_folder}/./{task_name}_execution.json', flush=True)
+        file_name = f"{task_name}_execution.json"
+        if "without_answer" in source_folder:
+            file_name += f"{task_name}_without_answer.json"
+        with open(f'{source_folder}/./{file_name}_execution.json', encoding='utf-8') as f_thoughts_source:
+            #print("THE SOURCE FOLDER USED", f'{source_folder}/./{task_name}_execution.json', flush=True)
             source_thought_data = json.load(f_thoughts_source)
-
+        if source_thought_data is None:
+            raise ValueError("The source thought data is empty")
     # Handle sample and empty conditions
     do_sample = False
     temperature = 0.0
@@ -127,7 +131,10 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
         # Convert to model-specific chat template
         thinking_message = ""
         if source_thought_data:
-            thinking_message = extract_thinking(source_thought_data[instruction_id]['instruction_outputs'], model_name=execution_engine)
+            if "without_answer" in thought_type:
+                thinking_message = extract_thinking(source_thought_data[instruction_id]['processed_without_answer'], model_name=execution_engine)
+            else:
+                thinking_message = extract_thinking(source_thought_data[instruction_id]['instruction_outputs'], model_name=execution_engine)
         chat_prompt = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
         if "oss" in execution_engine.lower():
             user_message = [{"role": "user", "content": messages[-1]["content"]}]
@@ -219,14 +226,18 @@ if __name__ == '__main__':
     
     args = parser.parse_args()
 
-    
+    model_map = {"nrr": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+                "opent": "open-thoughts_OpenThinker-7B",
+                "oss": "openai_gpt-oss-20b",
+                "qwq":"Qwen_QwQ-32B",
+                "dapo": "BytedTsinghua-SIA_DAPO-Qwen-32B"}
     task_list = args.tasks.split(',')
     execution_engine = str(args.execution_engine)
     cleaned_execution_engine = execution_engine.replace("/","_")
     print("EXECUTION ENGINE", cleaned_execution_engine)
     # HANDLE OUTPUT DIR VALUES FOR EACH THOUGHT TYPE HERE!
     out_dir = f"predictions_{cleaned_execution_engine}"
-    if args.thought_type == "transfer":
+    if "transfer" in args.thought_type:
         source_model = str(args.source_folder).split("predictions_")[-1]
         print("SOURCE MODEL", source_model, flush=True)
         out_dir = f"predictions_{source_model}_thoughts_to_{cleaned_execution_engine}"

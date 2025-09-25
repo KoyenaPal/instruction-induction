@@ -37,11 +37,16 @@ def setup_client(api_key):
         raise ValueError("OpenAI API key required")
     return OpenAI(api_key=key)
 
-def find_tasks(input_dir):
+def find_tasks(input_dir, end_type = "json"):
     """Find valid execution JSON files."""
-    files = [f for f in os.listdir(input_dir) if f.endswith('_execution.json')]
-    tasks = [f.replace('_execution.json', '') for f in files]
-    return [task for task in tasks if task in INDUCTION_TASKS]
+    if end_type == "json":
+        files = [f for f in os.listdir(input_dir) if f.endswith('_execution.json')]
+        tasks = [f.replace('_execution.json', '') for f in files]
+        return [task for task in tasks if task in INDUCTION_TASKS]
+    else:
+        files = [f for f in os.listdir(input_dir) if f.endswith('.csv')]
+        tasks = [f.replace('.csv', '') for f in files]
+        return [task for task in tasks if task in INDUCTION_TASKS]
 
 def process_text(client, text):
     """Remove answers from text using OpenAI."""
@@ -68,33 +73,106 @@ def process_text(client, text):
     )
     return extract_thinking(response.choices[0].message.content)
 
-def process_task(client, input_dir, task_name, sleep_time):
-    """Process one task file."""
-    with open(f"{input_dir}/{task_name}_execution.json", encoding='utf-8') as f:
-        data = json.load(f)
+# def process_task(client, input_dir, task_name, sleep_time):
+#     """Process one task file."""
+#     with open(f"{input_dir}/{task_name}_execution.json", encoding='utf-8') as f:
+#         data = json.load(f)
     
-    results = {}
-    for instruction_id, instruction_data in tqdm(data.items(), desc=task_name):
-        if 'instruction_outputs' not in instruction_data:
-            continue
+#     results = {}
+#     for instruction_id, instruction_data in tqdm(data.items(), desc=task_name):
+#         if 'instruction_outputs' not in instruction_data:
+#             continue
             
-        text = extract_thinking(str(instruction_data['instruction_outputs']))
+#         text = extract_thinking(str(instruction_data['instruction_outputs']))
         
-        try:
-            processed = process_text(client, text)
-            results[instruction_id] = {
-                "original_instruction_outputs": instruction_data['instruction_outputs'],
-                "processed_without_answer": processed
-            }
-        except Exception as e:
-            results[instruction_id] = {
-                "original_instruction_outputs": instruction_data['instruction_outputs'],
-                "processed_without_answer": "",
-                "error": str(e)
-            }
+#         try:
+#             processed = process_text(client, text)
+#             results[instruction_id] = {
+#                 "original_instruction_outputs": instruction_data['instruction_outputs'],
+#                 "processed_without_answer": processed
+#             }
+#         except Exception as e:
+#             results[instruction_id] = {
+#                 "original_instruction_outputs": instruction_data['instruction_outputs'],
+#                 "processed_without_answer": "",
+#                 "error": str(e)
+#             }
         
-        if sleep_time > 0:
-            time.sleep(sleep_time)
+#         if sleep_time > 0:
+#             time.sleep(sleep_time)
+    
+#     return results
+
+import pandas as pd
+import json
+import os
+from tqdm import tqdm
+import time
+
+def process_task(client, input_dir, task_name, sleep_time):
+    """Process one task file (JSON or CSV)."""
+    
+    # Check if CSV file exists
+    csv_file = f"{input_dir}/{task_name}.csv"
+    json_file = f"{input_dir}/{task_name}_execution.json"
+    
+    if os.path.exists(csv_file):
+        print("CAME TO CSV", flush=True)
+        # Process CSV file
+        df = pd.read_csv(csv_file, encoding='utf-8')
+        results = {}
+        
+        for idx, row in tqdm(df.iterrows(), total=len(df), desc=f"{task_name} (CSV)"):
+            if 'Ensembled Thought' not in row or pd.isna(row['Ensembled Thought']):
+                continue
+                
+            text = extract_thinking(str(row['Ensembled Thought']))
+            
+            try:
+                processed = process_text(client, text)
+                results[idx] = {
+                    "original_ensembled_thought": row['Ensembled Thought'],
+                    "ensembled_thought_without_answer": processed
+                }
+            except Exception as e:
+                results[idx] = {
+                    "original_ensembled_thought": row['Ensembled Thought'],
+                    "ensembled_thought_without_answer": "",
+                    "error": str(e)
+                }
+            
+            if sleep_time > 0:
+                time.sleep(sleep_time)
+                
+    elif os.path.exists(json_file):
+        # Process JSON file (original logic)
+        with open(json_file, encoding='utf-8') as f:
+            data = json.load(f)
+        
+        results = {}
+        for instruction_id, instruction_data in tqdm(data.items(), desc=f"{task_name} (JSON)"):
+            if 'instruction_outputs' not in instruction_data:
+                continue
+                
+            text = extract_thinking(str(instruction_data['instruction_outputs']))
+            
+            try:
+                processed = process_text(client, text)
+                results[instruction_id] = {
+                    "original_instruction_outputs": instruction_data['instruction_outputs'],
+                    "processed_without_answer": processed
+                }
+            except Exception as e:
+                results[instruction_id] = {
+                    "original_instruction_outputs": instruction_data['instruction_outputs'],
+                    "processed_without_answer": "",
+                    "error": str(e)
+                }
+            
+            if sleep_time > 0:
+                time.sleep(sleep_time)
+    else:
+        raise FileNotFoundError(f"Neither {csv_file} nor {json_file} found")
     
     return results
 
@@ -108,7 +186,7 @@ def main():
     
     os.makedirs(args.output_dir, exist_ok=True)
     client = setup_client(args.api_key)
-    tasks = find_tasks(args.input_dir)
+    tasks = find_tasks(args.input_dir, "csv")
     
     print(f"Processing {len(tasks)} tasks: {tasks}")
     
@@ -122,6 +200,7 @@ def main():
         print(f"Saved {task}: {len(results)} items")
     
     print("Complete!")
+
 
 if __name__ == "__main__":
     main()

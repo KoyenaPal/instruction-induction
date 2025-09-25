@@ -1,0 +1,13 @@
+EXECUTION ENGINE BytedTsinghua-SIA_DAPO-Qwen-32B
+SOURCE MODEL without_answer_dapo
+OUT DIRECTORY predictions_without_answer_dapo_thoughts_to_BytedTsinghua-SIA_DAPO-Qwen-32B
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:08,  1.57it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:09,  1.26it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:08,  1.25it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:03<00:09,  1.10it/s]Loading checkpoint shards:  36%|███▌      | 5/14 [00:04<00:08,  1.08it/s]Loading checkpoint shards:  43%|████▎     | 6/14 [00:05<00:06,  1.17it/s]Loading checkpoint shards:  50%|█████     | 7/14 [00:06<00:06,  1.14it/s]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:06<00:05,  1.12it/s]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:07<00:04,  1.13it/s]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:08<00:03,  1.15it/s]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:09<00:02,  1.14it/s]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:10<00:01,  1.14it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:11<00:00,  1.13it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:11<00:00,  1.23it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:11<00:00,  1.17it/s]
+CAME TO SOURCE FOLDER
+Traceback (most recent call last):
+  File "/instruction-induction/execute_instructions.py", line 253, in <module>
+    run_execution_accuracy_open_source_chat(execution_engine=args.execution_engine,
+  File "/instruction-induction/execute_instructions.py", line 97, in run_execution_accuracy_open_source_chat
+    with open(f'{source_folder}/./{file_name}_execution.json', encoding='utf-8') as f_thoughts_source:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'without_answer_dapo/./cause_and_effect_execution.jsoncause_and_effect_without_answer.json_execution.json'
