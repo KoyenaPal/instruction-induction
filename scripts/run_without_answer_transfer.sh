@@ -1,7 +1,7 @@
 #!/bin/bash
 # Define arrays of models and prompt styles
 sourcemodels=(
-    "BytedTsinghua-SIA/DAPO-Qwen-32B"
+    "openai/gpt-oss-20b"
 )
 targetmodels=(
     "BytedTsinghua-SIA/DAPO-Qwen-32B" 
@@ -52,22 +52,22 @@ for sourcemodel in "${sourcemodels[@]}"; do
         echo "----------------------------------------"
         
         # Run the execute_instructions command
-        python optimized_execute_instructions.py \
-            --execution_engine "$targetmodel" \
-            --input_dir data/induction_input \
-            --thought_type transfer_without_answer \
-            --source_folder "$source_folder" \
-            > "$logfile" 2>&1
+        # python optimized_execute_instructions.py \
+        #     --execution_engine "$targetmodel" \
+        #     --input_dir data/induction_input \
+        #     --thought_type transfer_without_answer \
+        #     --source_folder "$source_folder" \
+        #     > "$logfile" 2>&1
         
-        # Check exit code for execute_instructions
-        if [ $? -ne 0 ]; then
-            echo "❌ Error running optimized_execute_instructions.py: source=$sourcemodel target=$targetmodel (check $logfile)"
-            # Uncomment next line to exit on error:
-            # exit 1
-            continue
-        else
-            echo "✅ Successfully completed execute_instructions.py: source=$sourcemodel target=$targetmodel"
-        fi
+        # # Check exit code for execute_instructions
+        # if [ $? -ne 0 ]; then
+        #     echo "❌ Error running optimized_execute_instructions.py: source=$sourcemodel target=$targetmodel (check $logfile)"
+        #     # Uncomment next line to exit on error:
+        #     # exit 1
+        #     continue
+        # else
+        #     echo "✅ Successfully completed execute_instructions.py: source=$sourcemodel target=$targetmodel"
+        # fi
         
         # Run the evaluate command
         python evaluate.py \

@@ -2580,3 +2580,85 @@ So summarizing:
 The instruction was:
 Normalized prediction the instruction is reverse the last word of each input list
 100%|██████████| 5/5 [00:18<00:00,  3.84s/it]100%|██████████| 5/5 [00:18<00:00,  3.80s/it]
+['Each input consists of two sentences, where one is the cause and the other is the outcome. Write The cause sentence', 'The input consists of two sentences. One is the cause of the other. Write the cause sentence', 'The input is a cause and effect. Write the cause.', 'The input is a cause and effect, write the cause', 'Find the cause in the following cause and effect pair', 'Output the sentence describing the cause (the other sentence is what happened as a result).', 'Output the cause (other sentence describes what happened as a result)', 'Which of the following sentences is the cause?', 'Which of the two events is the cause?']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: "Choose the sentence that is more likely to be true given the other." 
+
+Analyzing the pairs:
+
+1. Input 1: AC broke.
+Normalized prediction the instruction is choose the sentence that is more likely to be true given the other
+ 20%|██        | 1/5 [00:05<00:23,  5.90s/it]Predictions  The instruction is: "Given two sentences, output the one that is the cause of the other sentence."<|end|><｜end▁of▁sentence｜>
+Normalized prediction the instruction is given two sentences output the one that is the cause of the other sentence
+ 40%|████      | 2/5 [00:10<00:15,  5.02s/it]Predictions  The instruction is: "Given two sentences, output the one that describes an action performed by the subject, not the result."<|end|>**
+
+Wait, but
+Normalized prediction the instruction is given two sentences output the one that describes an action performed by the subject not the result
+ 60%|██████    | 3/5 [00:14<00:08,  4.47s/it]Predictions  The instruction is: "From the two sentences, output the one that is more specific or detailed." 
+
+<|end|><｜end▁of▁sentence｜>
+Normalized prediction the instruction is from the two sentences output the one that is more specific or detailed
+ 80%|████████  | 4/5 [00:18<00:04,  4.25s/it]Predictions  The instruction is: "Return the sentence that contains a proper noun subject that is a person or a company; otherwise return the other sentence."
+
+Wait, let me re-ex
+Normalized prediction the instruction is return the sentence that contains a proper noun subject that is a person or a company otherwise return the other sentence
+100%|██████████| 5/5 [00:22<00:00,  4.17s/it]100%|██████████| 5/5 [00:22<00:00,  4.41s/it]
+['which of the animals separated by , is bigger', 'output which of the animals in the input is bigger', 'Write the bigger animal of the two', 'Write the bigger animal', 'Write which of the pair of animals in each input is larger', 'For each input, write which of the two animals is bigger.', 'find the larger between the following pair of animals', 'Which of the following animals is bigger?', 'Which is bigger?']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: Given two animals, output the one that is heavier.
+
+<|end|>
+</think>
+
+The instruction was: "Given two animals, output the one
+Normalized prediction the instruction is given two animals output the one that is heavier
+ 20%|██        | 1/5 [00:04<00:18,  4.53s/it]Predictions  The instruction is: "Given two animal names, output the larger one." 
+
+**Step-by-Step Explanation:**
+
+1. **Analyzing Input-Output Pairs
+Normalized prediction the instruction is given two animal names output the larger one
+ 40%|████      | 2/5 [00:09<00:13,  4.55s/it]Predictions  The instruction is: "Choose the wild animal from each pair." So the instruction was to select the non-domesticated animal.
+
+<|end|><｜end▁of▁sentence｜>
+Normalized prediction the instruction is choose the wild animal from each pair
+ 60%|██████    | 3/5 [00:14<00:09,  4.87s/it]Predictions  The instruction is: 'If one of the two given animals is a dog, output the other; otherwise, output the first animal.' Applying this rule to each pair:
+Normalized prediction the instruction is if one of the two given animals is a dog output the other otherwise output the first animal
+ 80%|████████  | 4/5 [00:18<00:04,  4.69s/it]Predictions  The instruction is: "From the two animals given, output the one that is a mammal. If both animals are mammals, output the larger one."
+
+So the instruction
+Normalized prediction the instruction is from the two animals given output the one that is a mammal
+100%|██████████| 5/5 [00:23<00:00,  4.65s/it]100%|██████████| 5/5 [00:23<00:00,  4.67s/it]
+['output how the number in the input is pronounced in English', 'output the pronunciation of the number in the input', 'Write the number in English words', 'For each input, write the number in plain English words without using digits.', 'For each input, write the number in plain English words without using digits or numbers.', 'Write the following number with words:', 'You will be given an input number and you need to output the number while writing it with words', 'Write the input number with words.']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: "Write the number in words using British English style, including commas for thousands and using 'and' appropriately."
+
+So, summarizing the instruction based on
+Normalized prediction the instruction is write the number in words using british english style including commas for thousands using and appropriately
+ 20%|██        | 1/5 [00:05<00:20,  5.02s/it]Predictions  The instruction is: "Write the number in words using the specified format with commas and 'and'."
+
+**Final Answer**
+The instruction was to convert the numbers into their
+Normalized prediction the instruction is write the number in words using the specified format with commas and
+ 40%|████      | 2/5 [00:09<00:14,  4.68s/it]Predictions  The instruction is: "Write each number in words using British conventions with commas and 'and'."
+
+So, summarizing the instruction based on the provided examples.
+
+**Step
+Normalized prediction the instruction is write each number in words using british conventions with commas and
+ 60%|██████    | 3/5 [00:14<00:09,  4.67s/it]Predictions  The instruction is: Convert the given numbers into their English word equivalents using British conventions, including 'and' before the last two digits and using commas appropriately when necessary without unnecessary
+Normalized prediction the instruction is convert the given numbers into their english word equivalents using british conventions including and before the last two digits using commas appropriately when necessary without unnecessary
+ 80%|████████  | 4/5 [00:18<00:04,  4.68s/it]Predictions  The instruction is: "Write the number in words using British English conventions, including the use of 'and' before the last part if necessary."
+
+So, summarizing the
+Normalized prediction the instruction is write the number in words using british english conventions including the use of and before the last part if necessary
+100%|██████████| 5/5 [00:23<00:00,  4.79s/it]100%|██████████| 5/5 [00:23<00:00,  4.76s/it]
+['Output all tokens in the sentence that start with the letter in [ ]', 'output all the tokens in the input that start with the letter in [ ]', 'Write all the words of the input that start with the letter in the square brackets', 'Write all the words from the sentence that start with the letter in the square brackets', 'For each input sentence, list all the words in the sentence that begin with the character written inside the brackets.', 'For each input, list all the words in the sentence that begin with the character in brackets at the end of the sentence.', 'Write all the words in the following sentence that start with the bracketed letter, in their original order.', 'Write a word from the following sentence that starts with the bracketed letter:']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: Identify words starting with each specified letter in the input sentences and list them in order.
+
+<|start|>The instruction was<|end|>
+
+Normalized prediction the instruction is identify words starting with each specified letter in the input sentences list them in order
+ 20%|██        | 1/5 [00:04<00:19,  4.96s/it]Predictions  The instruction is: For each input, find the shortest word containing the specified letter in the brackets. The instruction is to identify the shortest word in each sentence that includes the
+Normalized prediction the instruction is for each input find the shortest word containing the specified letter in the brackets
+ 40%|████      | 2/5 [00:09<00:14,  4.78s/it]Predictions  The instruction is: "List every word in the sentence that begins with the letter shown in brackets." So the instruction was to identify words starting with each specified letter.
+
+<
+Normalized prediction the instruction is list every word in the sentence that begins with the letter shown in brackets
