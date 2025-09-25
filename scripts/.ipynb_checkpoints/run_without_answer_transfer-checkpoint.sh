@@ -1,7 +1,7 @@
 #!/bin/bash
 # Define arrays of models and prompt styles
 sourcemodels=(
-    "openai/gpt-oss-20b"
+    "BytedTsinghua-SIA/DAPO-Qwen-32B"
 )
 targetmodels=(
     "BytedTsinghua-SIA/DAPO-Qwen-32B" 
@@ -52,7 +52,7 @@ for sourcemodel in "${sourcemodels[@]}"; do
         echo "----------------------------------------"
         
         # Run the execute_instructions command
-        python execute_instructions.py \
+        python optimized_execute_instructions.py \
             --execution_engine "$targetmodel" \
             --input_dir data/induction_input \
             --thought_type transfer_without_answer \
@@ -61,7 +61,7 @@ for sourcemodel in "${sourcemodels[@]}"; do
         
         # Check exit code for execute_instructions
         if [ $? -ne 0 ]; then
-            echo "❌ Error running execute_instructions.py: source=$sourcemodel target=$targetmodel (check $logfile)"
+            echo "❌ Error running optimized_execute_instructions.py: source=$sourcemodel target=$targetmodel (check $logfile)"
             # Uncomment next line to exit on error:
             # exit 1
             continue

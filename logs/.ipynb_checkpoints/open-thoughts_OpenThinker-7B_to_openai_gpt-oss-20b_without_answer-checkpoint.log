@@ -1,0 +1,41 @@
+EXECUTION ENGINE openai_gpt-oss-20b
+SOURCE MODEL without_answer_opent
+OUT DIRECTORY predictions_without_answer_opent_thoughts_to_openai_gpt-oss-20b
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+MXFP4 quantization requires triton >= 3.4.0 and kernels installed, we will default to dequantizing the model to bf16
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/instruction-induction/execute_instructions.py", line 258, in <module>
+    run_execution_accuracy_open_source_chat(execution_engine=args.execution_engine,
+  File "/instruction-induction/execute_instructions.py", line 80, in run_execution_accuracy_open_source_chat
+    model = AutoModelForCausalLM.from_pretrained(execution_engine, dtype=torch.bfloat16, device_map="auto", cache_dir="/workspace/hf")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 604, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 288, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 5179, in from_pretrained
+    ) = cls._load_pretrained_model(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 5642, in _load_pretrained_model
+    _error_msgs, disk_offload_index, cpu_offload_index = load_shard_file(args)
+                                                         ^^^^^^^^^^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 946, in load_shard_file
+    disk_offload_index, cpu_offload_index = _load_state_dict_into_meta_model(
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 854, in _load_state_dict_into_meta_model
+    hf_quantizer.create_quantized_param(
+  File "/.venv/lib/python3.11/site-packages/transformers/quantizers/quantizer_mxfp4.py", line 249, in create_quantized_param
+    dequantize(module, param_name, param_value, target_device, dq_param_name, **shard_kwargs)
+  File "/.venv/lib/python3.11/site-packages/transformers/integrations/mxfp4.py", line 329, in dequantize
+    dequantized = convert_moe_packed_tensors(getattr(module, blocks_attr), getattr(module, scales_attr))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/transformers/integrations/mxfp4.py", line 116, in convert_moe_packed_tensors
+    idx_lo = (blk & 0x0F).to(torch.long)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.98 GiB. GPU 0 has a total capacity of 139.83 GiB of which 1.28 GiB is free. Process 3444 has 63.43 GiB memory in use. Process 3796 has 72.71 GiB memory in use. Process 6607 has 2.37 GiB memory in use. Of the allocated memory 1.55 GiB is allocated by PyTorch, and 239.09 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

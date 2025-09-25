@@ -9,7 +9,7 @@
 #     "open-thoughts/OpenThinker-7B"
 # )
 sourcemodels=(
-    "BytedTsinghua-SIA/DAPO-Qwen-32B" 
+    "Qwen/QwQ-32B" 
 )
 targetmodels=(
     "BytedTsinghua-SIA/DAPO-Qwen-32B" 
