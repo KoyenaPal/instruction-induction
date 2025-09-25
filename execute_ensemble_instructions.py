@@ -1,6 +1,6 @@
 import argparse
 import json
-import openai
+import gc
 from pathlib import Path
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
@@ -14,13 +14,11 @@ random.seed(42)
 np.random.seed(42)
 os.environ['PYTHONHASHSEED'] = '42'
 
-
 INDUCTION_TASKS = ['cause_and_effect', 'larger_animal', 'num_to_verbal','orthography_starts_with',
                    'rhymes', 'synonyms', 'taxonomy_animal', 'translation_en-fr',
                    'reverse_from_middle', 'smallest_item_length', 'smallest_even_no_sqrt', 'most_vowel_return_consonant',
                    'detect_rhyme_and_rewrite', 'rank_by_protein','multi_lang_to_english','square_of_zodiac_animal',
                    'alternate_synonym_antonym', 'most_consonant_return_vowel', 'least_unique_word_count', 'first_word_alphabetically_return_reverse']
-
 
 end_think_patterns = [
     r'</think>',
@@ -63,32 +61,46 @@ def extract_user_prompt(original_ensembled_thought):
     else:
         return original_ensembled_thought
 
+def clear_memory():
+    """Clear GPU memory and run garbage collection"""
+    torch.cuda.empty_cache()
+    gc.collect()
+
 def run_execution_accuracy_open_source_chat(execution_engine, task_name,
                                             source_folder, max_tokens=2048, device="cuda", thought_type="default"):
     """
     execution_engine: HuggingFace model name or path (e.g., "meta-llama/Llama-2-7b-chat-hf")
     """
 
-    torch.cuda.empty_cache()
+    clear_memory()
     print("CAME TO THE FUNCTION TO EXECUTE ACCURACY", flush=True)
     
     # Load data from source_folder
-    file_name = f"{task_name}.json"
+    file_name = f"{task_name}_without_answer.json"
     with open(f'{source_folder}/{file_name}', encoding='utf-8') as f:
         source_data = json.load(f)
 
-    # Load model & tokenizer
+    # Load model & tokenizer with memory optimizations
     tokenizer = AutoTokenizer.from_pretrained(execution_engine, cache_dir="/workspace/hf")
-    model = AutoModelForCausalLM.from_pretrained(execution_engine, dtype=torch.bfloat16, device_map="auto", cache_dir="/workspace/hf")
+    
+
+    model = AutoModelForCausalLM.from_pretrained(
+            execution_engine, 
+            dtype=torch.bfloat16,
+            device_map="auto", 
+            cache_dir="/workspace/hf",
+            low_cpu_mem_usage=True)
     model.eval()
+
+    # Enable gradient checkpointing to save memory
+    if hasattr(model, 'gradient_checkpointing_enable'):
+        model.gradient_checkpointing_enable()
 
     output_ = dict()
     
     # Set seed and sample 5 items
     random.seed(42)
-    # Sample 5 keys from the dictionary
     sampled_keys = random.sample(list(source_data.keys()), 5)
-    # Sort the sampled keys numerically (same as your original sorting)
     sampled_keys = sorted(sampled_keys, key=lambda x: int(x))
 
     # Handle sample and empty conditions
@@ -99,6 +111,9 @@ def run_execution_accuracy_open_source_chat(execution_engine, task_name,
         temperature = 1.0
 
     for instruction_id in tqdm(sampled_keys):
+        # Clear memory before each iteration
+        clear_memory()
+        
         instruction_data = source_data[instruction_id]
         d = {}
         
@@ -141,18 +156,35 @@ def run_execution_accuracy_open_source_chat(execution_engine, task_name,
             if not(thought_type == "default") and not(thought_type == "with_sampling"):
                 chat_prompt = f"{chat_prompt}{thinking_message}<|end_of_thought|><|begin_of_solution|>"
         
-        # Tokenize and run model
-        inputs = tokenizer(chat_prompt, return_tensors="pt").to(model.device)
+        # Tokenize with truncation to prevent excessive memory usage
+        inputs = tokenizer(
+            chat_prompt, 
+            return_tensors="pt", 
+            truncation=True, 
+            max_length=4096  # Limit input length
+        ).to(model.device)
+        
         if thought_type == "default" or thought_type == "with_sampling":
             with torch.no_grad():
                 outputs = model.generate(
                     **inputs,
                     max_new_tokens=max_tokens-30,
                     do_sample=do_sample,
-                    temperature=temperature
+                    temperature=temperature,
+                    use_cache=True,  # Enable KV cache for efficiency
+                    pad_token_id=tokenizer.eos_token_id  # Handle padding
                 )
+            
+            # Clear inputs from memory immediately
+            del inputs
+            clear_memory()
     
             prediction = tokenizer.decode(outputs[0], skip_special_tokens=False)
+            
+            # Clear outputs from memory
+            del outputs
+            clear_memory()
+            
             found = any(re.search(pat, prediction) for pat in end_think_patterns)
             if not found:
                 if "gpt-oss" in execution_engine.lower():
@@ -161,35 +193,74 @@ def run_execution_accuracy_open_source_chat(execution_engine, task_name,
                     prediction = prediction + "</think>"
                 elif "openthinker" in execution_engine.lower():
                     prediction = prediction + f"<|end_of_thought|>"
+            
             prediction = prediction + " The instruction is:"
-            new_inputs = tokenizer(prediction, return_tensors="pt").to(model.device)
+            new_inputs = tokenizer(
+                prediction, 
+                return_tensors="pt", 
+                truncation=True, 
+                max_length=4096
+            ).to(model.device)
+            
             with torch.no_grad():
                 new_output = model.generate(
                     **new_inputs,
                     max_new_tokens=30,
                     do_sample=do_sample,
-                    temperature=temperature
+                    temperature=temperature,
+                    use_cache=True,
+                    pad_token_id=tokenizer.eos_token_id
                 )
+            
+            # Clear intermediate tensors
+            del new_inputs
+            clear_memory()
+            
             prediction = tokenizer.decode(new_output[0], skip_special_tokens=False)
+            
+            # Clear final outputs
+            del new_output
+            clear_memory()
     
             d['instruction_outputs'] = prediction
             output_[instruction_id] = d
         else:
             chat_prompt = chat_prompt + " The instruction is:"
-            inputs = tokenizer(chat_prompt, return_tensors="pt").to(model.device)
+            inputs = tokenizer(
+                chat_prompt, 
+                return_tensors="pt", 
+                truncation=True, 
+                max_length=4096
+            ).to(model.device)
+            
             print("CAME TO ONLY 30 TOKENS")
             with torch.no_grad():
                 outputs = model.generate(
                     **inputs,
                     max_new_tokens=30,
                     do_sample=do_sample,
-                    temperature=temperature
+                    temperature=temperature,
+                    use_cache=True,
+                    pad_token_id=tokenizer.eos_token_id
                 )
+            
+            # Clear tensors immediately
+            del inputs
+            clear_memory()
+            
             prediction = tokenizer.decode(outputs[0], skip_special_tokens=False)
+            
+            del outputs
+            clear_memory()
+            
             d['instruction_outputs'] = prediction
             output_[instruction_id] = d
-            
 
+    # Final cleanup
+    del model
+    del tokenizer
+    clear_memory()
+    
     return output_
 
 
@@ -223,7 +294,7 @@ if __name__ == '__main__':
         print("SOURCE MODEL", source_model, flush=True)
         out_dir = f"predictions_{source_model}_thoughts_to_{cleaned_execution_engine}"
         print("OUT DIRECTORY", out_dir, flush=True)
-    elif args.thought_type == "ensemble":
+    elif (args.thought_type == "ensemble") or (args.thought_type == "ensemble_without_answer"):
         ensembled_model = str(args.source_folder).split("ensemble_outputs_")[-1]
         out_dir = f"predictions_{cleaned_execution_engine}_{args.thought_type}_{ensembled_model}"
     elif not(args.thought_type == "default"):
@@ -243,3 +314,6 @@ if __name__ == '__main__':
         
         with open(f'{output_path}/{induction_task}_execution.json', 'w', encoding='utf-8') as f_predictions:
             json.dump(output_results, f_predictions, indent=2, ensure_ascii=False)
+        
+        # Clear memory after each task
+        clear_memory()
