@@ -1,7 +1,7 @@
 #!/bin/bash
 # Define arrays of models and prompt styles
 sourcemodels=(
-    "BytedTsinghua-SIA/DAPO-Qwen-32B" 
+    "nvidia/Nemotron-Research-Reasoning-Qwen-1.5B" 
 )
 targetmodels=(
     "BytedTsinghua-SIA/DAPO-Qwen-32B" 
