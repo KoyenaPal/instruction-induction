@@ -1,523 +1,658 @@
-['Each input consists of two sentences, where one is the cause and the other is the outcome. Write The cause sentence', 'The input consists of two sentences. One is the cause of the other. Write the cause sentence', 'The input is a cause and effect. Write the cause.', 'The input is a cause and effect, write the cause', 'Find the cause in the following cause and effect pair', 'Output the sentence describing the cause (the other sentence is what happened as a result).', 'Output the cause (other sentence describes what happened as a result)', 'Which of the following sentences is the cause?', 'Which of the two events is the cause?']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  
-
-It seems like the instruction might be to identify the sentence that is the cause or the reason for the other sentence.
-
-Let's try to rephrase
-Normalized prediction it seems like the instruction might be to identify the sentence that is the cause or the reason for the other sentence
- 20%|██        | 1/5 [00:05<00:20,  5.23s/it]Predictions  
-
-The instruction was: "Identify the sentence that provides the reason or cause for the event described in the other sentence and output that sentence."<|endoftext|>
-Normalized prediction the instruction was identify the sentence that provides the reason or cause for the event described in the other sentence output that sentence
- 40%|████      | 2/5 [00:10<00:15,  5.00s/it]Predictions  
-
-The instruction was: "Identify the sentence that represents the cause or the reason for the event described in the other sentence and output that sentence."
-Normalized prediction the instruction was identify the sentence that represents the cause or the reason for the event described in the other sentence output that sentence
- 60%|██████    | 3/5 [00:14<00:09,  4.57s/it]Predictions  
-
-The instruction was likely: "Identify the sentence that is the cause or the reason for the other sentence."
-
-So the final instruction is: "
-Normalized prediction the instruction was likely identify the sentence that is the cause or the reason for the other sentence
- 80%|████████  | 4/5 [00:19<00:04,  4.73s/it]Predictions  
-
-The instruction is: "Identify the sentence that provides the reason or cause for the event described in the other sentence."<|endoftext|>
-Normalized prediction the instruction is identify the sentence that provides the reason or cause for the event described in the other sentence
-100%|██████████| 5/5 [00:23<00:00,  4.71s/it]100%|██████████| 5/5 [00:23<00:00,  4.76s/it]
-['which of the animals separated by , is bigger', 'output which of the animals in the input is bigger', 'Write the bigger animal of the two', 'Write the bigger animal', 'Write which of the pair of animals in each input is larger', 'For each input, write which of the two animals is bigger.', 'find the larger between the following pair of animals', 'Which of the following animals is bigger?', 'Which is bigger?']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  
-The instruction was likely: "Choose the larger animal from the given pair."<|endoftext|>
-Normalized prediction the instruction was likely choose the larger animal from the given pair
- 20%|██        | 1/5 [00:04<00:17,  4.48s/it]Predictions  
-
-The instruction was likely: "Choose the larger animal between the two given options."<|endoftext|>
-Normalized prediction the instruction was likely choose the larger animal between the two given options
- 40%|████      | 2/5 [00:09<00:13,  4.55s/it]Predictions  
-
-The instruction is likely: "Choose the wild animal from the given pair."<|endoftext|>
-Normalized prediction the instruction is likely choose the wild animal from the given pair
- 60%|██████    | 3/5 [00:13<00:09,  4.71s/it]Predictions  
-The instruction seems to be: "Choose the larger animal between the two."
-
-So the final answer is: "Choose the larger animal between the two
-Normalized prediction the instruction seems to be choose the larger animal between the two
- 80%|████████  | 4/5 [00:18<00:04,  4.65s/it]Predictions  
-
-The instruction seems to be: "Choose the animal that is a mammal. If both are mammals, choose the wild one."
-
-So the final
-Normalized prediction the instruction seems to be choose the animal that is a mammal
-100%|██████████| 5/5 [00:23<00:00,  4.67s/it]100%|██████████| 5/5 [00:23<00:00,  4.65s/it]
-['output how the number in the input is pronounced in English', 'output the pronunciation of the number in the input', 'Write the number in English words', 'For each input, write the number in plain English words without using digits.', 'For each input, write the number in plain English words without using digits or numbers.', 'Write the following number with words:', 'You will be given an input number and you need to output the number while writing it with words', 'Write the input number with words.']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  
-
-The instruction is: "Convert the number into its written form using British English conventions, including commas and 'and' where appropriate."
-
-user
-Given
-Normalized prediction the instruction is convert the number into its written form using british english conventions including commas and where appropriate
- 20%|██        | 1/5 [00:04<00:17,  4.40s/it]Predictions  
-The instruction given to your friend was likely: "Convert the number into its written form in British English, using commas after thousands and 'and'
-Normalized prediction the instruction given to your friend was likely convert the number into its written form in british english using commas after thousands and
- 40%|████      | 2/5 [00:08<00:13,  4.52s/it]Predictions  
-The instruction is likely: "Convert the number into its written form using British English conventions. Use commas to separate thousands from hundreds, include 'and
-Normalized prediction the instruction is likely convert the number into its written form using british english conventions
- 60%|██████    | 3/5 [00:13<00:09,  4.51s/it]Predictions  
-
-The instruction is: "Convert the number into its British English word form, using commas to separate thousands from the hundreds component, 'and' after
-Normalized prediction the instruction is convert the number into its british english word form using commas to separate thousands from the hundreds component and after
- 80%|████████  | 4/5 [00:18<00:04,  4.60s/it]Predictions  
-
-The instruction is: "Convert the given number into its written form in British English."
+EXECUTION ENGINE BytedTsinghua-SIA_DAPO-Qwen-32B
+SOURCE MODEL Qwen_QwQ-32B
+OUT DIRECTORY predictions_Qwen_QwQ-32B_thoughts_to_BytedTsinghua-SIA_DAPO-Qwen-32B
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:07,  1.74it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:09,  1.30it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:08,  1.27it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:03<00:08,  1.11it/s]Loading checkpoint shards:  36%|███▌      | 5/14 [00:04<00:08,  1.04it/s]Loading checkpoint shards:  43%|████▎     | 6/14 [00:05<00:07,  1.07it/s]Loading checkpoint shards:  50%|█████     | 7/14 [00:06<00:06,  1.01it/s]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:07<00:06,  1.06s/it]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:08<00:04,  1.00it/s]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:09<00:03,  1.06it/s]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:10<00:02,  1.08it/s]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:11<00:01,  1.10it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:11<00:00,  1.10it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.18it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.10it/s]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
 
-This involves converting the number into words, using commas to separate
-Normalized prediction the instruction is convert the given number into its written form in british english
-100%|██████████| 5/5 [00:22<00:00,  4.57s/it]100%|██████████| 5/5 [00:22<00:00,  4.55s/it]
-['Output all tokens in the sentence that start with the letter in [ ]', 'output all the tokens in the input that start with the letter in [ ]', 'Write all the words of the input that start with the letter in the square brackets', 'Write all the words from the sentence that start with the letter in the square brackets', 'For each input sentence, list all the words in the sentence that begin with the character written inside the brackets.', 'For each input, list all the words in the sentence that begin with the character in brackets at the end of the sentence.', 'Write all the words in the following sentence that start with the bracketed letter, in their original order.', 'Write a word from the following sentence that starts with the bracketed letter:']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  
+Input: Sentence 1: The air conditioner broke. Sentence 2: The family went to the beach.
+Output: The air conditioner broke.
 
-The instruction is: "List all the words in the sentence that start with the letter given in the brackets, in the order they appear, separated
-Normalized prediction the instruction is list all the words in the sentence that start with the letter given in the brackets in the order they appear separated
- 20%|██        | 1/5 [00:04<00:18,  4.60s/it]Predictions  
-
-The instruction is: "Find the word in the sentence that starts with the letter given inside the brackets and output that word."<|endoftext|>
-Normalized prediction the instruction is find the word in the sentence that starts with the letter given inside the brackets output that word
- 40%|████      | 2/5 [00:09<00:13,  4.60s/it]Predictions  
+Input: Sentence 1: The man sued. Sentence 2: The floor was wet.
+Output: The floor was wet.
 
-The instruction is: "Given a sentence followed by a letter in brackets, output all the words in the sentence that start with that letter (case
-Normalized prediction the instruction is given a sentence followed by a letter in brackets output all the words in the sentence that start with that letter case
- 60%|██████    | 3/5 [00:13<00:09,  4.62s/it]Predictions  she had been looking for at Borders. [l]". The output is "looking". The word starting with L is "looking". So the instruction
-Normalized prediction she had been looking for at borders
- 80%|████████  | 4/5 [00:18<00:04,  4.60s/it]Predictions  instruction is:
+Input: Sentence 1: A bird hit the engine. Sentence 2: The pilot turned on the "fasten seatbelts" light.
+Output: A bird hit the engine.
 
-Extract all the words from the sentence that start with the letter given in the brackets (case-insensitive), and list them in the order
-Normalized prediction instruction is extract all the words from the sentence that start with the letter given in the brackets case insensitive list them in the order
-100%|██████████| 5/5 [00:23<00:00,  4.70s/it]100%|██████████| 5/5 [00:23<00:00,  4.66s/it]
-['what is a word that rhymes with the input token', 'write a word that rhymes with the input', 'Write a word that rhymes with the input', 'Write a word that rhymes with the input word', 'Write a word that rhymes with each of the following input words', 'For each word in the input write another word that rhymes with it.', 'Write a rhyme for the following word:', 'Write a word that rhymes with the input word.']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  
+Input: Sentence 1: The company's stock went up. Sentence 2: The company's posted strong earnings.
+Output: The company's posted strong earnings.
 
-It seems like the pattern involves changing the first letter of the input word to form a new word that is a valid English word and makes sense in
-Normalized prediction it seems like the pattern involves changing the first letter of the input word to form a new word that is a valid english word makes sense in
- 20%|██        | 1/5 [00:04<00:18,  4.56s/it]Predictions  
+Input: Sentence 1: The man turned down the music volume. Sentence 2: The man couldn't hear what the woman was saying.
+Output: The man couldn't hear what the woman was saying.
 
-The instruction seems to be to change the beginning of the word to form a new word that either rhymes or is related in some way.
+The instruction was
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 20%|██        | 1/5 [00:01<00:07,  1.77s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
 
-_<
-Normalized prediction the instruction seems to be to change the beginning of the word to form a new word that either rhymes or is related in some way
- 40%|████      | 2/5 [00:09<00:13,  4.57s/it]Predictions  
+Input: Sentence 1: The meat spoiled. Sentence 2: The power was out for days.
+Output: The power was out for days.
 
-It seems like the pattern involves modifying the input words in different ways to form new words that are somewhat related or have a specific transformation applied.
+Input: Sentence 1: The woman who was walking on the street opened her umbrella. Sentence 2: It started raining.
+Output: It started raining.
 
-Let
-Normalized prediction it seems like the pattern involves modifying the input words in different ways to form new words that are somewhat related or have a specific transformation applied
- 60%|██████    | 3/5 [00:13<00:09,  4.58s/it]Predictions  
-It seems like the instruction is not straightforward and involves multiple steps or a combination of different rules.
+Input: Sentence 1: Jill won the lawsuit against Acme. Sentence 2: Acme paid Jill's legal fees.
+Output: Jill won the lawsuit against Acme.
 
-After analyzing the given input-output pairs, it appears
-Normalized prediction it seems like the instruction is not straightforward involves multiple steps or a combination of different rules
- 80%|████████  | 4/5 [00:18<00:04,  4.59s/it]Predictions  
+Input: Sentence 1: The company's posted strong earnings. Sentence 2: The company's stock went up.
+Output: The company's posted strong earnings.
 
-The instruction seems to be: "Replace the beginning of the word with another word or letters such that the new word has a similar or the same
-Normalized prediction the instruction seems to be replace the beginning of the word with another word or letters such that the new word has a similar or the same
-100%|██████████| 5/5 [00:22<00:00,  4.58s/it]100%|██████████| 5/5 [00:22<00:00,  4.58s/it]
-['provide a synonym', 'output a word that is similar to the input', 'Write a word with similar meaning to the input', 'Write a word with a similar meaning', 'Write a word with close, but not exactly the same, meaning to each word in the following inputs', 'Write a synonym of the following word:', 'You will be given a word as input and need to output a word that is semantically similar. ', 'Write a synonym of the input word.']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions "
+Input: Sentence 1: The man went to jail. Sentence 2: The man robbed a gas station.
+Output: The man robbed a gas station.
 
-The instruction seems to be to find a shorter or more basic term that captures the essence or a key component of the meaning of the input word.
+The instruction was
+ 40%|████      | 2/5 [00:02<00:03,  1.30s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
 
+Input: Sentence 1: I flipped the switch. Sentence 2: Light filled the room.
+Output: I flipped the switch.
 
-Normalized prediction the instruction seems to be to find a shorter or more basic term that captures the essence or a key component of the meaning of the input word
- 20%|██        | 1/5 [00:04<00:18,  4.62s/it]Predictions )
+Input: Sentence 1: The man went to jail. Sentence 2: The man robbed a gas station.
+Output: The man robbed a gas station.
 
-The instruction seems to be to find a synonym for the given word, often a more common or simpler synonym, and sometimes a synonym that is a
-Normalized prediction the instruction seems to be to find a synonym for the given word often a more common or simpler synonym sometimes a synonym that is a
- 40%|████      | 2/5 [00:09<00:14,  4.87s/it]Predictions  
+Input: Sentence 1: The laptop ran out of battery. Sentence 2: George plugged the laptop charger in.
+Output: The laptop ran out of battery.
 
-It seems like the instruction might be to find the base form or the associated action for the input word, but it's not consistent across all examples
-Normalized prediction it seems like the instruction might be to find the base form or the associated action for the input word but its not consistent across all examples
- 60%|██████    | 3/5 [00:14<00:09,  4.75s/it]Predictions  
+Input: Sentence 1: Jill won the lawsuit against Acme. Sentence 2: Acme paid Jill's legal fees.
+Output: Jill won the lawsuit against Acme.
 
-The instruction seems to be to find a related term or synonym for the given word, which could be a synonym, a related concept, or a
-Normalized prediction the instruction seems to be to find a related term or synonym for the given word which could be a synonym a related concept or a
- 80%|████████  | 4/5 [00:18<00:04,  4.70s/it]Predictions  
+Input: Sentence 1: The gardener planted a seed. Sentence 2: A flower grew.
+Output: The gardener planted a seed.
 
-The instruction seems to be to find a related word or a synonym that is shorter or more basic for the input word.
+The instruction was
+ 60%|██████    | 3/5 [00:03<00:02,  1.17s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
 
-So the instruction could be
-Normalized prediction the instruction seems to be to find a related word or a synonym that is shorter or more basic for the input word
-100%|██████████| 5/5 [00:23<00:00,  4.65s/it]100%|██████████| 5/5 [00:23<00:00,  4.69s/it]
-['write only the animals from the list of words', 'write all animals from the list of words', 'Find the animals in the list', 'find the animals in the following list of words', 'List which of the following are animals', 'List the animals from the given words', 'extract animals', 'Extract all animals from the input list', 'Extract all animals from the list']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  
+Input: Sentence 1: My friend celebrated with their family. Sentence 2: My friend got a promotion.
+Output: My friend got a promotion.
 
-The instruction is: "From the given list of words, select and list the names that refer to animals."
+Input: Sentence 1: The dinosaurs became extinct. Sentence 2: A large object hit the Earth.
+Output: A large object hit the Earth.
 
-So the final instruction is: "
-Normalized prediction the instruction is from the given list of words select list the names that refer to animals
- 20%|██        | 1/5 [00:04<00:19,  4.80s/it]Predictions  
+Input: Sentence 1: The curtains were opened. Sentence 2: Sunlight filled the room.
+Output: The curtains were opened.
 
-The instruction is to list all the animals from the input in the order they appear.
+Input: Sentence 1: The soda went flat. Sentence 2: The bottle was left open.
+Output: The bottle was left open.
 
-So the final instruction is: "List all the animals from
-Normalized prediction the instruction is to list all the animals from the input in the order they appear
- 40%|████      | 2/5 [00:09<00:14,  4.75s/it]Predictions  
-The instruction is to list all the non-human animals from the given input.
+Input: Sentence 1: Jimmy took the last piece of cake. Sentence 2: Mom rinsed the tray.
+Output: Jimmy took the last piece of cake.
 
-To verify this instruction with each input-output pair:
+The instruction was
+ 80%|████████  | 4/5 [00:05<00:01,  1.23s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
 
-1. Input:
-Normalized prediction the instruction is to list all the non human animals from the given input
- 60%|██████    | 3/5 [00:14<00:09,  4.83s/it]Predictions  
+Input: Sentence 1: Mom rinsed the tray. Sentence 2: Jimmy took the last piece of cake.
+Output: Jimmy took the last piece of cake.
 
-The instruction is: "List all the non-human animal names from the input."<|endoftext|>
-Normalized prediction the instruction is list all the non human animal names from the input
- 80%|████████  | 4/5 [00:19<00:04,  4.81s/it]Predictions  
+Input: Sentence 1: A watermelon exploded. Sentence 2: A man was covered in sticky red goo.
+Output: A watermelon exploded.
 
-The instruction is: "List all the animals from the given input."
+Input: Sentence 1: The performer ran off the stage. Sentence 2: There was a wardrobe malfunction.
+Output: There was a wardrobe malfunction.
 
-So the final answer is: "List all the animals from the given input
-Normalized prediction the instruction is list all the animals from the given input
-100%|██████████| 5/5 [00:23<00:00,  4.73s/it]100%|██████████| 5/5 [00:23<00:00,  4.76s/it]
-['Translate the input to French', 'Translate the word into French', 'Translate each of the following input to French', 'Translate each word in the input to French.']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  
+Input: Sentence 1: The man sipped the milk and spit it out. Sentence 2: The milk was left outside the fridge over night.
+Output: The milk was left outside the fridge over night.
 
-The instruction is likely: "Translate the given English word into French."
+Input: Sentence 1: The company's stock went up. Sentence 2: The company's posted strong earnings.
+Output: The company's posted strong earnings.
 
-So the final answer is: Translate the given English word into French.<|endoftext|>
-Normalized prediction the instruction is likely translate the given english word into french
- 20%|██        | 1/5 [00:04<00:18,  4.53s/it]Predictions  
+The instruction was
+100%|██████████| 5/5 [00:05<00:00,  1.09s/it]100%|██████████| 5/5 [00:05<00:00,  1.19s/it]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:06,  1.89it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:08,  1.35it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:08,  1.30it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:03<00:08,  1.13it/s]Loading checkpoint shards:  36%|███▌      | 5/14 [00:04<00:08,  1.10it/s]Loading checkpoint shards:  43%|████▎     | 6/14 [00:04<00:06,  1.19it/s]Loading checkpoint shards:  50%|█████     | 7/14 [00:05<00:06,  1.16it/s]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:06<00:05,  1.13it/s]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:07<00:04,  1.14it/s]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:08<00:03,  1.16it/s]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:09<00:02,  1.15it/s]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:10<00:01,  1.15it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:11<00:00,  1.14it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:11<00:00,  1.24it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:11<00:00,  1.19it/s]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
 
-The instruction was: "Translate the given English word into French."<|endoftext|>
-Normalized prediction the instruction was translate the given english word into french
- 40%|████      | 2/5 [00:08<00:13,  4.48s/it]Predictions  
+Input: elephant, chamois
+Output: elephant
 
-The instruction seems to be: "Translate the given English word into French. If the word has multiple meanings, choose the less common or non-l
-Normalized prediction the instruction seems to be translate the given english word into french
- 60%|██████    | 3/5 [00:13<00:08,  4.44s/it]Predictions  
+Input: toy poodle, koi
+Output: koi
 
-The instruction was likely: "Translate the given English word into French."
+Input: dog, horse
+Output: horse
 
-So the final answer is: Translate the given English word into French.<|endoftext|>
-Normalized prediction the instruction was likely translate the given english word into french
- 80%|████████  | 4/5 [00:18<00:04,  4.54s/it]Predictions  
+Input: chinook, crocodile
+Output: crocodile
 
-The instruction was: "Translate the given English word into French."
+Input: jaguar, common carp
+Output: jaguar
 
-user
-What is the instruction that was given to my friend to produce the outputs
-Normalized prediction the instruction was translate the given english word into french
-100%|██████████| 5/5 [00:22<00:00,  4.65s/it]100%|██████████| 5/5 [00:22<00:00,  4.58s/it]
-['Reverse the characters on each side of the middle point', 'Split at the center and reverse each half separately', 'Find the middle and flip the order of characters on both sides', 'Divide the string in half and reverse each portion independently', 'Locate the center point and reverse the left and right segments', 'Take the middle as a pivot and reverse the characters before and after it', 'Split the input at the midpoint and apply reversal to each side', 'Identify the center element and reverse the characters in each half around it']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  
+The instruction was
+ 20%|██        | 1/5 [00:00<00:02,  1.67it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
 
-It seems like the pattern involves swapping the first two letters and then some other operation on the rest of the string.
+Input: bull shark, labradoodle
+Output: bull shark
 
-Let's try to find a
-Normalized prediction it seems like the pattern involves swapping the first two letters then some other operation on the rest of the string
- 20%|██        | 1/5 [00:04<00:19,  4.79s/it]Predictions  is m h t i.
+Input: elephant, poodle
+Output: elephant
 
-If we swap the reversed halves, it would be m h t i r o g l a → "mhtiro
-Normalized prediction is m h t i
- 40%|████      | 2/5 [00:09<00:14,  4.92s/it]Predictions  
+Input: liger, rat
+Output: liger
 
-It seems like there might be a mistake in the given output for "wind." Let's assume the correct output for "wind" is "iw
-Normalized prediction it seems like there might be a mistake in the given output for wind
- 60%|██████    | 3/5 [00:15<00:10,  5.17s/it]Predictions  
+Input: toy poodle, poodle
+Output: poodle
 
-It seems like the pattern involves reversing the halves of the words.
+Input: cheetah, swallow
+Output: cheetah
 
-Let's try the instruction: "For each word, split it into two halves
-Normalized prediction it seems like the pattern involves reversing the halves of the words
- 80%|████████  | 4/5 [00:20<00:05,  5.25s/it]Predictions  
+The instruction was
+ 40%|████      | 2/5 [00:01<00:01,  1.70it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
 
-It seems like I'm getting confused. Let's take a step back and look at the pattern systematically.
+Input: jaguar, donkey
+Output: jaguar
 
-Let's analyze the given input-output pairs
-Normalized prediction it seems like im getting confused
-100%|██████████| 5/5 [00:25<00:00,  5.28s/it]100%|██████████| 5/5 [00:25<00:00,  5.20s/it]
-['Count the characters in the smallest item', 'Find the shortest item and return its character count', 'Identify the smallest object and count its letters', 'Determine which item is smallest and output its length', 'Locate the most compact item and count its characters', 'Select the briefest item and return its character count', 'Pick the shortest entry and calculate its length', 'Choose the smallest element and count how many letters it has']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  = 4
-Elephant: 8 letters, 3 vowels → 8+3 = 11
-Mouse: 5 letters,
-Normalized prediction 4 elephant 8 letters 3 vowels → 83 11 mouse 5 letters
- 20%|██        | 1/5 [00:05<00:23,  5.94s/it]Predictions  
+Input: sperm whale, labradoodle
+Output: sperm whale
 
-It seems like the instruction might be related to counting the number of items that belong to a specific category or have a certain property.
+Input: guinea pig, wildebeest
+Output: wildebeest
 
-Let's try
-Normalized prediction it seems like the instruction might be related to counting the number of items that belong to a specific category or have a certain property
- 40%|████      | 2/5 [00:11<00:17,  5.68s/it]Predictions  
+Input: dog, elephant
+Output: elephant
 
-The instruction seems to be: "Count the number of items in the list that share a common characteristic that the other item(s) do not have
-Normalized prediction the instruction seems to be count the number of items in the list that share a common characteristic that the other items do not have
- 60%|██████    | 3/5 [00:16<00:10,  5.47s/it]Predictions  
-"Count the number of items that are genres of movies or books." All five are genres, so the output is 5.
+Input: whale shark, cockapoo
+Output: whale shark
 
-Fifth input
-Normalized prediction count the number of items that are genres of movies or books
- 80%|████████  | 4/5 [00:21<00:05,  5.33s/it]Predictions  
+The instruction was
+ 60%|██████    | 3/5 [00:01<00:01,  1.71it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
 
-It seems like the instruction might be related to identifying the number of items that belong to a certain category or are more "essential" or "standard
-Normalized prediction it seems like the instruction might be related to identifying the number of items that belong to a certain category or are more essential or standard
-100%|██████████| 5/5 [00:26<00:00,  5.25s/it]100%|██████████| 5/5 [00:26<00:00,  5.38s/it]
-['Identify the smallest even number and return its square root', 'Find the lowest even value and calculate its square root', 'Locate the smallest even integer and output its square root', 'Determine the minimum even number and return its square root', 'Select the smallest even entry and calculate its square root', 'Pick the lowest even item and output its square root', 'Choose the smallest even element and return its square root', 'Find the most compact even number and calculate its square root']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  No.
+Input: chimpanzee, goldfish
+Output: chimpanzee
 
-16: 3? No. 36? No. 15? No.
+Input: parrot, bat
+Output: parrot
 
-3: 36? Yes,
-Normalized prediction no
- 20%|██        | 1/5 [00:05<00:20,  5.16s/it]Predictions  
-The instruction seems to be: "Find the smallest integer square root among the numbers in the input list."
+Input: tiger, common carp
+Output: tiger
 
-Let's check this rule for each input
-Normalized prediction the instruction seems to be find the smallest integer square root among the numbers in the input list
- 40%|████      | 2/5 [00:10<00:15,  5.05s/it]Predictions  4: 144 ÷4 = 36 → yes. 21 ÷4? No.
+Input: spider, chinook
+Output: chinook
 
-21: 
-Normalized prediction 4 144 ÷4 36 → yes
- 60%|██████    | 3/5 [00:15<00:10,  5.01s/it]Predictions  <think> N I N E (4). So 5+4=9 letters.
+Input: alpaca, chihuahua
+Output: alpaca
 
-324: "three hundred twenty-four". Let
-Normalized prediction think n i n e 4
- 80%|████████  | 4/5 [00:20<00:04,  4.98s/it]Predictions  
+The instruction was
+ 80%|████████  | 4/5 [00:02<00:00,  1.29it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
 
-The instruction seems to be: For each input list of numbers, identify the perfect squares among them and take the square root of the first perfect square
-Normalized prediction the instruction seems to be for each input list of numbers identify the perfect squares among them take the square root of the first perfect square
-100%|██████████| 5/5 [00:25<00:00,  4.98s/it]100%|██████████| 5/5 [00:25<00:00,  5.00s/it]
-['Find the word with the most vowels and return its consonant count', 'Identify the word containing the highest number of vowels and count its consonants', 'Locate the word with the greatest vowel count and output its consonant total', 'Determine which word has the most vowels and return how many consonants it has', 'Select the word with the maximum vowels and calculate its consonant count', 'Pick the word containing the most vowel letters and count its consonants', 'Choose the word with the highest vowel frequency and return its consonant number', 'Find the most vowel-rich word and output its consonant quantity']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  
+Input: chamois, parrot
+Output: chamois
 
-It seems like the rule might be related to the number of words that are not adjectives.
+Input: sperm whale, snail
+Output: sperm whale
 
-Let's try this rule: "Count the number
-Normalized prediction it seems like the rule might be related to the number of words that are not adjectives
- 20%|██        | 1/5 [00:05<00:20,  5.09s/it]Predictions  
+Input: cougar, largemouth bass
+Output: cougar
 
-It seems like I'm not getting anywhere with the above approaches. Let's try another approach.
+Input: elk, poodle
+Output: elk
 
-Let's count the number of words that have more
-Normalized prediction it seems like im not getting anywhere with the above approaches
- 40%|████      | 2/5 [00:10<00:15,  5.20s/it]Predictions  that have at least one vowel that appears more than once in the word? Let's check each input:
+Input: hummingbird, chimpanzee
+Output: chimpanzee
 
-For the first input: "extraordinary,
-Normalized prediction that have at least one vowel that appears more than once in the word lets check each input for the first input extraordinary
- 60%|██████    | 3/5 [00:15<00:10,  5.21s/it]Predictions 2+8=10. Hmm, not 6.
+The instruction was
+100%|██████████| 5/5 [00:04<00:00,  1.06it/s]100%|██████████| 5/5 [00:04<00:00,  1.23it/s]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:06,  1.87it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:08,  1.34it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:08,  1.30it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:03<00:08,  1.13it/s]Loading checkpoint shards:  36%|███▌      | 5/14 [00:04<00:08,  1.10it/s]Loading checkpoint shards:  43%|████▎     | 6/14 [00:04<00:06,  1.19it/s]Loading checkpoint shards:  50%|█████     | 7/14 [00:05<00:06,  1.16it/s]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:06<00:05,  1.13it/s]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:07<00:04,  1.14it/s]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:08<00:03,  1.16it/s]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:09<00:02,  1.15it/s]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:10<00:01,  1.15it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:11<00:00,  1.13it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:11<00:00,  1.18it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:11<00:00,  1.17it/s]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
 
-Let's try another approach. Maybe the instruction is to count the number of words that
-Normalized prediction 2810
- 80%|████████  | 4/5 [00:20<00:05,  5.21s/it]Predictions  so no direct consecutive vowels. But there are multiple vowels spread out.
+Input: 4933
+Output: four thousand, nine hundred and thirty-three
 
-Pen: no consecutive vowels.
+Input: 3674
+Output: three thousand, six hundred and seventy-four
 
-Hat: no.
+Input: 6747
+Output: six thousand, seven hundred and forty-seven
 
-Cup: no.
+Input: 6031
+Output: six thousand and thirty-one
 
-Key
-Normalized prediction so no direct consecutive vowels
-100%|██████████| 5/5 [00:25<00:00,  5.16s/it]100%|██████████| 5/5 [00:25<00:00,  5.17s/it]
-['Detect rhyme schemes in poetry, then rewrite maintaining the same pattern', 'Identify the rhyming pattern in verses and create new poetry with identical structure', 'Analyze rhyme schemes in poems and compose new verses following the same format', 'Determine the rhyming structure of poetry and write new content using the same scheme', 'Find rhyme patterns in verses and generate new poems with matching rhyme structures', 'Recognize rhyming sequences in poetry and create new verses with the same pattern', 'Identify verse rhyme schemes and rewrite poetry maintaining the identical structure', 'Detect poetic rhyme patterns and compose new verses following the same rhyming format']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  
-Assistant
-The instruction given to your friend appears to be: "Rewrite the given poem or rhyme with a different theme or subject matter while keeping
-Normalized prediction assistant the instruction given to your friend appears to be rewrite the given poem or rhyme with a different theme or subject matter while keeping
- 20%|██        | 1/5 [00:05<00:20,  5.05s/it]Predictions  
-is: "Rewrite the given input into a new poem that maintains the same structure and rhyme scheme but replaces key elements (such as time of
-Normalized prediction is rewrite the given input into a new poem that maintains the same structure rhyme scheme but replaces key elements such as time of
- 40%|████      | 2/5 [00:10<00:15,  5.02s/it]Predictions  
+Input: 971
+Output: nine hundred and seventy-one
 
-The instruction is: "Rewrite the given limerick by replacing the main subject (the primary animal or natural element) with a different one
-Normalized prediction the instruction is rewrite the given limerick by replacing the main subject the primary animal or natural element with a different one
- 60%|██████    | 3/5 [00:15<00:10,  5.07s/it]Predictions  
+The instruction was
+ 20%|██        | 1/5 [00:01<00:04,  1.16s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
 
-The instruction is: "Rewrite the given poem by substituting the main subject with a related but different one, while keeping the same structure and
-Normalized prediction the instruction is rewrite the given poem by substituting the main subject with a related but different one while keeping the same structure and
- 80%|████████  | 4/5 [00:20<00:05,  5.00s/it]Predictions  
-The instruction was likely: "Write a four-line poem that is a counterpart to the given input, maintaining the same rhyme scheme and structure but contrasting
-Normalized prediction the instruction was likely write a four line poem that is a counterpart to the given input maintaining the same rhyme scheme structure but contrasting
-100%|██████████| 5/5 [00:25<00:00,  4.98s/it]100%|██████████| 5/5 [00:25<00:00,  5.00s/it]
-['Classify foods by macronutrient content, then rank by protein percentage', 'Categorize foods by their primary macronutrients and arrange by protein content from highest to lowest', 'Group foods into macronutrient categories and order by descending protein percentage', 'Identify the macronutrient profile of each food and sort by protein content', 'Classify foods as protein, carbohydrate, or fat sources and rank by protein levels', 'Determine macronutrient composition of foods and arrange from most to least protein', 'Sort foods by macronutrient type and organize by protein content in descending order', 'Analyze foods for macronutrient content and list by highest protein percentage first']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions ,
+Input: 7702
+Output: seven thousand, seven hundred and two
 
-It seems the instruction is to arrange the items in the following order:
+Input: 8524
+Output: eight thousand, five hundred and twenty-four
 
-1. The first item remains fixed (likely the main protein or the primary
-Normalized prediction it seems the instruction is to arrange the items in the following order 1
- 20%|██        | 1/5 [00:04<00:18,  4.73s/it]Predictions  
+Input: 2743
+Output: two thousand, seven hundred and forty-three
 
-The instruction is to sort the items according to the following hierarchy: animal proteins, plant-based proteins, grains/starches, vegetables, fruits,
-Normalized prediction the instruction is to sort the items according to the following hierarchy animal proteins plant based proteins grainsstarches vegetables fruits
- 40%|████      | 2/5 [00:09<00:14,  4.85s/it]Predictions  
-The instruction is to rearrange the list of five items such that the first item and the last item remain in their original positions. The middle three
-Normalized prediction the instruction is to rearrange the list of five items such that the first item the last item remain in their original positions
- 60%|██████    | 3/5 [00:14<00:09,  4.88s/it]Predictions  
+Input: 2401
+Output: two thousand, four hundred and one
 
-The instruction is: "Sort the ingredients into the categories of protein, legumes, pasta, greens, and oil, and list them in that
-Normalized prediction the instruction is sort the ingredients into the categories of protein legumes pasta greens oil list them in that
- 80%|████████  | 4/5 [00:19<00:04,  4.89s/it]Predictions  
+Input: 4563
+Output: four thousand, five hundred and sixty-three
 
-The instruction is: "Arrange the items in the order of protein, beans, pasta, lettuce, and oil."<|endoftext|>
-Normalized prediction the instruction is arrange the items in the order of protein beans pasta lettuce oil
-100%|██████████| 5/5 [00:24<00:00,  4.99s/it]100%|██████████| 5/5 [00:24<00:00,  4.93s/it]
-['Identify the language of text snippets, then translate key phrases to English', 'Detect the language in each text passage and provide English translations of important phrases', 'Recognize what language is being used and convert the main phrases into English', 'Determine the source language of text samples and translate significant portions to English', 'Identify which language each text is written in and render key expressions in English', 'Classify the language of given text snippets and translate the essential phrases to English', 'Recognize the linguistic origin of text passages and provide English equivalents of key phrases', 'Determine the language family of each text sample and translate the primary phrases into English']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  
+The instruction was
+ 40%|████      | 2/5 [00:02<00:03,  1.17s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
 
-The instruction likely was: "Translate the given sentences from their respective languages into English, while standardizing greetings and questions about well-being to common English
-Normalized prediction the instruction likely was translate the given sentences from their respective languages into english while standardizing greetings questions about well being to common english
- 20%|██        | 1/5 [00:04<00:19,  4.99s/it]Predictions  
+Input: 2542
+Output: two thousand, five hundred and forty-two
 
-The instruction was: "Translate each input sentence into English, keeping both the question and the thanks part as accurate translations."
+Input: 5879
+Output: five thousand, eight hundred and seventy-nine
 
-This instruction fits all the
-Normalized prediction the instruction was translate each input sentence into english keeping both the question the thanks part as accurate translations
- 40%|████      | 2/5 [00:10<00:15,  5.12s/it]Predictions  
-The instruction was: "Translate the given sentences into English."
+Input: 752
+Output: seven hundred and fifty-two
 
-user
-I have a dataset of sentences in different languages, and I need to translate
-Normalized prediction the instruction was translate the given sentences into english
- 60%|██████    | 3/5 [00:15<00:10,  5.20s/it]Predictions  
+Input: 2314
+Output: two thousand, three hundred and fourteen
 
-The instruction was likely: "Translate the given sentences into English."
+Input: 4047
+Output: four thousand and forty-seven
 
-So the final answer is: 
+The instruction was
+ 60%|██████    | 3/5 [00:03<00:02,  1.18s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
 
-Translate the given sentences into English.<|endoftext|>
-Normalized prediction the instruction was likely translate the given sentences into english
- 80%|████████  | 4/5 [00:20<00:04,  4.94s/it]Predictions  
+Input: 9067
+Output: nine thousand and sixty-seven
 
-The instruction was likely: "Translate the given sentences from their respective languages into English, maintaining the meaning and structure."
+Input: 5087
+Output: five thousand and eighty-seven
 
-So the final answer is:
-Normalized prediction the instruction was likely translate the given sentences from their respective languages into english maintaining the meaning structure
-100%|██████████| 5/5 [00:25<00:00,  4.97s/it]100%|██████████| 5/5 [00:25<00:00,  5.01s/it]
-['Identify the animal in the list and return square of the zodiac number', 'Find the zodiac animal in each list and output the square of its zodiac position', 'Locate the Chinese zodiac animal and return its zodiac number squared', 'Detect the zodiac animal from the items and calculate the square of its zodiac order', 'Identify which item is a zodiac animal and return the square of its zodiac ranking', 'Find the Chinese zodiac animal in the list and output its position number squared', 'Recognize the zodiac animal and return the square of its numerical position in the zodiac cycle', 'Determine which animal corresponds to the Chinese zodiac and calculate the square of its zodiac number']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  
+Input: 853
+Output: eight hundred and fifty-three
 
-The instruction was: "Find the position of the first word (which is an animal) in the Chinese zodiac and square that number to get
-Normalized prediction the instruction was find the position of the first word which is an animal in the chinese zodiac square that number to get
- 20%|██        | 1/5 [00:05<00:21,  5.35s/it]Predictions  
-
-It seems like the instruction involves counting the number of syllables in each word and summing them up, then squaring the total.
-
-Let's
-Normalized prediction it seems like the instruction involves counting the number of syllables in each word summing them up then squaring the total
- 40%|████      | 2/5 [00:10<00:15,  5.33s/it]Predictions 12, 12 squared is 144. Not 81.
-
-Let's try a different approach. Let's look at the
-Normalized prediction 12 12 squared is 144
- 60%|██████    | 3/5 [00:16<00:10,  5.34s/it]Predictions  
-
-It seems I'm getting nowhere with this approach. Let's try another approach.
-
-Let's look at the total number of letters in each input and
-Normalized prediction it seems im getting nowhere with this approach
- 80%|████████  | 4/5 [00:21<00:05,  5.38s/it]Predictions  input:
-
-vineyard (8), grape (5), goat (4), wine (4), barrel (6).
-
-The sum of the squares of the
-Normalized prediction input vineyard 8 grape 5 goat 4 wine 4 barrel 6
-100%|██████████| 5/5 [00:26<00:00,  5.39s/it]100%|██████████| 5/5 [00:26<00:00,  5.37s/it]
-['Alternate between giving an antonym and synonym of the words in the sentence', 'Replace words in the sentence by alternating between opposites and similar words', 'Transform the sentence by switching between antonyms and synonyms for each word', 'Modify each word in the sentence alternately using antonyms and synonyms', 'Rewrite the sentence alternating between opposite meanings and similar meanings for words', 'Change words in sequence by alternating between contrasting terms and equivalent terms', 'Replace sentence words by alternating between contradictory and matching word choices', 'Transform each word alternately using opposing words and words with similar meanings']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  
+Input: 1277
+Output: one thousand, two hundred and seventy-seven
 
-It seems like the instruction involves transforming the sentence by changing some words to their antonyms and others to synonyms, with a focus on inverting the
-Normalized prediction it seems like the instruction involves transforming the sentence by changing some words to their antonyms others to synonyms with a focus on inverting the
- 20%|██        | 1/5 [00:05<00:21,  5.45s/it]Predictions  
+Input: 7520
+Output: seven thousand, five hundred and twenty
 
-Assistant
-The instruction appears to be: "Rewrite the sentence by changing the meaning to its opposite. Use antonyms for adjectives and verbs
-Normalized prediction assistant the instruction appears to be rewrite the sentence by changing the meaning to its opposite
- 40%|████      | 2/5 [00:10<00:16,  5.40s/it]Predictions  
+The instruction was
+ 80%|████████  | 4/5 [00:04<00:01,  1.20s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
 
-The instruction is likely: "Rewrite the sentence by replacing the first adjective or adverb with its antonym, replacing nouns with synonyms, and
-Normalized prediction the instruction is likely rewrite the sentence by replacing the first adjective or adverb with its antonym replacing nouns with synonyms and
- 60%|██████    | 3/5 [00:16<00:10,  5.41s/it]Predictions  
-The instruction is likely: "Rewrite each sentence to convey the opposite meaning by changing adjectives and adverbs to their antonyms and modifying nouns
-Normalized prediction the instruction is likely rewrite each sentence to convey the opposite meaning by changing adjectives adverbs to their antonyms modifying nouns
- 80%|████████  | 4/5 [00:21<00:05,  5.39s/it]Predictions  
-The instruction was likely: "Rewrite each sentence to convey the opposite meaning by changing verbs to their antonyms, adjectives and adverbs to
-Normalized prediction the instruction was likely rewrite each sentence to convey the opposite meaning by changing verbs to their antonyms adjectives adverbs to
-100%|██████████| 5/5 [00:26<00:00,  5.37s/it]100%|██████████| 5/5 [00:26<00:00,  5.38s/it]
-['Identify the word with the most consonants and return its vowel count', 'Find which word has the highest number of consonants and output how many vowels it contains', 'Locate the word containing the most consonant letters and return the number of vowels in that word', 'Determine which word has the maximum consonants and provide its vowel count', 'Select the word with the greatest consonant count and output the number of vowels it has', 'Find the most consonant-heavy word and return how many vowels are in it', 'Identify which word contains the most consonant sounds and count its vowels', 'Pick the word with the highest consonant frequency and return its total vowel count']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  for all.
+Input: 3826
+Output: three thousand, eight hundred and twenty-six
 
-After analyzing the given input-output pairs, it seems the instruction is to count the number of words in the list that belong to a specific
-Normalized prediction for all
- 20%|██        | 1/5 [00:05<00:21,  5.50s/it]Predictions  
+Input: 7959
+Output: seven thousand, nine hundred and fifty-nine
 
-It seems I'm still stuck. Let's try a different approach.
+Input: 6507
+Output: six thousand, five hundred and seven
 
-Let's look at the number of syllables in the first word of each
-Normalized prediction it seems im still stuck
- 40%|████      | 2/5 [00:11<00:16,  5.53s/it]Predictions  i (1)
-pants: a (1)
-jacket: a and e (2)
-shoes: u (1)
-socks: o
-Normalized prediction i 1 pants a 1 jacket a e 2 shoes u 1 socks o
- 60%|██████    | 3/5 [00:16<00:11,  5.62s/it]Predictions  
+Input: 8491
+Output: eight thousand, four hundred and ninety-one
 
-It seems like the pattern is related to the number of syllables in the words.
+Input: 1047
+Output: one thousand and forty-seven
 
-Let's try the instruction: "Count the number of words
-Normalized prediction it seems like the pattern is related to the number of syllables in the words
- 80%|████████  | 4/5 [00:22<00:05,  5.50s/it]Predictions  
+The instruction was
+100%|██████████| 5/5 [00:05<00:00,  1.18s/it]100%|██████████| 5/5 [00:05<00:00,  1.18s/it]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:07,  1.83it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:09,  1.32it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:08,  1.27it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:03<00:09,  1.11it/s]Loading checkpoint shards:  36%|███▌      | 5/14 [00:04<00:08,  1.09it/s]Loading checkpoint shards:  43%|████▎     | 6/14 [00:05<00:06,  1.17it/s]Loading checkpoint shards:  50%|█████     | 7/14 [00:05<00:06,  1.15it/s]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:06<00:05,  1.12it/s]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:07<00:04,  1.13it/s]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:08<00:03,  1.15it/s]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:09<00:02,  1.15it/s]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:10<00:01,  1.14it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:11<00:00,  1.13it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:11<00:00,  1.23it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:11<00:00,  1.18it/s]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
 
-Assistant
-It seems like the instruction might be related to counting the number of words that contain a specific pattern or characteristic.
+Input: You may pick any flower, but leave a few for Mary. [p]
+Output: pick
 
-Let's try to find
-Normalized prediction assistant it seems like the instruction might be related to counting the number of words that contain a specific pattern or characteristic
-100%|██████████| 5/5 [00:27<00:00,  5.47s/it]100%|██████████| 5/5 [00:27<00:00,  5.50s/it]
-['Identify the word with the fewest unique letters and return its total letter count', 'Find which word has the smallest number of distinct letters and output its total length', 'Locate the word containing the least variety of different letters and return how many letters it has', 'Determine which word has the minimum number of unique characters and provide its total character count', 'Select the word with the fewest different letters and output its complete letter count', 'Find the word with the lowest unique letter diversity and return its total letter length', 'Identify which word contains the smallest set of distinct letters and count its total letters', 'Pick the word with the most repeated letters and return its overall letter count']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  
-It seems like the instruction is to count the number of words that belong to a specific category for each input list.
+Input: Ellen talked with Helen about the problem. [t]
+Output: talked the
 
-Let's try to find a
-Normalized prediction it seems like the instruction is to count the number of words that belong to a specific category for each input list
- 20%|██        | 1/5 [00:05<00:21,  5.35s/it]Predictions  in water? Let's try:
+Input: The very young child walked from school to the store. [v]
+Output: very
 
-First input: fruits. Apple (floats), banana (floats), orange (floats), grape (s
-Normalized prediction in water lets try first input fruits
- 40%|████      | 2/5 [00:10<00:16,  5.43s/it]Predictions  of the number of items in the list. The third is 6, the fourth is 6, and the fifth is 4.
+Input: He is not finishing. [h]
+Output: he
 
-Let's
-Normalized prediction of the number of items in the list
- 60%|██████    | 3/5 [00:16<00:11,  5.76s/it]Predictions  
+Input: Dana doubts that Drew believes I think Rosie loves magazine ads. [t]
+Output: that think
 
-The instruction is: "Find the number of letters in the shortest word from the given list of words."<|endoftext|>
-Normalized prediction the instruction is find the number of letters in the shortest word from the given list of words
- 80%|████████  | 4/5 [00:21<00:05,  5.37s/it]Predictions  
-The instruction seems to be to sum the number of letters in each word and then sum the digits of that total.
+The instruction was
+ 20%|██        | 1/5 [00:01<00:04,  1.20s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
 
-Let's check this approach for
-Normalized prediction the instruction seems to be to sum the number of letters in each word then sum the digits of that total
-100%|██████████| 5/5 [00:27<00:00,  5.42s/it]100%|██████████| 5/5 [00:27<00:00,  5.45s/it]
-['Find the word that comes first alphabetically and return it in reverse', 'Identify which word appears first in alphabetical order and output it backwards', 'Locate the alphabetically earliest word and return it with letters reversed', 'Determine which word comes first alphabetically and provide it in reverse order', 'Select the word that appears first when sorted alphabetically and reverse its spelling', 'Find the alphabetically primary word and return it with characters in reverse sequence', 'Identify the word that would appear first in a dictionary and output it backwards', 'Pick the alphabetically leading word and return it with its letters reversed']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  
+Input: Fiona must not eat the sauteed candy canes. [t]
+Output: the
 
-It seems like the instruction involves reversing the second word in the list most of the time, except for the third input where it seems to be the
-Normalized prediction it seems like the instruction involves reversing the second word in the list most of the time except for the third input where it seems to be the
- 20%|██        | 1/5 [00:05<00:21,  5.49s/it]Predictions  t), car (c). The first vowel-starting word is bicycle. Reversed is elcycib. That matches the output. Fourth input
-Normalized prediction t car c
- 40%|████      | 2/5 [00:10<00:16,  5.50s/it]Predictions  
+Input: They denied the claim that they should report only to us. [c]
+Output: claim
 
-The instruction is: "Reverse the last word in the list."<|endoftext|>
-Normalized prediction the instruction is reverse the last word in the list
- 60%|██████    | 3/5 [00:15<00:10,  5.18s/it]Predictions  
+Input: He always eats deep fried muffins. [d]
+Output: deep
 
-It seems like the instruction is to take the last word of the input list and reverse it.
+Input: The student was hoping for a good clue. [w]
+Output: was
 
-So the instruction is: "Take the last word
-Normalized prediction it seems like the instruction is to take the last word of the input list reverse it
- 80%|████████  | 4/5 [00:21<00:05,  5.41s/it]Predictions  
+Input: I will eat spaghetti on Sunday with Marco. [o]
+Output: on
 
-It seems I'm still not getting it. Let's try a different approach.
+The instruction was
+ 40%|████      | 2/5 [00:02<00:03,  1.03s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
 
-Let's look at the second input and its output:
+Input: Gilgamesh wanted to seduce Ishtar, and seduce Ishtar he did . [g]
+Output: gilgamesh
 
-Input:
-Normalized prediction it seems im still not getting it
-100%|██████████| 5/5 [00:27<00:00,  5.47s/it]100%|██████████| 5/5 [00:27<00:00,  5.43s/it]
+Input: Truman punched Johnson [j]
+Output: johnson
+
+Input: The scenes to which the censors took objection had to do with the mixed marriage of a woman and a giant panda. [w]
+Output: which with woman
+
+Input: John persuaded Stephen to be more careful. [m]
+Output: more
+
+Input: Susan found every book she had been looking for at Borders. [f]
+Output: found for
+
+The instruction was
+ 60%|██████    | 3/5 [00:03<00:02,  1.11s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: I am anxious for you to arrive on time. [t]
+Output: to time
+
+Input: Confiscate any liquor. [c]
+Output: confiscate
+
+Input: We peered around the room. [a]
+Output: around
+
+Input: Why did you kill Pegasus? [k]
+Output: kill
+
+Input: Susan found every book she had been looking for at Borders. [l]
+Output: looking
+
+The instruction was
+ 80%|████████  | 4/5 [00:04<00:01,  1.16s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: Imogen broke the vase. [b]
+Output: broke
+
+Input: Aphrodite may quickly free the animals. [a]
+Output: aphrodite animals
+
+Input: The man on whose lap the puppet is sitting is ventriloquist. [s]
+Output: sitting
+
+Input: John believes it to be obvious that Bill left. [t]
+Output: to that
+
+Input: Julia and Maria wanted to be allowed to perform a play. [a]
+Output: and allowed a
+
+The instruction was
+100%|██████████| 5/5 [00:05<00:00,  1.20s/it]100%|██████████| 5/5 [00:05<00:00,  1.17s/it]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:07,  1.82it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:09,  1.31it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:08,  1.26it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:03<00:09,  1.10it/s]Loading checkpoint shards:  36%|███▌      | 5/14 [00:04<00:08,  1.07it/s]Loading checkpoint shards:  43%|████▎     | 6/14 [00:05<00:06,  1.16it/s]Loading checkpoint shards:  50%|█████     | 7/14 [00:06<00:06,  1.10it/s]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:07<00:05,  1.09it/s]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:07<00:04,  1.10it/s]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:08<00:03,  1.12it/s]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:09<00:02,  1.12it/s]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:10<00:01,  1.13it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:11<00:00,  1.12it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.22it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.16it/s]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: stand
+Output: demand
+
+Input: pig
+Output: dig
+
+Input: information
+Output: reservation
+
+Input: cheese
+Output: disease
+
+Input: stain
+Output: main
+
+The instruction was
+ 20%|██        | 1/5 [00:01<00:04,  1.25s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: collect
+Output: connect
+
+Input: invitation
+Output: station
+
+Input: musician
+Output: composition
+
+Input: name
+Output: game
+
+Input: cake
+Output: shake
+
+The instruction was
+ 40%|████      | 2/5 [00:02<00:03,  1.24s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: cave
+Output: behave
+
+Input: snow
+Output: so
+
+Input: relation
+Output: station
+
+Input: mess
+Output: less
+
+Input: sick
+Output: quick
+
+The instruction was
+ 60%|██████    | 3/5 [00:03<00:02,  1.24s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: make
+Output: break
+
+Input: depressed
+Output: northwest
+
+Input: suggest
+Output: west
+
+Input: see
+Output: free
+
+Input: grill
+Output: spill
+
+The instruction was
+ 80%|████████  | 4/5 [00:04<00:01,  1.24s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: examination
+Output: celebration
+
+Input: so
+Output: toe
+
+Input: site
+Output: height
+
+Input: shoe
+Output: you
+
+Input: situation
+Output: generation
+
+The instruction was
+100%|██████████| 5/5 [00:06<00:00,  1.24s/it]100%|██████████| 5/5 [00:06<00:00,  1.24s/it]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:08,  1.53it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:10,  1.20it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:09,  1.19it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:03<00:09,  1.06it/s]Loading checkpoint shards:  36%|███▌      | 5/14 [00:04<00:08,  1.05it/s]Loading checkpoint shards:  43%|████▎     | 6/14 [00:05<00:07,  1.10it/s]Loading checkpoint shards:  50%|█████     | 7/14 [00:06<00:06,  1.07it/s]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:07<00:05,  1.06it/s]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:08<00:04,  1.08it/s]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:09<00:03,  1.11it/s]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:09<00:02,  1.12it/s]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:10<00:01,  1.13it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:11<00:00,  1.12it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.22it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.13it/s]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: excessively
+Output: too
+
+Input: leadership
+Output: leading
+
+Input: art
+Output: prowess
+
+Input: commend
+Output: remember
+
+Input: accomplished
+Output: complete
+
+The instruction was
+ 20%|██        | 1/5 [00:01<00:05,  1.34s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: opportunity
+Output: chance
+
+Input: submit
+Output: state
+
+Input: boring
+Output: slow
+
+Input: summation
+Output: addition
+
+Input: confluence
+Output: meeting
+
+The instruction was
+ 40%|████      | 2/5 [00:02<00:03,  1.27s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: knowledgeable
+Output: knowing
+
+Input: picking
+Output: pick
+
+Input: rolled
+Output: rolling
+
+Input: antique
+Output: ex
+
+Input: usher
+Output: show
+
+The instruction was
+ 60%|██████    | 3/5 [00:03<00:02,  1.26s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: combination
+Output: combining
+
+Input: environment
+Output: surroundings
+
+Input: fiscal
+Output: financial
+
+Input: heathen
+Output: ethnic
+
+Input: striving
+Output: strain
+
+The instruction was
+ 80%|████████  | 4/5 [00:05<00:01,  1.25s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: curvature
+Output: curve
+
+Input: condition
+Output: term
+
+Input: necessitate
+Output: take
+
+Input: plate
+Output: scale
+
+Input: bespeak
+Output: point
+
+The instruction was
+100%|██████████| 5/5 [00:06<00:00,  1.24s/it]100%|██████████| 5/5 [00:06<00:00,  1.25s/it]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:07,  1.74it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:09,  1.30it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:08,  1.26it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:03<00:09,  1.11it/s]Loading checkpoint shards:  36%|███▌      | 5/14 [00:04<00:08,  1.09it/s]Loading checkpoint shards:  43%|████▎     | 6/14 [00:05<00:06,  1.17it/s]Loading checkpoint shards:  50%|█████     | 7/14 [00:05<00:06,  1.15it/s]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:06<00:05,  1.12it/s]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:07<00:04,  1.13it/s]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:08<00:03,  1.15it/s]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:09<00:02,  1.15it/s]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:10<00:01,  1.15it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:11<00:00,  1.14it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:11<00:00,  1.15it/s]
+Traceback (most recent call last):
+  File "/instruction-induction/execute_instructions.py", line 257, in <module>
+    run_execution_accuracy_open_source_chat(execution_engine=args.execution_engine,
+  File "/instruction-induction/execute_instructions.py", line 79, in run_execution_accuracy_open_source_chat
+    model = AutoModelForCausalLM.from_pretrained(execution_engine, dtype=torch.bfloat16, device_map="auto", cache_dir="/workspace/hf")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 604, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 288, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 5179, in from_pretrained
+    ) = cls._load_pretrained_model(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 5642, in _load_pretrained_model
+    _error_msgs, disk_offload_index, cpu_offload_index = load_shard_file(args)
+                                                         ^^^^^^^^^^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 946, in load_shard_file
+    disk_offload_index, cpu_offload_index = _load_state_dict_into_meta_model(
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 850, in _load_state_dict_into_meta_model
+    _load_parameter_into_model(model, param_name, param.to(param_device))
+                                                  ^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 270.00 MiB. GPU 1 has a total capacity of 139.83 GiB of which 166.00 MiB is free. Process 4052460 has 89.40 GiB memory in use. Process 4053557 has 50.25 GiB memory in use. Of the allocated memory 88.36 GiB is allocated by PyTorch, and 388.82 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

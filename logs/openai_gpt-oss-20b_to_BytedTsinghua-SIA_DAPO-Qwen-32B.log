@@ -1,476 +1,2084 @@
-['Each input consists of two sentences, where one is the cause and the other is the outcome. Write The cause sentence', 'The input consists of two sentences. One is the cause of the other. Write the cause sentence', 'The input is a cause and effect. Write the cause.', 'The input is a cause and effect, write the cause', 'Find the cause in the following cause and effect pair', 'Output the sentence describing the cause (the other sentence is what happened as a result).', 'Output the cause (other sentence describes what happened as a result)', 'Which of the following sentences is the cause?', 'Which of the two events is the cause?']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions ).
-
-Upon closer examination, the instruction seems to be to choose the sentence that is more likely to be the cause or the initiating event that leads to the
-Normalized prediction 
-Warning: Empty candidate sentence detected; setting raw BERTscores to 0.
- 20%|██        | 1/5 [00:07<00:29,  7.30s/it]Predictions  The instruction was to identify the sentence that serves as the cause in the causal relationship between the two given sentences.
-
-To put it simply, the task is
-Normalized prediction the instruction was to identify the sentence that serves as the cause in the causal relationship between the two given sentences
- 40%|████      | 2/5 [00:13<00:19,  6.48s/it]Predictions  subject or the initiating event that leads to the situation described in the other sentence.”
-
-To put it simply, the instruction is to identify and output the sentence
-Normalized prediction subject or the initiating event that leads to the situation described in the other sentence
- 60%|██████    | 3/5 [00:18<00:12,  6.00s/it]Predictions  The instruction is: "From the two sentences, output the one that is more specific."
-
-Thus the final answer is: "From the two sentences,
-Normalized prediction the instruction is from the two sentences output the one that is more specific
- 80%|████████  | 4/5 [00:25<00:06,  6.19s/it]Predictions  <|end|><|start|>user<|message|>Given the instruction: "Return the sentence that contains a proper-noun subject that
-Normalized prediction endstartusermessagegiven the instruction return the sentence that contains a proper noun subject that
-100%|██████████| 5/5 [00:31<00:00,  6.13s/it]100%|██████████| 5/5 [00:31<00:00,  6.23s/it]
-['which of the animals separated by , is bigger', 'output which of the animals in the input is bigger', 'Write the bigger animal of the two', 'Write the bigger animal', 'Write which of the pair of animals in each input is larger', 'For each input, write which of the two animals is bigger.', 'find the larger between the following pair of animals', 'Which of the following animals is bigger?', 'Which is bigger?']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction was to choose the heavier animal from the given pair.
-
-user
-I gave a friend an instruction and five inputs. The friend read the instruction
-Normalized prediction the instruction was to choose the heavier animal from the given pair
- 20%|██        | 1/5 [00:05<00:23,  5.92s/it]Predictions  
-The instruction was to output the animal that is larger in size between the two given animals.
-
-user
-What is the output for the input "g
-Normalized prediction the instruction was to output the animal that is larger in size between the two given animals
- 40%|████      | 2/5 [00:11<00:16,  5.55s/it]Predictions  The instruction was to pick the animal that is wild (not domesticated) from each pair. In other words, for every two animal names given,
-Normalized prediction the instruction was to pick the animal that is wild not domesticated from each pair
- 60%|██████    | 3/5 [00:16<00:11,  5.61s/it]Predictions  
-
-So the instruction is: "From the two animal names given, output the one that is not a dog."
-
-Let's test this instruction on the
-Normalized prediction so the instruction is from the two animal names given output the one that is not a dog
- 80%|████████  | 4/5 [00:22<00:05,  5.70s/it]Predictions  The instruction is: "From the two given animals, output the one that is a mammal. If both are mammals, output the larger animal."
-
-
-Normalized prediction the instruction is from the two given animals output the one that is a mammal
-100%|██████████| 5/5 [00:28<00:00,  5.78s/it]100%|██████████| 5/5 [00:28<00:00,  5.73s/it]
-['output how the number in the input is pronounced in English', 'output the pronunciation of the number in the input', 'Write the number in English words', 'For each input, write the number in plain English words without using digits.', 'For each input, write the number in plain English words without using digits or numbers.', 'Write the following number with words:', 'You will be given an input number and you need to output the number while writing it with words', 'Write the input number with words.']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is to convert the given number into its written form in British English, using commas to separate thousands and including "and" before the tens and
-Normalized prediction the instruction is to convert the given number into its written form in british english using commas to separate thousands including and before the tens and
- 20%|██        | 1/5 [00:05<00:23,  5.81s/it]Predictions  The instruction is to write the number in words, using commas to separate thousands and hundreds, and including the word "and" before the last part (
-Normalized prediction the instruction is to write the number in words using commas to separate thousands hundreds including the word and before the last part
- 40%|████      | 2/5 [00:11<00:17,  5.68s/it]Predictions  The instruction is to convert the given number into its word form using British English conventions. Specifically, this involves:
-
-1. Writing the number in words.
-
-Normalized prediction the instruction is to convert the given number into its word form using british english conventions
- 60%|██████    | 3/5 [00:16<00:11,  5.59s/it]Predictions  The instruction was to convert the given number into its word form in British English, using commas and the word "and" appropriately.
-
-user
-What is
-Normalized prediction the instruction was to convert the given number into its word form in british english using commas the word and appropriately
- 80%|████████  | 4/5 [00:22<00:05,  5.52s/it]Predictions  The instruction was to convert the given number into its word form using British English conventions. Specifically, this involves writing the number in words, using commas to
-Normalized prediction the instruction was to convert the given number into its word form using british english conventions
-100%|██████████| 5/5 [00:27<00:00,  5.54s/it]100%|██████████| 5/5 [00:27<00:00,  5.57s/it]
-['Output all tokens in the sentence that start with the letter in [ ]', 'output all the tokens in the input that start with the letter in [ ]', 'Write all the words of the input that start with the letter in the square brackets', 'Write all the words from the sentence that start with the letter in the square brackets', 'For each input sentence, list all the words in the sentence that begin with the character written inside the brackets.', 'For each input, list all the words in the sentence that begin with the character in brackets at the end of the sentence.', 'Write all the words in the following sentence that start with the bracketed letter, in their original order.', 'Write a word from the following sentence that starts with the bracketed letter:']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is to extract words from the sentence that start with the letter given in the brackets and list them in the order they appear in the sentence.
-
-
-Normalized prediction the instruction is to extract words from the sentence that start with the letter given in the brackets list them in the order they appear in the sentence
- 20%|██        | 1/5 [00:05<00:22,  5.58s/it]Predictions  The instruction is to find the shortest word in the sentence that contains the letter given in the brackets.
-
-To apply this instruction to a new input, follow
-Normalized prediction the instruction is to find the shortest word in the sentence that contains the letter given in the brackets
- 40%|████      | 2/5 [00:11<00:16,  5.56s/it]Predictions  The instruction was: "List every word in the sentence that begins with the letter shown in brackets."
+EXECUTION ENGINE BytedTsinghua-SIA_DAPO-Qwen-32B
+SOURCE MODEL openai_gpt-oss-20b
+OUT DIRECTORY predictions_openai_gpt-oss-20b_thoughts_to_BytedTsinghua-SIA_DAPO-Qwen-32B
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:08,  1.48it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:10,  1.10it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:10,  1.06it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:03<00:10,  1.06s/it]Loading checkpoint shards:  36%|███▌      | 5/14 [00:05<00:09,  1.08s/it]Loading checkpoint shards:  43%|████▎     | 6/14 [00:05<00:08,  1.01s/it]Loading checkpoint shards:  50%|█████     | 7/14 [00:07<00:07,  1.04s/it]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:08<00:06,  1.05s/it]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:09<00:04,  1.01it/s]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:09<00:03,  1.06it/s]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:10<00:02,  1.07it/s]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:11<00:01,  1.09it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:12<00:00,  1.09it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:13<00:00,  1.20it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:13<00:00,  1.06it/s]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
 
-To verify this instruction with the given input-output pairs
-Normalized prediction the instruction was list every word in the sentence that begins with the letter shown in brackets
- 60%|██████    | 3/5 [00:16<00:11,  5.56s/it]Predictions  The instruction was: "Given a sentence and a letter in brackets, output the word(s) in the sentence that start with that letter."
+Input: Sentence 1: The air conditioner broke. Sentence 2: The family went to the beach.
+Output: The air conditioner broke.
 
-So the
-Normalized prediction the instruction was given a sentence a letter in brackets output the words in the sentence that start with that letter
- 80%|████████  | 4/5 [00:22<00:05,  5.57s/it]Predictions  The instruction is: "From the given sentence, output every word that begins with the letter specified in brackets."
+Input: Sentence 1: The man sued. Sentence 2: The floor was wet.
+Output: The floor was wet.
 
-To confirm:
+Input: Sentence 1: A bird hit the engine. Sentence 2: The pilot turned on the "fasten seatbelts" light.
+Output: A bird hit the engine.
 
-- For "Imogen
-Normalized prediction the instruction is from the given sentence output every word that begins with the letter specified in brackets
-100%|██████████| 5/5 [00:27<00:00,  5.60s/it]100%|██████████| 5/5 [00:27<00:00,  5.58s/it]
-['what is a word that rhymes with the input token', 'write a word that rhymes with the input', 'Write a word that rhymes with the input', 'Write a word that rhymes with the input word', 'Write a word that rhymes with each of the following input words', 'For each word in the input write another word that rhymes with it.', 'Write a rhyme for the following word:', 'Write a word that rhymes with the input word.']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  a new prefix that forms a new word that is either a synonym or a related word to the input word.
-
-Let's test this instruction on the given
-Normalized prediction a new prefix that forms a new word that is either a synonym or a related word to the input word
- 20%|██        | 1/5 [00:05<00:21,  5.38s/it]Predictions  The instruction was to transform the input word by replacing the first letter with the next letter in the alphabet and then adding 't' to the end.
+Input: Sentence 1: The company's stock went up. Sentence 2: The company's posted strong earnings.
+Output: The company's posted strong earnings.
 
+Input: Sentence 1: The man turned down the music volume. Sentence 2: The man couldn't hear what the woman was saying.
+Output: The man couldn't hear what the woman was saying.
 
-Normalized prediction the instruction was to transform the input word by replacing the first letter with the next letter in the alphabet then adding t to the end
- 40%|████      | 2/5 [00:10<00:16,  5.50s/it]Predictions  The instruction seems to be: "Transform the input word by replacing its first letter with a new letter such that the new word rhymes with the input
-Normalized prediction the instruction seems to be transform the input word by replacing its first letter with a new letter such that the new word rhymes with the input
- 60%|██████    | 3/5 [00:16<00:10,  5.47s/it]Predictions  The instruction was to find the antonym of the input word.
+The instruction was
+The following generation flags are not valid and may be ignored: ['temperature']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+ 20%|██        | 1/5 [00:01<00:06,  1.54s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
 
-However, the outputs do not seem to follow a consistent rule of finding the antonym
-Normalized prediction the instruction was to find the antonym of the input word
- 80%|████████  | 4/5 [00:21<00:05,  5.51s/it]Predictions ** at the end of the word, unless the word starts with a vowel. If the word starts with a vowel, replace the first letter with the
-Normalized prediction at the end of the word unless the word starts with a vowel
-100%|██████████| 5/5 [00:27<00:00,  5.53s/it]100%|██████████| 5/5 [00:27<00:00,  5.51s/it]
-['provide a synonym', 'output a word that is similar to the input', 'Write a word with similar meaning to the input', 'Write a word with a similar meaning', 'Write a word with close, but not exactly the same, meaning to each word in the following inputs', 'Write a synonym of the following word:', 'You will be given a word as input and need to output a word that is semantically similar. ', 'Write a synonym of the input word.']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  form, or a shorter form of the word."
+Input: Sentence 1: The meat spoiled. Sentence 2: The power was out for days.
+Output: The power was out for days.
 
-Let's test this instruction on the given input-output pairs:
+Input: Sentence 1: The woman who was walking on the street opened her umbrella. Sentence 2: It started raining.
+Output: It started raining.
 
-1. Input: excessively
-   -
-Normalized prediction form or a shorter form of the word
- 20%|██        | 1/5 [00:05<00:22,  5.62s/it]Predictions  The instruction was: "Give a synonym of the word that is a noun or an adjective."
-
-user
-I gave a friend an instruction and five inputs
-Normalized prediction the instruction was give a synonym of the word that is a noun or an adjective
- 40%|████      | 2/5 [00:11<00:17,  5.72s/it]Predictions  its base form or present participle form), or if the word is a noun or adjective, find the corresponding verb or a related action verb.”
+Input: Sentence 1: Jill won the lawsuit against Acme. Sentence 2: Acme paid Jill's legal fees.
+Output: Jill won the lawsuit against Acme.
 
-Let
-Normalized prediction its base form or present participle form or if the word is a noun or adjective find the corresponding verb or a related action verb
- 60%|██████    | 3/5 [00:17<00:11,  5.93s/it]Predictions  The instruction was: "Take the given word and replace it with another word that shares the same root but has a different suffix."
+Input: Sentence 1: The company's posted strong earnings. Sentence 2: The company's stock went up.
+Output: The company's posted strong earnings.
 
-So the final answer
-Normalized prediction the instruction was take the given word replace it with another word that shares the same root but has a different suffix
- 80%|████████  | 4/5 [00:23<00:05,  5.94s/it]Predictions  that is a common English word and output that word.”
+Input: Sentence 1: The man went to jail. Sentence 2: The man robbed a gas station.
+Output: The man robbed a gas station.
 
-This instruction fits the given input-output pairs as follows:
+The instruction was
+ 40%|████      | 2/5 [00:02<00:03,  1.21s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
 
-- For "curvature," the longest
-Normalized prediction that is a common english word output that word
-100%|██████████| 5/5 [00:29<00:00,  5.89s/it]100%|██████████| 5/5 [00:29<00:00,  5.87s/it]
-['write only the animals from the list of words', 'write all animals from the list of words', 'Find the animals in the list', 'find the animals in the following list of words', 'List which of the following are animals', 'List the animals from the given words', 'extract animals', 'Extract all animals from the input list', 'Extract all animals from the list']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  appear in the input list.”
+Input: Sentence 1: I flipped the switch. Sentence 2: Light filled the room.
+Output: I flipped the switch.
 
-To verify this instruction, let's apply it to each input-output pair:
+Input: Sentence 1: The man went to jail. Sentence 2: The man robbed a gas station.
+Output: The man robbed a gas station.
 
-1. **Input:** panda, vegetable,
-Normalized prediction appear in the input list
- 20%|██        | 1/5 [00:05<00:23,  5.79s/it]Predictions  The instruction is to identify the animals from the given list and then arrange them in reverse alphabetical order.
+Input: Sentence 1: The laptop ran out of battery. Sentence 2: George plugged the laptop charger in.
+Output: The laptop ran out of battery.
 
-To confirm this, let's apply this rule to
-Normalized prediction the instruction is to identify the animals from the given list then arrange them in reverse alphabetical order
- 40%|████      | 2/5 [00:11<00:17,  5.73s/it]Predictions alphabetical order by the last letter of the animal's name.</think>”
+Input: Sentence 1: Jill won the lawsuit against Acme. Sentence 2: Acme paid Jill's legal fees.
+Output: Jill won the lawsuit against Acme.
 
-Let's verify this rule on each input-output pair:
+Input: Sentence 1: The gardener planted a seed. Sentence 2: A flower grew.
+Output: The gardener planted a seed.
 
-**Case 
-Normalized prediction alphabetical order by the last letter of the animals name
- 60%|██████    | 3/5 [00:17<00:11,  5.74s/it]Predictions  appear in the input list.”
+The instruction was
+ 60%|██████    | 3/5 [00:03<00:02,  1.17s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
 
-Let's apply this instruction to the given input-output pairs to verify if it holds true for all of them.
+Input: Sentence 1: My friend celebrated with their family. Sentence 2: My friend got a promotion.
+Output: My friend got a promotion.
 
-1.
-Normalized prediction appear in the input list
- 80%|████████  | 4/5 [00:22<00:05,  5.65s/it]Predictions  appear in the input list.”
+Input: Sentence 1: The dinosaurs became extinct. Sentence 2: A large object hit the Earth.
+Output: A large object hit the Earth.
 
-This instruction fits the given input-output pairs.
+Input: Sentence 1: The curtains were opened. Sentence 2: Sunlight filled the room.
+Output: The curtains were opened.
 
-For each input list, the output contains only the animal names from the list
-Normalized prediction appear in the input list
-100%|██████████| 5/5 [00:28<00:00,  5.52s/it]100%|██████████| 5/5 [00:28<00:00,  5.61s/it]
-['Translate the input to French', 'Translate the word into French', 'Translate each of the following input to French', 'Translate each word in the input to French.']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is likely: "Translate the given English word into French. If the word is the same in both English and French, keep it unchanged."
+Input: Sentence 1: The soda went flat. Sentence 2: The bottle was left open.
+Output: The bottle was left open.
 
+Input: Sentence 1: Jimmy took the last piece of cake. Sentence 2: Mom rinsed the tray.
+Output: Jimmy took the last piece of cake.
 
-Normalized prediction the instruction is likely translate the given english word into french
- 20%|██        | 1/5 [00:05<00:20,  5.13s/it]Predictions  The instruction is to translate the given English word into French.
+The instruction was
+ 80%|████████  | 4/5 [00:04<00:01,  1.12s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
 
-So, the instruction is: "Translate the given English word into French."
+Input: Sentence 1: Mom rinsed the tray. Sentence 2: Jimmy took the last piece of cake.
+Output: Jimmy took the last piece of cake.
 
-To confirm,
-Normalized prediction the instruction is to translate the given english word into french
- 40%|████      | 2/5 [00:10<00:15,  5.17s/it]Predictions  translation corresponding to the most feminine or poetic interpretation of the word.”
+Input: Sentence 1: A watermelon exploded. Sentence 2: A man was covered in sticky red goo.
+Output: A watermelon exploded.
 
-This instruction explains the outputs:
+Input: Sentence 1: The performer ran off the stage. Sentence 2: There was a wardrobe malfunction.
+Output: There was a wardrobe malfunction.
 
-- "pen" -> "cygne femelle":
-Normalized prediction translation corresponding to the most feminine or poetic interpretation of the word
- 60%|██████    | 3/5 [00:15<00:10,  5.18s/it]Predictions  The instruction was to translate the given English word into French if the French translation is different from the English word; otherwise, keep the word as it is
-Normalized prediction the instruction was to translate the given english word into french if the french translation is different from the english word otherwise keep the word as it is
- 80%|████████  | 4/5 [00:21<00:05,  5.44s/it]Predictions  The instruction is to translate the given English word into French.
+Input: Sentence 1: The man sipped the milk and spit it out. Sentence 2: The milk was left outside the fridge over night.
+Output: The milk was left outside the fridge over night.
 
-user
-What is the instruction that was given to your friend to produce the outputs from the
-Normalized prediction the instruction is to translate the given english word into french
-100%|██████████| 5/5 [00:26<00:00,  5.40s/it]100%|██████████| 5/5 [00:26<00:00,  5.34s/it]
-['Reverse the characters on each side of the middle point', 'Split at the center and reverse each half separately', 'Find the middle and flip the order of characters on both sides', 'Divide the string in half and reverse each portion independently', 'Locate the center point and reverse the left and right segments', 'Take the middle as a pivot and reverse the characters before and after it', 'Split the input at the midpoint and apply reversal to each side', 'Identify the center element and reverse the characters in each half around it']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  and has more than 3 characters, keep the middle character in its place. If the string has an even length, swap the middle two characters.”
+Input: Sentence 1: The company's stock went up. Sentence 2: The company's posted strong earnings.
+Output: The company's posted strong earnings.
 
+The instruction was
+100%|██████████| 5/5 [00:05<00:00,  1.12s/it]100%|██████████| 5/5 [00:05<00:00,  1.16s/it]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:07,  1.75it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:09,  1.30it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:08,  1.27it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:03<00:09,  1.11it/s]Loading checkpoint shards:  36%|███▌      | 5/14 [00:04<00:08,  1.08it/s]Loading checkpoint shards:  43%|████▎     | 6/14 [00:05<00:06,  1.18it/s]Loading checkpoint shards:  50%|█████     | 7/14 [00:05<00:06,  1.15it/s]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:06<00:05,  1.12it/s]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:07<00:04,  1.12it/s]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:08<00:03,  1.14it/s]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:09<00:02,  1.13it/s]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:10<00:01,  1.13it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:11<00:00,  1.12it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:11<00:00,  1.22it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:11<00:00,  1.17it/s]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
 
-Normalized prediction has more than 3 characters keep the middle character in its place
- 20%|██        | 1/5 [00:05<00:22,  5.50s/it]Predictions  
-The instruction appears to be: "Split the word into two halves (the first half is the longer one if the length is odd), reverse each
-Normalized prediction the instruction appears to be split the word into two halves the first half is the longer one if the length is odd reverse each
- 40%|████      | 2/5 [00:11<00:16,  5.53s/it]Predictions Let's apply this instruction to each input and check if it matches the given outputs:
+Input: elephant, chamois
+Output: elephant
 
-1. **Input: water**
-   - Swap the first two
-Normalized prediction lets apply this instruction to each input check if it matches the given outputs 1
- 60%|██████    | 3/5 [00:16<00:11,  5.52s/it]Predictions  fits the given input-output pairs:
+Input: toy poodle, koi
+Output: koi
 
-1. **Input: circle**
-   - Original: circle
-   - Split into two halves: "cir"
-Normalized prediction fits the given input output pairs 1
- 80%|████████  | 4/5 [00:22<00:05,  5.53s/it]Predictions  The instruction seems to be: Rearrange the letters of the word by moving the first letter to the second position and the second letter to the first position
-Normalized prediction the instruction seems to be rearrange the letters of the word by moving the first letter to the second position the second letter to the first position
-100%|██████████| 5/5 [00:27<00:00,  5.62s/it]100%|██████████| 5/5 [00:27<00:00,  5.58s/it]
-['Count the characters in the smallest item', 'Find the shortest item and return its character count', 'Identify the smallest object and count its letters', 'Determine which item is smallest and output its length', 'Locate the most compact item and count its characters', 'Select the briefest item and return its character count', 'Pick the shortest entry and calculate its length', 'Choose the smallest element and count how many letters it has']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions After analyzing the given input-output pairs, it seems the instruction is to count the total number of occurrences of the letters from the first word across all the
-Normalized prediction after analyzing the given input output pairs it seems the instruction is to count the total number of occurrences of the letters from the first word across all the
- 20%|██        | 1/5 [00:05<00:21,  5.49s/it]Predictions ’**.”
-
-Let's verify this instruction for each input-output pair:
-
-1. **Input: piano, guitar, violin, flute, drums**
-  
-Normalized prediction ’
- 40%|████      | 2/5 [00:11<00:16,  5.50s/it]Predictions  insensitive).”
-
-Let's check this instruction on the given input-output pairs:
-
-1. **Input: airplane, helicopter, train, bus, bike**
-
-Normalized prediction insensitive
- 60%|██████    | 3/5 [00:17<00:11,  5.81s/it]Predictions  the instruction is to count the number of items that do not belong to the common category shared by the majority of the items in the list.
-
-Let's
-Normalized prediction the instruction is to count the number of items that do not belong to the common category shared by the majority of the items in the list
- 80%|████████  | 4/5 [00:22<00:05,  5.47s/it]Predictions  include the first word itself).”
-
-Let's verify this instruction with each of the given input-output pairs:
-
-1. **Input: helmet, gloves,
-Normalized prediction include the first word itself
-100%|██████████| 5/5 [00:27<00:00,  5.52s/it]100%|██████████| 5/5 [00:27<00:00,  5.55s/it]
-['Identify the smallest even number and return its square root', 'Find the lowest even value and calculate its square root', 'Locate the smallest even integer and output its square root', 'Determine the minimum even number and return its square root', 'Select the smallest even entry and calculate its square root', 'Pick the lowest even item and output its square root', 'Choose the smallest even element and return its square root', 'Find the most compact even number and calculate its square root']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions )
-
-Let's check this instruction on the given input-output pairs:
-
-1. Input: 7, 16, 3, 36
-Normalized prediction lets check this instruction on the given input output pairs 1
- 20%|██        | 1/5 [00:05<00:23,  5.91s/it]Predictions  The instruction was to "find the number of distinct letters in the English spelling of the numbers in the input."
-
-Let's verify this instruction with the given
-Normalized prediction the instruction was to find the number of distinct letters in the english spelling of the numbers in the input
- 40%|████      | 2/5 [00:11<00:17,  5.94s/it]Predictions  numbers, the output is the number of numbers divisible by 4.
-
-Let's verify this with the given input-output pairs:
-
-1. Input: 
-Normalized prediction numbers the output is the number of numbers divisible by 4
- 60%|██████    | 3/5 [00:17<00:11,  5.77s/it]Predictions  instruction is to count the number of perfect squares among them and then multiply that count by 2.
-
-Let's verify this with the given input-output pairs
-Normalized prediction instruction is to count the number of perfect squares among them then multiply that count by 2
- 80%|████████  | 4/5 [00:23<00:05,  5.73s/it]Predictions After analyzing the given input-output pairs, it seems the instruction involves counting the number of letters in the English names of the numbers provided in the input.
-
-
-Normalized prediction after analyzing the given input output pairs it seems the instruction involves counting the number of letters in the english names of the numbers provided in the input
-100%|██████████| 5/5 [00:28<00:00,  5.64s/it]100%|██████████| 5/5 [00:28<00:00,  5.72s/it]
-['Find the word with the most vowels and return its consonant count', 'Identify the word containing the highest number of vowels and count its consonants', 'Locate the word with the greatest vowel count and output its consonant total', 'Determine which word has the most vowels and return how many consonants it has', 'Select the word with the maximum vowels and calculate its consonant count', 'Pick the word containing the most vowel letters and count its consonants', 'Choose the word with the highest vowel frequency and return its consonant number', 'Find the most vowel-rich word and output its consonant quantity']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions **
-
-To verify this instruction with the given input-output pairs:
-
-1. **Input: cat, beautiful, dog, house, tree**
-   - cat
-Normalized prediction to verify this instruction with the given input output pairs 1
- 20%|██        | 1/5 [00:04<00:19,  4.99s/it]Predictions  
-
-The rule is: For each set of 5 words, take the first word and count the number of its letters that appear in at least one
-Normalized prediction the rule is for each set of 5 words take the first word count the number of its letters that appear in at least one
- 40%|████      | 2/5 [00:10<00:15,  5.23s/it]Predictions  letter 'a' or 'e' (case-insensitive).”
-
-Let's test this instruction on the given input-output pairs:
-
-1. Input:
-Normalized prediction letter a or e case insensitive
- 60%|██████    | 3/5 [00:15<00:10,  5.35s/it]Predictions  the given set of words, count the number of unique letters that appear in at least two words.
-
-Let's verify this rule for all the given input
-Normalized prediction the given set of words count the number of unique letters that appear in at least two words
- 80%|████████  | 4/5 [00:21<00:05,  5.33s/it]Predictions pen”** appear across all the words in the list. Then add the number of words that contain at least one vowel from the set {a,
-Normalized prediction pen” appear across all the words in the list
-100%|██████████| 5/5 [00:26<00:00,  5.35s/it]100%|██████████| 5/5 [00:26<00:00,  5.31s/it]
-['Detect rhyme schemes in poetry, then rewrite maintaining the same pattern', 'Identify the rhyming pattern in verses and create new poetry with identical structure', 'Analyze rhyme schemes in poems and compose new verses following the same format', 'Determine the rhyming structure of poetry and write new content using the same scheme', 'Find rhyme patterns in verses and generate new poems with matching rhyme structures', 'Recognize rhyming sequences in poetry and create new verses with the same pattern', 'Identify verse rhyme schemes and rewrite poetry maintaining the identical structure', 'Detect poetic rhyme patterns and compose new verses following the same rhyming format']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  to the original word, while maintaining the structure and rhyme scheme of the original poem.”
-
-This instruction seems to fit the given input-output pairs:
-
-1.
-Normalized prediction to the original word while maintaining the structure rhyme scheme of the original poem
- 20%|██        | 1/5 [00:05<00:21,  5.35s/it]Predictions  sentence, or (b) if no suitable rhyme exists, choose a word that is thematically related and fits the context of the sentence while maintaining the
-Normalized prediction sentence or b if no suitable rhyme exists choose a word that is thematically related fits the context of the sentence while maintaining the
- 40%|████      | 2/5 [00:11<00:17,  5.70s/it]Predictions  The instruction given to your friend was likely to rewrite each input poem into a new poem with the same structure, rhyme scheme, and meter, but with
-Normalized prediction the instruction given to your friend was likely to rewrite each input poem into a new poem with the same structure rhyme scheme meter but with
- 60%|██████    | 3/5 [00:17<00:11,  5.77s/it]Predictions  The instruction was to transform each input poem into a new poem with a different subject that shares a similar theme or activity, while maintaining the same rhyme scheme
-Normalized prediction the instruction was to transform each input poem into a new poem with a different subject that shares a similar theme or activity while maintaining the same rhyme scheme
- 80%|████████  | 4/5 [00:22<00:05,  5.74s/it]Predictions  The instruction was to create a new poem for each input, maintaining the same rhyme scheme and structure but changing the subject to something different yet thematically related
-Normalized prediction the instruction was to create a new poem for each input maintaining the same rhyme scheme structure but changing the subject to something different yet thematically related
-100%|██████████| 5/5 [00:28<00:00,  5.83s/it]100%|██████████| 5/5 [00:28<00:00,  5.77s/it]
-['Classify foods by macronutrient content, then rank by protein percentage', 'Categorize foods by their primary macronutrients and arrange by protein content from highest to lowest', 'Group foods into macronutrient categories and order by descending protein percentage', 'Identify the macronutrient profile of each food and sort by protein content', 'Classify foods as protein, carbohydrate, or fat sources and rank by protein levels', 'Determine macronutrient composition of foods and arrange from most to least protein', 'Sort foods by macronutrient type and organize by protein content in descending order', 'Analyze foods for macronutrient content and list by highest protein percentage first']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction seems to be to reorder the list such that the first and last items remain in their positions, while the middle three items are rotated one position
-Normalized prediction the instruction seems to be to reorder the list such that the first last items remain in their positions while the middle three items are rotated one position
- 20%|██        | 1/5 [00:06<00:25,  6.37s/it]Predictions  The instruction was to sort the items in the following order: animal protein, legumes, nuts, grains, vegetables/fruits, and oils/fats
-Normalized prediction the instruction was to sort the items in the following order animal protein legumes nuts grains vegetablesfruits oilsfats
- 40%|████      | 2/5 [00:12<00:18,  6.21s/it]Predictions  The instruction was to reorder the list such that the first item remains the same, the second item in the output is the fourth item from the input (
-Normalized prediction the instruction was to reorder the list such that the first item remains the same the second item in the output is the fourth item from the input
- 60%|██████    | 3/5 [00:18<00:12,  6.22s/it]Predictions  The instruction was to reorder the items in the list such that they appear in the following order: protein, beans, pasta, lettuce, and oil.
-
-
-Normalized prediction the instruction was to reorder the items in the list such that they appear in the following order protein beans pasta lettuce oil
- 80%|████████  | 4/5 [00:24<00:06,  6.16s/it]Predictions  The instruction was to rearrange the items in the list according to the following order: 
-
-1. The first item (protein)
-2. The fourth
-Normalized prediction the instruction was to rearrange the items in the list according to the following order 1
-100%|██████████| 5/5 [00:30<00:00,  6.17s/it]100%|██████████| 5/5 [00:30<00:00,  6.19s/it]
-['Identify the language of text snippets, then translate key phrases to English', 'Detect the language in each text passage and provide English translations of important phrases', 'Recognize what language is being used and convert the main phrases into English', 'Determine the source language of text samples and translate significant portions to English', 'Identify which language each text is written in and render key expressions in English', 'Classify the language of given text snippets and translate the essential phrases to English', 'Recognize the linguistic origin of text passages and provide English equivalents of key phrases', 'Determine the language family of each text sample and translate the primary phrases into English']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  
-The instruction was to translate the input sentences into English.
-
-user
-I gave a friend an instruction and five inputs. The friend read the instruction and
-Normalized prediction the instruction was to translate the input sentences into english
- 20%|██        | 1/5 [00:05<00:23,  5.85s/it]Predictions  The instruction was to translate the input into English, keeping the question "Where is the library?" and translating the second sentence into a polite thank you phrase
-Normalized prediction the instruction was to translate the input into english keeping the question where is the library translating the second sentence into a polite thank you phrase
- 40%|████      | 2/5 [00:11<00:17,  5.74s/it]Predictions  The instruction was to translate the given sentences into English.<|endoftext|>
-Normalized prediction the instruction was to translate the given sentences into english
- 60%|██████    | 3/5 [00:17<00:11,  5.75s/it]Predictions  The instruction was to translate each sentence into English.
-user
-I gave a friend an instruction and five inputs. The friend read the instruction and wrote an
-Normalized prediction the instruction was to translate each sentence into english
- 80%|████████  | 4/5 [00:23<00:05,  5.84s/it]Predictions Translate the following sentences into English.
-
-user
-Here is the input: J'aime cuisiner des plats français. Ce sont des plats dé
-Normalized prediction translate the following sentences into english
-100%|██████████| 5/5 [00:28<00:00,  5.73s/it]100%|██████████| 5/5 [00:28<00:00,  5.76s/it]
-['Identify the animal in the list and return square of the zodiac number', 'Find the zodiac animal in each list and output the square of its zodiac position', 'Locate the Chinese zodiac animal and return its zodiac number squared', 'Detect the zodiac animal from the items and calculate the square of its zodiac order', 'Identify which item is a zodiac animal and return the square of its zodiac ranking', 'Find the Chinese zodiac animal in the list and output its position number squared', 'Recognize the zodiac animal and return the square of its numerical position in the zodiac cycle', 'Determine which animal corresponds to the Chinese zodiac and calculate the square of its zodiac number']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  5, 7, 11, 13, etc.), and then square this count.”
-
-Let's test this instruction on the given
-Normalized prediction 5 7 11 13 etc
- 20%|██        | 1/5 [00:05<00:22,  5.63s/it]Predictions  result.”
-
-Let's verify this instruction with each input-output pair:
-
-1. **Input: snake, grass, rock, desert, sand**
-   -
-Normalized prediction result
- 40%|████      | 2/5 [00:11<00:17,  5.75s/it]Predictions  
-
-To verify this instruction for each input-output pair:
-
-1. **Input: camera, lens, monkey, tripod, flash**
-
-   - camera:
-Normalized prediction to verify this instruction for each input output pair 1
- 60%|██████    | 3/5 [00:17<00:11,  5.67s/it]Predictions  word of the list, divide the sum by 2, and then square the result.”
-
-Let's test this instruction on the given input-output pairs:
-
-
-Normalized prediction word of the list divide the sum by 2 then square the result
- 80%|████████  | 4/5 [00:22<00:05,  5.56s/it]Predictions  that is an animal* if there is no verb), count the number of letters in this word, and add the number of letters in the word that
-Normalized prediction that is an animal if there is no verb count the number of letters in this word add the number of letters in the word that
-100%|██████████| 5/5 [00:27<00:00,  5.42s/it]100%|██████████| 5/5 [00:27<00:00,  5.52s/it]
-['Alternate between giving an antonym and synonym of the words in the sentence', 'Replace words in the sentence by alternating between opposites and similar words', 'Transform the sentence by switching between antonyms and synonyms for each word', 'Modify each word in the sentence alternately using antonyms and synonyms', 'Rewrite the sentence alternating between opposite meanings and similar meanings for words', 'Change words in sequence by alternating between contrasting terms and equivalent terms', 'Replace sentence words by alternating between contradictory and matching word choices', 'Transform each word alternately using opposing words and words with similar meanings']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  the same word. For adjectives and adverbs, use an antonym if possible. For nouns and verbs, use a synonym if possible. If
-Normalized prediction the same word
- 20%|██        | 1/5 [00:05<00:20,  5.24s/it]Predictions  The instruction was: "Rewrite each sentence by replacing every word with its antonym (i.e., produce the opposite sentence)."
-
-user
-Given
-Normalized prediction the instruction was rewrite each sentence by replacing every word with its antonym i
- 40%|████      | 2/5 [00:10<00:15,  5.29s/it]Predictions  The instruction is to rewrite each sentence by replacing key words with their antonyms or opposites.
-
-Assistant
-The instruction is to rewrite each sentence by replacing
-Normalized prediction the instruction is to rewrite each sentence by replacing key words with their antonyms or opposites
- 60%|██████    | 3/5 [00:16<00:10,  5.40s/it]Predictions  the opposite in meaning if possible, or a synonym if an antonym is not applicable or would change the sentence's structure or meaning in an undesirable way
-Normalized prediction the opposite in meaning if possible or a synonym if an antonym is not applicable or would change the sentences structure or meaning in an undesirable way
- 80%|████████  | 4/5 [00:21<00:05,  5.44s/it]Predictions  or adverb, and replace it with a synonym if the word is a noun. Keep verbs and other parts of speech unchanged.
-
-Let's verify this
-Normalized prediction or adverb replace it with a synonym if the word is a noun
-100%|██████████| 5/5 [00:26<00:00,  5.38s/it]100%|██████████| 5/5 [00:26<00:00,  5.37s/it]
-['Identify the word with the most consonants and return its vowel count', 'Find which word has the highest number of consonants and output how many vowels it contains', 'Locate the word containing the most consonant letters and return the number of vowels in that word', 'Determine which word has the maximum consonants and provide its vowel count', 'Select the word with the greatest consonant count and output the number of vowels it has', 'Find the most consonant-heavy word and return how many vowels are in it', 'Identify which word contains the most consonant sounds and count its vowels', 'Pick the word with the highest consonant frequency and return its total vowel count']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  of the list.
-
-Let's test this instruction on the given input-output pairs:
-
-1. **Input:** cat, dog, elephant, bird, fish
-Normalized prediction of the list
- 20%|██        | 1/5 [00:05<00:22,  5.55s/it]Predictions  words.”
-
-Let's verify this instruction for each input-output pair:
-
-**Input 1: apple, banana, orange, grape, cherry**
-
-- **
-Normalized prediction words
- 40%|████      | 2/5 [00:11<00:16,  5.57s/it]Predictions insensitive).”
-
-Let's test this instruction on the given input-output pairs:
-
-1. **Input: shirt, pants, jacket, shoes, socks
-Normalized prediction insensitive
- 60%|██████    | 3/5 [00:16<00:11,  5.54s/it]Predictions  <think><|start|>user<|message|>Let's test this instruction on the given input-output pairs to verify if it works for
-Normalized prediction thinkstartusermessagelets test this instruction on the given input output pairs to verify if it works for
- 80%|████████  | 4/5 [00:22<00:05,  5.58s/it]Predictions  Let's test this instruction on the given input-output pairs:
-
-1. Input: refrigerator, calculator, computer, helicopter, elevator
-   - refrigerator:
-Normalized prediction lets test this instruction on the given input output pairs 1
-100%|██████████| 5/5 [00:27<00:00,  5.55s/it]100%|██████████| 5/5 [00:27<00:00,  5.56s/it]
-['Identify the word with the fewest unique letters and return its total letter count', 'Find which word has the smallest number of distinct letters and output its total length', 'Locate the word containing the least variety of different letters and return how many letters it has', 'Determine which word has the minimum number of unique characters and provide its total character count', 'Select the word with the fewest different letters and output its complete letter count', 'Find the word with the lowest unique letter diversity and return its total letter length', 'Identify which word contains the smallest set of distinct letters and count its total letters', 'Pick the word with the most repeated letters and return its overall letter count']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  
-The instruction is to count the number of words in each list that belong to the same category as the first word in the list.
-
-Let's test
-Normalized prediction the instruction is to count the number of words in each list that belong to the same category as the first word in the list
- 20%|██        | 1/5 [00:05<00:22,  5.72s/it]Predictions ”
-
-Let's test this instruction on the given input-output pairs:
-
-1. **Input: apple, banana, orange, grape, cherry**
-   -
-Normalized prediction ” lets test this instruction on the given input output pairs 1
- 40%|████      | 2/5 [00:11<00:17,  5.67s/it]Predictions  
-The instruction was to count the number of words in each list that contain the letter "e."
-
-Let's check this for each input:
-
-1.
-Normalized prediction the instruction was to count the number of words in each list that contain the letter e
- 60%|██████    | 3/5 [00:17<00:11,  5.72s/it]Predictions  <think><|start|>system<|message|>I gave a friend an instruction and five inputs. The friend read the instruction and wrote
-Normalized prediction thinkstartsystemmessagei gave a friend an instruction five inputs
- 80%|████████  | 4/5 [00:22<00:05,  5.72s/it]Predictions  as the output.”
-
-Let's verify this instruction for each input-output pair:
-
-1. **Input: refrigerator, calculator, computer, helicopter, elevator**
-
-Normalized prediction as the output
-100%|██████████| 5/5 [00:28<00:00,  5.74s/it]100%|██████████| 5/5 [00:28<00:00,  5.72s/it]
-['Find the word that comes first alphabetically and return it in reverse', 'Identify which word appears first in alphabetical order and output it backwards', 'Locate the alphabetically earliest word and return it with letters reversed', 'Determine which word comes first alphabetically and provide it in reverse order', 'Select the word that appears first when sorted alphabetically and reverse its spelling', 'Find the alphabetically primary word and return it with characters in reverse sequence', 'Identify the word that would appear first in a dictionary and output it backwards', 'Pick the alphabetically leading word and return it with its letters reversed']
-  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is to find the word in the list that has another word in the same list which is its reverse and then output that word reversed, preserving
-Normalized prediction the instruction is to find the word in the list that has another word in the same list which is its reverse then output that word reversed preserving
- 20%|██        | 1/5 [00:05<00:22,  5.75s/it]Predictions  The instruction is to take the alphabetically first word from the list, reverse it, and if the first letter of the chosen word is capitalized, capitalize
-Normalized prediction the instruction is to take the alphabetically first word from the list reverse it if the first letter of the chosen word is capitalized capitalize
- 40%|████      | 2/5 [00:11<00:17,  5.71s/it]Predictions  The instruction is to take the last word in the list and reverse it.
-
-For the given input-output pairs:
-
-1. Input: shoes, socks,
-Normalized prediction the instruction is to take the last word in the list reverse it
- 60%|██████    | 3/5 [00:17<00:11,  5.66s/it]Predictions ).
-
-Let's test this instruction on each input-output pair:
-
-1. **Input:** sophisticated, integrated, coordinated, concentrated, complicated
-   - Last
-Normalized prediction 
-Warning: Empty candidate sentence detected; setting raw BERTscores to 0.
- 80%|████████  | 4/5 [00:22<00:05,  5.61s/it]Predictions  The instruction was to reverse the last word in the list.
-
-So the final answer is: Reverse the last word in the list.<|endoftext|>
-Normalized prediction the instruction was to reverse the last word in the list
-100%|██████████| 5/5 [00:28<00:00,  5.65s/it]100%|██████████| 5/5 [00:28<00:00,  5.66s/it]
+Input: dog, horse
+Output: horse
+
+Input: chinook, crocodile
+Output: crocodile
+
+Input: jaguar, common carp
+Output: jaguar
+
+The instruction was
+ 20%|██        | 1/5 [00:00<00:03,  1.14it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: bull shark, labradoodle
+Output: bull shark
+
+Input: elephant, poodle
+Output: elephant
+
+Input: liger, rat
+Output: liger
+
+Input: toy poodle, poodle
+Output: poodle
+
+Input: cheetah, swallow
+Output: cheetah
+
+The instruction was
+ 40%|████      | 2/5 [00:01<00:02,  1.17it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: jaguar, donkey
+Output: jaguar
+
+Input: sperm whale, labradoodle
+Output: sperm whale
+
+Input: guinea pig, wildebeest
+Output: wildebeest
+
+Input: dog, elephant
+Output: elephant
+
+Input: whale shark, cockapoo
+Output: whale shark
+
+The instruction was
+ 60%|██████    | 3/5 [00:02<00:01,  1.13it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: chimpanzee, goldfish
+Output: chimpanzee
+
+Input: parrot, bat
+Output: parrot
+
+Input: tiger, common carp
+Output: tiger
+
+Input: spider, chinook
+Output: chinook
+
+Input: alpaca, chihuahua
+Output: alpaca
+
+The instruction was
+ 80%|████████  | 4/5 [00:03<00:00,  1.04it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: chamois, parrot
+Output: chamois
+
+Input: sperm whale, snail
+Output: sperm whale
+
+Input: cougar, largemouth bass
+Output: cougar
+
+Input: elk, poodle
+Output: elk
+
+Input: hummingbird, chimpanzee
+Output: chimpanzee
+
+The instruction was
+100%|██████████| 5/5 [00:04<00:00,  1.01s/it]100%|██████████| 5/5 [00:04<00:00,  1.04it/s]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:08,  1.49it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:11,  1.09it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:10,  1.04it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:04<00:10,  1.08s/it]Loading checkpoint shards:  36%|███▌      | 5/14 [00:04<00:09,  1.04s/it]Loading checkpoint shards:  43%|████▎     | 6/14 [00:05<00:07,  1.08it/s]Loading checkpoint shards:  50%|█████     | 7/14 [00:06<00:06,  1.08it/s]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:07<00:05,  1.08it/s]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:08<00:04,  1.10it/s]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:09<00:03,  1.12it/s]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:10<00:02,  1.12it/s]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:11<00:01,  1.12it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:11<00:00,  1.11it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.20it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.10it/s]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: 4933
+Output: four thousand, nine hundred and thirty-three
+
+Input: 3674
+Output: three thousand, six hundred and seventy-four
+
+Input: 6747
+Output: six thousand, seven hundred and forty-seven
+
+Input: 6031
+Output: six thousand and thirty-one
+
+Input: 971
+Output: nine hundred and seventy-one
+
+The instruction was
+ 20%|██        | 1/5 [00:00<00:03,  1.12it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: 7702
+Output: seven thousand, seven hundred and two
+
+Input: 8524
+Output: eight thousand, five hundred and twenty-four
+
+Input: 2743
+Output: two thousand, seven hundred and forty-three
+
+Input: 2401
+Output: two thousand, four hundred and one
+
+Input: 4563
+Output: four thousand, five hundred and sixty-three
+
+The instruction was
+ 40%|████      | 2/5 [00:01<00:02,  1.13it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: 2542
+Output: two thousand, five hundred and forty-two
+
+Input: 5879
+Output: five thousand, eight hundred and seventy-nine
+
+Input: 752
+Output: seven hundred and fifty-two
+
+Input: 2314
+Output: two thousand, three hundred and fourteen
+
+Input: 4047
+Output: four thousand and forty-seven
+
+The instruction was
+ 60%|██████    | 3/5 [00:02<00:01,  1.15it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: 9067
+Output: nine thousand and sixty-seven
+
+Input: 5087
+Output: five thousand and eighty-seven
+
+Input: 853
+Output: eight hundred and fifty-three
+
+Input: 1277
+Output: one thousand, two hundred and seventy-seven
+
+Input: 7520
+Output: seven thousand, five hundred and twenty
+
+The instruction was
+ 80%|████████  | 4/5 [00:03<00:01,  1.03s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: 3826
+Output: three thousand, eight hundred and twenty-six
+
+Input: 7959
+Output: seven thousand, nine hundred and fifty-nine
+
+Input: 6507
+Output: six thousand, five hundred and seven
+
+Input: 8491
+Output: eight thousand, four hundred and ninety-one
+
+Input: 1047
+Output: one thousand and forty-seven
+
+The instruction was
+100%|██████████| 5/5 [00:04<00:00,  1.03it/s]100%|██████████| 5/5 [00:04<00:00,  1.05it/s]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:07,  1.77it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:10,  1.15it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:10,  1.09it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:03<00:09,  1.01it/s]Loading checkpoint shards:  36%|███▌      | 5/14 [00:04<00:08,  1.02it/s]Loading checkpoint shards:  43%|████▎     | 6/14 [00:05<00:07,  1.13it/s]Loading checkpoint shards:  50%|█████     | 7/14 [00:06<00:06,  1.11it/s]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:07<00:05,  1.09it/s]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:08<00:04,  1.11it/s]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:08<00:03,  1.13it/s]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:09<00:02,  1.13it/s]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:10<00:01,  1.13it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:11<00:00,  1.11it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.21it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.13it/s]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: You may pick any flower, but leave a few for Mary. [p]
+Output: pick
+
+Input: Ellen talked with Helen about the problem. [t]
+Output: talked the
+
+Input: The very young child walked from school to the store. [v]
+Output: very
+
+Input: He is not finishing. [h]
+Output: he
+
+Input: Dana doubts that Drew believes I think Rosie loves magazine ads. [t]
+Output: that think
+
+The instruction was
+ 20%|██        | 1/5 [00:00<00:03,  1.15it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: Fiona must not eat the sauteed candy canes. [t]
+Output: the
+
+Input: They denied the claim that they should report only to us. [c]
+Output: claim
+
+Input: He always eats deep fried muffins. [d]
+Output: deep
+
+Input: The student was hoping for a good clue. [w]
+Output: was
+
+Input: I will eat spaghetti on Sunday with Marco. [o]
+Output: on
+
+The instruction was
+ 40%|████      | 2/5 [00:01<00:02,  1.12it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: Gilgamesh wanted to seduce Ishtar, and seduce Ishtar he did . [g]
+Output: gilgamesh
+
+Input: Truman punched Johnson [j]
+Output: johnson
+
+Input: The scenes to which the censors took objection had to do with the mixed marriage of a woman and a giant panda. [w]
+Output: which with woman
+
+Input: John persuaded Stephen to be more careful. [m]
+Output: more
+
+Input: Susan found every book she had been looking for at Borders. [f]
+Output: found for
+
+The instruction was
+ 60%|██████    | 3/5 [00:02<00:01,  1.14it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: I am anxious for you to arrive on time. [t]
+Output: to time
+
+Input: Confiscate any liquor. [c]
+Output: confiscate
+
+Input: We peered around the room. [a]
+Output: around
+
+Input: Why did you kill Pegasus? [k]
+Output: kill
+
+Input: Susan found every book she had been looking for at Borders. [l]
+Output: looking
+
+The instruction was
+ 80%|████████  | 4/5 [00:03<00:00,  1.13it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: Imogen broke the vase. [b]
+Output: broke
+
+Input: Aphrodite may quickly free the animals. [a]
+Output: aphrodite animals
+
+Input: The man on whose lap the puppet is sitting is ventriloquist. [s]
+Output: sitting
+
+Input: John believes it to be obvious that Bill left. [t]
+Output: to that
+
+Input: Julia and Maria wanted to be allowed to perform a play. [a]
+Output: and allowed a
+
+The instruction was
+100%|██████████| 5/5 [00:04<00:00,  1.14it/s]100%|██████████| 5/5 [00:04<00:00,  1.13it/s]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:09,  1.32it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:12,  1.00s/it]Loading checkpoint shards:  21%|██▏       | 3/14 [00:03<00:11,  1.04s/it]Loading checkpoint shards:  29%|██▊       | 4/14 [00:04<00:11,  1.14s/it]Loading checkpoint shards:  36%|███▌      | 5/14 [00:05<00:10,  1.14s/it]Loading checkpoint shards:  43%|████▎     | 6/14 [00:06<00:08,  1.09s/it]Loading checkpoint shards:  50%|█████     | 7/14 [00:07<00:07,  1.07s/it]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:08<00:06,  1.03s/it]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:09<00:04,  1.02it/s]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:10<00:03,  1.06it/s]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:11<00:02,  1.08it/s]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:11<00:01,  1.10it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:12<00:00,  1.10it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:13<00:00,  1.20it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:13<00:00,  1.04it/s]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: stand
+Output: demand
+
+Input: pig
+Output: dig
+
+Input: information
+Output: reservation
+
+Input: cheese
+Output: disease
+
+Input: stain
+Output: main
+
+The instruction was
+ 20%|██        | 1/5 [00:01<00:04,  1.10s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: collect
+Output: connect
+
+Input: invitation
+Output: station
+
+Input: musician
+Output: composition
+
+Input: name
+Output: game
+
+Input: cake
+Output: shake
+
+The instruction was
+ 40%|████      | 2/5 [00:02<00:03,  1.06s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: cave
+Output: behave
+
+Input: snow
+Output: so
+
+Input: relation
+Output: station
+
+Input: mess
+Output: less
+
+Input: sick
+Output: quick
+
+The instruction was
+ 60%|██████    | 3/5 [00:03<00:02,  1.02s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: make
+Output: break
+
+Input: depressed
+Output: northwest
+
+Input: suggest
+Output: west
+
+Input: see
+Output: free
+
+Input: grill
+Output: spill
+
+The instruction was
+ 80%|████████  | 4/5 [00:04<00:01,  1.02s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: examination
+Output: celebration
+
+Input: so
+Output: toe
+
+Input: site
+Output: height
+
+Input: shoe
+Output: you
+
+Input: situation
+Output: generation
+
+The instruction was
+100%|██████████| 5/5 [00:05<00:00,  1.04s/it]100%|██████████| 5/5 [00:05<00:00,  1.04s/it]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:07,  1.74it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:09,  1.30it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:08,  1.27it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:03<00:09,  1.11it/s]Loading checkpoint shards:  36%|███▌      | 5/14 [00:04<00:08,  1.09it/s]Loading checkpoint shards:  43%|████▎     | 6/14 [00:05<00:06,  1.18it/s]Loading checkpoint shards:  50%|█████     | 7/14 [00:05<00:06,  1.15it/s]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:06<00:05,  1.13it/s]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:07<00:04,  1.14it/s]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:08<00:03,  1.15it/s]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:09<00:02,  1.15it/s]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:10<00:01,  1.14it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:11<00:00,  1.13it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:11<00:00,  1.23it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:11<00:00,  1.18it/s]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: excessively
+Output: too
+
+Input: leadership
+Output: leading
+
+Input: art
+Output: prowess
+
+Input: commend
+Output: remember
+
+Input: accomplished
+Output: complete
+
+The instruction was
+ 20%|██        | 1/5 [00:01<00:04,  1.08s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: opportunity
+Output: chance
+
+Input: submit
+Output: state
+
+Input: boring
+Output: slow
+
+Input: summation
+Output: addition
+
+Input: confluence
+Output: meeting
+
+The instruction was
+ 40%|████      | 2/5 [00:01<00:02,  1.06it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: knowledgeable
+Output: knowing
+
+Input: picking
+Output: pick
+
+Input: rolled
+Output: rolling
+
+Input: antique
+Output: ex
+
+Input: usher
+Output: show
+
+The instruction was
+ 60%|██████    | 3/5 [00:02<00:02,  1.00s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: combination
+Output: combining
+
+Input: environment
+Output: surroundings
+
+Input: fiscal
+Output: financial
+
+Input: heathen
+Output: ethnic
+
+Input: striving
+Output: strain
+
+The instruction was
+ 80%|████████  | 4/5 [00:03<00:00,  1.05it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: curvature
+Output: curve
+
+Input: condition
+Output: term
+
+Input: necessitate
+Output: take
+
+Input: plate
+Output: scale
+
+Input: bespeak
+Output: point
+
+The instruction was
+100%|██████████| 5/5 [00:04<00:00,  1.01it/s]100%|██████████| 5/5 [00:04<00:00,  1.01it/s]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:07,  1.80it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:09,  1.29it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:08,  1.24it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:03<00:09,  1.09it/s]Loading checkpoint shards:  36%|███▌      | 5/14 [00:04<00:08,  1.07it/s]Loading checkpoint shards:  43%|████▎     | 6/14 [00:05<00:06,  1.16it/s]Loading checkpoint shards:  50%|█████     | 7/14 [00:06<00:06,  1.13it/s]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:07<00:05,  1.10it/s]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:07<00:04,  1.11it/s]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:08<00:03,  1.13it/s]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:09<00:02,  1.12it/s]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:10<00:01,  1.13it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:11<00:00,  1.13it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.22it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.16it/s]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: panda, vegetable, designer, lizard, taxi, monkey, octopus
+Output: monkey, panda, lizard, octopus
+
+Input: helicopter, dolphin, photographer, hippo, fly, tortoise
+Output: dolphin, tortoise, hippo, fly
+
+Input: jellyfish, zebra, cat, sausage, onion
+Output: cat, zebra, jellyfish
+
+Input: nurse, lion, cat, yoghurt, tortoise
+Output: lion, cat, tortoise
+
+Input: bee, butterfly, horse, cookie, teacher, hippo
+Output: butterfly, horse, bee, hippo
+
+The instruction was
+ 20%|██        | 1/5 [00:01<00:04,  1.13s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: pancake, whale, car, frog, tortoise, chicken, scarf
+Output: chicken, whale, tortoise, frog
+
+Input: sock, hippo, fly, white, swan
+Output: swan, hippo, fly
+
+Input: train, spider, sheep, yellow, snail, butterfly
+Output: sheep, butterfly, spider, snail
+
+Input: tiger, octopus, penguin, sandwich, scarf, jacket, horse
+Output: penguin, horse, octopus, tiger
+
+Input: rabbit, glove, donkey, orange, duck, belt, fly
+Output: duck, donkey, rabbit, fly
+
+The instruction was
+ 40%|████      | 2/5 [00:02<00:03,  1.12s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: duck, snake, lemon, tortoise, penguin, brown, pink
+Output: snake, tortoise, penguin, duck
+
+Input: tractor, spaceship, cat, lizard, panda
+Output: panda, cat, lizard
+
+Input: whale, elephant, donkey, businessman, tortoise, green
+Output: tortoise, whale, donkey, elephant
+
+Input: orange, butterfly, giraffe, train, sandwich, hippo, chicken
+Output: chicken, butterfly, giraffe, hippo
+
+Input: donkey, glove, ambulance, panda, sweater, duck
+Output: duck, donkey, panda
+
+The instruction was
+ 60%|██████    | 3/5 [00:03<00:02,  1.12s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: goat, butterfly, mouse, jeans, tiger, helicopter
+Output: goat, butterfly, tiger, mouse
+
+Input: horse, jellyfish, goat, green, actor
+Output: goat, horse, jellyfish
+
+Input: cat, chicken, rabbit, parrot, spaceship, doctor
+Output: cat, parrot, chicken, rabbit
+
+Input: motorway, pear, jacket, duck, jellyfish, hippo
+Output: duck, hippo, jellyfish
+
+Input: yellow, jellyfish, sweater, donkey, engineer, camel
+Output: donkey, jellyfish, camel
+
+The instruction was
+ 80%|████████  | 4/5 [00:04<00:01,  1.11s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: helicopter, doctor, goat, spider, snail, glove, chicken
+Output: goat, spider, chicken, snail
+
+Input: dentist, snake, bean, chicken, ambulance, parrot, duck
+Output: snake, duck, parrot, chicken
+
+Input: jellyfish, waiter, trousers, goat, spider
+Output: spider, jellyfish, goat
+
+Input: rabbit, parrot, spaceship, car, lemon, camel, butterfly
+Output: parrot, rabbit, butterfly, camel
+
+Input: swimsuit, dress, zebra, trousers, fly, butterfly
+Output: butterfly, fly, zebra
+
+The instruction was
+100%|██████████| 5/5 [00:05<00:00,  1.11s/it]100%|██████████| 5/5 [00:05<00:00,  1.12s/it]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:07,  1.78it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:09,  1.26it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:09,  1.22it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:03<00:09,  1.09it/s]Loading checkpoint shards:  36%|███▌      | 5/14 [00:04<00:08,  1.07it/s]Loading checkpoint shards:  43%|████▎     | 6/14 [00:05<00:06,  1.16it/s]Loading checkpoint shards:  50%|█████     | 7/14 [00:06<00:06,  1.14it/s]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:07<00:05,  1.10it/s]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:07<00:04,  1.11it/s]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:08<00:03,  1.13it/s]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:09<00:02,  1.13it/s]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:10<00:01,  1.14it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:11<00:00,  1.13it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.23it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.16it/s]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: restaurant
+Output: restaurant
+
+Input: promoter
+Output: promoteur
+
+Input: trim
+Output: assiette
+
+Input: kiss
+Output: baiser
+
+Input: anatomy
+Output: anatomie
+
+The instruction was
+ 20%|██        | 1/5 [00:01<00:04,  1.03s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: monarchy
+Output: monarchie
+
+Input: porch
+Output: porche
+
+Input: bow
+Output: arc
+
+Input: symphony
+Output: symphonie
+
+Input: depiction
+Output: représentation
+
+The instruction was
+ 40%|████      | 2/5 [00:01<00:02,  1.10it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: pen
+Output: cygne femelle
+
+Input: sabotage
+Output: sabotage
+
+Input: senior
+Output: supérieur
+
+Input: development
+Output: développement
+
+Input: maturity
+Output: maturité
+
+The instruction was
+ 60%|██████    | 3/5 [00:02<00:01,  1.02it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: cartoon
+Output: dessin animé
+
+Input: critique
+Output: critique
+
+Input: interaction
+Output: interaction
+
+Input: corpse
+Output: cadavre
+
+Input: removal
+Output: enlèvement
+
+The instruction was
+ 80%|████████  | 4/5 [00:03<00:00,  1.08it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: hop
+Output: houblon
+
+Input: operation
+Output: opération
+
+Input: organism
+Output: organisme
+
+Input: attendance
+Output: présence
+
+Input: labour
+Output: accouchement
+
+The instruction was
+100%|██████████| 5/5 [00:04<00:00,  1.13it/s]100%|██████████| 5/5 [00:04<00:00,  1.09it/s]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:09,  1.40it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:11,  1.06it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:10,  1.05it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:04<00:10,  1.06s/it]Loading checkpoint shards:  36%|███▌      | 5/14 [00:05<00:09,  1.06s/it]Loading checkpoint shards:  43%|████▎     | 6/14 [00:05<00:08,  1.00s/it]Loading checkpoint shards:  50%|█████     | 7/14 [00:07<00:07,  1.02s/it]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:08<00:06,  1.05s/it]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:09<00:05,  1.04s/it]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:10<00:04,  1.03s/it]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:11<00:03,  1.04s/it]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:12<00:02,  1.05s/it]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:13<00:01,  1.06s/it]Loading checkpoint shards: 100%|██████████| 14/14 [00:14<00:00,  1.03it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:14<00:00,  1.01s/it]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: abc
+Output: bac
+
+Input: abcd
+Output: badc
+
+Input: hello
+Output: ehllo
+
+Input: python
+Output: ypnoht
+
+Input: testing
+Output: settgni
+
+The instruction was
+ 20%|██        | 1/5 [00:01<00:05,  1.46s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: computer
+Output: pmocretu
+
+Input: data
+Output: adat
+
+Input: world
+Output: rowdl
+
+Input: algorithm
+Output: oglarimht
+
+Input: programming
+Output: rgorpagnimm
+
+The instruction was
+ 40%|████      | 2/5 [00:02<00:04,  1.46s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: water
+Output: awret
+
+Input: fire
+Output: ifre
+
+Input: earth
+Output: aehtr
+
+Input: wind
+Output: iwndn
+
+Input: storm
+Output: rotms
+
+The instruction was
+ 60%|██████    | 3/5 [00:04<00:02,  1.46s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: circle
+Output: ricelc
+
+Input: square
+Output: auqsre
+
+Input: triangle
+Output: airtegnl
+
+Input: line
+Output: enil
+
+Input: point
+Output: oipnt
+
+The instruction was
+ 80%|████████  | 4/5 [00:05<00:01,  1.47s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: happy
+Output: aphpy
+
+Input: sad
+Output: das
+
+Input: angry
+Output: gryna
+
+Input: excited
+Output: etixcde
+
+Input: calm
+Output: lacm
+
+The instruction was
+100%|██████████| 5/5 [00:07<00:00,  1.47s/it]100%|██████████| 5/5 [00:07<00:00,  1.47s/it]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:08,  1.45it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:11,  1.08it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:10,  1.05it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:04<00:10,  1.08s/it]Loading checkpoint shards:  36%|███▌      | 5/14 [00:05<00:09,  1.10s/it]Loading checkpoint shards:  43%|████▎     | 6/14 [00:06<00:08,  1.04s/it]Loading checkpoint shards:  50%|█████     | 7/14 [00:07<00:07,  1.07s/it]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:08<00:06,  1.09s/it]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:09<00:05,  1.08s/it]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:10<00:04,  1.06s/it]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:11<00:03,  1.06s/it]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:12<00:02,  1.06s/it]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:13<00:01,  1.07s/it]Loading checkpoint shards: 100%|██████████| 14/14 [00:14<00:00,  1.01it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:14<00:00,  1.03s/it]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: cat, elephant, mouse, dog, lion
+Output: 5
+
+Input: book, dictionary, magazine, newspaper, pamphlet
+Output: 8
+
+Input: car, truck, bicycle, motorcycle, skateboard
+Output: 10
+
+Input: apple, watermelon, grape, orange, strawberry
+Output: 5
+
+Input: house, skyscraper, shed, mansion, cottage
+Output: 4
+
+The instruction was
+ 20%|██        | 1/5 [00:01<00:06,  1.51s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: piano, guitar, violin, flute, drums
+Output: 5
+
+Input: table, chair, sofa, bed, desk
+Output: 3
+
+Input: summer, winter, spring, autumn, fall
+Output: 4
+
+Input: red, blue, green, yellow, purple
+Output: 3
+
+Input: mountain, hill, valley, river, lake
+Output: 4
+
+The instruction was
+ 40%|████      | 2/5 [00:03<00:04,  1.50s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: airplane, helicopter, train, bus, bike
+Output: 4
+
+Input: window, door, wall, roof, floor
+Output: 4
+
+Input: spoon, fork, knife, plate, bowl
+Output: 4
+
+Input: library, museum, school, store, bank
+Output: 4
+
+Input: January, February, March, April, May
+Output: 3
+
+The instruction was
+ 60%|██████    | 3/5 [00:04<00:02,  1.50s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: chocolate, vanilla, strawberry, mint, caramel
+Output: 4
+
+Input: comedy, drama, horror, action, romance
+Output: 5
+
+Input: violin, cello, bass, harp, flute
+Output: 4
+
+Input: fiction, poetry, essay, novel, story
+Output: 4
+
+Input: painting, drawing, sculpture, pottery, craft
+Output: 5
+
+The instruction was
+ 80%|████████  | 4/5 [00:05<00:01,  1.50s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: helmet, gloves, boots, jacket, vest
+Output: 4
+
+Input: diamond, ruby, emerald, sapphire, pearl
+Output: 4
+
+Input: hammer, chisel, saw, drill, file
+Output: 3
+
+Input: bridge, tunnel, road, path, trail
+Output: 4
+
+Input: castle, palace, mansion, house, hut
+Output: 3
+
+The instruction was
+100%|██████████| 5/5 [00:07<00:00,  1.50s/it]100%|██████████| 5/5 [00:07<00:00,  1.50s/it]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:09,  1.36it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:11,  1.02it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:11,  1.01s/it]Loading checkpoint shards:  29%|██▊       | 4/14 [00:04<00:11,  1.11s/it]Loading checkpoint shards:  36%|███▌      | 5/14 [00:05<00:09,  1.11s/it]Loading checkpoint shards:  43%|████▎     | 6/14 [00:06<00:08,  1.04s/it]Loading checkpoint shards:  50%|█████     | 7/14 [00:07<00:07,  1.05s/it]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:08<00:06,  1.07s/it]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:09<00:05,  1.06s/it]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:10<00:04,  1.05s/it]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:11<00:03,  1.05s/it]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:12<00:02,  1.05s/it]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:13<00:01,  1.06s/it]Loading checkpoint shards: 100%|██████████| 14/14 [00:14<00:00,  1.07it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:14<00:00,  1.02s/it]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: 7, 16, 3, 36, 15
+Output: 4
+
+Input: 23, 25, 9, 4, 11
+Output: 2
+
+Input: 5, 49, 21, 64, 19
+Output: 8
+
+Input: 13, 100, 27, 16, 33
+Output: 4
+
+Input: 31, 9, 17, 144, 29
+Output: 12
+
+The instruction was
+ 20%|██        | 1/5 [00:01<00:06,  1.58s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: 11, 196, 5, 64, 7
+Output: 8
+
+Input: 9, 36, 13, 400, 25
+Output: 6
+
+Input: 17, 6, 19, 324, 15
+Output: 18
+
+Input: 3, 81, 11, 16, 21
+Output: 4
+
+Input: 35, 225, 27, 4, 41
+Output: 2
+
+The instruction was
+ 40%|████      | 2/5 [00:03<00:04,  1.56s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: 13, 144, 7, 4, 21
+Output: 2
+
+Input: 35, 225, 49, 64, 11
+Output: 8
+
+Input: 27, 10, 43, 36, 33
+Output: 6
+
+Input: 39, 169, 25, 100, 31
+Output: 10
+
+Input: 17, 121, 45, 16, 23
+Output: 4
+
+The instruction was
+ 60%|██████    | 3/5 [00:04<00:03,  1.55s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: 49, 324, 33, 100, 27
+Output: 10
+
+Input: 23, 225, 11, 64, 45
+Output: 8
+
+Input: 35, 169, 41, 16, 19
+Output: 4
+
+Input: 17, 121, 7, 36, 25
+Output: 6
+
+Input: 39, 256, 13, 4, 31
+Output: 2
+
+The instruction was
+ 80%|████████  | 4/5 [00:06<00:01,  1.53s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: 13, 144, 29, 400, 35
+Output: 12
+
+Input: 47, 196, 23, 36, 17
+Output: 6
+
+Input: 31, 81, 15, 64, 41
+Output: 8
+
+Input: 25, 169, 37, 16, 19
+Output: 4
+
+Input: 43, 225, 9, 100, 27
+Output: 10
+
+The instruction was
+100%|██████████| 5/5 [00:07<00:00,  1.54s/it]100%|██████████| 5/5 [00:07<00:00,  1.54s/it]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:08,  1.46it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:11,  1.08it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:10,  1.05it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:04<00:10,  1.08s/it]Loading checkpoint shards:  36%|███▌      | 5/14 [00:05<00:09,  1.09s/it]Loading checkpoint shards:  43%|████▎     | 6/14 [00:06<00:08,  1.04s/it]Loading checkpoint shards:  50%|█████     | 7/14 [00:07<00:07,  1.06s/it]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:08<00:06,  1.04s/it]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:09<00:04,  1.01it/s]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:09<00:03,  1.06it/s]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:10<00:02,  1.08it/s]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:11<00:01,  1.10it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:12<00:00,  1.10it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:13<00:00,  1.20it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:13<00:00,  1.06it/s]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: cat, beautiful, dog, house, tree
+Output: 4
+
+Input: computer, education, sky, moon, star
+Output: 4
+
+Input: ocean, mountain, car, bus, airplane
+Output: 4
+
+Input: telephone, radio, book, pen, paper
+Output: 4
+
+Input: creative, music, art, dance, painting
+Output: 4
+
+The instruction was
+ 20%|██        | 1/5 [00:01<00:04,  1.10s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: imagination, cat, dog, sun, wind
+Output: 6
+
+Input: table, chair, architecture, lamp, clock
+Output: 6
+
+Input: flower, incredible, grass, rock, stone
+Output: 6
+
+Input: building, fascinating, door, wall, roof
+Output: 6
+
+Input: garden, automobile, tree, bird, fish
+Output: 5
+
+The instruction was
+ 40%|████      | 2/5 [00:02<00:03,  1.10s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: extraordinary, box, cup, hat, pen
+Output: 7
+
+Input: car, bus, investigation, train, bike
+Output: 7
+
+Input: apple, orange, accommodation, grape, berry
+Output: 7
+
+Input: house, building, information, door, window
+Output: 6
+
+Input: music, dance, appreciation, art, painting
+Output: 7
+
+The instruction was
+ 60%|██████    | 3/5 [00:03<00:02,  1.09s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: personality, dog, cat, bird, fish
+Output: 7
+
+Input: sun, star, electricity, moon, planet
+Output: 6
+
+Input: table, chair, application, bed, sofa
+Output: 6
+
+Input: flower, grass, observation, tree, leaf
+Output: 6
+
+Input: mountain, valley, composition, river, lake
+Output: 6
+
+The instruction was
+ 80%|████████  | 4/5 [00:04<00:01,  1.10s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: imagination, pen, hat, cup, key
+Output: 6
+
+Input: car, bus, examination, train, bike
+Output: 6
+
+Input: apple, orange, association, grape, berry
+Output: 6
+
+Input: house, door, expectation, wall, window
+Output: 6
+
+Input: computer, phone, inspiration, tablet, watch
+Output: 7
+
+The instruction was
+100%|██████████| 5/5 [00:05<00:00,  1.10s/it]100%|██████████| 5/5 [00:05<00:00,  1.10s/it]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:07,  1.76it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:09,  1.29it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:08,  1.25it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:03<00:09,  1.09it/s]Loading checkpoint shards:  36%|███▌      | 5/14 [00:04<00:08,  1.07it/s]Loading checkpoint shards:  43%|████▎     | 6/14 [00:05<00:07,  1.14it/s]Loading checkpoint shards:  50%|█████     | 7/14 [00:06<00:06,  1.12it/s]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:07<00:05,  1.10it/s]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:07<00:04,  1.12it/s]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:08<00:03,  1.14it/s]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:09<00:02,  1.14it/s]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:10<00:01,  1.13it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:11<00:00,  1.12it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.22it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.16it/s]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: Roses are red, violets are blue, sugar is sweet, and so are you.
+Output: Cats are black, dogs are brown, birds can fly, all around town.
+
+Input: Twinkle twinkle little star, how I wonder what you are.
+Output: Gentle gentle morning breeze, brings my worried mind to ease.
+
+Input: Mary had a little lamb, its fleece was white as snow, everywhere that Mary went, the lamb was sure to go.
+Output: Tommy had a baseball bat, his swing was strong and true, everywhere that Tommy played, his friends would cheer him too.
+
+Input: Hickory dickory dock, the mouse ran up the clock.
+Output: Pickory tickory tock, the bird flew round the block.
+
+Input: Jack and Jill went up the hill, to fetch a pail of water, Jack fell down and broke his crown, and Jill came tumbling after.
+Output: Tom and Sue walked through the zoo, to see the big gorilla, Tom got scared and quickly ran, while Sue just stood there stiller.
+
+The instruction was
+ 20%|██        | 1/5 [00:01<00:04,  1.16s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: The sun is bright, the sky is clear, today is such a perfect day, let's go outside and play.
+Output: The moon is white, the stars appear, tonight is such a peaceful way, to rest our heads and stay.
+
+Input: Rain drops fall, puddles form, children splash and laugh with glee.
+Output: Snow flakes call, winter's norm, puppies dash and bark with spree.
+
+Input: In the garden flowers bloom, colors bright and sweet perfume.
+Output: In the kitchen cookies loom, flavors rich and warm consume.
+
+Input: Little bird upon the tree, singing songs so merrily, telling tales of lands afar, underneath the evening star.
+Output: Little fish within the sea, swimming free so gracefully, dancing waves from shore to shore, by the sandy ocean floor.
+
+Input: One two buckle my shoe, three four shut the door, five six pick up sticks.
+Output: Red blue color my zoo, green white paint the sight, dark bright make it right.
+
+The instruction was
+ 40%|████      | 2/5 [00:02<00:03,  1.14s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: There once was a man from Peru, who dreamed of a kangaroo, he woke with a start, clutched his beating heart, and realized his dream had come true.
+Output: There once was a cat from Maine, who loved to dance in the rain, she twirled around, without a sound, then dried off without any pain.
+
+Input: A funny old bear loved to dance, he'd spin and twirl given the chance, he'd leap and bound, all over the ground, and end with a theatrical stance.
+Output: A clever young fox loved to sing, she'd practice her voice every spring, she'd chirp and call, from morning till fall, and make all the forest birds ring.
+
+Input: In a garden so green and so bright, lived a rabbit who stayed up all night, he'd hop and play, until break of day, then sleep when the sun showed its light.
+Output: In a meadow so wide and so vast, ran a horse who was terribly fast, he'd gallop and race, all over the place, then rest when his energy passed.
+
+Input: A little mouse lived in a house, as quiet and shy as a grouse, he'd creep and hide, staying inside, until he felt brave as a louse.
+Output: A little bird lived in a tree, as happy and wild and free, she'd soar and glide, with wings spread wide, above the deep rolling sea.
+
+Input: The ocean waves crash on the shore, like music I've heard once before, they sing and call, to one and all, then retreat to return and encore.
+Output: The mountain peaks rise to the sky, like towers that reach way up high, they stand so tall, above us all, then touch the clouds floating by.
+
+The instruction was
+ 60%|██████    | 3/5 [00:03<00:02,  1.08s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: Paper airplane soars up high, racing through the cloudy sky, carried by the wind's reply, watching as it floats on by.
+Output: Wooden sailboat rides the wave, dancing like it's feeling brave, rocking in the water's cave, memories that time will save.
+
+Input: Dandelion seeds take flight, floating on the breeze so light, wishes carried out of sight, dreams dispersed in broad daylight.
+Output: Maple keys spin through the air, twirling without any care, landing softly everywhere, nature's magic we all share.
+
+Input: Bicycle wheels spinning round, feet upon the pedals pound, racing over hill and mound, joy in every sight and sound.
+Output: Skateboard rolling down the street, rhythm of the rolling beat, wind beneath my dancing feet, motion making life complete.
+
+Input: Picnic blanket on the grass, watching as the clouds drift past, moments peaceful unsurpassed, memories that always last.
+Output: Beach towel on the sandy shore, waves that crash and splash and roar, treasures washing up for more, ocean's endless liquid store.
+
+Input: Hammock swaying in the shade, peaceful place where dreams are made, worries slowly start to fade, relaxation's sweet parade.
+Output: Porch swing moving to and fro, gentle rhythms soft and slow, evening breezes come and go, peaceful feelings start to grow.
+
+The instruction was
+ 80%|████████  | 4/5 [00:04<00:01,  1.02s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: Tiger prowling through the night, stripes of orange black and white, hunting prey with keen eyesight, powerful and filled with might.
+Output: Eagle soaring through the day, feathers brown and white and grey, searching for its silver prey, graceful in its flying way.
+
+Input: Waterfall cascades down steep, into pools crystal and deep, where the silver fishes leap, nature's promise they will keep.
+Output: Mountain stream flows clear and bright, sparkling in the morning light, babbling songs from day to night, making everything seem right.
+
+Input: Telescope points to the stars, searching planets near and far, Venus Jupiter and Mars, cosmic wonders where they are.
+Output: Microscope reveals the small, tiny worlds invisible to all, bacteria and cells so small, nature's miracles enthrall.
+
+Input: Lighthouse beacon shines so bright, guiding ships throughout the night, warning them of rocky bight, safety harbor comes in sight.
+Output: Campfire glowing orange and gold, keeping travelers from the cold, stories round the fire told, memories worth more than gold.
+
+Input: Dragonfly skims pond so blue, iridescent green and new, dancing in the morning dew, nature's magic coming through.
+Output: Hummingbird sips nectar sweet, tiny wings in rapid beat, hovering so light and fleet, nature's marvel so complete.
+
+The instruction was
+100%|██████████| 5/5 [00:05<00:00,  1.02it/s]100%|██████████| 5/5 [00:05<00:00,  1.03s/it]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:07,  1.74it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:09,  1.28it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:08,  1.25it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:03<00:09,  1.09it/s]Loading checkpoint shards:  36%|███▌      | 5/14 [00:04<00:08,  1.07it/s]Loading checkpoint shards:  43%|████▎     | 6/14 [00:05<00:07,  1.14it/s]Loading checkpoint shards:  50%|█████     | 7/14 [00:06<00:06,  1.12it/s]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:07<00:05,  1.09it/s]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:07<00:04,  1.11it/s]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:08<00:03,  1.12it/s]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:09<00:02,  1.12it/s]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:10<00:01,  1.11it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:11<00:00,  1.10it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.20it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.15it/s]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: chicken breast, banana, almonds, quinoa, spinach
+Output: chicken breast, almonds, quinoa, spinach, banana
+
+Input: salmon, white rice, broccoli, peanut butter, apple
+Output: salmon, peanut butter, broccoli, white rice, apple
+
+Input: eggs, oats, avocado, black beans, orange
+Output: eggs, black beans, oats, avocado, orange
+
+Input: greek yogurt, sweet potato, walnuts, lentils, strawberries
+Output: greek yogurt, lentils, walnuts, sweet potato, strawberries
+
+Input: tuna, brown rice, cheese, chickpeas, grapes
+Output: tuna, chickpeas, cheese, brown rice, grapes
+
+The instruction was
+ 20%|██        | 1/5 [00:01<00:04,  1.13s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: turkey, pasta, olive oil, tofu, tomato
+Output: turkey, tofu, pasta, tomato, olive oil
+
+Input: cod, potato, cashews, kidney beans, pear
+Output: cod, kidney beans, cashews, potato, pear
+
+Input: cottage cheese, barley, butter, edamame, cucumber
+Output: cottage cheese, edamame, barley, cucumber, butter
+
+Input: beef, bread, coconut oil, soybeans, lettuce
+Output: beef, soybeans, bread, lettuce, coconut oil
+
+Input: shrimp, corn, pecans, split peas, watermelon
+Output: shrimp, split peas, pecans, corn, watermelon
+
+The instruction was
+ 40%|████      | 2/5 [00:02<00:03,  1.04s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: sardines, wild rice, chia seeds, white beans, kale
+Output: sardines, white beans, wild rice, chia seeds, kale
+
+Input: bison, freekeh, pumpkin seeds, black beans, spinach
+Output: bison, black beans, freekeh, pumpkin seeds, spinach
+
+Input: goat cheese, sorghum, hemp seeds, red beans, arugula
+Output: goat cheese, red beans, sorghum, hemp seeds, arugula
+
+Input: rabbit, triticale, poppy seeds, great northern beans, swiss chard
+Output: rabbit, great northern beans, triticale, poppy seeds, swiss chard
+
+Input: octopus, emmer, flax seeds, tepary beans, collard greens
+Output: octopus, tepary beans, emmer, flax seeds, collard greens
+
+The instruction was
+ 60%|██████    | 3/5 [00:03<00:01,  1.03it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: veal, angel hair, sesame oil, lentils, baby spinach
+Output: veal, lentils, angel hair, baby spinach, sesame oil
+
+Input: pompano, capellini, hemp oil, mung beans, boston lettuce
+Output: pompano, mung beans, capellini, boston lettuce, hemp oil
+
+Input: gouda cheese, vermicelli, flaxseed oil, adzuki beans, butter lettuce
+Output: gouda cheese, adzuki beans, vermicelli, butter lettuce, flaxseed oil
+
+Input: antelope, spaghettini, rice bran oil, fava beans, romaine hearts
+Output: antelope, fava beans, spaghettini, romaine hearts, rice bran oil
+
+Input: sea urchin, bucatini, wheat germ oil, lima beans, gem lettuce
+Output: sea urchin, lima beans, bucatini, gem lettuce, wheat germ oil
+
+The instruction was
+ 80%|████████  | 4/5 [00:03<00:00,  1.05it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: duck breast, lasagna sheets, macadamia oil, great northern beans, oakleaf lettuce
+Output: duck breast, great northern beans, lasagna sheets, oakleaf lettuce, macadamia oil
+
+Input: kingfish, fettuccine, avocado oil, tepary beans, red leaf lettuce
+Output: kingfish, tepary beans, fettuccine, red leaf lettuce, avocado oil
+
+Input: manchego cheese, tagliatelle, pistachio oil, cranberry beans, green leaf lettuce
+Output: manchego cheese, cranberry beans, tagliatelle, green leaf lettuce, pistachio oil
+
+Input: wild boar, pappardelle, hazelnut oil, black eyed peas, iceberg lettuce
+Output: wild boar, black eyed peas, pappardelle, iceberg lettuce, hazelnut oil
+
+Input: geoduck clam, ravioli, walnut oil, white beans, little gem lettuce
+Output: geoduck clam, white beans, ravioli, little gem lettuce, walnut oil
+
+The instruction was
+100%|██████████| 5/5 [00:04<00:00,  1.07it/s]100%|██████████| 5/5 [00:04<00:00,  1.04it/s]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:07,  1.80it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:09,  1.31it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:08,  1.27it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:03<00:09,  1.08it/s]Loading checkpoint shards:  36%|███▌      | 5/14 [00:04<00:08,  1.06it/s]Loading checkpoint shards:  43%|████▎     | 6/14 [00:05<00:07,  1.14it/s]Loading checkpoint shards:  50%|█████     | 7/14 [00:06<00:06,  1.12it/s]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:07<00:05,  1.09it/s]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:07<00:04,  1.10it/s]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:08<00:03,  1.13it/s]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:09<00:02,  1.12it/s]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:10<00:01,  1.11it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:11<00:00,  1.10it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.20it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.15it/s]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: Bonjour, comment allez-vous? J'espère que vous passez une bonne journée.
+Output: Hello, how are you? I hope you are having a good day.
+
+Input: Hola, ¿cómo estás? Me gusta mucho esta ciudad.
+Output: Hello, how are you? I really like this city.
+
+Input: Guten Tag, wie geht es Ihnen? Das Wetter ist heute schön.
+Output: Good day, how are you? The weather is beautiful today.
+
+Input: Ciao, come stai? Vorrei un caffè, per favore.
+Output: Hello, how are you? I would like a coffee, please.
+
+Input: Olá, como vai? Obrigado pela sua ajuda.
+Output: Hello, how are you? Thank you for your help.
+
+The instruction was
+ 20%|██        | 1/5 [00:00<00:03,  1.16it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: Где находится библиотека? Спасибо за информацию.
+Output: Where is the library? Thank you for the information.
+
+Input: 図書館はどこですか？ありがとうございます。
+Output: Where is the library? Thank you.
+
+Input: 图书馆在哪里？谢谢你的帮助。
+Output: Where is the library? Thank you for your help.
+
+Input: 도서관이 어디에 있나요? 도움을 주셔서 감사합니다.
+Output: Where is the library? Thank you for your help.
+
+Input: مكتبة کہاں ہے؟ آپ کا شکریہ۔
+Output: Where is the library? Thank you.
+
+The instruction was
+ 40%|████      | 2/5 [00:02<00:03,  1.25s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: أحب القراءة في المساء. إنه وقتي المفضل.
+Output: I love reading in the evening. It is my favorite time.
+
+Input: אני אוהב לטייל בטבע. זה נותן לי שלווה.
+Output: I love hiking in nature. It gives me peace.
+
+Input: मुझे संगीत सुनना पसंद है। यह मुझे खुश करता है।
+Output: I like listening to music. It makes me happy.
+
+Input: मलाई नेपाली खाना मन पर्छ। यो धेरै स्वादिष्ट छ।
+Output: I like Nepali food. It is very delicious.
+
+Input: আমি বাংলা ভাষা শিখতে চাই। এটি একটি সুন্দর ভাষা।
+Output: I want to learn Bengali. It is a beautiful language.
+
+The instruction was
+ 60%|██████    | 3/5 [00:03<00:02,  1.30s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: Az szeretem a tengert. Nagyon szép és nyugodt.
+Output: I love the sea. It is very beautiful and peaceful.
+
+Input: Íslenska er fallegt tungumál. Það er mjög áhugavert.
+Output: Icelandic is a beautiful language. It is very interesting.
+
+Input: Mul meeldib lugeda raamatuid. See on minu lemmikhuvialaal.
+Output: I like reading books. It is my favorite hobby.
+
+Input: Man patīk klausīties mūziku. Tā mani padara laimīgu.
+Output: I like listening to music. It makes me happy.
+
+Input: Man patinka žiūrėti filmus. Tai mano mėgstamiausia veikla.
+Output: I like watching movies. It is my favorite activity.
+
+The instruction was
+ 80%|████████  | 4/5 [00:05<00:01,  1.31s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: Мне нравится готовить борщ. Это очень вкусное блюдо.
+Output: I like cooking borscht. It is a very delicious dish.
+
+Input: Обичам да готвя традиционна храна. Тя е много вкусна.
+Output: I love cooking traditional food. It is very tasty.
+
+Input: Volim da čitam knjige. To je moja najdraža aktivnost.
+Output: I love reading books. It is my favorite activity.
+
+Input: Sviđa mi se da slušam muziku. To me čini srećnim.
+Output: I like listening to music. It makes me happy.
+
+Input: Воля ми є їсти українські страви. Вони дуже смачні.
+Output: I like eating Ukrainian dishes. They are very delicious.
+
+The instruction was
+100%|██████████| 5/5 [00:06<00:00,  1.31s/it]100%|██████████| 5/5 [00:06<00:00,  1.27s/it]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:08,  1.47it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:10,  1.10it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:10,  1.06it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:03<00:10,  1.07s/it]Loading checkpoint shards:  36%|███▌      | 5/14 [00:05<00:09,  1.08s/it]Loading checkpoint shards:  43%|████▎     | 6/14 [00:05<00:07,  1.03it/s]Loading checkpoint shards:  50%|█████     | 7/14 [00:06<00:06,  1.04it/s]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:07<00:05,  1.04it/s]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:08<00:04,  1.07it/s]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:09<00:03,  1.10it/s]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:10<00:02,  1.10it/s]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:11<00:01,  1.11it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:12<00:00,  1.11it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.20it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.09it/s]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: rat, computer, keyboard, mouse, monitor
+Output: 1
+
+Input: ox, tractor, farm, field, barn
+Output: 4
+
+Input: tiger, jungle, tree, vine, canopy
+Output: 9
+
+Input: rabbit, carrot, garden, lettuce, cabbage
+Output: 16
+
+Input: dragon, castle, knight, sword, shield
+Output: 25
+
+The instruction was
+ 20%|██        | 1/5 [00:01<00:04,  1.10s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: snake, grass, rock, desert, sand
+Output: 36
+
+Input: horse, saddle, bridle, stable, hay
+Output: 49
+
+Input: goat, mountain, cliff, grass, meadow
+Output: 64
+
+Input: monkey, banana, tree, branch, swing
+Output: 81
+
+Input: rooster, farm, egg, coop, feather
+Output: 100
+
+The instruction was
+ 40%|████      | 2/5 [00:02<00:03,  1.10s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: camera, lens, monkey, tripod, flash
+Output: 81
+
+Input: office, printer, rooster, scanner, shredder
+Output: 100
+
+Input: bathroom, shower, dog, toilet, sink
+Output: 121
+
+Input: classroom, whiteboard, pig, marker, chalk
+Output: 144
+
+Input: playground, swing, rat, slide, seesaw
+Output: 1
+
+The instruction was
+ 60%|██████    | 3/5 [00:03<00:02,  1.10s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: market, vendor, tiger, scales, basket
+Output: 9
+
+Input: workshop, hammer, rabbit, saw, chisel
+Output: 16
+
+Input: village, house, dragon, neighbor, community
+Output: 25
+
+Input: construction, cement, snake, brick, crane
+Output: 36
+
+Input: celebration, party, horse, cake, candle
+Output: 49
+
+The instruction was
+ 80%|████████  | 4/5 [00:04<00:01,  1.10s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: vineyard, grape, goat, wine, barrel
+Output: 64
+
+Input: computer, keyboard, monkey, monitor, mouse
+Output: 81
+
+Input: flower, butterfly, rooster, bee, pollen
+Output: 100
+
+Input: recipe, ingredient, dog, cooking, oven
+Output: 121
+
+Input: countryside, field, pig, farmer, harvest
+Output: 144
+
+The instruction was
+100%|██████████| 5/5 [00:05<00:00,  1.10s/it]100%|██████████| 5/5 [00:05<00:00,  1.10s/it]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:07,  1.66it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:09,  1.27it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:08,  1.24it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:03<00:09,  1.10it/s]Loading checkpoint shards:  36%|███▌      | 5/14 [00:04<00:08,  1.08it/s]Loading checkpoint shards:  43%|████▎     | 6/14 [00:05<00:06,  1.17it/s]Loading checkpoint shards:  50%|█████     | 7/14 [00:06<00:06,  1.14it/s]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:06<00:05,  1.11it/s]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:07<00:04,  1.12it/s]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:08<00:03,  1.14it/s]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:09<00:02,  1.13it/s]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:10<00:01,  1.13it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:11<00:00,  1.12it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.21it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.16it/s]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: The big cat is happy.
+Output: The small feline is joyful.
+
+Input: She found a bright light.
+Output: She lost a brilliant illumination.
+
+Input: He runs fast every day.
+Output: He walks slowly every night.
+
+Input: The old man was kind.
+Output: The young gentleman was cruel.
+
+Input: It was a hot summer.
+Output: It was a cold season.
+
+The instruction was
+ 20%|██        | 1/5 [00:01<00:04,  1.12s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: The tall tree is green.
+Output: The short plant is red.
+
+Input: She bought expensive shoes yesterday.
+Output: She sold cheap footwear today.
+
+Input: The smart student loves books.
+Output: The foolish pupil hates literature.
+
+Input: They live in a small house.
+Output: They die in a tiny home.
+
+Input: The cold water tastes good.
+Output: The warm liquid tastes bad.
+
+The instruction was
+ 40%|████      | 2/5 [00:01<00:02,  1.04it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: The early bird catches worms.
+Output: The late fowl catches insects.
+
+Input: She always arrives on time.
+Output: She never departs punctually.
+
+Input: The empty glass needs water.
+Output: The full cup needs liquid.
+
+Input: He started the difficult test.
+Output: He finished the easy exam.
+
+Input: The angry teacher spoke loudly.
+Output: The calm instructor spoke quietly.
+
+The instruction was
+ 60%|██████    | 3/5 [00:02<00:01,  1.10it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: The happy child played outside.
+Output: The sad kid played indoors.
+
+Input: He found the correct answer.
+Output: He lost the right solution.
+
+Input: The expensive car runs smoothly.
+Output: The cheap vehicle runs roughly.
+
+Input: She turned left at the corner.
+Output: She turned right at the intersection.
+
+Input: The full moon was bright.
+Output: The empty satellite was dim.
+
+The instruction was
+ 80%|████████  | 4/5 [00:03<00:00,  1.02it/s]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: The warm sunshine feels pleasant.
+Output: The cool sunlight feels unpleasant.
+
+Input: They entered the crowded room.
+Output: They exited the packed chamber.
+
+Input: The sharp knife cuts easily.
+Output: The dull blade cuts difficultly.
+
+Input: She likes the modern design.
+Output: She dislikes the contemporary style.
+
+Input: The healthy food tastes great.
+Output: The unhealthy meal tastes terrible.
+
+The instruction was
+100%|██████████| 5/5 [00:05<00:00,  1.02s/it]100%|██████████| 5/5 [00:05<00:00,  1.00s/it]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:09,  1.38it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:11,  1.06it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:11,  1.01s/it]Loading checkpoint shards:  29%|██▊       | 4/14 [00:04<00:11,  1.17s/it]Loading checkpoint shards:  36%|███▌      | 5/14 [00:05<00:10,  1.17s/it]Loading checkpoint shards:  43%|████▎     | 6/14 [00:06<00:08,  1.08s/it]Loading checkpoint shards:  50%|█████     | 7/14 [00:07<00:07,  1.08s/it]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:08<00:06,  1.09s/it]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:09<00:05,  1.08s/it]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:10<00:04,  1.07s/it]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:11<00:03,  1.07s/it]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:12<00:02,  1.07s/it]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:13<00:01,  1.07s/it]Loading checkpoint shards: 100%|██████████| 14/14 [00:14<00:00,  1.02it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:14<00:00,  1.05s/it]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: cat, dog, elephant, bird, fish
+Output: 3
+
+Input: tree, flower, grass, plant, garden
+Output: 1
+
+Input: computer, phone, tablet, keyboard, mouse
+Output: 2
+
+Input: mountain, river, ocean, desert, forest
+Output: 2
+
+Input: happy, sad, angry, excited, calm
+Output: 2
+
+The instruction was
+ 20%|██        | 1/5 [00:01<00:05,  1.50s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: apple, banana, orange, grape, cherry
+Output: 1
+
+Input: book, magazine, newspaper, journal, article
+Output: 3
+
+Input: car, truck, bicycle, motorcycle, train
+Output: 4
+
+Input: red, blue, green, yellow, purple
+Output: 2
+
+Input: Monday, Tuesday, Wednesday, Thursday, Friday
+Output: 3
+
+The instruction was
+ 40%|████      | 2/5 [00:02<00:04,  1.50s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: shirt, pants, jacket, shoes, socks
+Output: 1
+
+Input: guitar, piano, violin, drums, flute
+Output: 2
+
+Input: hospital, school, library, museum, theater
+Output: 3
+
+Input: triangle, circle, square, rectangle, pentagon
+Output: 4
+
+Input: elephant, giraffe, zebra, lion, tiger
+Output: 2
+
+The instruction was
+ 60%|██████    | 3/5 [00:04<00:02,  1.49s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: complicated, sophisticated, concentrated, integrated, coordinated
+Output: 4
+
+Input: beautiful, powerful, colorful, wonderful, peaceful
+Output: 3
+
+Input: dictionary, vocabulary, necessary, secretary, temporary
+Output: 4
+
+Input: psychology, technology, biology, geology, mythology
+Output: 4
+
+Input: championship, relationship, citizenship, scholarship, leadership
+Output: 2
+
+The instruction was
+ 80%|████████  | 4/5 [00:05<00:01,  1.48s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: refrigerator, calculator, computer, helicopter, elevator
+Output: 5
+
+Input: basketball, football, baseball, volleyball, swimming
+Output: 2
+
+Input: strawberry, blueberry, raspberry, blackberry, cranberry
+Output: 4
+
+Input: butterfly, dragonfly, firefly, housefly, mayfly
+Output: 3
+
+Input: tremendous, marvelous, dangerous, glorious, victorious
+Output: 4
+
+The instruction was
+100%|██████████| 5/5 [00:07<00:00,  1.48s/it]100%|██████████| 5/5 [00:07<00:00,  1.49s/it]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:08,  1.48it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:10,  1.10it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:10,  1.06it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:03<00:10,  1.07s/it]Loading checkpoint shards:  36%|███▌      | 5/14 [00:05<00:09,  1.08s/it]Loading checkpoint shards:  43%|████▎     | 6/14 [00:05<00:08,  1.01s/it]Loading checkpoint shards:  50%|█████     | 7/14 [00:07<00:07,  1.04s/it]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:08<00:06,  1.06s/it]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:09<00:05,  1.06s/it]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:10<00:04,  1.04s/it]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:11<00:03,  1.05s/it]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:12<00:02,  1.05s/it]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:13<00:01,  1.06s/it]Loading checkpoint shards: 100%|██████████| 14/14 [00:14<00:00,  1.03it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:14<00:00,  1.01s/it]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: cat, dog, elephant, bird, fish
+Output: 3
+
+Input: tree, flower, grass, plant, garden
+Output: 4
+
+Input: computer, phone, tablet, keyboard, mouse
+Output: 5
+
+Input: mountain, river, ocean, desert, forest
+Output: 5
+
+Input: happy, sad, angry, excited, calm
+Output: 3
+
+The instruction was
+ 20%|██        | 1/5 [00:01<00:05,  1.48s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: apple, banana, orange, grape, cherry
+Output: 5
+
+Input: book, magazine, newspaper, journal, article
+Output: 4
+
+Input: car, truck, bicycle, motorcycle, train
+Output: 3
+
+Input: red, blue, green, yellow, purple
+Output: 3
+
+Input: Monday, Tuesday, Wednesday, Thursday, Friday
+Output: 6
+
+The instruction was
+ 40%|████      | 2/5 [00:02<00:04,  1.47s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: shirt, pants, jacket, shoes, socks
+Output: 5
+
+Input: guitar, piano, violin, drums, flute
+Output: 5
+
+Input: hospital, school, library, museum, theater
+Output: 6
+
+Input: triangle, circle, square, rectangle, pentagon
+Output: 6
+
+Input: elephant, giraffe, zebra, lion, tiger
+Output: 4
+
+The instruction was
+ 60%|██████    | 3/5 [00:04<00:02,  1.48s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: complicated, sophisticated, concentrated, integrated, coordinated
+Output: 11
+
+Input: beautiful, powerful, colorful, wonderful, peaceful
+Output: 8
+
+Input: dictionary, vocabulary, necessary, secretary, temporary
+Output: 9
+
+Input: psychology, technology, biology, geology, mythology
+Output: 7
+
+Input: championship, relationship, citizenship, scholarship, leadership
+Output: 10
+
+The instruction was
+ 80%|████████  | 4/5 [00:05<00:01,  1.51s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: refrigerator, calculator, computer, helicopter, elevator
+Output: 8
+
+Input: basketball, football, baseball, volleyball, swimming
+Output: 8
+
+Input: strawberry, blueberry, raspberry, blackberry, cranberry
+Output: 9
+
+Input: butterfly, dragonfly, firefly, housefly, mayfly
+Output: 6
+
+Input: tremendous, marvelous, dangerous, glorious, victorious
+Output: 9
+
+The instruction was
+100%|██████████| 5/5 [00:07<00:00,  1.37s/it]100%|██████████| 5/5 [00:07<00:00,  1.42s/it]
+CAME TO ONLY 30 TOKENS
+CAME TO THE FUNCTION TO EXECUTE ACCURACY
+Loading checkpoint shards:   0%|          | 0/14 [00:00<?, ?it/s]Loading checkpoint shards:   7%|▋         | 1/14 [00:00<00:07,  1.76it/s]Loading checkpoint shards:  14%|█▍        | 2/14 [00:01<00:09,  1.31it/s]Loading checkpoint shards:  21%|██▏       | 3/14 [00:02<00:08,  1.28it/s]Loading checkpoint shards:  29%|██▊       | 4/14 [00:03<00:08,  1.12it/s]Loading checkpoint shards:  36%|███▌      | 5/14 [00:04<00:08,  1.09it/s]Loading checkpoint shards:  43%|████▎     | 6/14 [00:05<00:06,  1.17it/s]Loading checkpoint shards:  50%|█████     | 7/14 [00:05<00:06,  1.15it/s]Loading checkpoint shards:  57%|█████▋    | 8/14 [00:06<00:05,  1.12it/s]Loading checkpoint shards:  64%|██████▍   | 9/14 [00:07<00:04,  1.12it/s]Loading checkpoint shards:  71%|███████▏  | 10/14 [00:08<00:03,  1.14it/s]Loading checkpoint shards:  79%|███████▊  | 11/14 [00:09<00:02,  1.14it/s]Loading checkpoint shards:  86%|████████▌ | 12/14 [00:10<00:01,  1.14it/s]Loading checkpoint shards:  93%|█████████▎| 13/14 [00:11<00:00,  1.09it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.20it/s]Loading checkpoint shards: 100%|██████████| 14/14 [00:12<00:00,  1.16it/s]
+CAME TO SOURCE FOLDER
+  0%|          | 0/5 [00:00<?, ?it/s]user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: zebra, apple, monkey, elephant, bird
+Output: elppa
+
+Input: tree, banana, flower, garden, mountain
+Output: ananab
+
+Input: computer, orange, tablet, keyboard, mouse
+Output: retupmoC
+
+Input: ocean, desert, forest, river, mountain
+Output: tresed
+
+Input: happy, calm, angry, excited, sad
+Output: yrgnA
+
+The instruction was
+ 20%|██        | 1/5 [00:01<00:05,  1.38s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: grape, cherry, strawberry, banana, apple
+Output: elppa
+
+Input: magazine, article, newspaper, journal, book
+Output: elcitrA
+
+Input: train, bicycle, motorcycle, truck, car
+Output: elcycib
+
+Input: yellow, purple, red, green, blue
+Output: eulb
+
+Input: Wednesday, Friday, Monday, Thursday, Tuesday
+Output: yadnoM
+
+The instruction was
+ 40%|████      | 2/5 [00:02<00:04,  1.37s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: shoes, socks, shirt, pants, jacket
+Output: tekca j
+
+Input: violin, piano, guitar, flute, drums
+Output: smurd
+
+Input: theater, school, museum, library, hospital
+Output: latipsoh
+
+Input: triangle, square, rectangle, pentagon, circle
+Output: elcric
+
+Input: zebra, tiger, lion, giraffe, elephant
+Output: tnahpele
+
+The instruction was
+ 60%|██████    | 3/5 [00:04<00:02,  1.37s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: sophisticated, integrated, coordinated, concentrated, complicated
+Output: detalpmoc
+
+Input: wonderful, peaceful, powerful, colorful, beautiful
+Output: lufituaeb
+
+Input: vocabulary, temporary, secretary, necessary, dictionary
+Output: yranoitcid
+
+Input: technology, psychology, mythology, geology, biology
+Output: ygoloib
+
+Input: scholarship, relationship, leadership, citizenship, championship
+Output: pihsnoipmoahc
+
+The instruction was
+ 80%|████████  | 4/5 [00:05<00:01,  1.43s/it]CAME TO ONLY 30 TOKENS
+user_prompt I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs.
+Here are the input-output pairs:
+
+Input: refrigerator, helicopter, elevator, computer, calculator
+Output: rotaluclac
+
+Input: volleyball, swimming, football, basketball, baseball
+Output: llabesab
+
+Input: raspberry, strawberry, cranberry, blackberry, blueberry
+Output: yrrebeulb
+
+Input: mayfly, housefly, firefly, dragonfly, butterfly
+Output: ylfruttub
+
+Input: victorious, tremendous, marvelous, glorious, dangerous
+Output: suoregnad
+
+The instruction was
+100%|██████████| 5/5 [00:06<00:00,  1.30s/it]100%|██████████| 5/5 [00:06<00:00,  1.34s/it]
+CAME TO ONLY 30 TOKENS

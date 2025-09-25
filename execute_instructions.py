@@ -29,6 +29,7 @@ INDUCTION_TASKS = ['cause_and_effect', 'larger_animal', 'num_to_verbal','orthogr
                    'detect_rhyme_and_rewrite', 'rank_by_protein','multi_lang_to_english','square_of_zodiac_animal',
                    'alternate_synonym_antonym', 'most_consonant_return_vowel', 'least_unique_word_count', 'first_word_alphabetically_return_reverse']
 
+
 end_think_patterns = [
     r'</think>',
     r'<\|channel\|>final<\|message\|>',
@@ -174,19 +175,22 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
                     prediction = prediction + "</think>"
                 elif "openthinker" in execution_engine.lower():
                     prediction = prediction + f"<|end_of_thought|>"
-                new_inputs = tokenizer(prediction, return_tensors="pt").to(model.device)
-                with torch.no_grad():
-                    new_output = model.generate(
-                        **new_inputs,
-                        max_new_tokens=30,
-                        do_sample=do_sample,
-                        temperature=temperature
-                    )
-                prediction = tokenizer.decode(new_output[0], skip_special_tokens=False)
+            prediction = prediction + " The instruction is:"
+            new_inputs = tokenizer(prediction, return_tensors="pt").to(model.device)
+            with torch.no_grad():
+                new_output = model.generate(
+                    **new_inputs,
+                    max_new_tokens=30,
+                    do_sample=do_sample,
+                    temperature=temperature
+                )
+            prediction = tokenizer.decode(new_output[0], skip_special_tokens=False)
     
             d['instruction_outputs'] = prediction
             output_[instruction_id] = d
         else:
+            chat_prompt = chat_prompt + " The instruction is:"
+            inputs = tokenizer(chat_prompt, return_tensors="pt").to(model.device)
             print("CAME TO ONLY 30 TOKENS")
             with torch.no_grad():
                 outputs = model.generate(

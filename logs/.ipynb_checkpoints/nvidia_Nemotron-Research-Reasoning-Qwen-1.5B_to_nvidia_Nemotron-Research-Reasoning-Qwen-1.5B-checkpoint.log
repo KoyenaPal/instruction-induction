@@ -1,0 +1,102 @@
+['Each input consists of two sentences, where one is the cause and the other is the outcome. Write The cause sentence', 'The input consists of two sentences. One is the cause of the other. Write the cause sentence', 'The input is a cause and effect. Write the cause.', 'The input is a cause and effect, write the cause', 'Find the cause in the following cause and effect pair', 'Output the sentence describing the cause (the other sentence is what happened as a result).', 'Output the cause (other sentence describes what happened as a result)', 'Which of the following sentences is the cause?', 'Which of the two events is the cause?']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: Output the first given sentence in each pair.
+
+Therefore, the instruction is: "Output the first input sentence provided."
+
+So summarizing, the instruction is
+Normalized prediction the instruction is output the first given sentence in each pair
+ 20%|██        | 1/5 [00:05<00:23,  6.00s/it]Predictions  The instruction is: Given two sentences, the first is a statement, and the second is its consequence.
+
+The instruction is: "Given two sentences, the first is a
+Normalized prediction the instruction is given two sentences the first is a statement the second is its consequence
+ 40%|████      | 2/5 [00:10<00:15,  5.08s/it]Predictions  The instruction is: Output the first input sentence provided.
+
+The instruction is: Output the first given sentence.
+
+**Final Answer**
+The instruction is to output the first input sentence
+Normalized prediction the instruction is output the first input sentence provided
+ 60%|██████    | 3/5 [00:14<00:09,  4.72s/it]Predictions  The instruction is: "If the first input is about a family event, the output is the corresponding consequence. If it's about a promotion, output the object event.
+Normalized prediction the instruction is if the first input is about a family event the output is the corresponding consequence
+ 80%|████████  | 4/5 [00:18<00:04,  4.23s/it]Predictions  The instruction is: swap the two inputs. So when given Input 1 and 2, the output is Input2 and then Input1 respectively.
+
+Wait let me re
+Normalized prediction the instruction is swap the two inputs
+100%|██████████| 5/5 [00:21<00:00,  4.02s/it]100%|██████████| 5/5 [00:21<00:00,  4.37s/it]
+['which of the animals separated by , is bigger', 'output which of the animals in the input is bigger', 'Write the bigger animal of the two', 'Write the bigger animal', 'Write which of the pair of animals in each input is larger', 'For each input, write which of the two animals is bigger.', 'find the larger between the following pair of animals', 'Which of the following animals is bigger?', 'Which is bigger?']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: Output the first element if both are animals; else, output the second element.
+
+Let me verify:
+
+1. elephant (animal), chamois (
+Normalized prediction the instruction is output the first element if both are animals else output the second element
+ 20%|██        | 1/5 [00:04<00:17,  4.35s/it]Predictions  The instruction is: "Take the first element of the pair."
+
+But let me verify:
+
+1. "bull shark, labradoodle" → output "bull shark"
+Normalized prediction the instruction is take the first element of the pair
+ 40%|████      | 2/5 [00:07<00:11,  3.93s/it]Predictions  The instruction is: "output the first element if both are animals; otherwise, output the second element."
+
+Wait let's test:
+
+1. (jaguar, don
+Normalized prediction the instruction is output the first element if both are animals otherwise output the second element
+ 60%|██████    | 3/5 [00:12<00:08,  4.34s/it]Predictions  The instruction is: "output the first element of the given pair."
+
+**Step-by-Step Explanation:**
+
+1. **Identify the Pattern:** Each input consists of
+Normalized prediction the instruction is output the first element of the given pair
+ 80%|████████  | 4/5 [00:17<00:04,  4.49s/it]Predictions  The instruction is: "Select the first element of each pair." Based on the given inputs and outputs, the instruction is to take the first element of each input pair.
+Normalized prediction the instruction is select the first element of each pair
+100%|██████████| 5/5 [00:21<00:00,  4.42s/it]100%|██████████| 5/5 [00:21<00:00,  4.37s/it]
+['output how the number in the input is pronounced in English', 'output the pronunciation of the number in the input', 'Write the number in English words', 'For each input, write the number in plain English words without using digits.', 'For each input, write the number in plain English words without using digits or numbers.', 'Write the following number with words:', 'You will be given an input number and you need to output the number while writing it with words', 'Write the input number with words.']
+  0%|          | 0/5 [00:00<?, ?it/s]Predictions  The instruction is: Convert each input number into its English word representation using appropriate scale words such as thousand, hundred, etc.
+
+The instruction is to convert the numbers into their
+Normalized prediction the instruction is convert each input number into its english word representation using appropriate scale words such as thousand hundred etc
+ 20%|██        | 1/5 [00:03<00:14,  3.52s/it]Predictions  The instruction is: Convert each number into its word form by breaking it into thousands, hundreds, tens, and ones.
+
+**Final Answer**
+The instruction was to convert each
+Normalized prediction the instruction is convert each number into its word form by breaking it into thousands hundreds tens ones
+ 40%|████      | 2/5 [00:08<00:12,  4.26s/it]Predictions  The instruction is: Convert numbers into their word equivalents by breaking them into thousands, hundreds, tens, and units, using "thousand", "hundred", and "
+Normalized prediction the instruction is convert numbers into their word equivalents by breaking them into thousands hundreds tens units using thousand hundred
+ 40%|████      | 2/5 [00:09<00:14,  4.67s/it]
+Traceback (most recent call last):
+  File "/instruction-induction/evaluate.py", line 318, in <module>
+    save_predictions_execution_accuracy(gen_model=args.gen_model,
+  File "/instruction-induction/evaluate.py", line 277, in save_predictions_execution_accuracy
+    score = get_bertscore(prediction=prediction, ground_truth=ground_truth)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/instruction-induction/evaluate.py", line 108, in get_bertscore
+    P, R, F1 = bert_score(
+               ^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/bert_score/score.py", line 98, in score
+    model = get_model(model_type, num_layers, all_layers)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/bert_score/utils.py", line 255, in get_model
+    model = AutoModel.from_pretrained(model_type)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 604, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 288, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 5179, in from_pretrained
+    ) = cls._load_pretrained_model(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 5445, in _load_pretrained_model
+    load_state_dict(checkpoint_files[0], map_location="meta", weights_only=weights_only).keys()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/transformers/modeling_utils.py", line 550, in load_state_dict
+    return torch.load(
+           ^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/torch/serialization.py", line 1546, in load
+    return _legacy_load(
+           ^^^^^^^^^^^^^
+  File "/.venv/lib/python3.11/site-packages/torch/serialization.py", line 1821, in _legacy_load
+    typed_storage._untyped_storage._set_from_file(
+KeyboardInterrupt

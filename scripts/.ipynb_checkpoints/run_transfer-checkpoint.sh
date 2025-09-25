@@ -1,12 +1,15 @@
 #!/bin/bash
 
 # Define arrays of models and prompt styles
+# sourcemodels=(
+#     "BytedTsinghua-SIA/DAPO-Qwen-32B" 
+#     "nvidia/Nemotron-Research-Reasoning-Qwen-1.5B" 
+#     "Qwen/QwQ-32B" 
+#     "openai/gpt-oss-20b" 
+#     "open-thoughts/OpenThinker-7B"
+# )
 sourcemodels=(
-    "BytedTsinghua-SIA/DAPO-Qwen-32B" 
     "nvidia/Nemotron-Research-Reasoning-Qwen-1.5B" 
-    "Qwen/QwQ-32B" 
-    "openai/gpt-oss-20b" 
-    "open-thoughts/OpenThinker-7B"
 )
 targetmodels=(
     "BytedTsinghua-SIA/DAPO-Qwen-32B" 
