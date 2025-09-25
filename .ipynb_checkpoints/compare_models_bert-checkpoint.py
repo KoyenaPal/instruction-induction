@@ -65,7 +65,8 @@ def get_bertscore_between_models(prediction, reference):
     """Calculate BERTScore between two model outputs."""
     pred_normalized = normalize_prediction(prediction, lowercase=True)
     ref_normalized = normalize_prediction(reference, lowercase=True)
-    
+    print(pred_normalized, flush=True)
+    print(ref_normalized, flush=True)
     if not pred_normalized or not ref_normalized:
         return 0.0
     
