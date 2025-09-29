@@ -257,6 +257,13 @@ def save_predictions_execution_accuracy(gen_model, task_name, execution_input_di
     
     # Sort the sampled keys numerically (same as your original sorting)
     sampled_keys = sorted(sampled_keys, key=lambda x: int(x))
+
+    predictions_by_instruction = {
+        preds["instruction"]: preds["instruction_outputs"] for preds in predictions.values()
+    }
+    instruction_to_pred_id = {
+        preds["instruction"]: pred_id for pred_id, preds in predictions.items()
+    }
     
     for instruction_id in tqdm(sampled_keys):
         # print("CAME HERE", flush=True)
@@ -264,8 +271,13 @@ def save_predictions_execution_accuracy(gen_model, task_name, execution_input_di
         # print(instruction_data, flush=True)
         d = {}
         d['instruction'] = instruction_data['input']
-        
-        instruction_outputs = predictions[instruction_id]['instruction_outputs']
+        if d['instruction'] not in predictions_by_instruction:
+            raise ValueError(f"No prediction found for instruction: {d['instruction']}")
+            
+        instruction_outputs = predictions_by_instruction[d['instruction']]
+        pred_id = instruction_to_pred_id[d['instruction']]
+
+        #instruction_outputs = predictions[instruction_id]['instruction_outputs']
         instruction_scores = []
         #answers = input_['answers']
         answers = task_name.replace("_", " ")
@@ -285,12 +297,12 @@ def save_predictions_execution_accuracy(gen_model, task_name, execution_input_di
             score = get_sim_score(prediction=prediction, ground_truth=ground_truth)
         else:  # EM
             score = get_multi_answer_em(prediction=prediction, answers=answers)
-        predictions[instruction_id]['answers'] = answers
-        predictions[instruction_id]['score'] = score
+        predictions[pred_id]['answers'] = answers
+        predictions[pred_id]['score'] = score
         instruction_scores.append(score)
         avg_score = sum(instruction_scores) / len(instruction_scores)
-        predictions[instruction_id]['average_score'] = avg_score
-        predictions[instruction_id]['predicted_instruction'] = prediction
+        predictions[pred_id]['average_score'] = avg_score
+        predictions[pred_id]['predicted_instruction'] = prediction
 
     predictions['weighted_task_score'] = get_weighted_task_score(predictions)
 
