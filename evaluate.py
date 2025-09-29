@@ -304,7 +304,7 @@ if __name__ == '__main__':
     INDUCTION_TASKS_STR = ','.join(INDUCTION_TASKS)
     parser = argparse.ArgumentParser()
     parser.add_argument("--gen_model", type=str, default='text-davinci-002',
-                        help='The model used to generate the instruciton, i.e, the evaluated model.')
+                        help='The model used to generate the instruction, i.e, the evaluated model.')
     parser.add_argument('--execution_input_dir', type=str, required=True,
                         help='Path of the input execution accuracy data.')
     parser.add_argument('--predictions_dir', type=str, default='', required=True,
