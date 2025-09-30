@@ -14,6 +14,7 @@ INDUCTION_TASKS = ['cause_and_effect', 'larger_animal', 'num_to_verbal','orthogr
                    'alternate_synonym_antonym', 'most_consonant_return_vowel', 'least_unique_word_count', 'first_word_alphabetically_return_reverse']
 
 
+
 def extract_thinking(answer, model_name="qwen"):
     """Extract thinking content from various model formats."""
     if "openthinker" in model_name.lower():

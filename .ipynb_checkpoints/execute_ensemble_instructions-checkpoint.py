@@ -310,6 +310,7 @@ if __name__ == '__main__':
         
         # Save results
         output_path = f'{out_dir}'
+        print("OUT DIRECTORY", output_path)
         Path(output_path).mkdir(exist_ok=True)
         
         with open(f'{output_path}/{induction_task}_execution.json', 'w', encoding='utf-8') as f_predictions:
