@@ -128,6 +128,7 @@ def normalize_prediction(prediction, lowercase=True):
     prediction = prediction.replace('<|endoftext|>', '')
     prediction = prediction.strip()
     # prediction = prediction.split("\n")[0]
+    prediction = prediction.split("<think>")[-1]
     prediction = prediction.split(".")[0]
     if lowercase:
         prediction = prediction.lower()

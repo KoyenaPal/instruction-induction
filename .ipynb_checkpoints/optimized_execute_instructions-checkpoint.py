@@ -142,6 +142,8 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
         if source_thought_data:
             if "without_answer" in thought_type:
                 thinking_message = extract_thinking(source_thought_data[instruction_id]['processed_without_answer'], model_name=execution_engine)
+            elif "with_sampling" in thought_type:
+                thinking_message = extract_thinking(source_thought_data[instruction_id]['original_instruction_outputs'], model_name=execution_engine)
             else:
                 thinking_message = extract_thinking(source_thought_data[instruction_id]['instruction_outputs'], model_name=execution_engine)
 
@@ -172,7 +174,7 @@ def run_execution_accuracy_open_source_chat(execution_engine, instruction_genera
         inputs = tokenizer(chat_prompt, return_tensors="pt", truncation=True, max_length=4096).to(model.device)
         
         try:
-            if thought_type == "default" or thought_type == "with_sampling":
+            if (thought_type == "default") or (thought_type == "with_sampling") and not(source_thought_data):
                 # First generation with memory optimization
                 with torch.no_grad():
                     outputs = model.generate(
