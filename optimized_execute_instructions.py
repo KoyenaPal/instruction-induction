@@ -21,7 +21,7 @@ os.environ['PYTHONHASHSEED'] = '42'
 #                    'detect_rhyme_and_rewrite', 'rank_by_protein','multi_lang_to_english','square_of_zodiac_animal',
 #                    'alternate_synonym_antonym', 'most_consonant_return_vowel', 'least_unique_word_count', 'first_word_alphabetically_return_reverse']
 
-INDUCTION_TASKS = ['first_word_alphabetically_return_reverse']
+INDUCTION_TASKS = ['orthography_starts_with']
 
 end_think_patterns = [
     r'</think>',
