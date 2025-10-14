@@ -1,0 +1,51 @@
+{
+  "1": {
+    "model1_output": "The instruction is: \n\nSwap the first two characters and the last two characters of the string. If the string has an odd length, the middle character remains unchanged.\n\nLet",
+    "model2_output": "The instruction is: \"Swap the first two characters, swap the last two characters, and if the length is odd, move the middle character to the front.\"\n\nLet me",
+    "bert_1_to_2": 0.742790937423706,
+    "bert_2_to_1": 0.742790937423706,
+    "bert_score": 0.742790937423706,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "2": {
+    "model1_output": "The instruction is: \"Take the word, split it into two halves (the first half is the longer one when the length is odd), reverse each half individually, and",
+    "model2_output": "The instruction is: Reverse the first half of the input string, keep the middle character(s) intact if odd length, reverse the second half, and concatenate. \n\nSo",
+    "bert_1_to_2": 0.6346030831336975,
+    "bert_2_to_1": 0.6346030831336975,
+    "bert_score": 0.6346030831336975,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "5": {
+    "model1_output": "The instruction is: \"Take the word, swap its first two letters, and then reverse the order of the remaining letters.\"\n\nLet's apply this instruction to each input to",
+    "model2_output": "The instruction is: \"Swap the first two letters and reverse the rest.\" Let's verify each input:\n\n1. **Input: water**\n   - Swap first two letters",
+    "bert_1_to_2": 0.6727086305618286,
+    "bert_2_to_1": 0.6727086305618286,
+    "bert_score": 0.6727086305618286,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "11": {
+    "model1_output": "The instruction is: \"Take the word, split it into two halves, reverse each half separately, and then concatenate the reversed halves.\"\n\nLet's verify this instruction with the",
+    "model2_output": "The instruction is: Reverse the word and then reverse each half. Let's verify:**\n\n- **Input: circle → output: ricelc**\n  - Split circle",
+    "bert_1_to_2": 0.5862560272216797,
+    "bert_2_to_1": 0.5862560272216797,
+    "bert_score": 0.5862560272216797,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "12": {
+    "model1_output": "The instruction is: Rearrange the letters of the word by moving the second letter to the front and the first letter to the position after the second letter.\n\nTo put it",
+    "model2_output": "The instruction is: take the first letter, then the letter at position n-1, then n-2, etc., cycling through the word indices. Let me verify",
+    "bert_1_to_2": 0.5945632457733154,
+    "bert_2_to_1": 0.5945632457733154,
+    "bert_score": 0.5945632457733154,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "weighted_task_score": 0.6461843848228455,
+  "task_name": "reverse_from_middle",
+  "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+  "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+}
