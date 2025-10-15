@@ -1,0 +1,51 @@
+{
+  "1": {
+    "model1_output": "The instruction is: \"Count the number of words that are mammals.\" Let's verify:\n\nFirst input: cat, dog, elephant, bird, fish. Mammals",
+    "model2_output": "The instruction is: \"Count the number of words in the list that are mammals.\" But then the second input would have zero, but output is 1. So that",
+    "bert_1_to_2": 0.547717809677124,
+    "bert_2_to_1": 0.547717809677124,
+    "bert_score": 0.547717809677124,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "2": {
+    "model1_output": "The instruction is: \"Count the number of items that start with a vowel.\" Let's test this.\n\nFirst input: apple (a), banana (b), orange (",
+    "model2_output": "The instruction is: \"Count the number of items that are not the first letter in the alphabet.\" But that would be 4, but output is 1. Hmm",
+    "bert_1_to_2": 0.5998890399932861,
+    "bert_2_to_1": 0.5998890399932861,
+    "bert_score": 0.5998890399932861,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "5": {
+    "model1_output": "The instruction is: \"Count the number of items that are clothing items with a vowel in their name.\" Let's test:\n\n1. shirt: i (1 vowel)",
+    "model2_output": "The instruction is: \"Count the number of items in the list that are polygons.\" \n\nWait, let me check again. For the fourth input (shapes), the output",
+    "bert_1_to_2": 0.5965611934661865,
+    "bert_2_to_1": 0.5965611934661865,
+    "bert_score": 0.5965611934661865,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "11": {
+    "model1_output": "The instruction is: \"Determine the number of words that start with a vowel.\" Let's check:\n\nFirst input: complicated starts with 'c' (consonant",
+    "model2_output": "The instruction is: \"Count the number of words in the input that end with the suffix '-logy'.\" Wait, but in the fourth input, all the words end",
+    "bert_1_to_2": 0.5920065641403198,
+    "bert_2_to_1": 0.5920065641403198,
+    "bert_score": 0.5920065641403198,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "12": {
+    "model1_output": "The instruction is: \"Count the number of words ending with 'berry'.\" Let's check:\n\n1. strawberry: ends with 'ter', not 'berry' →",
+    "model2_output": "The instruction is: For each input list of words, count how many of them end with the letter 'r'. \n\nWait, let me check the third input again.",
+    "bert_1_to_2": 0.5352857708930969,
+    "bert_2_to_1": 0.5352857708930969,
+    "bert_score": 0.5352857708930969,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "weighted_task_score": 0.5742920756340026,
+  "task_name": "most_consonant_return_vowel",
+  "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+  "model2_name": "Qwen_QwQ-32B"
+}

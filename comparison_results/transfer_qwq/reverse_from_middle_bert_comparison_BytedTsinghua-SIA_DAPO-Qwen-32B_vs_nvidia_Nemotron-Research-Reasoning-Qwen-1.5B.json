@@ -1,0 +1,51 @@
+{
+  "1": {
+    "model1_output": "The instruction is: \"Swap the first two letters of the input string. If the string has more than two letters, reverse the order of the remaining letters after the first",
+    "model2_output": "The instruction is: reverse the first two letters and then reverse the rest.\n\nWait let's test:\n\nFor \"abc\": reverse first two (b a c → bac).",
+    "bert_1_to_2": 0.5601972341537476,
+    "bert_2_to_1": 0.5601972341537476,
+    "bert_score": 0.5601972341537476,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "2": {
+    "model1_output": "The instruction is: Reverse each half of the word separately and concatenate them in the same order.\n\nLet's check this for all the given examples:\n\n1. **Input:",
+    "model2_output": "The instruction is: Reverse each half and concatenate them in the same order.\n\nFor \"algorithm\":\n\nFirst 5 letters: a l g o r → reversed: r o",
+    "bert_1_to_2": 0.6168373227119446,
+    "bert_2_to_1": 0.6168373227119446,
+    "bert_score": 0.6168373227119446,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "5": {
+    "model1_output": "The instruction is: For each word, swap the first two letters and then reverse the order of the remaining letters.\n\nLet's test this instruction on each of the given input",
+    "model2_output": "The instruction is: shift each letter to the next one in the alphabet, wrapping around Z to A. Let's test:\n\nInput: water → a w e r t",
+    "bert_1_to_2": 0.557403564453125,
+    "bert_2_to_1": 0.557403564453125,
+    "bert_score": 0.557403564453125,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "11": {
+    "model1_output": "The instruction is: For each word, split it into two halves. If the word has an even number of letters, split it into two equal halves. If the word",
+    "model2_output": "The instruction is: reverse the order of letters in the word except the first letter. Let's test:\n\n\"line\" → reverse all letters except first? \"line\"",
+    "bert_1_to_2": 0.5218014717102051,
+    "bert_2_to_1": 0.5218014717102051,
+    "bert_score": 0.5218014717102051,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "12": {
+    "model1_output": "The instruction is: \"Move the second letter of the word to the end of the word.\"\n\nLet's check this instruction against the given input-output pairs:\n\n1. Input",
+    "model2_output": "The instruction is: shift each letter by the number of letters in the word \"input\". Let me analyze each input-output pair to deduce the pattern.\n\nLooking at the",
+    "bert_1_to_2": 0.6323448419570923,
+    "bert_2_to_1": 0.6323448419570923,
+    "bert_score": 0.6323448419570923,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "weighted_task_score": 0.5777168869972229,
+  "task_name": "reverse_from_middle",
+  "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+  "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+}

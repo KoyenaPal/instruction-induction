@@ -1,0 +1,51 @@
+{
+  "1": {
+    "model1_output": "The instruction is: Reverse the first two letters, swap the next two, swap the next two, and leave the last letter as is.\n\nLet's apply this pattern:",
+    "model2_output": "The instruction is: **“Swap every pair of adjacent letters in the string.”**  \n(If the string has an odd length, the final single letter stays in place",
+    "bert_1_to_2": 0.5619605779647827,
+    "bert_2_to_1": 0.5619605779647827,
+    "bert_score": 0.5619605779647827,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "2": {
+    "model1_output": "The instruction is: Reverse the input string and then split it into two equal halves and swap them.\n\nLet's test this for \"algorithm\":\n\n1. Reverse \"algorithm\":",
+    "model2_output": "The instruction is: **“Reverse the word, then split the reversed word in half and swap the two halves.”**<|return|>",
+    "bert_1_to_2": 0.6772199869155884,
+    "bert_2_to_1": 0.6772199869155884,
+    "bert_score": 0.6772199869155884,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "5": {
+    "model1_output": "The instruction is: \"Reverse the first two letters and then rearrange the rest in alphabetical order.\"\n\nLet's test this:\n\n1. \"water\":\n   - Reverse first",
+    "model2_output": "The instruction is: **“Swap the first two letters of the word, then reverse the order of the remaining letters.”**<|return|>",
+    "bert_1_to_2": 0.6587537527084351,
+    "bert_2_to_1": 0.6587537527084351,
+    "bert_score": 0.6587537527084351,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "11": {
+    "model1_output": "The instruction is: \"rearrange the letters by shifting each letter two places to the right and wrapping around.\"\n\nLet's test this for each input:\n\n1. \"",
+    "model2_output": "The instruction is: **“Take the first two letters of the word, move them to the end, and then reverse the whole string.”**<|return|>",
+    "bert_1_to_2": 0.6125984787940979,
+    "bert_2_to_1": 0.6125984787940979,
+    "bert_score": 0.6125984787940979,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "12": {
+    "model1_output": "The instruction is: \"Shift the first letter to the second position and keep the rest in order.\"\n\nLet's verify each input:\n\n1. happy → aphpy:",
+    "model2_output": "The instruction is: **“Move the first letter to the end of the word, then reverse the remaining letters.”**<|return|>",
+    "bert_1_to_2": 0.6235364079475403,
+    "bert_2_to_1": 0.6235364079475403,
+    "bert_score": 0.6235364079475403,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "weighted_task_score": 0.6268138408660888,
+  "task_name": "reverse_from_middle",
+  "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+  "model2_name": "openai_gpt-oss-20b"
+}

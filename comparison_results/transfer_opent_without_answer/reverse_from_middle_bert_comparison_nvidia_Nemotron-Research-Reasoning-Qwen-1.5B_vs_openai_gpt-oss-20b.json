@@ -1,0 +1,51 @@
+{
+  "1": {
+    "model1_output": "The instruction is: Reverse the string and then reverse the first half and the second half.\n\nWait let's test:\n\nInput: abc → reverse is cba, split into",
+    "model2_output": "The instruction is: **“Swap every pair of adjacent characters in the string.”**<|return|>",
+    "bert_1_to_2": 0.5227723121643066,
+    "bert_2_to_1": 0.5227723121643066,
+    "bert_score": 0.5227723121643066,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "2": {
+    "model1_output": "The instruction is: Reverse the input string if it has an even number of letters, otherwise reverse and shift. But this seems inconsistent. Alternatively, perhaps the instruction is simply",
+    "model2_output": "The instruction is: **“Reverse the string.”**<|return|>",
+    "bert_1_to_2": 0.5601325035095215,
+    "bert_2_to_1": 0.5601325035095215,
+    "bert_score": 0.5601325035095215,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "5": {
+    "model1_output": "The instruction is: swap the first two characters and reverse the rest.\n\nLet's verify with all examples.\n\nFirst input: water → swap first two letters 'w' and",
+    "model2_output": "The instruction is: **Swap the first two letters of the word, then reverse the order of the remaining letters.**<|return|>",
+    "bert_1_to_2": 0.664065420627594,
+    "bert_2_to_1": 0.664065420627594,
+    "bert_score": 0.664065420627594,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "11": {
+    "model1_output": "The instruction is: reverse the order of the letters in the input word.\n\nLet me verify each input:\n\n1. circle → reverse is e r c l l i?",
+    "model2_output": "The instruction is: **“Reverse the letters of the word.”**<|return|>",
+    "bert_1_to_2": 0.5854192972183228,
+    "bert_2_to_1": 0.5854192972183228,
+    "bert_score": 0.5854192972183228,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "12": {
+    "model1_output": "The instruction is: shifting letters by a certain pattern or transformation. Let's look for a possible transformation rule.\n\nLooking at the outputs:\n\n- happy → aphpy",
+    "model2_output": "The instruction is: **“Take the input word, split it into two halves, reverse each half, and then concatenate the two reversed halves.”**<|return|>",
+    "bert_1_to_2": 0.49121177196502686,
+    "bert_2_to_1": 0.49121177196502686,
+    "bert_score": 0.49121177196502686,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "weighted_task_score": 0.5647202610969544,
+  "task_name": "reverse_from_middle",
+  "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+  "model2_name": "openai_gpt-oss-20b"
+}

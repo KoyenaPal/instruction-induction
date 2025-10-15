@@ -1,0 +1,51 @@
+{
+  "1": {
+    "model1_output": "The instruction is: For each input list, take the second word, reverse it, and capitalize the last letter? Let me check:\n\nFirst input: second word apple →",
+    "model2_output": "The instruction is: **“Take the second word in the list, reverse it, and then capitalize the last letter of the reversed word.”**<|return|>",
+    "bert_1_to_2": 0.6869692802429199,
+    "bert_2_to_1": 0.6869692802429199,
+    "bert_score": 0.6869692802429199,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "2": {
+    "model1_output": "The instruction is: \"For each input list, take the last word, reverse it, and capitalize the first letter.\"\n\nWait let's test this.  \nFirst input:",
+    "model2_output": "The instruction is: **“Take the last word in the list, reverse it, and capitalize the first letter of the reversed word.”**<|return|>",
+    "bert_1_to_2": 0.716284990310669,
+    "bert_2_to_1": 0.716284990310669,
+    "bert_score": 0.716284990310669,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "5": {
+    "model1_output": "The instruction is: \"Reverse the last word in the list.\"\n\nWait, but let me check if there's any other possible pattern. For example, maybe the last letter",
+    "model2_output": "The instruction is: **Reverse the last word of the list.**<|return|>",
+    "bert_1_to_2": 0.6707943677902222,
+    "bert_2_to_1": 0.6707943677902222,
+    "bert_score": 0.6707943677902222,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "11": {
+    "model1_output": "The instruction is: Take the last word in the input list and reverse it. Each output is the reverse of the last word in the input. Let me confirm with all",
+    "model2_output": "The instruction is: **Take the last word of the list and write it backwards.**<|return|>",
+    "bert_1_to_2": 0.6781108379364014,
+    "bert_2_to_1": 0.6781108379364014,
+    "bert_score": 0.6781108379364014,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "12": {
+    "model1_output": "The instruction is: \"Take the last letters of each word in the input list, concatenate them, and then reverse the entire string.\"\n\nWait let's test this hypothesis.",
+    "model2_output": "The instruction is: **“Take the last letter of each word, write them in reverse order, and then reverse that string again.”** In other words, the output",
+    "bert_1_to_2": 0.7150509357452393,
+    "bert_2_to_1": 0.7150509357452393,
+    "bert_score": 0.7150509357452393,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "weighted_task_score": 0.6934420824050903,
+  "task_name": "first_word_alphabetically_return_reverse",
+  "model1_name": "Qwen_QwQ-32B",
+  "model2_name": "openai_gpt-oss-20b"
+}

@@ -1,0 +1,51 @@
+{
+  "1": {
+    "model1_output": "The instruction is: \"Swap every pair of characters starting from the beginning of the string.\"  \nWait, let me see:\n\nLooking at the first input: \"abc\"",
+    "model2_output": "The instruction is: **“Swap every pair of adjacent letters in the string.”**  \nIf the string has an odd length, the final character stays in place.<|return|>",
+    "bert_1_to_2": 0.6333670020103455,
+    "bert_2_to_1": 0.6333670020103455,
+    "bert_score": 0.6333670020103455,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "2": {
+    "model1_output": "The instruction is: Reverse the input string, then swap the first two characters with the last two characters.  \nWait, let's try this again with the first example:",
+    "model2_output": "The instruction is: **“Reverse the word, then swap the first two letters with the last two letters.”**<|return|>",
+    "bert_1_to_2": 0.7732154726982117,
+    "bert_2_to_1": 0.7732154726982117,
+    "bert_score": 0.7732154726982117,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "5": {
+    "model1_output": "The instruction is: \"Swap the first two letters and then reverse the remaining letters.\"\n\nLet's test this:\n\nFor \"water\":\n- Swap first two letters: awter",
+    "model2_output": "The instruction is: **“Swap the first two letters of the word, then reverse the order of the remaining letters.”**<|return|>",
+    "bert_1_to_2": 0.6682076454162598,
+    "bert_2_to_1": 0.6682076454162598,
+    "bert_score": 0.6682076454162598,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "11": {
+    "model1_output": "The instruction is: \"Swap the first two letters with the last two letters, keeping the middle letters in place.\"\n\nWait, let me test this.\n\nFor \"circle\"",
+    "model2_output": "The instruction is: **“Take the first two letters of the word, move them to the end, and then reverse the whole word.”**<|return|>",
+    "bert_1_to_2": 0.6255524158477783,
+    "bert_2_to_1": 0.6255524158477783,
+    "bert_score": 0.6255524158477783,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "12": {
+    "model1_output": "The instruction is: \"Move the second letter to the front and the first letter to the end, then reverse the remaining letters except the first and last.\"\n\nWait, let",
+    "model2_output": "The instruction is: **“Move the second letter to the front, then move the first letter to the end, and finally reverse the remaining middle part.”**<|return|>",
+    "bert_1_to_2": 0.745751678943634,
+    "bert_2_to_1": 0.745751678943634,
+    "bert_score": 0.745751678943634,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "weighted_task_score": 0.6892188429832459,
+  "task_name": "reverse_from_middle",
+  "model1_name": "Qwen_QwQ-32B",
+  "model2_name": "openai_gpt-oss-20b"
+}

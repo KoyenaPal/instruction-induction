@@ -17,8 +17,14 @@ declare -A SETUPS
 # SETUPS["transfer_oss"]="predictions_openai_gpt-oss-20b_thoughts_to_"
 # SETUPS["transfer_oss_without_answer"]="predictions_without_answer_oss_thoughts_to_"
 # Add more setups as needed:
-SETUPS["transfer_qwq"]="predictions_Qwen_QwQ-32B_thoughts_to_"
-SETUPS["transfer_qwq_without_answer"]="predictions_without_answer_qwq_thoughts_to_"
+# SETUPS["transfer_qwq"]="predictions_Qwen_QwQ-32B_thoughts_to_"
+# SETUPS["transfer_qwq_without_answer"]="predictions_without_answer_qwq_thoughts_to_"
+# SETUPS["transfer_nrr"]="predictions_nvidia_Nemotron-Research-Reasoning-Qwen-1.5B_thoughts_to_"
+# SETUPS["transfer_nrr_without_answer"]="predictions_without_answer_nrr_thoughts_to_"
+# SETUPS["transfer_dapo"]="predictions_BytedTsinghua-SIA_DAPO-Qwen-32B_thoughts_to_"
+# SETUPS["transfer_dapo_without_answer"]="predictions_without_answer_dapo_thoughts_to_"
+SETUPS["transfer_opent"]="predictions_open-thoughts_OpenThinker-7B_thoughts_to_"
+SETUPS["transfer_opent_without_answer"]="predictions_without_answer_opent_thoughts_to_"
 # SETUPS["ensemble"]="predictions_ensemble_"
 # SETUPS["default"]="predictions_default_"
 

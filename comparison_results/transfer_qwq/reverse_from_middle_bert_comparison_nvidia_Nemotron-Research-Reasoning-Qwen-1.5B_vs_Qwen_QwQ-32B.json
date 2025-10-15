@@ -1,0 +1,51 @@
+{
+  "1": {
+    "model1_output": "The instruction is: reverse the first two letters and then reverse the rest.\n\nWait let's test:\n\nFor \"abc\": reverse first two (b a c → bac).",
+    "model2_output": "The instruction is: Swap the first two characters and then reverse the remaining characters.\n\nWait let's try that for \"testing\":\n\nSwap first two: E T S T I",
+    "bert_1_to_2": 0.7437502145767212,
+    "bert_2_to_1": 0.7437502145767212,
+    "bert_score": 0.7437502145767212,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "2": {
+    "model1_output": "The instruction is: Reverse each half and concatenate them in the same order.\n\nFor \"algorithm\":\n\nFirst 5 letters: a l g o r → reversed: r o",
+    "model2_output": "The instruction is: reverse each half and then swap their positions?\n\nWait, so first reversed half (first 5 letters reversed) is r o g l a, second",
+    "bert_1_to_2": 0.6523563861846924,
+    "bert_2_to_1": 0.6523563861846924,
+    "bert_score": 0.6523563861846924,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "5": {
+    "model1_output": "The instruction is: shift each letter to the next one in the alphabet, wrapping around Z to A. Let's test:\n\nInput: water → a w e r t",
+    "model2_output": "The instruction is: the friend wrote an output for every input. Maybe the instruction involves duplicating a letter or something. Hmm, that complicates things.\n\nWait let's",
+    "bert_1_to_2": 0.4927205443382263,
+    "bert_2_to_1": 0.4927205443382263,
+    "bert_score": 0.4927205443382263,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "11": {
+    "model1_output": "The instruction is: reverse the order of letters in the word except the first letter. Let's test:\n\n\"line\" → reverse all letters except first? \"line\"",
+    "model2_output": "The instruction is: Reverse the first half and the second half of the word separately, then concatenate them. Let me test this hypothesis with all examples.\n\nFirst example: \"",
+    "bert_1_to_2": 0.5510041117668152,
+    "bert_2_to_1": 0.5510041117668152,
+    "bert_score": 0.5510041117668152,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "12": {
+    "model1_output": "The instruction is: shift each letter by the number of letters in the word \"input\". Let me analyze each input-output pair to deduce the pattern.\n\nLooking at the",
+    "model2_output": "The instruction is: \"Move the first letter to the end of the word and then reverse the entire word.\"\n\nWait, let me check each example again to confirm.\n\nFirst",
+    "bert_1_to_2": 0.6126635074615479,
+    "bert_2_to_1": 0.6126635074615479,
+    "bert_score": 0.6126635074615479,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "weighted_task_score": 0.6104989528656006,
+  "task_name": "reverse_from_middle",
+  "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+  "model2_name": "Qwen_QwQ-32B"
+}

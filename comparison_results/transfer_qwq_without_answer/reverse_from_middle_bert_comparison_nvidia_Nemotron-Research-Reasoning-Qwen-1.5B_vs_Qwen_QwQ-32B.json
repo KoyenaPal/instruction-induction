@@ -1,0 +1,51 @@
+{
+  "1": {
+    "model1_output": "The instruction is: Reverse the entire string? Let's check:\n\nInput abc → reverse is cba, but output is bac. Not reverse.\n\nWait input abc output bac",
+    "model2_output": "The instruction is: swap the first two characters, then reverse the remaining characters?\n\nWait let's see for \"python\" (6 letters):\n\nOriginal: p y t h",
+    "bert_1_to_2": 0.5133415460586548,
+    "bert_2_to_1": 0.5133416056632996,
+    "bert_score": 0.5133415758609772,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "2": {
+    "model1_output": "The instruction is: reverse the first half and then the second half and concatenate.\n\n\"Algorithm\" is 9 letters. First half is first 5 letters: a l",
+    "model2_output": "The instruction is: split the word into two halves, reverse each half, then swap their positions?\n\nWait let's try that. For \"algorithm\" (9 letters):",
+    "bert_1_to_2": 0.6326465010643005,
+    "bert_2_to_1": 0.6326465010643005,
+    "bert_score": 0.6326465010643005,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "5": {
+    "model1_output": "The instruction is: rotate the letters or shift them in some way.\n\nWait let me list all the given inputs and outputs:\n\nInput: water → Output: awret",
+    "model2_output": "The instruction is: the friend wrote an output for every input. Maybe the instruction caused an extra letter? Hmm, maybe the instruction is to repeat the last letter? Let",
+    "bert_1_to_2": 0.5143434405326843,
+    "bert_2_to_1": 0.5143434405326843,
+    "bert_score": 0.5143434405326843,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "11": {
+    "model1_output": "The instruction is: \"Reverse the letters of the word and then concatenate.\" Let me test this.\n\nLet me check each input:\n\n1. circle → reverse the entire word",
+    "model2_output": "The instruction is: reverse the first half of the word and the second half separately, then concatenate them. Let me test this.\n\nFirst example: circle (6 letters).",
+    "bert_1_to_2": 0.6587255001068115,
+    "bert_2_to_1": 0.6587255597114563,
+    "bert_score": 0.6587255299091339,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "12": {
+    "model1_output": "The instruction is: \"I gave a friend an instruction and five inputs. The friend read the instruction and wrote an output for every one of the inputs. Here are the",
+    "model2_output": "The instruction is:  \nInput: happy → Output: aphpy  \nInput: sad → Output: das  \nInput: angry → Output: gryna  \nInput",
+    "bert_1_to_2": 0.39646393060684204,
+    "bert_2_to_1": 0.39646393060684204,
+    "bert_score": 0.39646393060684204,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "weighted_task_score": 0.5431041955947876,
+  "task_name": "reverse_from_middle",
+  "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+  "model2_name": "Qwen_QwQ-32B"
+}

@@ -1,0 +1,51 @@
+{
+  "1": {
+    "model1_output": "The instruction is: Swap the first two characters and, if the string has more than two characters, swap the next two characters and so on until the end of the string",
+    "model2_output": "The instruction is: Reverse the string and then swap the first half with the second half.\n\nLet's test:\n\nInput: abc → reverse is cba, split into two",
+    "bert_1_to_2": 0.5263755321502686,
+    "bert_2_to_1": 0.5263755321502686,
+    "bert_score": 0.5263755321502686,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "2": {
+    "model1_output": "The instruction is: Reverse the string if the length is even, and for odd-length strings, apply a specific cyclic permutation.\n\nLet's test this hypothesis on the given examples",
+    "model2_output": "The instruction is: Reverse the input string and then shift it left by 2 positions.\n\nLet's test this with \"world\":\n\nReverse \"world\" is \"dlrow",
+    "bert_1_to_2": 0.5695193409919739,
+    "bert_2_to_1": 0.5695193409919739,
+    "bert_score": 0.5695193409919739,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "5": {
+    "model1_output": "The instruction is: Swap the first two characters and then rearrange the rest of the characters in alphabetical order.\n\nLet's test this instruction on the given input-output pairs:",
+    "model2_output": "The instruction is: \"Reverse the order of the characters after the first two.\"\n\nLet's test this hypothesis with each input-output pair.\n\n1. Input: water → Output",
+    "bert_1_to_2": 0.6895407438278198,
+    "bert_2_to_1": 0.6895407438278198,
+    "bert_score": 0.6895407438278198,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "11": {
+    "model1_output": "The instruction is: \"Rearrange the letters of the word by swapping the positions of the first two letters and the last two letters.\"\n\nLet's verify this instruction with",
+    "model2_output": "The instruction is: reverse the order of the letters in the input word.\n\nLet me verify each input:\n\n1. circle → reverse is e r c l l i?",
+    "bert_1_to_2": 0.5961872935295105,
+    "bert_2_to_1": 0.5961872935295105,
+    "bert_score": 0.5961872935295105,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "12": {
+    "model1_output": "The instruction is: \"Move the second letter to the front of the word and shift the rest of the letters to the right.\"\n\nLet's test this instruction on the given",
+    "model2_output": "The instruction is: reverse the letters and shift them. Let's test:\n\n1. happy reversed is yph a? Wait, happy reversed is yha p? Wait",
+    "bert_1_to_2": 0.5153566598892212,
+    "bert_2_to_1": 0.5153566598892212,
+    "bert_score": 0.5153566598892212,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "weighted_task_score": 0.5793959140777588,
+  "task_name": "reverse_from_middle",
+  "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+  "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+}
