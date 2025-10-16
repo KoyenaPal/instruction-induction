@@ -1,0 +1,51 @@
+{
+  "0": {
+    "model1_output": "The instruction is: \"Swap the first two characters, then swap every pair of characters starting from the third position.\"  \nWait, maybe the instruction is to swap the first",
+    "model2_output": "The instruction is: **“Swap the first two letters of the word, then reverse the remaining letters.”**<|return|>",
+    "bert_1_to_2": 0.6377499103546143,
+    "bert_2_to_1": 0.6377499103546143,
+    "bert_score": 0.6377499103546143,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "1": {
+    "model1_output": "The instruction is: \"Take the first half of the word (rounded up), reverse it, then take the second half, reverse it, and concatenate the two reversed halves",
+    "model2_output": "The instruction is: **Split the word into two halves (the first half gets the extra letter if the length is odd), reverse each half separately, then concatenate the two",
+    "bert_1_to_2": 0.6770787239074707,
+    "bert_2_to_1": 0.6770787239074707,
+    "bert_score": 0.6770787239074707,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "2": {
+    "model1_output": "The instruction is: \"Take the first two letters and swap them, then take the last two letters and swap them, and leave the middle letter as is if the word",
+    "model2_output": "The instruction is: **Swap the first two letters of the word, then swap the last two letters (if the word has at least four letters).**  \n(If",
+    "bert_1_to_2": 0.6958184242248535,
+    "bert_2_to_1": 0.6958184242248535,
+    "bert_score": 0.6958184242248535,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "3": {
+    "model1_output": "The instruction is: Reverse the first half of the word and then append the second half as is.  \nWait, let's see.  \nFirst example: \"circle\"",
+    "model2_output": "The instruction is: **“Take the first half of the word, reverse it, and then append the second half unchanged.”**  \n(If the word has an odd",
+    "bert_1_to_2": 0.707464873790741,
+    "bert_2_to_1": 0.707464873790741,
+    "bert_score": 0.707464873790741,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "4": {
+    "model1_output": "The instruction is: move the first letter to the end and then reverse the entire string?  \nWait, let's see:  \n\"happy\" → move first letter to",
+    "model2_output": "The instruction is: **“Move the first letter of the word to the end, then reverse the remaining letters.”**<|return|>",
+    "bert_1_to_2": 0.6458922624588013,
+    "bert_2_to_1": 0.6458922624588013,
+    "bert_score": 0.6458922624588013,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "weighted_task_score": 0.6728008389472961,
+  "task_name": "reverse_from_middle",
+  "model1_name": "Qwen_QwQ-32B",
+  "model2_name": "openai_gpt-oss-20b"
+}

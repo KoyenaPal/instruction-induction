@@ -1,0 +1,51 @@
+{
+  "0": {
+    "model1_output": "The instruction is: \"Choose the sentence that is the cause of the other.\" But in the fifth example, the output is the effect. So that can't be.",
+    "model2_output": "The instruction is: **“Choose the sentence that is the *cause* of the other sentence.”**<|return|>",
+    "bert_1_to_2": 0.6697157621383667,
+    "bert_2_to_1": 0.6697157621383667,
+    "bert_score": 0.6697157621383667,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "1": {
+    "model1_output": "The instruction is: \"Choose the sentence that is the cause or reason for the other sentence.\" Or maybe \"Select the sentence that explains why the other event occurred.\" Alternatively",
+    "model2_output": "The instruction is: **“From each pair of sentences, output the one that is the cause (the sentence that explains why the other happened).”**<|return|>",
+    "bert_1_to_2": 0.665954053401947,
+    "bert_2_to_1": 0.665954053401947,
+    "bert_score": 0.665954053401947,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "2": {
+    "model1_output": "The instruction is: \"Choose the sentence that happened first in time.\"  \nBut in the first example, flipping the switch happens before the light fills the room.  \nSo",
+    "model2_output": "The instruction is: **“For each pair of sentences, output the one that is the cause (the earlier event that brings about the other sentence).”**<|return|>",
+    "bert_1_to_2": 0.5663975477218628,
+    "bert_2_to_1": 0.5663975477218628,
+    "bert_score": 0.5663975477218628,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "3": {
+    "model1_output": "The instruction is: \"Choose the sentence that is the cause of the other one.\"  \nAlternatively, maybe the instruction is to pick the sentence that is the reason for the",
+    "model2_output": "The instruction is: **“Choose the sentence that is the cause (the reason) for the other sentence.”**<|return|>",
+    "bert_1_to_2": 0.6792404055595398,
+    "bert_2_to_1": 0.6792404055595398,
+    "bert_score": 0.6792404055595398,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "4": {
+    "model1_output": "The instruction is: Choose the sentence that explains why the other sentence happened.  \nWait let me test this.  \nFirst example: Mom rinsed the tray. Jimmy took",
+    "model2_output": "The instruction is: **“Choose the sentence that is the *cause* of the other sentence. If the two sentences are unrelated, choose the second one.”**<|return|>",
+    "bert_1_to_2": 0.5682445168495178,
+    "bert_2_to_1": 0.5682445168495178,
+    "bert_score": 0.5682445168495178,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "weighted_task_score": 0.6299104571342469,
+  "task_name": "cause_and_effect",
+  "model1_name": "Qwen_QwQ-32B",
+  "model2_name": "openai_gpt-oss-20b"
+}

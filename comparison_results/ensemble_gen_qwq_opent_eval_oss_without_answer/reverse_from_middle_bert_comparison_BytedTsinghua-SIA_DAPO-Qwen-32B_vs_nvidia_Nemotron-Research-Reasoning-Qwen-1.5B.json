@@ -1,0 +1,51 @@
+{
+  "0": {
+    "model1_output": "The instruction is: \"Rearrange the characters in the string such that the first two characters are swapped, and if the string has more than 4 characters, the",
+    "model2_output": "The instruction is: reverse the first two characters and then reverse the rest? Let's test.\n\nWait let's see:\n\n1. Input abc → Output bac: reverse first",
+    "bert_1_to_2": 0.5012370347976685,
+    "bert_2_to_1": 0.5012370347976685,
+    "bert_score": 0.5012370347976685,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "1": {
+    "model1_output": "The instruction is: \"For a given input word, split the word into two halves. If the word has an odd number of letters, the first half should have one",
+    "model2_output": "The instruction is: reverse the first half and reverse the second half, then concatenate. Let me verify:\n\nInput: programming  \nLetters: p r o g r a m",
+    "bert_1_to_2": 0.5068843364715576,
+    "bert_2_to_1": 0.5068843364715576,
+    "bert_score": 0.5068843364715576,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "2": {
+    "model1_output": "The instruction is: Rearrange the letters of the input word such that the first letter and the second letter are swapped, and the last letter is moved to the second position",
+    "model2_output": "The instruction is: Reverse the order of the letters in the word.\n\nWait let's test this:\n\nInput: water → Output: awret. Reverse of water is rew",
+    "bert_1_to_2": 0.5186054706573486,
+    "bert_2_to_1": 0.5186054706573486,
+    "bert_score": 0.5186054706573486,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "3": {
+    "model1_output": "The instruction is: Rearrange the letters of the word such that the middle two letters (if the word has an even number of letters) or the three middle letters (",
+    "model2_output": "The instruction is: \"Arrange the letters in reverse order, then take the next letters.\" Wait, let's check.\n\nWait, let's take the first example: \"",
+    "bert_1_to_2": 0.5225130319595337,
+    "bert_2_to_1": 0.5225130319595337,
+    "bert_score": 0.5225130319595337,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "4": {
+    "model1_output": "The instruction is: \"Move the first letter to the end and then reverse the entire word.\"\n\nLet's test this instruction on each input-output pair:\n\n1. Input:",
+    "model2_output": "The instruction is: \"Shift the first letter to the end and reverse the rest.\" Let's test this.\n\n1. \"happy\" → move first letter 'h'",
+    "bert_1_to_2": 0.6820233464241028,
+    "bert_2_to_1": 0.6820233464241028,
+    "bert_score": 0.6820233464241028,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "weighted_task_score": 0.5462526440620422,
+  "task_name": "reverse_from_middle",
+  "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+  "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+}

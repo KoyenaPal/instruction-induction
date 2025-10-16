@@ -23,11 +23,14 @@ declare -A SETUPS
 # SETUPS["transfer_nrr_without_answer"]="predictions_without_answer_nrr_thoughts_to_"
 # SETUPS["transfer_dapo"]="predictions_BytedTsinghua-SIA_DAPO-Qwen-32B_thoughts_to_"
 # SETUPS["transfer_dapo_without_answer"]="predictions_without_answer_dapo_thoughts_to_"
-SETUPS["transfer_opent"]="predictions_open-thoughts_OpenThinker-7B_thoughts_to_"
-SETUPS["transfer_opent_without_answer"]="predictions_without_answer_opent_thoughts_to_"
-# SETUPS["ensemble"]="predictions_ensemble_"
-# SETUPS["default"]="predictions_default_"
-
+# SETUPS["transfer_opent"]="predictions_open-thoughts_OpenThinker-7B_thoughts_to_"
+# SETUPS["transfer_opent_without_answer"]="predictions_without_answer_opent_thoughts_to_"
+# SETUPS["ensemble_gen_qwq_dapo_eval_oss"]="ensemble_gen_qwq_dapo_eval_oss"
+# SETUPS["ensemble_gen_qwq_dapo_eval_oss_without_answer"]="ensemble_without_answer_gen_qwq_dapo_eval_oss"
+# SETUPS["ensemble_gen_qwq_opent_eval_oss"]="ensemble_gen_qwq_opent_eval_oss"
+# SETUPS["ensemble_gen_qwq_opent_eval_oss_without_answer"]="ensemble_without_answer_gen_qwq_opent_eval_oss"
+SETUPS["ensemble_gen_qwq_oss_eval_dapo"]="ensemble_gen_qwq_oss_eval_dapo"
+SETUPS["ensemble_gen_qwq_oss_eval_dapo_without_answer"]="ensemble_without_answer_gen_qwq_oss_eval_dapo"
 # Tasks (modify if needed)
 # TASKS="cause_and_effect,larger_animal,num_to_verbal,orthography_starts_with,rhymes,synonyms,taxonomy_animal,translation_en-fr,reverse_from_middle,smallest_item_length,smallest_even_no_sqrt,most_vowel_return_consonant,detect_rhyme_and_rewrite,rank_by_protein,multi_lang_to_english,square_of_zodiac_animal,alternate_synonym_antonym,most_consonant_return_vowel,least_unique_word_count,first_word_alphabetically_return_reverse"
 
@@ -62,6 +65,22 @@ get_model_suffix() {
     esac
 }
 
+# Function to build prediction directory path based on setup name
+build_pred_dir() {
+    local setup_name=$1
+    local pattern=$2
+    local model_suffix=$3
+    
+    # Check if "ensemble" is in the setup name
+    if [[ "$setup_name" == *"ensemble"* ]]; then
+        # Ensemble setup: predictions_model_pattern
+        echo "${BASE_PRED_DIR}/predictions_${model_suffix}_${pattern}"
+    else
+        # Transfer setup: pattern is prefix, append model_suffix
+        echo "${BASE_PRED_DIR}/${pattern}${model_suffix}"
+    fi
+}
+
 # Main execution
 echo "=========================================="
 echo "Pairwise Model Comparison Script"
@@ -94,8 +113,8 @@ for setup_name in "${!SETUPS[@]}"; do
             model1_suffix=$(get_model_suffix "$model1")
             model2_suffix=$(get_model_suffix "$model2")
             
-            pred_dir1="${BASE_PRED_DIR}/${prefix}${model1_suffix}"
-            pred_dir2="${BASE_PRED_DIR}/${prefix}${model2_suffix}"
+            pred_dir1=$(build_pred_dir "$setup_name" "$prefix" "$model1_suffix")
+            pred_dir2=$(build_pred_dir "$setup_name" "$prefix" "$model2_suffix")
             
             comparison_count=$((comparison_count + 1))
             

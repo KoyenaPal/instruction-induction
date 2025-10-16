@@ -1,0 +1,51 @@
+{
+  "0": {
+    "model1_output": "The instruction is: **“Give the first word that follows the first letter of the sentence that matches the bracketed letter.”**<|return|>",
+    "model2_output": "<|begin_of_solution|> The instruction is: **Extract the first word of the sentence if it starts with a verb, or the direct object if the sentence contains a verb in the past tense.",
+    "bert_1_to_2": 0.637197732925415,
+    "bert_2_to_1": 0.637197732925415,
+    "bert_score": 0.637197732925415,
+    "model1_name": "openai_gpt-oss-20b",
+    "model2_name": "open-thoughts_OpenThinker-7B"
+  },
+  "1": {
+    "model1_output": "The instruction is: **“Output the first word in the sentence that begins with the letter shown in brackets.”**<|return|>",
+    "model2_output": "<|begin_of_solution|> The instruction is: **Output the first word in the sentence that starts with the given letter in brackets.**\n\n**Step-by-Step Explanation:**\n\n1. **An",
+    "bert_1_to_2": 0.7769829034805298,
+    "bert_2_to_1": 0.7769829034805298,
+    "bert_score": 0.7769829034805298,
+    "model1_name": "openai_gpt-oss-20b",
+    "model2_name": "open-thoughts_OpenThinker-7B"
+  },
+  "2": {
+    "model1_output": "The instruction is:  \n**“Take every word in the sentence that starts with the letter given in brackets, and output those words in the order they appear (in lowercase",
+    "model2_output": "<|begin_of_solution|> The instruction is: **Extract all words starting with the specified letter (case-insensitive) and concatenate them in the order they appear, followed by any subsequent words that end",
+    "bert_1_to_2": 0.7295064330101013,
+    "bert_2_to_1": 0.7295064330101013,
+    "bert_score": 0.7295064330101013,
+    "model1_name": "openai_gpt-oss-20b",
+    "model2_name": "open-thoughts_OpenThinker-7B"
+  },
+  "3": {
+    "model1_output": "The instruction is: **“Take the word that comes immediately after the first occurrence of the letter shown in brackets.”**  \n(For example, in the first sentence the",
+    "model2_output": "<|begin_of_solution|> The instruction is: **\"For each input, extract the word or phrase corresponding to the part of speech indicated by the tag. The tags are as follows: [t",
+    "bert_1_to_2": 0.5961945652961731,
+    "bert_2_to_1": 0.5961945652961731,
+    "bert_score": 0.5961945652961731,
+    "model1_name": "openai_gpt-oss-20b",
+    "model2_name": "open-thoughts_OpenThinker-7B"
+  },
+  "4": {
+    "model1_output": "The instruction is:  \n\n**“Given a sentence and a tag in brackets, output the word(s) that the tag refers to.”**  \n\nThe tags stand for the",
+    "model2_output": "<|begin_of_solution|> The instruction is: **For each input sentence and corresponding tag**, extract specific linguistic elements based on the tag:\n\n- **[b]**: Extract the main verb (as",
+    "bert_1_to_2": 0.591482400894165,
+    "bert_2_to_1": 0.591482400894165,
+    "bert_score": 0.591482400894165,
+    "model1_name": "openai_gpt-oss-20b",
+    "model2_name": "open-thoughts_OpenThinker-7B"
+  },
+  "weighted_task_score": 0.6662728071212769,
+  "task_name": "orthography_starts_with",
+  "model1_name": "openai_gpt-oss-20b",
+  "model2_name": "open-thoughts_OpenThinker-7B"
+}

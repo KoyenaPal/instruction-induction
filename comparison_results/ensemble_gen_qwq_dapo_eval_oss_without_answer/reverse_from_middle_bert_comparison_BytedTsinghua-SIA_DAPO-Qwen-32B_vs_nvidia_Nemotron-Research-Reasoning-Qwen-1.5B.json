@@ -1,0 +1,51 @@
+{
+  "0": {
+    "model1_output": "The instruction is: Swap the positions of the first two letters and the last two letters if the string has more than two characters. If the string has an odd number of",
+    "model2_output": "The instruction is: Reverse the first half and the second half of the string.\n\nLet me verify:\n\n1. Input: abc → Output: bac  \n   Reverse the entire",
+    "bert_1_to_2": 0.5102093815803528,
+    "bert_2_to_1": 0.5102093815803528,
+    "bert_score": 0.5102093815803528,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "1": {
+    "model1_output": "The instruction is: Reverse the first half of the word and the second half of the word separately. If the word has an odd number of letters, the middle letter remains",
+    "model2_output": "The instruction is: reverse the word and then reverse each half? Let me try:\n\nFor \"computer\": reverse the entire word: \"remtorpco\" but output",
+    "bert_1_to_2": 0.4995213449001312,
+    "bert_2_to_1": 0.4995213449001312,
+    "bert_score": 0.4995213449001312,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "2": {
+    "model1_output": "The instruction is: Rearrange the letters of each input word according to the following rule:\n\n1. Move the first letter to the end of the word.\n2. Sort",
+    "model2_output": "The instruction is: \"Shift the first letter to the second position and reverse the rest.\" Let's test:\n\nInput: water\nShift 'w' to second: '",
+    "bert_1_to_2": 0.5615816712379456,
+    "bert_2_to_1": 0.5615816712379456,
+    "bert_score": 0.5615816712379456,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "3": {
+    "model1_output": "The instruction is: Rearrange the letters of the word by swapping the first two letters and the last two letters, and if the word has more than four letters, also",
+    "model2_output": "The instruction is: \"Reverse the first half of the letters and keep the second half as is.\"\n\nLet me verify:\n\n1. **circle**: length 6 letters.",
+    "bert_1_to_2": 0.5746922492980957,
+    "bert_2_to_1": 0.5746922492980957,
+    "bert_score": 0.5746922492980957,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "4": {
+    "model1_output": "The instruction is: Rearrange the letters of the word according to the following rule: Swap the first two letters and then move the new first letter to the end of the",
+    "model2_output": "The instruction is: shifting the first letter to the end each time? Let's test:\n\nhappy: h a p p y → a p p y h → but output",
+    "bert_1_to_2": 0.5280401110649109,
+    "bert_2_to_1": 0.5280401110649109,
+    "bert_score": 0.5280401110649109,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+  },
+  "weighted_task_score": 0.5348089516162873,
+  "task_name": "reverse_from_middle",
+  "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+  "model2_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B"
+}

@@ -1,0 +1,51 @@
+{
+  "0": {
+    "model1_output": "The instruction is: reverse the first two characters and then reverse the rest? Let's test.\n\nWait let's see:\n\n1. Input abc → Output bac: reverse first",
+    "model2_output": "The instruction is: \"Swap the first two characters, then swap every pair of characters starting from the third position.\"  \nWait, maybe the instruction is to swap the first",
+    "bert_1_to_2": 0.5924343466758728,
+    "bert_2_to_1": 0.5924343466758728,
+    "bert_score": 0.5924343466758728,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "1": {
+    "model1_output": "The instruction is: reverse the first half and reverse the second half, then concatenate. Let me verify:\n\nInput: programming  \nLetters: p r o g r a m",
+    "model2_output": "The instruction is: \"Take the first half of the word (rounded up), reverse it, then take the second half, reverse it, and concatenate the two reversed halves",
+    "bert_1_to_2": 0.6102531552314758,
+    "bert_2_to_1": 0.6102531552314758,
+    "bert_score": 0.6102531552314758,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "2": {
+    "model1_output": "The instruction is: Reverse the order of the letters in the word.\n\nWait let's test this:\n\nInput: water → Output: awret. Reverse of water is rew",
+    "model2_output": "The instruction is: \"Take the first two letters and swap them, then take the last two letters and swap them, and leave the middle letter as is if the word",
+    "bert_1_to_2": 0.4490024745464325,
+    "bert_2_to_1": 0.4490024745464325,
+    "bert_score": 0.4490024745464325,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "3": {
+    "model1_output": "The instruction is: \"Arrange the letters in reverse order, then take the next letters.\" Wait, let's check.\n\nWait, let's take the first example: \"",
+    "model2_output": "The instruction is: Reverse the first half of the word and then append the second half as is.  \nWait, let's see.  \nFirst example: \"circle\"",
+    "bert_1_to_2": 0.6408185362815857,
+    "bert_2_to_1": 0.6408185362815857,
+    "bert_score": 0.6408185362815857,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "4": {
+    "model1_output": "The instruction is: \"Shift the first letter to the end and reverse the rest.\" Let's test this.\n\n1. \"happy\" → move first letter 'h'",
+    "model2_output": "The instruction is: move the first letter to the end and then reverse the entire string?  \nWait, let's see:  \n\"happy\" → move first letter to",
+    "bert_1_to_2": 0.7614845633506775,
+    "bert_2_to_1": 0.7614845633506775,
+    "bert_score": 0.7614845633506775,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "weighted_task_score": 0.6107986152172089,
+  "task_name": "reverse_from_middle",
+  "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+  "model2_name": "Qwen_QwQ-32B"
+}
