@@ -1,0 +1,51 @@
+{
+  "1": {
+    "model1_output": "The instruction is: reverse the entire string or specific transformations? Alternatively, looking for an anagram perhaps but let me check the output patterns:\n\nLet me list all transformations:",
+    "model2_output": "The instruction is: \n\nWait, maybe the instruction is to reverse the order of the first two and the last two characters, and leave the middle characters as they are.",
+    "bert_1_to_2": 0.49999696016311646,
+    "bert_2_to_1": 0.49999696016311646,
+    "bert_score": 0.49999696016311646,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "2": {
+    "model1_output": "The instruction is: Reverse the word. \n\nWait, but let's try another approach.\n\nLooking at computer producing pmocretu: 'computer' is c o m",
+    "model2_output": "The instruction is: For each input word, reverse the first half and reverse the second half, then combine. If the length is odd, the first half is one character",
+    "bert_1_to_2": 0.46419909596443176,
+    "bert_2_to_1": 0.46419909596443176,
+    "bert_score": 0.46419909596443176,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "5": {
+    "model1_output": "The instruction is: shift backwards by 3?\n\nLet's test:\n\nw is 22 → 19→ t? No, not a->w as original",
+    "model2_output": "The instruction is: \n\nOkay, let me look for a common process that would generate all these outputs.\n\nLooking at \"fire\" → ifre: first two letters swapped",
+    "bert_1_to_2": 0.48965218663215637,
+    "bert_2_to_1": 0.48965218663215637,
+    "bert_score": 0.48965218663215637,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "11": {
+    "model1_output": "The instruction is: \"Convert using the shape name\" – perhaps transform each letter into something else based on shape or rotational aspects?\n\nWait, but looking at the examples.",
+    "model2_output": "The instruction is: Reverse the first half and reverse the second half of the word. For \"square\" it didn't work. Wait, let's see again.\n\nWait",
+    "bert_1_to_2": 0.5257549285888672,
+    "bert_2_to_1": 0.5257549285888672,
+    "bert_score": 0.5257549285888672,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "12": {
+    "model1_output": "The instruction is: shift the letter back by a certain amount or some transformation.\n\nWait, perhaps it's more systematic. Let's try to find a pattern. Let me",
+    "model2_output": "The instruction is: Take the second letter of the word and put it first, then the rest follow except the first letter is placed right after the second? Wait not sure",
+    "bert_1_to_2": 0.5069319605827332,
+    "bert_2_to_1": 0.5069319605827332,
+    "bert_score": 0.5069319605827332,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "weighted_task_score": 0.497307026386261,
+  "task_name": "reverse_from_middle",
+  "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+  "model2_name": "Qwen_QwQ-32B"
+}

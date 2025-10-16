@@ -1,0 +1,51 @@
+{
+  "4": {
+    "model1_output": "The instruction given was:  \n**\"Convert the number into its British English word form, using commas to separate thousands and hundreds, and include 'and' where appropriate.\"**\n\n### Explanation:\nThe outputs follow **British English conventions**, which include:\n1. **Commas** to separate thousands from hundreds (e.g., \"four thousand, nine hundred...\").\n2. **\"And\"** after the hundreds place when there are remaining digits (e.g., \"nine hundred **and** seventy-one\").\n3. **\"And\"** is also used after the thousands if there are digits below the thousands (e.g., \"six thousand **and** thirty-one\" for 6031).\n4. Numbers under 1,000 omit the comma but still use \"and\" (e.g., \"nine hundred and seventy-one\" for 971).\n\nThis ensures consistency with how numbers are written in British English, where \"and\" is included even after thousands when lower denominations follow.<|im_end|>",
+    "model2_output": "**Instruction**\n\n> Convert the given integer into its full written form in British English.  \n> \n> * Use commas to separate the thousands, hundreds, tens and units groups.  \n> \n> * If the number contains a non‑zero hundreds, tens or units part, insert the word **“and”** immediately before that last part.  \n> \n> * Do not use “and” if the number is an exact multiple of 1 000.  \n> \n> * Write the words in lower‑case, with hyphens between tens and units (e.g., “thirty‑three”).  \n\n**Examples**\n\n| Input | Output |\n|-------|--------|\n| 4933 | four thousand, nine hundred and thirty‑three |\n| 3674 | three thousand, six hundred and seventy‑four |\n| 6747 | six thousand, seven hundred and forty‑seven |\n| 6031 | six thousand and thirty‑one |\n| 971  | nine hundred and seventy‑one |<|return|>",
+    "bert_1_to_2": 0.5969347953796387,
+    "bert_2_to_1": 0.5969347953796387,
+    "bert_score": 0.5969347953796387,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "15": {
+    "model1_output": "The instruction given was:  \n**\"Convert the number into its written form in British English, using commas after thousands and 'and' where appropriate.\"**\n\n### Explanation:\nThe outputs follow **British English conventions**, which include:\n1. **Commas after the thousands place**: e.g., \"seven thousand, seven hundred...\" (not \"seven thousand seven hundred...\").\n2. **\"And\" after the hundreds place when followed by tens/units**: e.g., \"five hundred and twenty-four\" (not \"five hundred twenty-four\" as in American English).\n3. **Hyphenated compound numbers** (e.g., \"twenty-four\", \"forty-three\") for numbers between 21–99 (excluding exact tens like 30, 40).\n4. **No \"and\" if the number ends exactly at a hundred**: Though not shown in the examples, British English would write \"two thousand\" for 2000, omitting \"and\".\n\nThe instruction ensures the friend formatted the numbers precisely as required, splitting four-digit numbers into thousands, hundreds, and the remaining two digits with proper punctuation and structure.<|im_end|>",
+    "model2_output": "**Instruction**\n\n> “Write the number in words, using commas to separate the thousands and hundreds, and insert the word **‘and’** before the last part (the tens‑and‑units) whenever that part is non‑zero.”\n\n**Why this fits the examples**\n\n| Input | Output (as written) | How the rule applies |\n|-------|---------------------|----------------------|\n| 7702 | *seven thousand, seven hundred and two* | “seven thousand” (thousands), “seven hundred” (hundreds), “and two” (tens‑units) |\n| 8524 | *eight thousand, five hundred and twenty‑four* | “eight thousand”, “five hundred”, “and twenty‑four” |\n| 2743 | *two thousand, seven hundred and forty‑three* | “two thousand”, “seven hundred”, “and forty‑three” |\n| 2401 | *two thousand, four hundred and one* | “two thousand”, “four hundred”, “and one” |\n| 4563 | *four thousand, five hundred and sixty‑three* | “four thousand”, “five hundred”, “and sixty‑three” |\n\nThe rule explains the consistent use of commas, the placement of “and”, and the omission of “and” when the last part would be zero (e.g., 3000 → “three thousand”).<|return|>",
+    "bert_1_to_2": 0.5821244120597839,
+    "bert_2_to_1": 0.5821244120597839,
+    "bert_score": 0.5821244120597839,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "36": {
+    "model1_output": "The instruction given was:\n\n**\"Convert the number into its written form in British English. Use commas to separate thousands from hundreds, include 'and' after the hundreds place if there are remaining digits, and place 'and' after thousands if there are no hundreds but remaining digits. Hyphenate all compound numbers between 21 and 99.\"**\n\n### Key Rules Followed:\n1. **British English Conventions**:  \n   - \"And\" is included after the hundreds place (e.g., \"five hundred **and** forty-two\") or after thousands if no hundreds exist but digits remain (e.g., \"four thousand **and** forty-seven\").  \n   - Commas separate thousands from hundreds (e.g., \"two thousand, five hundred...\").  \n\n2. **Hyphenation**:  \n   - Compound numbers between 21–99 (e.g., \"forty-two\", \"seventy-nine\") are hyphenated.  \n\n3. **Structure**:  \n   - Numbers are broken into thousands, hundreds, tens, and units.  \n   - \"Thousand\" and \"hundred\" are always followed by their respective values (e.g., \"two thousand\", \"seven hundred\").  \n\nExamples align perfectly with these rules, ensuring consistency in formatting.<|im_end|>",
+    "model2_output": "**Instruction (in plain English):**\n\n> “Write each number in words, using British English conventions.  \n>  • Use commas to separate thousands.  \n>  • Include the word “and” before the last part of the number when it is not a multiple of 100.  \n>  • Do not use “and” after the thousands part.  \n>  • Spell out the number fully (e.g., 2542 → “two thousand, five hundred and forty‑two”).”\n\nThis instruction matches all the given input‑output pairs.<|return|>",
+    "bert_1_to_2": 0.586033821105957,
+    "bert_2_to_1": 0.586033821105957,
+    "bert_score": 0.586033821105957,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "82": {
+    "model1_output": "The instruction given was:  \n**\"Convert the number into its British English word form, using commas to separate thousands and hundreds components, including 'and' after thousand and hundred where appropriate, and hyphenating compound numbers between 21 and 99.\"**\n\n### Key Details:",
+    "model2_output": "**The instruction was:**\n\n> “Write the number in words (British English style).  \n>  • Use a comma to separate the thousands part from the hundreds part **only when the hundreds digit is non‑zero**.  \n>  • Insert the word “and” before the last two digits (the tens‑and‑units part).  \n>  • Spell out each digit group in full (e.g., “nine thousand and sixty‑seven”, “five thousand and eighty‑seven”, “eight hundred and fifty‑three”, “one thousand, two hundred and seventy‑seven”, “seven thousand, five hundred and twenty”).”<|return|>",
+    "bert_1_to_2": 0.6099534034729004,
+    "bert_2_to_1": 0.6099534034729004,
+    "bert_score": 0.6099534034729004,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "95": {
+    "model1_output": "The instruction given was:  \n**\"Convert the number into its written form in British English, using commas and 'and' where appropriate.\"**\n\n### Explanation:\nThe outputs follow **British English conventions**, which include:\n1. **Commas** after the thousands place (e.g., \"three thousand, eight hundred...\").\n2. **\"And\"** after the hundreds place if there is a remainder (e.g., \"eight hundred **and** twenty-six\") or directly after the thousands place if there is no hundreds component (e.g., \"one thousand **and** forty-seven\").\n\n### Breakdown of Each Input:\n- **3826**:  \n  - 3,000 → \"three thousand\"  \n  - 800 → \"eight hundred\"  \n  - 26 → \"twenty-six\"  \n  → Combined: \"three thousand, eight hundred and twenty-six\".\n\n- **7959**:  \n  - 7,000 → \"seven thousand\"  \n  - 900 → \"nine hundred\"  \n  - 59 → \"fifty-nine\"  \n  → Combined: \"seven thousand, nine hundred and fifty-nine\".\n\n- **6507**:  \n  - 6,000 → \"six thousand\"  \n  - 500 → \"five hundred\"  \n  - 7 → \"seven\"  \n  → Combined: \"six thousand, five hundred and seven\".\n\n- **8491**:  \n  - 8,000 → \"eight thousand\"  \n  - 400 → \"four hundred\"  \n  - 91 → \"ninety-one\"  \n  → Combined: \"eight thousand, four hundred and ninety-one\".\n\n- **1047**:  \n  - 1,000 → \"one thousand\"  \n  - 47 → \"forty-seven\" (no hundreds, so \"and\" follows the thousands)  \n  → Combined: \"one thousand and forty-seven\".\n\nThis ensures consistency with British English formatting rules for written numbers.<|im_end|>",
+    "model2_output": "The instruction was something like:\n\n> **“Spell the number out in words, using British‑English style.  \n>  Separate the thousands and hundreds with commas, hyphenate the tens‑and‑units part, and insert the word “and” before the last part whenever the number is not a multiple of 100.”**<|return|>",
+    "bert_1_to_2": 0.49603503942489624,
+    "bert_2_to_1": 0.49603503942489624,
+    "bert_score": 0.49603503942489624,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "weighted_task_score": 0.5742162942886353,
+  "task_name": "num_to_verbal",
+  "model1_name": "Qwen_QwQ-32B",
+  "model2_name": "openai_gpt-oss-20b"
+}

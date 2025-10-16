@@ -1,0 +1,51 @@
+{
+  "1": {
+    "model1_output": "The instruction is: \"Swap the positions of the first two characters and, if the string has more than two characters, also swap the positions of the remaining pairs of characters",
+    "model2_output": "The instruction is: **Swap the first two letters, then reverse the remaining letters of the string**  \n\nExamples  \n- `abc` → swap first two → `bac",
+    "bert_1_to_2": 0.6111727356910706,
+    "bert_2_to_1": 0.6111727356910706,
+    "bert_score": 0.6111727356910706,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "2": {
+    "model1_output": "The instruction is: reverse the order of every pair of characters in the input string.\n\nLet's break it down for each input.\n\n1. **Input: computer**\n\nHere",
+    "model2_output": "The instruction is: **“Take the first half of the string, reverse it, then append the second half of the string unchanged.”**<|return|>",
+    "bert_1_to_2": 0.5801873207092285,
+    "bert_2_to_1": 0.5801873207092285,
+    "bert_score": 0.5801873207092285,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "5": {
+    "model1_output": "The instruction is: transform each word by swapping the first and the last letters and then alphabetically sort the middle letters.\n\nLet's verify this new instruction on the provided examples",
+    "model2_output": "The instruction is: **“Randomly scramble the letters of each word.”**  \nIn other words, for every input word the friend reordered its letters in an arbitrary way",
+    "bert_1_to_2": 0.5748609304428101,
+    "bert_2_to_1": 0.5748609304428101,
+    "bert_score": 0.5748609304428101,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "11": {
+    "model1_output": "The instruction is: Rearrange the letters in such a way that the first and third letters exchange positions, and the second and fourth letters (if present) get switched.",
+    "model2_output": "The instruction is: **“Reverse the word, but keep the middle letter(s) in the same place.”**  (For even‑length words the two middle letters",
+    "bert_1_to_2": 0.5815942287445068,
+    "bert_2_to_1": 0.5815942287445068,
+    "bert_score": 0.5815942287445068,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "12": {
+    "model1_output": "The instruction is: \n\n“To rearrange the word by moving the second character to the front and then shifting the first character to the position immediately after the last character.”\n\nLet",
+    "model2_output": "The instruction is:  \n\n> **Take the first letter of the word and move it to just before the last letter.**  \n> (If the word has only two",
+    "bert_1_to_2": 0.644537091255188,
+    "bert_2_to_1": 0.644537091255188,
+    "bert_score": 0.644537091255188,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "weighted_task_score": 0.5984704613685607,
+  "task_name": "reverse_from_middle",
+  "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+  "model2_name": "openai_gpt-oss-20b"
+}

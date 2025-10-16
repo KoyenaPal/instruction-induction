@@ -1,0 +1,51 @@
+{
+  "0": {
+    "model1_output": "The instruction is: Swap the first two characters and then reverse the remaining characters. But for odd-length words, maybe the remaining after first two is reversed even if it's",
+    "model2_output": "The instruction is: **“Swap the first two letters of the word.  \nIf the word has an even number of letters, reverse the order of all the remaining letters",
+    "bert_1_to_2": 0.6391102075576782,
+    "bert_2_to_1": 0.6391102075576782,
+    "bert_score": 0.6391102075576782,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "1": {
+    "model1_output": "The instruction is: \"Reverse the first half of the word and the second half separately, then swap their positions.\"  \nWait, let me test this.  \nFirst example",
+    "model2_output": "The instruction is: **“Take the first half of the word, reverse it, then take the second half of the word, reverse it, and finally reverse the order",
+    "bert_1_to_2": 0.612001895904541,
+    "bert_2_to_1": 0.612001895904541,
+    "bert_score": 0.612001895904541,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "2": {
+    "model1_output": "The instruction is: \"Take the second letter, then the first, then the fifth, then the fourth, then the third.\"  \nWait, let's check \"fire",
+    "model2_output": "The instruction is: **“Take the second letter first, then the first, then the last, then the second‑to‑last, then the middle.”**",
+    "bert_1_to_2": 0.7062379717826843,
+    "bert_2_to_1": 0.7062379717826843,
+    "bert_score": 0.7062379717826843,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "3": {
+    "model1_output": "The instruction is: For each input word, reverse the order of the first half of the letters and the second half of the letters separately. Let me test this with \"",
+    "model2_output": "The instruction is: **“Reverse the first half of the word and reverse the second half of the word, then concatenate the two reversed halves.”**<|return|>",
+    "bert_1_to_2": 0.6668697595596313,
+    "bert_2_to_1": 0.6668697595596313,
+    "bert_score": 0.6668697595596313,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "4": {
+    "model1_output": "The instruction is: \"Move the first letter to the end and then reverse the entire string.\"  \nWait, let's test this.  \nTake \"happy\":  \nMove",
+    "model2_output": "The instruction is: **“Move the first two letters of the word to the end.”**<|return|>",
+    "bert_1_to_2": 0.6481703519821167,
+    "bert_2_to_1": 0.6481703519821167,
+    "bert_score": 0.6481703519821167,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "weighted_task_score": 0.6544780373573303,
+  "task_name": "reverse_from_middle",
+  "model1_name": "Qwen_QwQ-32B",
+  "model2_name": "openai_gpt-oss-20b"
+}

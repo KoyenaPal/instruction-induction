@@ -29,8 +29,12 @@ declare -A SETUPS
 # SETUPS["ensemble_gen_qwq_dapo_eval_oss_without_answer"]="ensemble_without_answer_gen_qwq_dapo_eval_oss"
 # SETUPS["ensemble_gen_qwq_opent_eval_oss"]="ensemble_gen_qwq_opent_eval_oss"
 # SETUPS["ensemble_gen_qwq_opent_eval_oss_without_answer"]="ensemble_without_answer_gen_qwq_opent_eval_oss"
-SETUPS["ensemble_gen_qwq_oss_eval_dapo"]="ensemble_gen_qwq_oss_eval_dapo"
-SETUPS["ensemble_gen_qwq_oss_eval_dapo_without_answer"]="ensemble_without_answer_gen_qwq_oss_eval_dapo"
+# SETUPS["ensemble_gen_qwq_oss_eval_dapo"]="ensemble_gen_qwq_oss_eval_dapo"
+# SETUPS["ensemble_gen_qwq_oss_eval_dapo_without_answer"]="ensemble_without_answer_gen_qwq_oss_eval_dapo"
+# SETUPS["default"]="predictions_"
+# SETUPS["empty"]=""
+SETUPS["sampling"]=""
+SETUPS["sampling_without_answer"]=""
 # Tasks (modify if needed)
 # TASKS="cause_and_effect,larger_animal,num_to_verbal,orthography_starts_with,rhymes,synonyms,taxonomy_animal,translation_en-fr,reverse_from_middle,smallest_item_length,smallest_even_no_sqrt,most_vowel_return_consonant,detect_rhyme_and_rewrite,rank_by_protein,multi_lang_to_english,square_of_zodiac_animal,alternate_synonym_antonym,most_consonant_return_vowel,least_unique_word_count,first_word_alphabetically_return_reverse"
 
@@ -71,8 +75,19 @@ build_pred_dir() {
     local pattern=$2
     local model_suffix=$3
     
+    # Check if "empty" is in the setup name
+    if [[ "$setup_name" == *"empty"* ]]; then
+        # Empty setup: predictions_model_empty
+        echo "${BASE_PRED_DIR}/predictions_${model_suffix}_empty"
+    elif [[ "$setup_name" == *"sampling"* ]]; then
+        # Ensemble setup: predictions_model_pattern
+        if [[ "$setup_name" == *"without_answer"* ]]; then
+            echo "${BASE_PRED_DIR}/predictions_${model_suffix}_with_sampling_without_answer"
+        else
+            echo "${BASE_PRED_DIR}/predictions_${model_suffix}_with_sampling"
+        fi
     # Check if "ensemble" is in the setup name
-    if [[ "$setup_name" == *"ensemble"* ]]; then
+    elif [[ "$setup_name" == *"ensemble"* ]]; then
         # Ensemble setup: predictions_model_pattern
         echo "${BASE_PRED_DIR}/predictions_${model_suffix}_${pattern}"
     else

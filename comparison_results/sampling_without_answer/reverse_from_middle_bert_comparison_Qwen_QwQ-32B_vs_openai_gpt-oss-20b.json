@@ -1,0 +1,51 @@
+{
+  "1": {
+    "model1_output": "The instruction is: \n\nWait, maybe the instruction is to reverse the order of the first two and the last two characters, and leave the middle characters as they are.",
+    "model2_output": "The instruction is: **Swap the first two letters, then reverse the remaining letters of the string**  \n\nExamples  \n- `abc` → swap first two → `bac",
+    "bert_1_to_2": 0.5477004051208496,
+    "bert_2_to_1": 0.5477004051208496,
+    "bert_score": 0.5477004051208496,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "2": {
+    "model1_output": "The instruction is: For each input word, reverse the first half and reverse the second half, then combine. If the length is odd, the first half is one character",
+    "model2_output": "The instruction is: **“Take the first half of the string, reverse it, then append the second half of the string unchanged.”**<|return|>",
+    "bert_1_to_2": 0.6485320925712585,
+    "bert_2_to_1": 0.6485320925712585,
+    "bert_score": 0.6485320925712585,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "5": {
+    "model1_output": "The instruction is: \n\nOkay, let me look for a common process that would generate all these outputs.\n\nLooking at \"fire\" → ifre: first two letters swapped",
+    "model2_output": "The instruction is: **“Randomly scramble the letters of each word.”**  \nIn other words, for every input word the friend reordered its letters in an arbitrary way",
+    "bert_1_to_2": 0.4819212555885315,
+    "bert_2_to_1": 0.4819212555885315,
+    "bert_score": 0.4819212555885315,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "11": {
+    "model1_output": "The instruction is: Reverse the first half and reverse the second half of the word. For \"square\" it didn't work. Wait, let's see again.\n\nWait",
+    "model2_output": "The instruction is: **“Reverse the word, but keep the middle letter(s) in the same place.”**  (For even‑length words the two middle letters",
+    "bert_1_to_2": 0.5440692901611328,
+    "bert_2_to_1": 0.5440692901611328,
+    "bert_score": 0.5440692901611328,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "12": {
+    "model1_output": "The instruction is: Take the second letter of the word and put it first, then the rest follow except the first letter is placed right after the second? Wait not sure",
+    "model2_output": "The instruction is:  \n\n> **Take the first letter of the word and move it to just before the last letter.**  \n> (If the word has only two",
+    "bert_1_to_2": 0.6390318274497986,
+    "bert_2_to_1": 0.6390318274497986,
+    "bert_score": 0.6390318274497986,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "weighted_task_score": 0.5722509741783142,
+  "task_name": "reverse_from_middle",
+  "model1_name": "Qwen_QwQ-32B",
+  "model2_name": "openai_gpt-oss-20b"
+}

@@ -1,0 +1,51 @@
+{
+  "1": {
+    "model1_output": "The instruction is: \"Swap the positions of the first two characters and, if the string has more than two characters, also swap the positions of the remaining pairs of characters",
+    "model2_output": "The instruction is: \n\nWait, maybe the instruction is to reverse the order of the first two and the last two characters, and leave the middle characters as they are.",
+    "bert_1_to_2": 0.6021034717559814,
+    "bert_2_to_1": 0.6021034717559814,
+    "bert_score": 0.6021034717559814,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "2": {
+    "model1_output": "The instruction is: reverse the order of every pair of characters in the input string.\n\nLet's break it down for each input.\n\n1. **Input: computer**\n\nHere",
+    "model2_output": "The instruction is: For each input word, reverse the first half and reverse the second half, then combine. If the length is odd, the first half is one character",
+    "bert_1_to_2": 0.5638737678527832,
+    "bert_2_to_1": 0.5638737678527832,
+    "bert_score": 0.5638737678527832,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "5": {
+    "model1_output": "The instruction is: transform each word by swapping the first and the last letters and then alphabetically sort the middle letters.\n\nLet's verify this new instruction on the provided examples",
+    "model2_output": "The instruction is: \n\nOkay, let me look for a common process that would generate all these outputs.\n\nLooking at \"fire\" → ifre: first two letters swapped",
+    "bert_1_to_2": 0.5674206614494324,
+    "bert_2_to_1": 0.5674206614494324,
+    "bert_score": 0.5674206614494324,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "11": {
+    "model1_output": "The instruction is: Rearrange the letters in such a way that the first and third letters exchange positions, and the second and fourth letters (if present) get switched.",
+    "model2_output": "The instruction is: Reverse the first half and reverse the second half of the word. For \"square\" it didn't work. Wait, let's see again.\n\nWait",
+    "bert_1_to_2": 0.5393373966217041,
+    "bert_2_to_1": 0.5393373966217041,
+    "bert_score": 0.5393373966217041,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "12": {
+    "model1_output": "The instruction is: \n\n“To rearrange the word by moving the second character to the front and then shifting the first character to the position immediately after the last character.”\n\nLet",
+    "model2_output": "The instruction is: Take the second letter of the word and put it first, then the rest follow except the first letter is placed right after the second? Wait not sure",
+    "bert_1_to_2": 0.6623290181159973,
+    "bert_2_to_1": 0.6623290181159973,
+    "bert_score": 0.6623290181159973,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "Qwen_QwQ-32B"
+  },
+  "weighted_task_score": 0.5870128631591797,
+  "task_name": "reverse_from_middle",
+  "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+  "model2_name": "Qwen_QwQ-32B"
+}

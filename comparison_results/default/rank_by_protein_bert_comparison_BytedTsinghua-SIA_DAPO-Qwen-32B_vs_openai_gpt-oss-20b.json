@@ -1,0 +1,51 @@
+{
+  "1": {
+    "model1_output": "turkey, cashews, couscous, kale, blueberries<|endoftext|>",
+    "model2_output": "**Instruction**\n\n> “Keep the first and last items in place, and rotate the middle three items one step to the left.”\n\n**Explanation**\n\n-",
+    "bert_1_to_2": 0.46818724274635315,
+    "bert_2_to_1": 0.46818727254867554,
+    "bert_score": 0.46818725764751434,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "2": {
+    "model1_output": "chicken, almonds, rice, spinach, avocado<|endoftext|>",
+    "model2_output": "**The instruction was to sort each list by food‑group, in the following order:**\n\n1. **Animal protein** (meat, fish, eggs, dairy)  \n2. **Legumes** (beans, peas, soy products)  \n3. **Nuts**  \n4. **Grains** (bread, pasta, rice, corn, etc.)  \n5. **Vegetables / fruits**  \n6. **Oils / fats** (olive oil, coconut oil, butter, etc.)  \n\nSo the friend reordered each input list so that the items appear in that sequence.<|return|>",
+    "bert_1_to_2": 0.5379846096038818,
+    "bert_2_to_1": 0.5379846096038818,
+    "bert_score": 0.5379846096038818,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "5": {
+    "model1_output": "The instruction is to rearrange the list of items according to the following pattern: [Item 1, Item 4, Item 2,",
+    "model2_output": "The instruction was to **re‑order the list so that the bean comes in the second slot, the grain in the third slot, and the seed in the fourth slot** (the first and fifth items stay in place).<|return|>",
+    "bert_1_to_2": 0.6322471499443054,
+    "bert_2_to_1": 0.6322471499443054,
+    "bert_score": 0.6322471499443054,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "11": {
+    "model1_output": "tuna, chickpeas, spaghetti, arugula, walnut oil<|endoftext|>",
+    "model2_output": "The instruction was to reorder each list by category, putting the items in the order:\n\n**protein → beans → pasta → lettuce → oil**.<|return|>",
+    "bert_1_to_2": 0.6109287142753601,
+    "bert_2_to_1": 0.6109287142753601,
+    "bert_score": 0.6109287142753601,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "12": {
+    "model1_output": "The output for the new input \"salmon, penne, olive oil, kidney beans, romaine lettuce\" is: salmon, kidney beans",
+    "model2_output": "The instruction was to reorder each list so that the items appear in the following order:\n\n1. The first item (the protein) stays first.  \n2. The fourth item (the beans) comes next.  \n3. The second item (the pasta) follows.  \n4. The fifth item (the lettuce) comes next.  \n5. The third item (the oil) is placed last.  \n\nIn other words: **first → fourth → second → fifth → third**.<|return|>",
+    "bert_1_to_2": 0.47818806767463684,
+    "bert_2_to_1": 0.47818806767463684,
+    "bert_score": 0.47818806767463684,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "weighted_task_score": 0.5455071598291397,
+  "task_name": "rank_by_protein",
+  "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+  "model2_name": "openai_gpt-oss-20b"
+}

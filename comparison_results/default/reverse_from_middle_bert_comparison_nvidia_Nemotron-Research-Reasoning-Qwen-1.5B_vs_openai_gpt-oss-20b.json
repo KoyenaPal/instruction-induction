@@ -1,0 +1,51 @@
+{
+  "1": {
+    "model1_output": "Alright, let's move on.\n\nThe output is ypnoht.\n\nInput: p y t h o n\n\nWait output is ypnoht",
+    "model2_output": "**Instruction:**  \n> “Take the string, swap the first two letters, swap the last two letters, and if the string has an odd length",
+    "bert_1_to_2": 0.4348796308040619,
+    "bert_2_to_1": 0.4348796308040619,
+    "bert_score": 0.4348796308040619,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "2": {
+    "model1_output": "The outputs seem to be rearrangements of the input words. Let me try to find a consistent rule.\n\nWait, perhaps it's a rotation",
+    "model2_output": "**Instruction**\n\n> “Take the word, split it into two halves (the first half is the longer one when the length is odd), reverse each",
+    "bert_1_to_2": 0.4884917140007019,
+    "bert_2_to_1": 0.4884917140007019,
+    "bert_score": 0.4884917140007019,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "5": {
+    "model1_output": "The outputs don't seem to be a straightforward shift or rotation. Let's consider another possibility: perhaps each letter is mapped to another letter shifted by",
+    "model2_output": "**Instruction**\n\n> “Take the word, swap its first two letters, then reverse the order of the remaining letters.”  \n\n**Why it works**",
+    "bert_1_to_2": 0.5267924666404724,
+    "bert_2_to_1": 0.5267924666404724,
+    "bert_score": 0.5267924666404724,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "11": {
+    "model1_output": "The instruction is likely the word \"letter mapping\" or transformation. However, given the complexity and the multiple mappings, it's challenging to find a",
+    "model2_output": "**Instruction**\n\n> “Take the word, split it in half, reverse each half, and then put the two halves back together.”\n\n**Why it",
+    "bert_1_to_2": 0.5168910026550293,
+    "bert_2_to_1": 0.5168910026550293,
+    "bert_score": 0.5168910026550293,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "12": {
+    "model1_output": "The instruction appears to involve a substitution cipher where each letter is mapped according to the given transformations. After analyzing each input-output pair, the mapping is",
+    "model2_output": "**Instruction**\n\n> “Take the word, write it out, then read it from the middle outwards, first to the right, then to the",
+    "bert_1_to_2": 0.5259437561035156,
+    "bert_2_to_1": 0.5259437561035156,
+    "bert_score": 0.5259437561035156,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "weighted_task_score": 0.4985997140407562,
+  "task_name": "reverse_from_middle",
+  "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+  "model2_name": "openai_gpt-oss-20b"
+}

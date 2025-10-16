@@ -1,0 +1,51 @@
+{
+  "4": {
+    "model1_output": "The instruction was: **Choose the larger of the two animals.**\n\n### Explanation:\nFor each input pair, the output is the animal that is generally larger in size:\n1. **Elephant** (large land mammal) vs. **Chamois** (smaller mountain goat-antelope) → **Elephant**.\n2. **Toy Poodle** (small dog breed) vs. **Koi** (fish that can grow up to",
+    "model2_output": "**The instruction was:**\n\n> “Given two animals, output the one that is heavier (i.e., the animal with the greater mass).”<|return|>",
+    "bert_1_to_2": 0.5854002237319946,
+    "bert_2_to_1": 0.5854002237319946,
+    "bert_score": 0.5854002237319946,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "15": {
+    "model1_output": "The instruction was: **Choose the larger animal between the two.**\n\n### Explanation:\nIn each input pair, the output is consistently the larger animal by size:\n- **Bull shark** (large marine predator) vs. labradoodle (dog breed) → **bull shark**.\n- **Elephant** (massive land animal) vs. poodle (dog) → **elephant**.\n- **Liger** (hybrid big cat, larger than lions/tigers) vs. rat (small rodent) → **liger**.\n- **Poodle** (standard size, ~60–70 lbs) vs. toy poodle (~10–18 lbs) → **poodle**.\n- **Cheetah** (large feline) vs. swallow (small bird) → **cheetah**.\n\nThe pattern holds across all examples, making \"select the larger animal\" the clear instruction.<|im_end|>",
+    "model2_output": "**Instruction:**  \n“Given two animal names, output the one that is larger (in size).”<|return|>",
+    "bert_1_to_2": 0.4700627624988556,
+    "bert_2_to_1": 0.4700627028942108,
+    "bert_score": 0.4700627326965332,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "36": {
+    "model1_output": "The instruction was: **\"Choose the wild animal between the two.\"**\n\n### Explanation:\nIn each input pair, one animal is **wild** and the other is **domesticated** (or a hybrid breed). The output consistently selects the **wild animal**:\n- **jaguar** (wild) vs. donkey (domesticated) → jaguar  \n- **sperm whale** (wild) vs. labradoodle (domestic hybrid) → sperm whale  \n- **wildebeest** (wild) vs. guinea pig (domesticated) → wildebeest  \n- **elephant** (wild) vs. dog (domesticated) → elephant  \n- **whale shark** (wild) vs. cockapoo (domestic hybrid) → whale shark  \n\nThe rule hinges on distinguishing between wild species and domesticated/hybrid animals. Hybrids like *labradoodle* and *cockapoo* are also domesticated, so the wild counterpart is chosen.<|im_end|>",
+    "model2_output": "The instruction was to pick the animal that is **wild (not domesticated)** from each pair. In other words, for every two animal names given, output the one that is a wild animal.<|return|>",
+    "bert_1_to_2": 0.5444868206977844,
+    "bert_2_to_1": 0.5444868206977844,
+    "bert_score": 0.5444868206977844,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "82": {
+    "model1_output": "The instruction was: **Choose the larger animal between the two.**\n\n### Explanation:\n1. **Chimpanzee vs. Goldfish**: Chim",
+    "model2_output": "**Instruction (in plain English)**  \n> “From the two animal names that are given, output the one that is *not* a dog.",
+    "bert_1_to_2": 0.5694113373756409,
+    "bert_2_to_1": 0.5694113373756409,
+    "bert_score": 0.5694113373756409,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "95": {
+    "model1_output": "<|endoftext|>",
+    "model2_output": "**Instruction**\n\n> From the two animals given, output the one that is a mammal.  \n> If both animals are mammals, output the larger",
+    "bert_1_to_2": 0.0,
+    "bert_2_to_1": 0.0,
+    "bert_score": 0.0,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "weighted_task_score": 0.4338722229003906,
+  "task_name": "larger_animal",
+  "model1_name": "Qwen_QwQ-32B",
+  "model2_name": "openai_gpt-oss-20b"
+}

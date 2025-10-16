@@ -1,0 +1,51 @@
+{
+  "4": {
+    "model1_output": "eight thousand and twenty<|endoftext|>",
+    "model2_output": "**Instruction**\n\n> Convert the given integer into its full written form in British English.  \n> \n> * Use commas to separate the thousands, hundreds, tens and units groups.  \n> \n> * If the number contains a non‑zero hundreds, tens or units part, insert the word **“and”** immediately before that last part.  \n> \n> * Do not use “and” if the number is an exact multiple of 1 000.  \n> \n> * Write the words in lower‑case, with hyphens between tens and units (e.g., “thirty‑three”).  \n\n**Examples**\n\n| Input | Output |\n|-------|--------|\n| 4933 | four thousand, nine hundred and thirty‑three |\n| 3674 | three thousand, six hundred and seventy‑four |\n| 6747 | six thousand, seven hundred and forty‑seven |\n| 6031 | six thousand and thirty‑one |\n| 971  | nine hundred and seventy‑one |<|return|>",
+    "bert_1_to_2": 0.3802463114261627,
+    "bert_2_to_1": 0.3802463114261627,
+    "bert_score": 0.3802463114261627,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "15": {
+    "model1_output": "To solve this for a new input, let's apply the same rule.\n\nInput: 9999\n\nTo convert the number 9999 into words:\n\n1. Break it down into its place values: \n   - 9000 (thousands)\n   - 900 (hundreds)\n   - 90 (tens)\n   - 9 (ones)\n\n2. Convert each part to words:\n   - 9000 is \"nine thousand\"\n   - 900 is \"nine hundred\"\n   - 90 is \"ninety\"\n   - 9 is \"nine\"\n\n3. Combine these parts together.\n\nSo, 9000 + 900 + 90 + 9 in words is \"nine thousand, nine hundred and ninety-nine.\"\n\nTherefore, the output for the input 9999 is:\n\nnine thousand, nine hundred and ninety-nine<|endoftext|>",
+    "model2_output": "**Instruction**\n\n> “Write the number in words, using commas to separate the thousands and hundreds, and insert the word **‘and’** before the last part (the tens‑and‑units) whenever that part is non‑zero.”\n\n**Why this fits the examples**\n\n| Input | Output (as written) | How the rule applies |\n|-------|---------------------|----------------------|\n| 7702 | *seven thousand, seven hundred and two* | “seven thousand” (thousands), “seven hundred” (hundreds), “and two” (tens‑units) |\n| 8524 | *eight thousand, five hundred and twenty‑four* | “eight thousand”, “five hundred”, “and twenty‑four” |\n| 2743 | *two thousand, seven hundred and forty‑three* | “two thousand”, “seven hundred”, “and forty‑three” |\n| 2401 | *two thousand, four hundred and one* | “two thousand”, “four hundred”, “and one” |\n| 4563 | *four thousand, five hundred and sixty‑three* | “four thousand”, “five hundred”, “and sixty‑three” |\n\nThe rule explains the consistent use of commas, the placement of “and”, and the omission of “and” when the last part would be zero (e.g., 3000 → “three thousand”).<|return|>",
+    "bert_1_to_2": 0.5483124852180481,
+    "bert_2_to_1": 0.5483125448226929,
+    "bert_score": 0.5483125150203705,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "36": {
+    "model1_output": "one thousand, two hundred and eight<|endoftext|>",
+    "model2_output": "**Instruction (in plain English):**\n\n> “Write each number in words, using British English conventions.  \n>  • Use commas to separate thousands.  \n>  • Include the word “and” before the last part of the number when it is not a multiple of 100.  \n>  • Do not use “and” after the thousands part.  \n>  • Spell out the number fully (e.g., 2542 → “two thousand, five hundred and forty‑two”).”\n\nThis instruction matches all the given input‑output pairs.<|return|>",
+    "bert_1_to_2": 0.48343223333358765,
+    "bert_2_to_1": 0.48343223333358765,
+    "bert_score": 0.48343223333358765,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "82": {
+    "model1_output": "The output for the input 4023 is: four thousand and twenty-three<|endoftext|>",
+    "model2_output": "**The instruction was:**\n\n> “Write the number in words (British English style).  \n>  • Use a comma to separate the thousands part from the hundreds part **only when the hundreds digit is non‑zero**.  \n>  • Insert the word “and” before the last two digits (the tens‑and‑units part).  \n>  • Spell out each digit group in full (e.g., “nine thousand and sixty‑seven”, “five thousand and eighty‑seven”, “eight hundred and fifty‑three”, “one thousand, two hundred and seventy‑seven”, “seven thousand, five hundred and twenty”).”<|return|>",
+    "bert_1_to_2": 0.47892600297927856,
+    "bert_2_to_1": 0.47892600297927856,
+    "bert_score": 0.47892600297927856,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "95": {
+    "model1_output": "The final answer is: four thousand, two hundred and thirty-one<|endoftext|>",
+    "model2_output": "The instruction was something like:\n\n> **“Spell the number out in words, using British‑English style.  \n>  Separate the thousands and hundreds with commas, hyphenate the tens‑and‑units part, and insert the word “and” before the last part whenever the number is not a multiple of 100.”**<|return|>",
+    "bert_1_to_2": 0.4802873134613037,
+    "bert_2_to_1": 0.4802872836589813,
+    "bert_score": 0.4802872985601425,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "weighted_task_score": 0.4742408722639084,
+  "task_name": "num_to_verbal",
+  "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+  "model2_name": "openai_gpt-oss-20b"
+}

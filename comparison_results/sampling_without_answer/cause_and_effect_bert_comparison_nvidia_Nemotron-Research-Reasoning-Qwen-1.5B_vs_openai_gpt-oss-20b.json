@@ -1,0 +1,51 @@
+{
+  "4": {
+    "model1_output": "The instruction is: \"return the first part of the input sentence.\"\n\nWait but checking:\n\n1: Take the first input sentence, extract the first part. Sentence 1",
+    "model2_output": "The instruction is: **“Take the sentence that does not mention a person. If both sentences mention a person (or if neither do), take the second sentence.”**",
+    "bert_1_to_2": 0.48469099402427673,
+    "bert_2_to_1": 0.48469099402427673,
+    "bert_score": 0.48469099402427673,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "15": {
+    "model1_output": "The instruction is: Reverting back or changing wording or implying different. Alternatively, perhaps it's taking certain statements and leaving parts intact while modifying other statements. Alternatively interpreting it",
+    "model2_output": "The instruction is:  \n\n> **For each pair of sentences, output the one that explains the cause (the “original” event), rather than the resulting effect.**",
+    "bert_1_to_2": 0.48413124680519104,
+    "bert_2_to_1": 0.48413124680519104,
+    "bert_score": 0.48413124680519104,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "36": {
+    "model1_output": "The instruction is: Choose which sentence appears in S1 based on the outputs.\n\nWait, looking more carefully.\n\nEach input includes two sentences with index 1 and 2",
+    "model2_output": "The instruction is:  \n**“From each pair of sentences, output the one that comes first chronologically – i.e., the sentence that occurs earlier in time.”**",
+    "bert_1_to_2": 0.5008111000061035,
+    "bert_2_to_1": 0.5008111000061035,
+    "bert_score": 0.5008111000061035,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "82": {
+    "model1_output": "The instruction is: \"Output the second input that comes immediately after the specified instruction.\"\n\nWait let me parse it.\n\nWait perhaps more accurately: It seems from previous observations:",
+    "model2_output": "The instruction is: **choose the sentence that explains the other sentence (i.e. the cause‑effect statement).**  In each pair the two sentences are related by",
+    "bert_1_to_2": 0.4949374496936798,
+    "bert_2_to_1": 0.4949374496936798,
+    "bert_score": 0.4949374496936798,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "95": {
+    "model1_output": "The instruction is: Return the second given statement in the pair. In each case, when the output is generated for each input, it uses the second sentence. So the",
+    "model2_output": "The instruction is:  \n\n**Choose the sentence that is more likely to have occurred, based on ordinary English usage.**  In other words, pick which of the two",
+    "bert_1_to_2": 0.532338559627533,
+    "bert_2_to_1": 0.532338559627533,
+    "bert_score": 0.532338559627533,
+    "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "weighted_task_score": 0.4993818700313568,
+  "task_name": "cause_and_effect",
+  "model1_name": "nvidia_Nemotron-Research-Reasoning-Qwen-1.5B",
+  "model2_name": "openai_gpt-oss-20b"
+}

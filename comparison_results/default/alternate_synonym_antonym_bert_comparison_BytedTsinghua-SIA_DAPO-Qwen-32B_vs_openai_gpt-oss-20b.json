@@ -1,0 +1,51 @@
+{
+  "1": {
+    "model1_output": "The instruction is: \"Rewrite the sentence by replacing key elements such as adjectives, verbs, and nouns with their opposites or related contrasting",
+    "model2_output": "**Instruction**\n\n> For every word in the sentence, replace it with another word that has the same part‑of‑speech but is *not*",
+    "bert_1_to_2": 0.6015922427177429,
+    "bert_2_to_1": 0.6015922427177429,
+    "bert_score": 0.6015922427177429,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "2": {
+    "model1_output": "The instruction is to rewrite the sentence by replacing key words (such as adjectives, verbs, and some nouns) with their opposites or contrasting",
+    "model2_output": "The instruction was: **“Rewrite each sentence by replacing every word with its antonym (i.e., produce the opposite sentence).”**<|return|>",
+    "bert_1_to_2": 0.6982061266899109,
+    "bert_2_to_1": 0.6982061266899109,
+    "bert_score": 0.6982061266899109,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "5": {
+    "model1_output": "The instruction is: \"Rewrite each sentence by changing key elements (such as adjectives, verbs, and sometimes nouns) to their opposites",
+    "model2_output": "**Instruction (inferred from the examples):**\n\n> *Rewrite each sentence by replacing every word with a word that has the opposite meaning (an antonym).*\n\nIn other words, for each input sentence, the output is a sentence in which every word has been swapped for its opposite. This explains why “The early bird catches worms.” becomes “The late fowl catches insects.”, “She always arrives on time.” becomes “She never departs punctually.”, and so on.<|return|>",
+    "bert_1_to_2": 0.5364977717399597,
+    "bert_2_to_1": 0.5364977717399597,
+    "bert_score": 0.5364977717399597,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "11": {
+    "model1_output": "To confirm, let's apply this instruction to a new input to see if we get a consistent output.\n\nNew Input: The tall tree stood firmly",
+    "model2_output": "**Instruction**\n\n> For every word in the input sentence, replace it with a word that has the *same part‑of‑speech* but is",
+    "bert_1_to_2": 0.5299917459487915,
+    "bert_2_to_1": 0.5299917459487915,
+    "bert_score": 0.5299917459487915,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "12": {
+    "model1_output": "The instruction was: \"Rewrite the sentence by changing its meaning to the opposite using antonyms and contrasting words.\"<|endoftext|>",
+    "model2_output": "**Instruction**\n\n> For every word in the sentence, replace it with a word that has the *opposite* meaning if the word is an adjective",
+    "bert_1_to_2": 0.6919959783554077,
+    "bert_2_to_1": 0.6919959783554077,
+    "bert_score": 0.6919959783554077,
+    "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "weighted_task_score": 0.6116567730903626,
+  "task_name": "alternate_synonym_antonym",
+  "model1_name": "BytedTsinghua-SIA_DAPO-Qwen-32B",
+  "model2_name": "openai_gpt-oss-20b"
+}
