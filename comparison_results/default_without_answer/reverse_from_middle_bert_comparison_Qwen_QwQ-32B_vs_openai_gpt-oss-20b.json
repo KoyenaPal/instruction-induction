@@ -1,0 +1,51 @@
+{
+  "1": {
+    "model1_output": "The instruction is: swap the first two characters, then reverse the remaining characters?\n\nWait let's see for \"python\" (6 letters):\n\nOriginal: p y t h",
+    "model2_output": "The instruction is: **“Reverse the first half of the string and keep the second half in the same order.”**<|return|>",
+    "bert_1_to_2": 0.564705491065979,
+    "bert_2_to_1": 0.564705491065979,
+    "bert_score": 0.564705491065979,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "2": {
+    "model1_output": "The instruction is: split the word into two halves, reverse each half, then swap their positions?\n\nWait let's try that. For \"algorithm\" (9 letters):",
+    "model2_output": "The instruction is:  \n\n**“Take the first half of the word (rounded up) and reverse it, then take the second half of the word (rounded down)",
+    "bert_1_to_2": 0.5831100940704346,
+    "bert_2_to_1": 0.5831100940704346,
+    "bert_score": 0.5831100940704346,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "5": {
+    "model1_output": "The instruction is: the friend wrote an output for every input. Maybe the instruction caused an extra letter? Hmm, maybe the instruction is to repeat the last letter? Let",
+    "model2_output": "The instruction is: **“Take the first letter of the word, then write the rest of the word in reverse order.”**<|return|>",
+    "bert_1_to_2": 0.5609077215194702,
+    "bert_2_to_1": 0.5609077215194702,
+    "bert_score": 0.5609077215194702,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "11": {
+    "model1_output": "The instruction is: reverse the first half of the word and the second half separately, then concatenate them. Let me test this.\n\nFirst example: circle (6 letters).",
+    "model2_output": "The instruction is: **“Reverse the word, then move the first letter to the end.”**<|return|>",
+    "bert_1_to_2": 0.6538582444190979,
+    "bert_2_to_1": 0.6538582444190979,
+    "bert_score": 0.6538582444190979,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "12": {
+    "model1_output": "The instruction is:  \nInput: happy → Output: aphpy  \nInput: sad → Output: das  \nInput: angry → Output: gryna  \nInput",
+    "model2_output": "The instruction is: **“Reverse the first half of the word and keep the second half in the same order.”**<|return|>",
+    "bert_1_to_2": 0.42039400339126587,
+    "bert_2_to_1": 0.42039400339126587,
+    "bert_score": 0.42039400339126587,
+    "model1_name": "Qwen_QwQ-32B",
+    "model2_name": "openai_gpt-oss-20b"
+  },
+  "weighted_task_score": 0.5565951108932495,
+  "task_name": "reverse_from_middle",
+  "model1_name": "Qwen_QwQ-32B",
+  "model2_name": "openai_gpt-oss-20b"
+}

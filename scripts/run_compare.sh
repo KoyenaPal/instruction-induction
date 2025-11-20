@@ -31,10 +31,10 @@ declare -A SETUPS
 # SETUPS["ensemble_gen_qwq_opent_eval_oss_without_answer"]="ensemble_without_answer_gen_qwq_opent_eval_oss"
 # SETUPS["ensemble_gen_qwq_oss_eval_dapo"]="ensemble_gen_qwq_oss_eval_dapo"
 # SETUPS["ensemble_gen_qwq_oss_eval_dapo_without_answer"]="ensemble_without_answer_gen_qwq_oss_eval_dapo"
-# SETUPS["default"]="predictions_"
+SETUPS["default"]="predictions_"
 # SETUPS["empty"]=""
-SETUPS["sampling"]=""
-SETUPS["sampling_without_answer"]=""
+# SETUPS["sampling"]=""
+# SETUPS["sampling_without_answer"]=""
 # Tasks (modify if needed)
 # TASKS="cause_and_effect,larger_animal,num_to_verbal,orthography_starts_with,rhymes,synonyms,taxonomy_animal,translation_en-fr,reverse_from_middle,smallest_item_length,smallest_even_no_sqrt,most_vowel_return_consonant,detect_rhyme_and_rewrite,rank_by_protein,multi_lang_to_english,square_of_zodiac_animal,alternate_synonym_antonym,most_consonant_return_vowel,least_unique_word_count,first_word_alphabetically_return_reverse"
 
