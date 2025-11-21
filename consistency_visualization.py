@@ -35,13 +35,20 @@ def parse_configuration_label(model, condition, answer_condition):
     condition_lower = condition.lower()
     
     if 'ensemble' in condition_lower:
-        if 'dapo' in model.lower() and 'qwq' in condition_lower:
-            return 'Ensemble CoT QwQ + DAPO/OSS'
-        elif 'opent' in model.lower() and 'qwq' in condition_lower:
-            return 'Ensemble CoT QwQ + OpenT/OSS'
-        elif 'oss' in model.lower() and 'dapo' in condition_lower:
-            return 'Ensemble CoT QwQ + OSS/DAPO'
+        # Parse model name format: gen_model1_model2_eval_model3
+        # e.g., 'gen_qwq_dapo_eval_oss' -> sources: [qwq, dapo], eval: oss
+        if 'eval_' in model.lower():
+            parts = model.lower().split('eval_')
+            eval_model = parts[1].upper()
+            
+            # Extract gen models
+            gen_part = parts[0].replace('gen_', '').rstrip('_')
+            gen_models = [m.upper() for m in gen_part.split('_')]
+            
+            source_models = ' + '.join(gen_models)
+            return f'Ensemble CoT {source_models} / {eval_model}'
         else:
+            # Fallback to old logic
             return f'Ensemble CoT {condition.replace("ensemble_", "").replace("_", " ").title()}'
     
     elif 'transfer' in condition_lower:
@@ -58,7 +65,6 @@ def parse_configuration_label(model, condition, answer_condition):
         return 'Sampled'
     
     return condition.replace('_', ' ').title()
-
 
 def determine_thought_type(condition):
     """Determine the thought type category for coloring."""
